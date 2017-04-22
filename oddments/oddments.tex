@@ -1,0 +1,249 @@
+%% oddments.tex,  version 13/06/08
+
+%%%%%%%%%%%%%%%%%%
+\section{Oddments}
+
+This section is a place to type handwritten notes which may or may not 
+end up in the final version.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Actor of a $2$-fold crossed module} \label{subs:actor-xxmod}
+
+\begin{defn} \index{Whitehead group} \index{regular derivation} 
+The Whitehead group $W_1(\calR)$ is defined to be the group of the monoid 
+$\Der_1(\calR)$. 
+Elements of $W_1(\calR)$ are called regular derivations.
+\end{defn}
+
+\noindent
+The following result is a higher-dimensional version of
+Lemma \ref{lem:chi-sigma-rho}.
+
+\begin{lem} \label{lem:equiv-w1s}
+The following statements are equivalent 
+\begin{enumerate}[\rm (a)]
+\item $\chi = (\ddch, \dch) \in W_1(\calR) $
+\item $\sigma_{\chi} = (\dds_{\chi}, \ds_{\chi})  \in \Aut(\ddcalRt)$
+\item $ \rho_{\chi} = (\ddr_{\chi}, \dr_{\chi})  \in \Aut(\dcalRt)$
+\end{enumerate}
+\end{lem}
+\begin{pf}
+Here is an incomplete argument.
+Assume that $\sigma_{\chi}, \rho_{\chi}$ are invertible.
+Then, by Lemma \ref{lem:chi-sigma-rho}, 
+$$
+\ddch^{-1}n ~=~ (\dds_{\chi}^{-1}\ddch n)^{-1} 
+            ~=~ (\ddch\ddr_{\chi}^{-1} n)^{-1}
+\qquad\mbox{and}\qquad
+\dch^{-1}p ~=~ (\ds_{\chi}^{-1}\dch p)^{-1} 
+           ~=~ (\dch\dr_{\chi}^{-1} p)^{-1},
+$$
+and hence
+$$
+\ddbdy_2 \circ \ddch^{-1} (n)
+~=~ (\ddbdy_2 \dds_{\chi}^{-1} \ddch n)^{-1}
+~=~ (\ds_{\chi}^{-1} \ddbdy_2 \ddch n)^{-1}
+~=~ (\ds_{\chi}^{-1} \dch \dbdy_2 n)^{-1}
+~=~ \dch^{-1} \circ \dbdy_2 (n).
+$$
+So $\chi^{-1} = (\ddch^{-1},\dch^{-1}) \in W_1(\calR)$.
+\end{pf}
+
+\begin{defn}
+The group $\Aut(\calR)$ of automorphisms of the crossed square $\calR$ is 
+$$
+\Aut(\calR) ~=~ \{ \alpha = 
+(\alpha_{[2]}, \alpha_{\{1\}}, \alpha_{\{2\}}, \alpha_{\emptyset}) \}
+$$ 
+such that 
+$(\alpha_{[2]}, \alpha_{\{1\}}) $  is an automorphism of  $\ddcalRt$,
+$(\alpha_{[2]}, \alpha_{\{2\}}) $  is an automorphism of  $\ddcalRo$,
+$(\alpha_{\{2\}}, \alpha_{\emptyset}) $  is an automorphism of  $\dcalRt$, and 
+$(\alpha_{\{1\}}, \alpha_{\emptyset}) $  is an automorphism of  $\dcalRo$.
+\end{defn}
+
+\begin{lem} \label{lem:alpha-chi}
+If $\chi \in \Der_1(\calR)$ then
+$\alpha_{\chi} = (\dds,\ds,\ddr,\dr) \in \Aut(\calR)$
+where
+$$
+\dds \ell = \ell(\ddch \ddbdyo \ell), \quad
+\ds m = m(\dch \dbdyo m), \quad
+\ddr n = n(\ddbdyo \ddch  n), \quad
+\dr p = p(\dbdyo \dch p). 
+$$
+\end{lem}
+\begin{pf}
+This follows immediately from Lemma \ref{lem:equiv-w1s}.
+\end{pf}
+
+\begin{lem} 
+There is a crossed module
+$$
+\calA_1{\calR} ~=~ (\dD_1 : W_1(\calR) \to \Aut(\calR), ~
+\chi \mapsto \alpha_{\chi})
+$$
+where the action of $\Aut(\calR)$ on $W_1(\calR)$ is given by
+$\chi^{\alpha} = \psi = (\ddps, \dps)$
+where 
+$$ 
+\ddps : R_{\{2\}} \to R_{[2]}  \;=\; \alpha_{\{2\}}^{-1} * \ddch * \alpha_{[2]},
+\quad \mbox{and} \quad  
+\dps : R_{\emptyset} \to R_{\{1\}}  \;=\; 
+\alpha_{\emptyset}^{-1} * \dch * \alpha_{\{1\}}.
+$$
+\end{lem}
+\begin{pf}
+We first show that the boundary map $\dD_1$ is a homomorphism.
+The proof is the same as the proof of Lemma 3.3 in the notes.
+
+Secondly we must show that the action is well-defined.
+\begin{eqnarray*}
+(\chi^{\alpha})^{\beta} 
+  & = & ((\alpha_{\{2\}}^{-1} * \ddch * \alpha_{[2]})^{\psi_2}, \,  
+        (\alpha_{\emptyset}^{-1} * \dch * \alpha_{\{1\}})^{\psi_2})  \\
+  & = & (\beta_{\{2\}}^{-1} * (\alpha_{\{2\}}^{-1} * \ddch 
+        * \alpha_{[2]}) * \beta_{[2]},\,
+         \beta_{\emptyset}^{-1} * (\alpha_{\emptyset}^{-1} * \dch 
+        * \alpha_{\{1\}}) * \beta_{\{1\}} )\\
+  & = & ((\alpha_{\{2\}} \beta_{\{2\}})^{-1} * \ddch 
+        * (\alpha_{[2]} \beta_{[2]}), \,  
+         (\alpha_{\emptyset} \beta_{\emptyset})^{-1} * \dch 
+        * (\alpha_{\{1\}} \beta_{\{1\}})) \\
+  & = & \chi^{\alpha*\beta}
+\end{eqnarray*}
+
+Thirdly we show that $\psi = \chi^{\alpha}$ commutes with 
+$\partial_1 = (\ddbdyo,\dbdyo)$, so that  $\dps \dbdyo = \ddbdyo \ddps$.
+\begin{eqnarray*}
+(\dps \dbdyo)(n) 
+  & = & (\alpha_{\emptyset}^{-1} * \dch * \alpha_{\{1\}})(\dbdyo n) \\
+  & = & (\alpha_{\{1\}} \dch \alpha_{\emptyset}^{-1})(\dbdyo n) \\
+  & = & \alpha_{\{1\}} \dch \dbdyo \alpha_{\{2\}}^{-1} n \\
+  & = & \alpha_{\{1\}} \ddbdyo \ddch \alpha_{\{2\}}^{-1} n \\
+  & = & \ddbdyo \alpha_{[2]} \ddch \alpha_{\{2\}}^{-1} n \\
+  & = & \ddbdyo(\alpha_{\{2\}}^{-1} \star \ddch \star \alpha_{[2]})(n) \\
+  & = & \ddbdyo \ddps (n)~. \\
+\end{eqnarray*}
+
+Now we verify the first crossed module axiom,~
+$\dD_1(\chi^{\alpha}) = \alpha^{-1} * \dD_1 \chi * \alpha$~
+where
+\begin{eqnarray*}
+\alpha^{-1} * \dD_1\chi * \alpha 
+  & = & (\alpha_{[2]}, \alpha_{\{1\}}, \alpha_{\{2\}}, 
+         \alpha_{\emptyset})^{-1} * (\dds_{\chi}, 
+        \ds_{\chi}, \ddr_{\chi}, \dr_{\chi}) 
+        * (\alpha_{[2]}, \alpha_{\{1\}}, \alpha_{\{2\}}, \alpha_{\emptyset}) \\
+  & = & (\alpha_{[2]}^{-1} * \dds_{\chi} * \alpha_{[2]}, \ 
+         \alpha_{\{1\}}^{-1} * \ds_{\chi} * \alpha_{\{1\}}, \ 
+         \alpha_{\{2\}}^{-1} * \ddr_{\chi} 
+        * \alpha_{\{1\}}, \ \alpha_{\emptyset}^{-1} * \dr_{\chi} 
+        * \alpha_{\emptyset})
+\end{eqnarray*}
+We verify just the first and the last coordinate, since the other two
+are similar.
+\begin{eqnarray*}
+\dds_{\psi} \ell 
+  & = & \ell(\ddps \ddbdyo \ell) \\
+  & = & \ell(\alpha_{\{2\}}^{-1} * \ddch * \alpha_{[2]})(\ddbdyo \ell) \\
+  & = & \ell (\alpha_{[2]}  \ddch  \alpha_{\{2\}}^{-1} \ddbdyo \ell) \\
+  & = & \ell (\alpha_{[2]}  \ddch \ddbdyo  \alpha_{[2]}^{-1} \ell) \\
+(\alpha_{[2]}^{-1} *   \dds_{\chi} *  \alpha_{[2]}) \ell 
+  & = &  \alpha_{[2]}  \dds_{\chi}( \alpha_{[2]}^{-1} \ell) \\
+  & = & \alpha_{[2]} \{ (\alpha_{[2]}^{-1} \ell)(\ddch \ddbdyo \alpha_{[2]}^{-1} 
+         \ell) \} \\
+  & = & \ell (\alpha_{[2]}  \ddch \ddbdyo  \alpha_{[2]}^{-1} \ell)
+\end{eqnarray*}
+\begin{eqnarray*}
+\dr_{\dps}(p) 
+  & = & p(\dbdyo \dps p) \\
+  & = & p (\dbdyo(\alpha_{\emptyset}^{-1} * \dch * \alpha_{\{1\}}))(p)) \\
+  & = & p (\dbdyo (\alpha_{\{1\}} \dch \alpha_{\emptyset}^{-1})(p)) \\
+  & = & p (\alpha_{\{1\}} \dbdyo \dch \alpha_{\{1\}}^{-1} p) \\
+(\alpha_{\emptyset}^{-1} *   \dr_{\chi} *  \alpha_{\emptyset}) 
+  & = & \alpha_{\emptyset} \dr_{\chi}(\alpha_{\emptyset}^{-1} p) \\
+  & = & \alpha_{\emptyset} \{ (\alpha_{\emptyset}^{-1} p) 
+          (\dbdyo \dch  \alpha_{\emptyset}^{-1} p) \} \\
+  & = & p (\alpha_{\{1\}} \dbdyo \dch \alpha_{\{1\}}^{-1} p)
+\end{eqnarray*}  
+
+Finally, we show that the second crossed module axiom holds:
+$$ 
+\chi_1 \star \chi_2 ~=~ \chi_2 \star {\chi_1}^{\dD_1 \chi_2} 
+                    ~=~ \chi_2 \star \psi.
+$$
+We have $\dD_1 \chi_2 = (\dds_2, \ds_2, \ddr_2, \dr_2)$ and  
+$\ddps = \ddr_2^{-1} * \ddch_1 * \dds_2$ and 
+$\dps = \dr_2^{-1} * \dch_1 * \ds_2$,
+so
+$$
+(\ddch_1 \star \ddch_2)(n) 
+  ~=~ (\ddch_2 n)(\dds_2 \ddch_1 n) \\
+  ~=~ (\ddch_2 n) (\ddps n) \\
+  ~=~ (\ddch_2 \star \ddps)(n) \\
+$$
+$$
+(\dch_1 \star \dch_2)(p) 
+  ~=~ (\dch_2 p)(\ds_2 \dch_1 p) \\
+  ~=~ (\dch_2 p) (\dps p) \\
+  ~=~ (\dch_2 \star \dps)(p)~.
+$$
+(where we have used Lemma \ref{lem:gamma-beta-chi} (c)  
+ -- need an $\calR$-version?).
+\end{pf}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Searching for a map from $G_{\emptyset}$ to $G_{[2]}$}
+\label{subs:search}
+
+We are hoping to find a function
+$$
+\xi ~:~ R_{\emptyset} \to (R_{\emptyset} \ltimes R_{\{1\}})
+                 \ltimes (R_{\{2\}} \ltimes R_{[2]}),
+\quad
+p \mapsto ((p, \chi p), (\phi p, \theta p)),
+$$
+such that $\xi(pq) = (\xi p)(\xi q)$.
+So we require
+\begin{eqnarray*}
+((pq, \chi(pq)), (\phi(pq), \theta(pq)))
+  & = & ((p, \chi p),(\phi p, \theta p))((q, \chi q),(\phi q, \theta q)) \\
+  & = & ((p, \chi p)(q, \chi q),
+         (\phi p, \theta p)^{(q, \chi q)}(\phi q,\theta q)) \\
+  & = & ((pq, (\chi p)^q \chi q),
+         ((\phi p)^q, (\chi q \boxtimes (\phi p)^q)^{-1} 
+                      (\theta p)^{q (\chi q)}) (\phi q, \theta q)) \\
+  & = & ((pq, (\chi p)^q \chi q),
+         ((\phi p)^q, ((\phi p)^q \boxtimes \chi q) 
+                      (\theta p)^{q (\chi q)}) (\phi q, \theta q)) \\
+  & = & ((pq, (\chi p)^q \chi q),
+         ((\phi p)^q \phi q, ((\phi p)^q \boxtimes \chi q)^{\phi q} 
+                      (\theta p)^{[q (\chi q)(\phi q)]} (\theta q))) \\
+\end{eqnarray*}
+
+\noindent
+Thus $\chi$ has to be a derivation $R_{\emptyset} \to R_{\{1\}}$, 
+and $\phi$ has to be a derivation $R_{\emptyset} \to R_{\{2\}}$, 
+while $\theta : R_{\emptyset} \to R_{[2]}$  must be such that $\theta(pq)$
+depends upon $p,q,\chi q,\phi p, \theta p, \theta q$, 
+and satisfies 
+$$
+\theta(pq) ~=~ ((\phi p)^q \boxtimes \chi q)^{\phi q} 
+                (\theta p)^{[q (\chi q)(\phi q)]} (\theta q).
+$$
+
+\bigskip\noindent
+{\bf [This needs checking/expanding.]}
+
+
+
+\vspace*{15mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Further Oddments}
+
+No entries here so far.
+
+

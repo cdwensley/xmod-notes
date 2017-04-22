@@ -1,0 +1,679 @@
+%% xcomp.tex  (version 22/04/17)
+
+\section{Crossed complexes}
+
+The main references for this section are the book \cite{brow:siv} 
+which covers much of the material in the papers 
+\cite{brow:gilb,brow:higg:1987,brow:higg:1989,brow:higg:1990,brow:higg:1991}. 
+
+\begin{defn}
+A (many object) crossed complex $(\calC,\chi)$ is a sequence of morphisms 
+of groupoids with common object set $C_0$,
+\begin{equation} \label{eq:xcomp} 
+\xymatrix{ 
+  \ldots  \ar[r]^{\chi_{n+1}} 
+    &  C_n  \ar[r]^{\chi_n} \ar[d]_{t=h} 
+       &  C_{n-1}  \ar[r]^{\chi_{n-1}} \ar[d]_{t=h} 
+          & \ldots \ar[r]^{\chi_3} 
+             &  C_2  \ar[r]^{\chi_2} \ar[d]_{t=h} 
+                &  C_1 \ar[d]<+0.7ex>^h \ar[d]<-0.7ex>_t  \\
+    &  C_0 
+       &  C_0 
+          &  &  C_0 
+                &  C_0 \\
+}
+\end{equation}
+where: 
+\begin{itemize}
+\item
+$\bbC_n = (C_n,C_0)$ is a groupoid for $n \geqslant 1$ and, 
+for $n \geqslant 2$, $\bbC_n$ is totally disconnected, 
+\item
+for $n \geqslant 3$, $\bbC_n$ is abelian, and is a $\bbC_1$-module 
+such that the image of $\chi_2$ acts trivially,   
+\item
+for $n \geqslant 2$, $((\chi_n,\id) : \bbC_n \to \bbC_{n-1})$  
+is a groupoid morphism which preserves the action of $\bbC_1$ 
+(in the case $n=2$ the action of $\bbC_1$ on itself is conjugation) so, 
+for $a \in C_1, c_n \in C_n$, we have $\chi_n({c_n}^a) = (\chi c_n)^a$, 
+\item
+$((\chi_2,\id) : \bbC_2 \to \bbC_1)$ is a crossed module of groupoids, 
+so $\{a_2\}^{\chi_2b_2} ~=~ b_2^{-1}a_2b_2$, 
+\item
+for $n \geqslant 3$ the composite $\chi_n*\chi_{n-1}$ is the zero map. 
+\end{itemize}
+\end{defn}
+
+The repeated $C_0$ in equation (\ref{eq:xcomp}) is rather untidy, 
+so the diagram of a crossed complex is usually simplified, 
+as shown for $\bbC$ and $\bbD$ in (\ref{eq:xcomp-mor}). 
+
+For convenience in the general formulae to be considered later, 
+we specify source and target maps on objects by defining 
+$s,t : C_0 \to C_0$ to be the identity map on the set of objects. 
+
+\medskip
+A \emph{morphism of crossed complexes} $\phi:(\calC,\chi) \to (\calD,\delta)$ 
+is a family of groupoid morphisms 
+$\{(\phi_n,\phi_0) : \bbC_n \to \bbD_n\}_{n \geqslant 1}$ 
+\begin{equation} \label{eq:xcomp-mor} 
+\xymatrix{ 
+  \ldots  \ar[r]^{\chi_{n+1}} 
+    &  C_n  \ar[r]^{\chi_n}  \ar[d]_{\phi_n} 
+       &  C_{n-1}  \ar[r]^{\chi_{n-1}}  \ar[d]_{\phi_{n-1}}  
+          & \ldots \ar[r]^{\chi_3}  
+             &  C_2  \ar[r]^{\chi_2} \ar[d]_{\phi_2}
+                &  C_1 \ar[r]<+0.5ex>^t \ar[r]<-0.5ex>_h \ar[d]_{\phi_1} 
+                   &  C_0  \ar[d]^{\phi_0} \\
+  \ldots  \ar[r]_{\delta_{n+1}} 
+    &  D_n  \ar[r]_{\delta_n} 
+       &  D_{n-1}  \ar[r]_{\delta_{n-1}} 
+          & \ldots  \ar[r]_{\delta_3} 
+             &  D_2  \ar[r]_{\delta_2} 
+                &  D_1 \ar[r]<+0.5ex>^{t'} \ar[r]<-0.5ex>_{h'}  
+                   &  D_0   \\
+}
+\end{equation}
+compatible with the morphisms and actions on $\calC,\calD$, so that 
+$$
+\phi_n*\delta_n ~=~ \chi_n*\phi_{n-1} 
+\qquad\text{and}\qquad 
+\phi_n({c_n}^a) ~=~ (\phi_n c_n)^{\phi_1 a}
+\qquad \forall~ c_n \in C_n,~ n \geqslant 2,~ a \in C_1.
+$$
+The category \catXComp\; has crossed complexes as objects 
+and their morphisms as arrows. 
+
+\begin{example}
+\emph{The \emph{unit interval crossed complex} $(\calI,1)$ 
+has for $\bbI_1$ the groupoid $\bbI$ of Example \ref{ex:unit-gpd} and, 
+for $n \geqslant 2$, $\bbI_n$ is the trivial groupoid $\ids(\calI)$. 
+The morphisms are all inclusion morphisms. 
+}\end{example} 
+
+When, for $n>m$, $\bbC_n$ is the trivial groupoid $\ids(\calC)$ 
+of Example \ref{ex:triv-gpd}, and $\chi_n$ is the inclusion morphism, 
+we say that $\calC$ is \emph{$m$-truncated}. 
+This means that the structures above level $m$ may be ignored, 
+so that a $1$-truncated crossed complex is effectively a groupoid 
+(for example $(\bbI,\iota)$), 
+and a $2$-truncated crossed complex is a crossed module of groupoids. 
+We denote the $m$-truncated subcrossed complex of $\calC$ by $\calC^m$. 
+(We could refer here to the $m$-th \emph{skeleton functor} $\sk^m$.) 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Tensor Product of Crossed Complexes} 
+\label{subsect:xcomp-tensor}
+
+In \cite{brow:siv} the tensor product $\calC\otimes\calD$ of 
+crossed complexes $\calC,\calD$ is defined using a universal bimorphism, 
+but we will not discuss bimorphisms of crossed complexes here 
+(not yet, anyhow). 
+
+\begin{defn} \label{defn:xcomp-tensor}
+Let $(\calC,\chi),(\calD,\delta)$ be crossed complexes. 
+Then $(\calC\otimes\calD,\partial)$ is the crossed complex generated 
+by elements $c \otimes d$ in dimension $m+n$, where $c \in C_m, d \in D_n$, 
+with the following defining relations (plus the laws for crossed complexes). 
+
+\medskip\noindent
+{\bf Source and target:}
+$$
+s(c \otimes d) = sc \otimes sd, \qquad
+t(c \otimes d) = tc \otimes td.  
+$$
+
+\medskip\noindent
+{\bf Action axioms:}
+$$
+c \otimes d^{d_1} = (c \otimes d)^{(tc \otimes d_1)}~~ 
+\text{when}~ n \geqslant 2,~ d_1 \in D_1, \qquad
+c^{c_1} \otimes d = (c \otimes d)^{(c_1 \otimes td)}~~ 
+\text{when}~ m \geqslant 2,~ c_1 \in C_1.
+$$
+
+\medskip\noindent
+{\bf Product axioms:}
+\begin{eqnarray*}
+c \otimes (dd_1) &=& \left\{ \begin{array}{ll} 
+                    (c \otimes d)^{(tc \otimes d_1)}(c \otimes d_1) 
+                       & \text{if}~ n=1,~ m \geqslant 1, \\
+                    (c \otimes d)(c \otimes d_1) 
+                       & \text{otherwise}, \\
+                    \end{array} \right.                            \\
+(cc_1) \otimes d &=& \left\{ \begin{array}{ll} 
+                    (c_1 \otimes d)(c \otimes d)^{(c_1 \otimes td)} 
+                       & \text{if}~ m=1,~ n \geqslant 1, \\
+                    (c \otimes d)(c_1 \otimes d) 
+                       & \text{otherwise}. \\
+                    \end{array} \right. 
+\end{eqnarray*}
+
+\medskip\noindent
+{\bf Boundary map:}
+$$
+\partial_{m+n}(c \otimes d) ~=~ 
+  \left\{ \begin{array}{ll}
+  (tc \otimes d)^{-1}(c \otimes sd)^{-1}(sc \otimes d)(c \otimes td) 
+    & \text{if}~ m=n=1, \\
+  c \otimes \delta_n d 
+    & \text{if}~ m=0,~ n \geqslant 2, \\
+  \chi_m c \otimes d 
+    & \text{if}~ m \geqslant 2,~ n=0, \\
+  (c \otimes \delta_n d)^{-1}(tc \otimes d)^{-1}(sc \otimes d)^{(c \otimes td)}
+    & \text{if}~ m=1,~ n \geqslant 2, \\
+  (c \otimes td)^{(-1)^{m+1}}
+     \left((c \otimes sd)^{(tc \otimes d)}\right)^{(-1)^m}(\chi_m c \otimes d) 
+    & \text{if}~ n=1,~ m \geqslant 2, \\
+  (\chi_m c \otimes d)(c \otimes \delta_n d)^{(-1)^m} 
+    & \text{if}~ n \geqslant 2,~ m \geqslant 2. 
+  \end{array} \right.
+$$
+\end{defn}
+
+\noindent
+Note that $(\calC \otimes \calD)_0 = C_0 \times D_0$, 
+so we may write $u \otimes x$ as $(u,x)$ when $u \in C_0, x \in D_0$. 
+
+\medskip 
+The groupoid $((\calC \otimes \calD)_1, (\calC \otimes \calD)_0)$ 
+is isomorphic to $C_1\ \#\ D_1$, the groupoid coproduct of 
+$\calC^1 \times \ids(\calD^1)$ and $\ids(\calC^1) \times \calD^1$. 
+Every element of $C_1\ \#\ D_1$ is uniquely expressible in one 
+of the following normal forms. 
+\begin{enumerate}[(i)] 
+\item
+An identity arrow $(1_u,1_x)$. 
+\item
+A \emph{generating arrow} $(c,1_x)$ or $(1_u,d)$, 
+where $c \in C_1,~ x \in D_0,~ u \in C_0,~ d \in D_1$ 
+and $c,d$ are not identities. 
+We write $\arr(c,1_x)=c,~ \obj(c,1_x)=x$ and $\arr(1_u,d)=d,~\obj(1_u,d)=u$. 
+\item
+A composite $k=k_1k_2\ldots k_n~ (n \geqslant 2)$ of generating arrows 
+in which the $\arr(k_i)$ lie alternately in $C_1$ and $D_1$ 
+(or conversely), and the odd and even products 
+~$\odd(k) = \arr(k_1)\arr(k_3)\cdots$~ 
+and ~$\even(k) = \arr(k_2)\arr(k_4)\cdots$~ 
+are defined in $C_1$ or $D_1$. 
+We define $k_{C_1}$ to be $\odd(k)$ or $\even(k)$, 
+whichever composite arrow is in $C_1$, 
+and then $k_{D_1}$ is the other composite arrow. 
+\end{enumerate} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Tensor product of groupoids} \label{subsect:tensor-gpds}
+
+When $\calC,\calD$ are groupoids, considered as $1$-truncated crossed 
+complexes, the tensor product $\calC\otimes\calD$ is $2$-truncated. 
+We have already described the groupoid at level $1$, 
+so it remains to specify $(\calC\otimes\calD)_2$. 
+
+There is a canonical morphism $\sigma : C_1\ \#\ D_1 \to C_1 \times D_1$ 
+mapping $k$ to $(k_{C_1},k_{C_2})$. 
+The kernel of $\sigma$ is the \emph{Cartesian subgroup} 
+$C_1\ \Box\ D_1$ of $C_1\ \#\ D_1$ consisting of all the identity arrows 
+and all the words $k$ such that $k_{C_1}$ and $k_{D_1}$ are identities. 
+It is generated by ``commutators'' $[c,d]$ where, 
+when $(c : u \to v) \in C_1$ and $(d : x \to y) \in D_1$ 
+are not identities, $[c,d]$ is the loop at $(v,y)=(tc,td)$ given by 
+$$
+[c,d] ~:=~ (c^{-1},1_y)(1_u,d^{-1})(c,1_x)(1_v,d), 
+$$
+as shown in the following diagram:
+$$
+\xymatrix{ 
+  (v,y) \ar[dd]_{(c^{-1},1_y)}
+    &&  (v,x) \ar[ll]_{(1_v,d)} \\
+    &&  \\
+  (u,y) \ar[rr]_{(1_u,d^{-1})} 
+    &&  (u,x) \ar[uu]_{(c,1_x)}  \\
+}
+$$
+These commutators satisfy the usual commutator identities: 
+\begin{eqnarray*}
+\,    [d,c]  &=&  [c,d]^{-1}, \\ 
+\, [dd_1,c]  &=&  [d,c]^{d_1}[d_1,c], \\
+\, [d,cc_1]  &=&  [d,c_1][d,c]^{c_1},  
+\end{eqnarray*}
+whenever $cc_1,dd_1$ are defined. 
+Note that the action is conjugation: for example, 
+when $(d_1 : y \to z) \in D_1$ the loop $[d,c]^{d_1}$ at $(v,z)$ is given by 
+\begin{eqnarray*}
+[d,c]^{d_1} 
+  &=& (1_v,d_1^{-1})(1_v,d^{-1})(c^{-1},1_x)(1_u,d)(c,1_y)(1_v,d_1) \\
+  &=& (1_v,(dd_1)^{-1})(c^{-1},1_x)(1_u,dd_1)(c,1_z)
+         .(c^{-1},1_z)(1_u,d_1^{-1})(c,1_y)(1_v,d_1) \\
+  &=& [dd_1,c][c,d_1], 
+\end{eqnarray*}
+and similarly $[d,c]^{c_1} = [c_1,d][d,cc_1]$. 
+
+It turns out that $(\calC\otimes\calD)_2 = C_1\ \Box\ D_1$ 
+with $c \otimes d := [d,c]$. 
+We may check the product axioms as follows: 
+\begin{eqnarray*}
+cc_1 \otimes d &=& [d,cc_1] ~=~ [d,c_1][d,c]^{c_1} 
+                   ~=~ (c_1 \otimes d)(c \otimes d)^{(c_1 \otimes td)}, \\
+c \otimes dd_1 &=& [dd_1,c] ~=~ [d,c]^{d_1}[d_1,c] 
+                   ~=~ (c \otimes d)^{(tc \otimes d_1)}(c \otimes d_1).
+\end{eqnarray*}
+
+\noindent
+We have constructed a normal inclusion crossed module of groupoids 
+$$
+\xymatrix{
+(C_1\ \Box\ D_1 \ar[r] 
+  &  C_1\ \#\ D_1 \ar[r]<+0.5ex>\ar[r]<-0.5ex>
+     &  C_0 \times D_0).  
+}$$
+The action on loops in dimension two is given by: 
+\begin{eqnarray*}
+(c \otimes d)^{(tc \otimes d_1)} &=& (c \otimes dd_1)(c \otimes d_1)^{-1}\ ,\\
+(c \otimes d)^{(c_1 \otimes td)} &=& (c_1 \otimes d)^{-1}(cc_1 \otimes d)\ .\\
+\end{eqnarray*}
+
+\newpage
+\begin{example} \label{ex:itensori}
+\emph{The tensor product $\calI^{\otimes 2} = \calI\otimes\calI$ 
+has four objects and eight generating arrows in dimension one, 
+as shown in the following diagram. 
+We relabel $\iota$ in the second factor as $\kappa$ 
+so that the ``commutator'' notation is not ambiguous.} 
+
+\begin{center}
+MISSING GRAPHICS
+%% \input{itensori.pstex_t}
+%% \includegraphics[scale = 0.65]{xcomp/itensori.eps}
+\end{center}
+\emph{The generating commutators for $I^{\otimes 2}_2(0,0)$ as:} 
+\begin{eqnarray*}
+k_{(0,0)} 
+  &=& (\iota,1_0)(1_1,\kappa)(\iota^{-1},1_1)(1_0,\kappa^{-1}) 
+  ~=~ [\iota^{-1}, \kappa^{-1}], \\ 
+{k_{(0,0)}}^{-1} 
+  &=& (1_0,\kappa)(\iota,1_1)(1_1,\kappa^{-1})(\iota^{-1},1_0) 
+  ~=~ [\kappa^{-1},\iota^{-1}]. 
+\end{eqnarray*} 
+\emph{So the vertex group $I^{\otimes 2}_2(0,0)$ is free on one generator. 
+It is easy to see that the vertex groups at 
+$(1,0), (1,1), (0,1)$ are respectively generated by} 
+$$
+k_{(1,0)} = [\iota, \kappa^{-1}], \qquad
+k_{(1,1)} = [\iota, \kappa], \qquad
+k_{(0,1)} = [\iota^{-1}, \kappa]. 
+$$
+\end{example}
+
+\medskip
+\begin{example}
+\emph{Consider $\calD = \calI\otimes\calC$, where $\calC$ is a crossed module 
+of groups with $C_0=\{\bullet\}$. 
+The objects in $D_0$ are $\{(0,\bullet),(1,\bullet)\}$, 
+but it is convenient to replace these by $\{0,1\}$. 
+The generating arrows in $D_1$ are}
+$$
+\{ ((\iota,1_{\bullet}) : 0 \to 1),~ ((\iota^{-1},1_{\bullet}) : 1 \to 0)\} 
+~\cup~
+\{((1_0,g) : 0 \to 0),~ ((1_1,g) : 1 \to 1) ~|~ g \in C_1 \}, 
+$$
+\emph{where we may restrict $g$ to be a member of a generating set for $C_1$ 
+since $(1_0,g_1)(1_0,g_2) = (1_0,g_1g_2)$.} 
+\begin{center}
+MISSING GRAPHICS
+%% \input{itensorc.pstex_t}
+%% \includegraphics[scale = 0.65]{xcomp/itensorc.eps}
+\end{center}
+\emph{There should be no confusion if we simply write $\iota$ for 
+$(\iota,1_{\bullet})$ and $g$ for $(1_0,g)$, etc. 
+A typical element of $D_1$ with source $0$ is therefore 
+$k = g_1 \iota g_2 \iota^{-1} g_3 \iota \ldots$~.}
+\emph{As before, we define} 
+$$
+\iota \otimes g ~=~ [g,\iota] ~=~ g^{-1}\iota^{-1}g\iota, 
+\qquad\text{\emph{a loop at}}~ 1. 
+$$
+\emph{In dimension $2$ we also have a contribution from elements of $C_2$. 
+For $c \in C_2$ we write $c$ for $c \otimes 0$ and $c \otimes 1$ 
+when the object is clear. 
+Then a typical loop at $0$ in $D_2$ is} 
+$$
+c_1 w_1 c_2 w_2 c_3 \ldots 
+\quad\text{\emph{where}}~ w_i ~\text{\emph{is a word in the}}~ [g,\iota]. 
+$$
+\end{example}
+
+\newpage
+\begin{example}
+\emph{The tensor product $\calI^{\otimes 3} = \calI\otimes\calI\otimes\calI$ 
+should, strictly speaking, be calculated as one of the isomorphic products 
+$\calI^{\otimes 2}\otimes\calI$ or $\calI\otimes\calI^{\otimes 2}$. 
+Thus we might consider, for example, the object $((0,0),0)$ 
+and the generating arrows $(1_{(0,0)},\iota)$ and $((1_0,\iota),1_0)$. 
+It is simpler to consider the $8$ objects and $24$ generating arrows
+in dimension one as triples, as shown in the following cubical diagram where, 
+to avoid confusion, we relabel the three copies of $\iota$ 
+as $\iota,\kappa,\lambda$.} 
+
+\begin{center}
+MISSING GRAPHICS
+%% \input{ioioi.pstex_t}
+%% \includegraphics[scale = 0.65]{xcomp/ioioi.eps}
+\end{center}
+
+\noindent
+\emph{For dimension $2$ loops at $(1,1,1)$ we have commutators 
+from the back, top, and right faces:} 
+\begin{equation} \label{eq:ioioi-k2comms}
+[\iota,\kappa], \qquad
+[\iota,\lambda], \qquad 
+[\kappa,\lambda].
+\end{equation}
+\emph{The other three faces also contribute loops at $(1,1,1)$. 
+For example. the front face is traversed (in a clockwise direction) by} 
+$$
+[\kappa,\iota]^{\lambda} ~=~ 
+(1_1,1_1,\lambda^{-1})(1_1,\kappa^{-1},1_0)(\iota^{-1},1_0,1_0)
+(1_0,\kappa,1_0)(\iota,1_1,1_0)(1_1,1_1,\lambda).
+$$
+\emph{A typical element in the vertex group $K_2((1,1,1))$ is a word 
+in the three commutators (\ref{eq:ioioi-k2comms}) and their conjugates.} 
+
+\medskip\noindent
+\emph{Finally, there are non-trivial vertex groups in $K_3$, 
+associated to the whole cube. 
+Each of the eight elements 
+$(\iota^{\pm 1}\otimes\kappa^{\pm 1}\otimes\lambda^{\pm 1}) \in K_3$ 
+generates an infinite cyclic group at 
+$(h\iota^{\pm 1},h\kappa^{\pm 1},h\lambda^{\pm 1})$. 
+The boundary map is given by a version of the Jacobi-Hall-Witt 
+identity for commutators,} 
+$$
+[x^y,[y,z]]\ [y^z,[z,x]]\ [z^x,[x,y]] ~=~ 1, 
+$$
+\emph{which is used by Ellis in \cite{ellis-jsc2004} to give an identity 
+among the relators for the free abelian group on three generators. 
+(Another relevant reference is \cite{brow:higg:1981}.) 
+Thus, at $K_3((1,1,1))$, we define} 
+$$
+\partial_3(\iota\otimes\kappa\otimes\lambda) ~=~ 
+[\lambda,\kappa]^{\iota^{\kappa}}\ [\kappa,\lambda]\ 
+[\iota,\lambda]^{\kappa^{\lambda}}\ [\lambda,\iota]\ 
+[\kappa,\iota]^{\lambda^{\iota}}\ [\iota,\kappa]\ ,
+$$
+\emph{where} 
+\small{
+\begin{eqnarray*}
+\,\partial_2[\lambda,\kappa]^{\iota^{\kappa}} 
+  &=&  (1_1,\kappa^{-1},1_1)(\iota^{-1},1_0,1_1)(1_0,\kappa,1_1) 
+         (1_0,1_1,\lambda^{-1})(1_0,\kappa^{-1},1_0) 
+           (1_0,1_0,\lambda)(\iota,1_0,1_1)(1_1,\kappa,1_1), \\
+\,\partial_2[\kappa,\lambda]~~ 
+  &=&  (1_1,\kappa^{-1},1_1)(1_1,1_0,\lambda^{-1}) 
+         (1_1,\kappa,1_0)(1_1,1_1,\lambda), \\
+\,\partial_2[\iota,\lambda]^{\kappa^{\lambda}} 
+  &=&  (1_1,1_1,\lambda^{-1})(1_1,\kappa^{-1},1_0)(1_1,1_0,\lambda) 
+         (\iota^{-1},1_0,1_1)(1_0,1_0,\lambda^{-1}) 
+           (\iota,1_0,1_0)(1_1,\kappa,1_0)(1_1,1_1,\lambda), \\
+\,\partial_2[\lambda,\iota]~~ 
+  &=&  (1_1,1_1,\lambda^{-1})(\iota^{-1},1_1,1_0) 
+            (1_0,1_1,\lambda)(\iota,1_1,1_1), \\
+\,\partial_2[\kappa,\iota]^{\lambda^{\iota}} 
+  &=&  (\iota^{-1},1_1,1_1)(1_0,1_1,\lambda^{-1})(\iota,1_1,1_0) 
+         (1_1,\kappa^{-1},1_0)(\iota^{-1},1_0,1_0)
+           (1_0,\kappa,1_0)(1_0,1_1,\lambda)(\iota,1_1,1_1), \\
+\,\partial_2[\iota,\kappa]~~ 
+  &=&  (\iota^{-1},1_1,1_1)(1_0,\kappa^{-1},1_1)
+            (\iota,1_0,1_1)(1_1,\kappa,1_1). 
+\end{eqnarray*}
+} 
+\emph{The Jacobi-Hall-Witt identity ensures that 
+$\partial^2(\iota\otimes\kappa\otimes\lambda) = 1_{(1,1,1)}$.} 
+\end{example}
+
+
+\newpage
+Here are the formulae for the boundary maps of the tensor product 
+$\calC\otimes\calD$, 
+where $(c_1 : u \to v) \in C_1$ $(d_1 : x \to y) \in D_1$, 
+$(c : w \to w) \in C_m,~ m \geqslant 2$, 
+and $(d : z \to z) \in D_n,~ n \geqslant 2$.   
+\begin{eqnarray*}
+\partial_{0+n}(u \otimes d) 
+  &=&  u \otimes \partial_n d, \\
+\partial_{m+0}(c \otimes x) 
+  &=&  \partial_m c \otimes x, \\
+\partial_2(c_1 \otimes d_1) 
+  &=&  (v \otimes d_1)^{-1} (c_1 \otimes x)^{-1} 
+          (u \otimes d_1) (c_1 \otimes y), \\
+\partial_{1+n}(c_1 \otimes d) 
+  &=&  (c_1 \otimes \partial_n d)^{-1} (v \otimes d)^{-1} 
+         (u \otimes d)^{(c_1 \otimes z)}, \\
+\partial_{m+1}(c \otimes d_1) 
+  &=&  (c \otimes y)^{(-1)^{m+1}} 
+         \left((c \otimes x)^{(w \otimes d_1)}\right)^{(-1)^m} 
+         (\partial_mc \otimes d_1),\\
+\partial_{m+n}(c \otimes d) 
+  &=&  (\partial_m c \otimes d) + (-1)^m(c \otimes \partial_n d), 
+\quad m,n \geqslant 2. \\
+\end{eqnarray*}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Homotopies between morphisms of crossed complexes}
+\label{subsect:homotopy-xcomp}
+
+For $f,g$ two automorphisms of $\calC$, a \emph{$1$-homotopy} 
+$H : f \simeq g$ is a set of maps 
+$H_n : C_n \to C_{n+1},~ n \geqslant 0$, 
+satisfying various axioms. 
+These axioms are most easily obtained by viewing the homotopy 
+as a morphism $H : \calI\otimes\calC \to \calC$, 
+making the following diagram commute where $i_0c = 0 \otimes c$ 
+and $i_1c = 1 \otimes c$. 
+$$
+\xymatrix{ 
+   & \calC \ar[ld]_{i_0} \ar[drr]^f
+     & & \\
+  \calI\otimes\calC \ar[rrr]^{H}  
+   & & & \calC \\
+   & \calC \ar[lu]^{i_1} \ar[rru]_g 
+     & & \\
+}
+$$
+Such a $H$ comprises maps 
+$H_{m,n} : I_m \times C_n \to C_{m+n},~ m,n \geqslant 0$.  
+Part of such a morphism is shown in the following diagram. 
+
+\hspace*{6mm}
+\begin{center}
+MISSING GRAPHICS
+%% \input{xcomp-1hom.pstex_t}
+%% \includegraphics[scale = 0.65]{xcomp/xcomp-1hom.eps}
+\end{center}
+
+\newpage
+We now consider the maps $H_{m,n}$ for small $m,n$. 
+\begin{eqnarray*}
+H_{0,0} : \{0,1\}\times C_0 \to C_0,  
+  &&  (0,u) \mapsto fu,~ (1,u) \mapsto gu, \\
+H_{0,n} : \{0,1\}\times C_n \to C_n,  
+  &&  0 \otimes c \mapsto fc,~ 1 \otimes c \mapsto gc, \\
+H_{1,0} : \{1_0,1_1,\iota,\iota^{-1}\}\times C_0 \to C_1,  
+  &&  1_0 \otimes u \mapsto 1_{fu},~ 1_1 \otimes u \mapsto 1_{gu}, \\
+  &&  \iota \otimes u \mapsto (H_0 u : fu \to gu), \\
+  &&  \iota^{-1} \otimes u \mapsto (H_0 u)^{-1} : gu \to fu, \\
+  &&  (\text{which defines the map}~ H_0 : C_0 \to C_1), \\
+H_{m,0} : \{1_0,1_1\}\times C_0 \to C_m,  
+  &&  1_0 \otimes u \mapsto 1_{fu},~ 1_1 \otimes u \mapsto 1_{gu},~ 
+        m \geqslant 2, \\
+H_{1,1} : \{1_0,1_1,\iota,\iota^{-1}\}\times C_1 \to C_2,  
+  &&  1_0 \otimes c \mapsto 1_{fv},~ 1_1 \otimes c \mapsto 1_{gv}, \\
+  &&  \iota \otimes c \mapsto H_1 c = [c,\iota] 
+        \in C_2(t\iota, tc) = C_2(1,v), \\
+  &&  (\text{which defines the map}~ H_1 : C_1 \to C_2).
+\end{eqnarray*}
+
+We now derive some of the axioms. 
+In $\calI\otimes\calC$ the arrow $\iota \otimes c$ decomposes as
+$$
+(1_0 \otimes c)(\iota \otimes 1_v) 
+~=~ (\iota \otimes c) ~=~ (\iota \otimes 1_u)(1_1 \otimes c), 
+$$
+so this commuting square is mapped to a commuting square in $\calC$, defining 
+$$
+H_0 : C_1 \to C_1,\quad  c \mapsto (fc)(H_0 v) = (H_0 u)(gc). 
+$$
+
+\noindent
+The image under $H_1$ of a composite arrow is given by 
+$$
+H_1(cc') ~=~ \iota \otimes cc' 
+           ~=~ (\iota \otimes c)^{c'}(\iota \otimes c') 
+           ~=~ (H_1 c)^{(1_1 \otimes c')}(H_1 c') 
+           ~=~ (H_1 c)^{gc'}(H_1 c').
+$$
+Similarly, applying the boundary maps, 
+\begin{eqnarray*}
+\partial(H_1 c) 
+  &=&  H\left((1_1,c^{-1})(\iota^{-1},1_u)(1_0,c)(\iota,1_v)\right) \\
+  &=&  H_{0,1}(1,c^{-1})\ H_{1,0}(\iota^{-1},u)\ 
+       H_{0,1}(0,c)\      H_{1,0}(\iota,v) \\ 
+  &=&  (gc)^{-1}\ (H_0 u)^{-1}\ (fc)\ (H_0 v).
+\end{eqnarray*}
+
+\noindent
+In the formulae for $H_{1,1}$ above the image of $\iota^{-1} \otimes c$ 
+has not been defined.  
+It may be determined on expanding $\iota\iota^{-1} \otimes c$ as follows: 
+\begin{eqnarray*}
+1_0 \otimes c 
+  &=&  \iota\iota^{-1} \otimes c 
+       ~=~ (\iota^{-1} \otimes c)(\iota \otimes c)^{(\iota \otimes v)^{-1}} \\
+\Rightarrow \qquad\qquad\qquad~ 1_{fv} 
+  &=&  H(\iota^{-1} \otimes c)\,(H_1c)^{(H_0v)^{-1}} \\
+\Rightarrow \qquad H_{1,1}(\iota^{-1} \otimes c)
+  &=&  ((H_1 c)^{-1})^{(H_0v)^{-1}} .
+\end{eqnarray*}
+
+
+\newpage
+For $f$ an automorphism of $\calC$, a \emph{$2$-homotopy $K$ over $f$} 
+is a set of maps $K_n : C_n \to C_{n+2},~ n \geqslant 0$, 
+satisfying various axioms. 
+These axioms are most easily obtained by viewing the homotopy 
+as a morphism $K : \calF_2\otimes\calC \to \calC$, 
+making the following diagram commute 
+where $\calF_2$ is the free crossed complex 
+$$
+\xymatrix{ 
+  \cdots \ar[r] 
+    & 1 \ar[r] 
+      & F_2 = \langle y \rangle \ar[r]^{\partial}  
+        & F_1 = \langle z \rangle \ar[r] 
+          & \{\bullet\}~, 
+}
+$$
+the boundary map is given by $\partial y = z$, 
+the action is trivial, $y^z=y$, and $ic = \bullet \otimes c$. 
+$$
+\xymatrix{ 
+   & \calC \ar[ld]_{i} \ar[drr]^f
+     & & \\
+  \calF_2\otimes\calC \ar[rrr]_{K}  
+   & & & \calC 
+}
+$$
+
+\medskip\noindent
+Such a $K$ comprises maps 
+$K_{m,n} : (F_2)_m \times C_n \to C_{m+n},~ m,n \geqslant 0$.  
+Part of such a morphism is shown in the following diagram where, 
+since there is only one object in $\calF_2$, 
+we write $u$ for $\bullet \otimes u$. 
+
+\hspace*{6mm}
+\begin{center}
+MISSING GRAPHICS
+%% \input{xcomp-2hom.pstex_t}
+%% \includegraphics[scale = 0.65]{xcomp/xcomp-2hom.eps}
+\end{center}
+
+\newpage
+We now consider the maps $K_{m,n}$ for small $m,n$. 
+\begin{eqnarray*}
+K_{0,0} : \{\bullet\}\times C_0 \to C_0,  
+  &&  u \mapsto fu, \\
+K_{0,n} : \{\bullet\}\times C_n \to C_n,  
+  &&  c \mapsto fc, \\
+K_{2,0} : \langle y \rangle \times C_0 \to C_2,  
+  &&  y \otimes u \mapsto K_0 u, 
+      \quad\text{where}~ \partial K_0 u = z \otimes u, \\
+  &&  (\text{which defines the map}~ K_0 : C_0 \to C_2), \\
+K_{1,0} : \langle z \rangle \times C_0 \to C_1,  
+  &&  z \otimes u \mapsto \partial(K_0u), \\
+K_{1,1} : \langle z \rangle \times C_1 \to C_2,  
+  &&  z \otimes c \mapsto [c,z] \in C_2(v) \quad \text{where} \\
+  &&  \partial[c,z] = K\left((c^{-1},1_v)(1_u,z^{-1})(c,1_u)(1_v,z)\right) \\
+  &&  \quad\quad = (fc)^{-1}(\partial K_0u)^{-1}(fc)(\partial K_0 v), \\
+K_{2,1} : \langle y \rangle \times C_1 \to C_2,  
+  &&  y \otimes c \mapsto K_1c \in C_3(v) 
+      \qquad\text{where}~ \partial K_1 c = ??? \\
+  &&  (\text{which defines the map}~ K_1 : C_1 \to C_3). \\
+\end{eqnarray*}
+
+\noindent
+We now derive some of the axioms or properties of these maps. 
+
+\noindent
+\begin{enumerate}[(a)] 
+\item
+
+\begin{eqnarray*}
+\partial_3(y \otimes c) 
+  &=&  (y \otimes v)^{-1}(y \otimes u)^c(z \otimes c) \\
+\Rightarrow \qquad \partial_3 K_1c 
+  &=& (K_0 v)^{-1} (K_0 u)^c [c,z].
+\end{eqnarray*}
+\end{enumerate}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Whitehead product of $1$-homotopies}
+\label{subsect:wprod-xcomp}
+
+We wish to define a monoid structure on the set of homotopies to $g$, 
+so let $H^0 : f^0 \simeq g$ and $H^1 : f^1 \simeq g$ be two homotopies 
+between automorphisms of $\calC$. 
+Then we define the \emph{Whitehead product} of $H^0,H^1$ to be 
+the homotopy $H^0 \star H^1 : f^0*g^{-1}*f^1 \simeq g$ where 
+\begin{eqnarray*}
+(H^0 \star H^1)_0(u) &=& (H^1_0g^{-1}_0f^0_0u)(H^0_0u), \\ 
+(H^0 \star H^1)_1(c) &=& (H^1_1c)(H^0_1c)(H^1_1g^{-1}_1\partial H^0_1c). 
+\end{eqnarray*}
+The arrows in these composite formulae are shown in the following diagram.
+
+\bigskip
+\begin{center}
+MISSING GRAPHICS
+%% \input{xcomp-wprod.pstex_t}
+%% \includegraphics[scale = 0.65]{xcomp/xcomp-wprod.eps}
+\end{center}
+
+\medskip\noindent
+This product is associative: 
+the homotopy $H^0 \star H^1 : f^0*g^{-1}*f^1 \simeq g$ where 
+\begin{eqnarray*}
+(H^0 \star H^1 \star H^2)_0(u) 
+  &=&  (H^2_0g^{-1}_0f^1_0g^{-1}_0f^0_0u)(H^1_0g^{-1}_0f^0_0u)(H^0_0u), \\ 
+(H^0 \star H^1 \star H^2)_1(c) 
+  &=&  (H^2_1c)(H^1_1c)(H^2_1g^{-1}_1\partial H^1_1c)
+       (H^0_1c)(H^2_1g^{-1}_1\partial H^0_1c)(H^1_1g^{-1}_1\partial H^0_1c) 
+       (H^2_1g^{-1}_1\partial H^1_1g^{-1}_1\partial H^0_1c). 
+\end{eqnarray*}
+

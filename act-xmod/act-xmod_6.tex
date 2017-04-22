@@ -1,0 +1,126 @@
+%% act-xmod_6.tex  (version 22/04/17) 
+
+\subsection{Semidirect product of crossed modules} 
+\label{subs:sdp-xmod}
+
+Just as a group action gives rise to a semidirect product group 
+(see subsection \ref{subs:sdp}),
+so a crossed module action gives a semidirect product crossed module.
+
+\begin{defn} \label{def:sdp-xmod} 
+\index{semidirect product!of crossed modules}
+\emph{
+The \emph{crossed module semidirect product} 
+with $\calY$ acting on $\calX$ is}
+$$
+\calY \ltimes \calX  \;\;=\;\;
+(\,\pi \;:\;Q \ltimes S \,\longrightarrow\, P \ltimes R\,)
+$$
+\emph{where
+\begin{enumerate}[(i)]
+\item
+$Q \ltimes S$  is the semidirect product with action
+$s^q \;=\; s^{\delta q} \;=\; \ddb_{\delta q} s
+  \quad \mbox{(see Lemma \ref{lem:ids5}(b) below)}$;
+\item
+$P \ltimes R$  is the semidirect product with action
+$r^p = \db_p r$~;
+\item
+$\pi(q,s) \;=\; (\delta q,\, \partial s)$~;
+\item
+$(q,s)^{(p,r)} \;=\; (q^p,\,(\chi_{q^p}\,r)^{-1}\,s^{pr})$~.
+\end{enumerate}
+}\end{defn}
+Note that the action specified in (iv) is a special case of 
+Proposition \ref{prop:semidirect-actions}.
+
+\begin{lem}
+$\pi$ is a group homomorphism.
+\end{lem}
+\begin{pf}
+\begin{eqnarray*}
+\pi(\,(q_1,s_1)(q_2,s_2)\,)  &  =  &
+   \pi( q_1q_2,\; {s_1}^{q_2}\,s_2)  \\
+ & = &
+   (\delta (q_1 q_2),\; 
+      \partial(\ddb_{\delta q_2}s_1)(\partial s_2) ) \quad \mbox{by (i)} \\
+\pi(q_1,s_1)\;\pi(q_2,s_2)  & = &
+   (\delta q_1, \partial s_1)\;(\delta q_2, \partial s_2)  \\
+ & = &
+   (\,(\delta q_1)(\delta q_2),\;
+      (\partial s_1)^{\delta q_2}\,(\partial s_2)\,) \\
+ & = &
+   (\delta(q_1q_2),\; (\db_{\delta q_2} \partial s_1)\,(\partial s_2)\,)
+       \quad \mbox{by (ii)}.
+\end{eqnarray*}
+and the two right-hand sides are equal since 
+$\partial\ddb_p = \db_p\partial \quad \mbox{for all} \;\; p \in P\;$.
+\end{pf}
+
+
+\begin{thm}
+The crossed module  $\calY \ltimes \calX$  as defined
+\emph{does} satisfy the two crossed modules axioms.
+\end{thm}
+\begin{pf}
+Verification of the first axiom:
+\begin{eqnarray*}
+(p,r)^{-1}\,\pi(q,s)\,(p,r)
+  & = &
+   (p,r)^{-1}\,
+      (\delta q, \partial s)\,
+         (p,r)  \\
+  & = &
+   (p^{-1},\, (r^{-1})^{p^{-1}})\,
+      ((\delta q)p,\, (\partial s)^p\,r\,)  \\
+  & = &
+   (p^{-1}(\delta q)p,\, 
+      (r^{-1})^{p^{-1}(\delta q)p}\,(\partial s)^p\,r\,)  \\
+  & = &
+   (\,\delta(q^p),\, 
+      (r^{\delta q^p})^{-1}\,(\partial s^p)\,r\,)  \\
+  & = &
+   (\,\delta(q^p),\, 
+      (r\,(\partial\chi_{q^p}\,r))^{-1}\,(\partial s^p)\,r\,)
+         \hspace{17mm} \mbox{(by \ref{lem:ids5}(c))}  \\
+  & = &
+   (\,\delta(q^p),\, (\partial\chi_{q^p}\,r)^{-1}\,
+       \partial(s^{pr}\,) \\
+  & = &
+   (\,\delta(q^p),\, \partial( (\chi_{q^p}\,r)^{-1}\, s^{pr} )\,) \\
+  & = &
+   \pi(\,(q,s)^{(p,r)}\,) ~.
+\end{eqnarray*}
+
+\noindent
+Verification of the second axiom:
+\begin{eqnarray*}\quad
+(q,s)^{-1}\,(q_1,s_1)\,(q,s)
+  & = &
+    (q^{-1},\,((s^{-1})^{q^{-1}})\,(q_1q,\,{s_1}^qs\,)  \\
+  & = &
+    (\,q^{-1}q_1q,\,(s^{-1})^{q^{-1}q_1q}\,{s_1}^q\,s\,)  \\
+  & = &
+    (\,{q_1}^{\delta q},\,(s^{-1})^{{q_1}^{\delta q}}\,{s_1}^q\,s\,)\\
+  & = &
+    (\,{q_1}^{\delta q},\, s^{-1}\,(\chi_{({q_1}^{\delta q})}\,
+      (\partial s^{-1}))\,s\,s^{-1}\,
+      {s_1}^{(\delta q)}\,s\,) 
+         \quad \mbox{(by \ref{lem:ids5}(b))}  \\
+  & = &
+    (\,{q_1}^{\delta q},\, (\chi_{({q_1}^{\delta q})}\,
+      (\partial s^{-1}))^{\partial s}\,
+      {s_1}^{(\delta q)(\partial s)}\,) \\
+  & = &
+    (\,{q_1}^{\delta q},\, (\chi_{({q_1}^{\delta q})}\,\partial s)^{-1}\,
+      {s_1}^{(\delta q)(\partial s)}\,) 
+         \hspace{19mm} \mbox{(by \ref{lem:invchir}(a))}  \\
+  & = &
+    (q_1,s_1)^{(\delta q,\,\partial s)}  
+         \hspace{48mm} \mbox{(by \ref{def:sdp-xmod}(iv))}  \\
+  & = &
+    (q_1,s_1)^{\pi(q,s)}
+         \hspace{50mm} \mbox{(by \ref{def:sdp-xmod}(iii))} ~. \\
+\end{eqnarray*}
+\end{pf}
+

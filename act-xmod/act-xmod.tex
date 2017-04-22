@@ -1,0 +1,607 @@
+%% act-xmod.tex,  version 22/04/17
+
+\section{The Actor of a Crossed Module} \label{sect:actor}
+
+This section is based on the material covered in pages 25-28 
+of Norrie's thesis \cite{nor2}. 
+We will, however, be extending her actor crossed module $\Act(\calX)$ 
+to the more general $\Act_{\gamma}(\calX)$ where $\gamma$ 
+is an automorphism of $\calX$. 
+Here is a table giving Norrie's symbols and the ones used here.
+
+\vspace{5mm}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+  section  &  type  &  old symbol  &  new symbol  \\
+\hline
+\ref{sect:actor}
+ &  xmod &   $\partial : T \to G$  & $\calX = (\partial : S \to R)$   \\
+ &  Whitehead group  &  $\Der(G,T)$  &  $W(\calX)$  \\
+ &  xmod morphism    &  $(\sigma,\theta)$  & 
+      $\beta_{\chi} \;=\; (\ddb_{\chi},\db_{\chi}) \;=\; (\sigma,\rho)$  \\
+ & principal derivations  &  $E(G,T)$  &  $E(\calX)$  \\
+\hline
+\ref{subs:xmod-action}
+ &  xmod &   $\mu : M \to P$    &   $\calX = (\partial : S \to R)$    \\
+ &  xmod &   $\nu : N \to V$    &   $\calY = (\delta : Q \to P)$    \\
+ &  xmod morphism & $<\epsilon,\rho>$  &
+                  $\beta\;(\,=\;(\ddb,\db)\,)$ \\
+ &  derivation group &   $D(P,M)$           &   $W = W(\calX)$  \\
+ &  automorphism group &   $\Aut(M,P)$        &   $A = A(\calX)$  \\
+ &  semidirect product &   $(M,P)\,\sqsupset_{<\epsilon,\rho>}\,(N,V)$  &  
+                  $\calY \ltimes \calX$  \\
+ &  xmod &   $\pi \;:\; M \sqsupset N \;\to\; \;P \sqsupset V$  &
+                  $(\pi \;:\; Q \ltimes S \to P \ltimes R)$      \\
+ &  automorphism &   $\rho(v) = (\rho_1(v),\rho_2(v))$  &  
+                  $\beta(p) = \beta_p : \calX \to \calX$ \\
+ &  elements &   $m,\;n,\;p,\;v$    &    $s,\;q,\;r,\;p$  \\
+ &  Whitehead boundary &   $\Delta(\chi) \;=\; <\theta_{\chi},\ddb_{\chi}>$ &
+         $\Delta(\chi) \;=\; \beta_{\chi} \;=\; (\ddb_{\chi},\db_{\chi})$  \\
+\hline
+\end{tabular}
+\end{center}
+
+\bigskip
+When $\gamma$ is an automorphism of $\calX$, 
+the group of automorphisms $\Aut_{\gamma}\calX$, 
+has composition (as in (\ref{eq:star-gamma-calX})) given by 
+$$
+\alpha_1 \ast_{\gamma} \alpha_2 
+\;:=\; 
+(\dda_1 \ast_{\ddg} \dda_2,\, \da_1 \ast_{\dg} \da_2) 
+\;=\; 
+(\dda_1 * \ddg^{-1} * \dda_2,\, \da_1 * \dg^{-1} * \da_2)\,. 
+$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Lue and Norrie crossed modules 
+$\calL_{\gamma}(\calX)$ and $\calN_{\gamma}(\calX)$ of $\calX$} 
+\label{subs:SR-to-autX} 
+
+We generalise the automorphism crossed module 
+$(\iota : R \to \Aut\,R)$, where $\iota r$ is conjugation by $r$, 
+to the \emph{Norrie crossed module} 
+$\calN_{\gamma} = (\di_{\gamma} : R \to \Aut_{\gamma}\calX)$ where: 
+\begin{itemize} 
+\item 
+the $\gamma$-conjugation map is given by~ 
+$\di_{\gamma}r := \beta_r$ where 
+$\db_r q := (\dg q)^r,~ 
+ \ddb_r s := (\ddg s)^r$, and 
+\item 
+$\Aut_{\gamma}\calX$ has right actions on $R$ and $S$ given by~ 
+$r^{\alpha} \;:=\; \da \dg^{-1} r, \quad 
+ s^{\alpha} \;:=\; \dda \ddg^{-1} s$\,. 
+\end{itemize} 
+(An alternative set of definitions is given by 
+$\db_r q = (\dg q)^r,\; 
+ \ddb_r s = (\ddg s)^r,\; 
+ r^{\alpha} = \da\dg^{-1}r,\; 
+ s^{\alpha} = \dda\ddg^{-1}s$, 
+but these do not combine with the principal derivation map 
+to give a morphism of crossed modules.) 
+
+\noindent 
+Note that $\beta_r^{-1}$ is given by 
+$\db_r^{-1}q = \dg^{-1}(q^{r^{-1}}),~ \ddb_r^{-1}s = \ddg^{-1}(s^{r^{-1}})$. 
+
+\medskip\noindent
+We now check the various axioms for $\calN_{\gamma}$. 
+
+\noindent 
+The map $\di_{\gamma}$ is a homomorphism: 
+\begin{eqnarray*} 
+\left( \beta_{r_1} \ast_{\gamma} \beta_{r_2} \right)q 
+ & = & \db_{r_2} \dg^{-1} ((\dg q)^{r_1}) 
+ \;=\; \db_{r_2} (q^{\dg^{-1}r_1}) 
+ \;=\; (\dg (q^{\dg^{-1}r_1}))^{r_2} 
+ \;=\; (\dg q)^{r_1r_2} 
+ \;=\; \db_{r_1r_2} q\,, \\ 
+\left( \beta_{r_1} \ast_{\gamma} \beta_{r_2} \right)s 
+ & = & \ddb_{r_2} \ddg^{-1} ((\ddg s)^{r_1}) 
+ \;=\; \ddb_{r_2} (s^{\dg^{-1}r_1}) 
+ \;=\; (\ddg (s^{\dg^{-1}r_1}))^{r_2} 
+ \;=\; (\ddg s)^{r_1r_2}  
+ \;=\; \ddb_{r_1r_2} s\,. 
+\end{eqnarray*}
+
+\noindent 
+The given formulae do specify an action of $\Aut_{\gamma}\calX$ on $\calX$\,: 
+%% \begin{equation} \label{eq:autR-action-on-calX}
+\begin{eqnarray*}
+(r^{\alpha_1})^{\alpha_2} 
+& = & \da_2 \dg^{-1} (\da_1 \dg^{-1} r)
+\;=\; (\da_1 \ast_{\dg} \da_2) \dg^{-1} r
+\;=\; r^{\alpha_1 \ast_{\gamma} \alpha_2}\,, \\ 
+(s^{\alpha_1})^{\alpha_2} 
+& = & \dda_2 \ddg^{-1} (\dda_1 \ddg^{-1} s)
+\;=\; (\dda_1 \ast_{\ddg} \dda_2) \ddg^{-1} s
+\;=\; s^{\alpha_1 \ast_{\gamma} \da_2}\,.  
+\end{eqnarray*} 
+
+\noindent 
+First crossed module axiom 
+(using the $\gamma$-conjugation of (\ref{eq:g-conj})): 
+\begin{eqnarray*} 
+(\wedge_{\gamma} \alpha)\db_r q 
+ &=& \da\dg^{-1}\db_r(\da^{-1}\dg q) 
+  =  \da\dg^{-1} ((\dg\da^{-1}\dg q)^r) 
+  =  \da ((\da^{-1}\dg q)^{\dg^{-1}r}) 
+  =  (\dg q)^{r^{\alpha}}  
+  =  \db_{r^{\alpha}} q\,, \\
+(\wedge_{\gamma} \alpha)\ddb_r s 
+ &=& \dda\ddg^{-1}\ddb_r(\dda^{-1}\ddg s) 
+  =  \dda\ddg^{-1} ((\ddg\dda^{-1}\ddg s)^r) 
+  =  \dda ((\dda^{-1}\ddg s)^{\dg^{-1}r}) 
+  =  (\ddg s)^{r^{\alpha}}  
+  =  \ddb_{r^{\alpha}} s\,. 
+\end{eqnarray*}
+
+\noindent 
+Second crossed module axiom: 
+$$
+r^{\di_{\gamma} r'} 
+ = \db_{r'} \dg^{-1}r 
+ = r^{r'}\,.
+$$
+
+\medskip\noindent 
+Similarly, for the \emph{Lue crossed module} 
+$\calL_{\gamma}(\calX) = (\partial*\di_{\gamma} : S \to \Aut_{\gamma}\calX)$, 
+\begin{itemize} 
+\item
+the boundary maps $s \in S$ to $\beta_{\partial s}$ where 
+$\db_{\partial s}q = (\dg q)^{\partial s},\, 
+\ddb_{\partial s}s' = (\ddg s')^{\partial s}$,  and 
+\item
+the action of $\Aut_{\gamma}\calX$ on $R$ and $S$ are as above. 
+\end{itemize} 
+The verification of the crossed module axioms for $\calL_{\gamma}\calX$ 
+are similar to those for $\calN_{\gamma}\calX$. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{The actor crossed module $\calA_{\gamma}(\calX)$ of $\calX$}  
+\label{subs:AX}
+
+The missing part of the structure of the actor crossed module 
+$\Act_{\gamma}(\calX)$ is a $\gamma$-action of the automorphisms 
+on the derivations. 
+
+\begin{lem} \label{lem:AonW}
+There is an action of  $\Aut_{\gamma}(\calX)$  on  $W_{\gamma}(\calX)$  
+given by
+$$
+\chi^{\alpha} \;=\; \gamma * \alpha^{-1} * \chi * \gamma^{-1} * \alpha 
+             \;:\; R \to S\,,
+    \quad r \mapsto \dda \ddg^{-1} \chi \da^{-1} \dg \,r\,, 
+$$
+such that $\beta_{\chi^{\alpha}} = (\wedge_{\gamma}\alpha)(\beta_{\chi})$ 
+where $\wedge_{\gamma}\alpha$ is the $\gamma$-conjugation automorphism 
+of (\ref{eq:g-conj}). 
+\end{lem}
+\begin{pf} 
+We first check the axiom for an action: 
+$$
+(\chi^{\alpha_1})^{\alpha_2}
+\,=\, \gamma*\alpha_2^{-1}*
+         (\gamma*\alpha_1^{-1}*\chi*\gamma^{-1}*\alpha_1)*
+             \gamma^{-1}*\alpha_2
+\,=\, \gamma*(\alpha_1\ast_{\gamma}\alpha_2)^{-1}*
+         \chi*\gamma^{-1}*(\alpha_1\ast_{\gamma}\alpha_2)
+\,=\, \chi^{(\alpha_1\ast_{\gamma}\alpha_2)}.
+$$
+Secondly, we observe that 
+$(\wedge_{\gamma}\alpha)(\beta_{\chi}) 
+ = \gamma*\alpha^{-1}*\beta_{\chi}*\gamma^{-1}*\alpha$. 
+\end{pf}
+
+\begin{defn} \index{actor!of a crossed  module}
+For $\gamma$ an automorphism of $\calX = (\partial : S \to R)$, 
+the \emph{actor crossed module over $\gamma$ of $\calX$} is 
+$\calA_{\gamma}(\calX) = (\Delta_{\gamma} : W_{\gamma} \to A_{\gamma})$  
+where  
+\begin{itemize}
+\item
+$W_{\gamma} = W_{\gamma}(\calX)$  
+is the Whitehead group of invertible derivations
+\begin{equation} \label{eq:der-rule}
+\chi : R \to S, \quad \mbox{such that} \quad
+\chi(qr) = (\chi q)^{\dg r}\,(\chi r)
+\quad\mbox{for all}\quad
+q,r \in R~,
+\end{equation}
+and with Whitehead multiplication (on the right)
+\begin{equation} \label{eq:W-mult}
+\chi_1 \,\star_{\gamma}\, \chi_2 \;:\; R \to S, \;\;
+r \mapsto (\chi_2 r)(\chi_1 r)(\chi_2\dg^{-1}\partial\chi_1 r)~;
+\end{equation}
+\item
+$A_{\gamma} = \Aut_{\gamma}(\calX)$  is the group of automorphisms of  $\calX$,
+namely those invertible  $\alpha = (\dda,\da) : \calX \to \calX$  such that
+$$
+\da \partial = \partial \dda~, \quad
+\dda(s^r) = (\dda s)^{\da r}
+\quad \mbox{and} \quad
+\da(q^r) = (\da q)^{\da r}
+\quad \mbox{for all} \;\;
+s \in S \;\; \mbox{and} \;\; q,r \in \,, 
+$$ 
+with composition \quad 
+$\alpha_1 \ast_{\gamma} \alpha_2 
+:= (\dda_1 \ast_{\ddg} \dda_2,\, \da_1 \ast_{\dg} \da_2)$, 
+and action given by Lemma \ref{lem:AonW}. 
+\item 
+The boundary map is obtained by restricting the monoid homomorphism 
+$\Delta_{\gamma} : \Der_{\gamma}(\calX) \to \End_{\gamma}(\calX)$  
+of Theorem \ref{thm:Delta} to the regular derivations: 
+$$
+\Delta_{\gamma} \,:\, W_{\gamma} \to A_{\gamma}, \;\; \chi \mapsto 
+   \beta_{\chi} = (\ddb_{\chi}, \db_{\chi})~,
+$$
+\begin{equation} \label{eq:actor-bdy}
+\mbox{where} \quad
+\ddb_{\chi} : S \to S, \;\; s \mapsto (\ddg s)(\chi \partial s), \quad
+  \db_{\chi} : R \to R, \;\; r \mapsto (\dg r)(\partial \chi r)\,.
+\end{equation}
+\end{itemize}
+\end{defn}
+
+When it is convenient not to distinguish the two group homomorphisms
+in the crossed module morphism,
+we write  $\alpha$  for both  $\dda$  and  $\da$.
+
+These groups and morphisms are exhibited in the following diagram 
+(the inner morphism $\iota_{\gamma} = (\ddi_{\gamma},\di_{\gamma})$ 
+is defined in Subsection \ref{subs:inner-morphism} below):
+\begin{equation} \label{eq:sqX}
+\vcenter{\xymatrix{
+  S \ar[dd]_{\partial}
+    &&&  S \ar[lll]_{\dda,\;\ddb_r,\;\ddb_{\chi},\;\ddg} 
+            \ar[dd]_{\partial} \ar[rr]^{\ddi_{\gamma}}
+         &&  W  \ar[dd]^{\Delta_{\gamma}}   \\
+    &&& &&   \\
+  R
+    &&&  R \ar[lll]^{\da,\;\db_r,\;\db_{\chi},\;\dg} 
+            \ar[rr]_{\di_{\gamma}}
+         &&  A \\
+}} 
+\end{equation}
+
+\begin{thm}
+With this action, 
+$\calA_{\gamma}(\calX) = (\Delta_{\gamma} : W_{\gamma} \to A_{\gamma})$ 
+is a crossed module.
+\end{thm}
+\begin{pf}
+We have already shown that  $\Delta_{\gamma}$  is a group homomorphism.
+
+\medskip\noindent
+We verify the first crossed module axiom for  
+$\calA_{\gamma}(\calX)$  as follows. 
+$$
+\mbox{\textbf{X1:}} \quad\quad
+\Delta_{\gamma}(\chi^{\alpha}) 
+ \;=\;  (\wedge_{\gamma} \alpha)(\Delta_{\gamma}\chi) 
+ \;=\;  \gamma*\alpha^{-1}*\beta_{\chi}*\gamma^{-1}*\alpha\,.
+$$
+
+\noindent
+Put  $\chi^{\alpha} \;=\; \chi^+$
+and  $\Delta_{\gamma}(\chi^+) \;=\; \alpha^+ \;=\; (\dda^+,\da^+)\,$.
+Then
+\begin{eqnarray*} 
+\dda^+ s \;=\; (\ddg s)(\chi^+ \partial s)
+  & = & 
+    (\ddg s)(\dda\ddg^{-1}\chi\da^{-1}\dg\partial s)
+  \;=\;
+    (\ddg s)(\dda\ddg^{-1}\chi\partial\dda^{-1}\ddg s)
+  \;=\;
+    \dda\ddg^{-1}((\ddg\dda^{-1}\ddg s)(\chi\partial\dda^{-1}\ddg s)) \\
+  & = &
+    \dda\ddg^{-1}\ddb_{\chi}(\dda^{-1}\ddg s)
+  \;=\;
+    (\gamma * \alpha^{-1} * \beta_{\chi} * \gamma^{-1} * \alpha) \, s ~, \\
+\da^+ r \;=\; (\dg r)(\partial \chi^+ r)
+  & = &
+    (\dg r)(\partial \dda \ddg^{-1} \chi \da^{-1} \dg r)
+  \;=\;
+    (\dg r)(\da \dg^{-1} \partial \chi \da^{-1} \dg r)
+  \;=\;
+    \da \dg^{-1} (\dg \da^{-1} \dg r) (\partial \chi \da^{-1} \dg r) ) \\
+  & = &
+    \da \dg^{-1} \db_{\chi}(\da^{-1} \dg r)
+  \;=\;
+    (\gamma * \alpha^{-1} * \beta_{\chi} * \gamma^{-1} * \alpha) \, r ~. 
+\end{eqnarray*}
+
+\noindent
+The second crossed module axiom for  $\calA_{\gamma}(\calX)$, 
+$$
+\mbox{\textbf{X2:}} \quad\quad
+{\chi_1}^{\Delta_{\gamma} \chi_2} \;=\;
+  \overline{\chi_2} \,\star_{\gamma}\, \chi_1 \,\star_{\gamma}\, \chi_2\,,
+$$
+is verified by showing that 
+$\chi_2 \star_{\gamma} {\chi_1}^{\Delta_{\gamma}\chi_2} 
+ = \chi_1 \star_{\gamma} \chi_2$\,, 
+using Lemma \ref{lem:gamma-beta-chi} (c), 
+$$
+(\chi_2 \,\star_{\gamma}\,{\chi_1}^{\Delta_{\gamma} \chi_2})\,r 
+  \;=\; (\chi_2 r)({\chi_1}^{\Delta_{\gamma}\chi_2}\dg^{-1}\db_{\chi_2}r)
+  \;=\; (\chi_2 r)(\ddb_{\chi_2} \ddg^{-1} \chi_1 r)
+  \;=\; (\chi_1 \star_{\gamma} \chi_2)r\,. 
+$$ 
+\end{pf}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The inner morphism $\iota : \calX \to \calA(\calX)$}
+\label{subs:inner-morphism}
+
+We next describe the morphism of crossed modules
+$\iota_{\gamma} = (\ddi_{\gamma},\di_{\gamma}) 
+ : \calX \to \calA_{\gamma}(\calX)$. 
+The conditions in (\ref{eq:prexmod-morph}) 
+for $\iota_{\gamma}$ to be a morphism are: 
+\begin{equation} \label{eq:6}
+\ddi_{\gamma}(s_1s_2) 
+\;=\; \ddi_{\gamma} s_1 \star_{\gamma} \ddi_{\gamma} s_2\,,
+\quad\quad 
+\di_{\gamma}(r_1r_2) \;=\; \di_{\gamma} r_1 \ast_{\gamma} \di_{\gamma} r_2\,.
+\end{equation}
+
+\noindent
+The range part  $\di_{\gamma}$  of  $\iota_{\gamma}$  
+is given in Subsection \ref{subs:SR-to-autX} by: 
+$$
+\di_{\gamma} \,:\, R \to A_{\gamma}, \quad
+r \,\mapsto\, \beta_r = (\ddb_r,\db_r) : \calX \to \calX,
+\quad \ddb_r s_0 = (\ddg s_0)^r,
+\quad  \db_r r_0 = (\dg r_0)^r\,.
+$$
+
+\noindent
+The source part  $\ddi_{\gamma}$  of $\iota_{\gamma}$  
+maps $s$ to its principal derivation 
+(see Lemmas \ref{lem:gamma-eta_s}, \ref{lem:princ-prop}): 
+$$
+\ddi_{\gamma} \,:\, S \to W_{\gamma}, \quad 
+s \,\mapsto\, \eta_s : R \to S,\; r \mapsto (s^{-1})^{\dg r}\,s\,.
+$$
+
+\begin{thm} \label{thm:iota}
+The pair of group homomorphisms  
+$\iota_{\gamma} = (\ddi_{\gamma},\di_{\gamma}) 
+ \,:\,  \calX \to \calA_{\gamma}(\calX)$
+is a morphism of crossed modules.
+\end{thm}
+\begin{pf}
+The square commutes if 
+$\Delta_{\gamma}\,\ddi_{\gamma} \,=\, \di_{\gamma}\,\partial$. 
+To verify this we show that
+$(\Delta_{\gamma}\ddi_{\gamma})s \,=\, \Delta_{\gamma}\eta_s 
+                                 \,=\, \beta_{\eta_s}$
+is the same automorphism of  $\calX$  as
+$(\di\partial)s \,=\, \beta_{\partial s}$~. 
+By definition of  $\beta_{\eta_s} = (\ddb_{\eta_s},\db_{\eta_s})$  we have: 
+\begin{eqnarray*}
+\ddb_{\eta_s}(s_0) 
+  & = & (\ddg s_0)(\eta_s\partial s_0) 
+  \;=\; (\ddg s_0)(s^{-1})^{\partial \ddg s_0}s
+  \;=\; s^{-1}(\ddg s_0)s 
+  \;=\; (\ddg s_0)^{\partial s} 
+  \;=\; \ddb_{\partial s}(s_0) \,, \\
+\db_{\eta_s}(r_0) 
+  & = & (\dg r_0)(\partial\eta_s r_0) 
+  \;=\; (\dg r_0) \partial((s^{-1})^{\dg r_0}s)
+  \;=\; (\partial s)^{-1}(\dg r_0)(\partial s) 
+  \;=\; (\dg r_0)^{\partial s} 
+  \;=\; \db_{\partial s}(r_0) \,. 
+\end{eqnarray*}
+
+\noindent
+Then we check that the action is preserved:
+\begin{eqnarray*} 
+(\ddi s)^{\di r}(q) 
+  & = &  (\eta_s)^{\beta_r}q 
+  \;=\;  \ddb_r \ddg^{-1} \eta_s \db_r^{-1} \dg q 
+  \;=\;  \ddb_r \ddg^{-1} \eta_s \dg^{-1} \left( (\dg q)^{r^{-1}} \right) 
+  \;=\;  \left( \ddg \ddg^{-1} \eta_s ( q^{\dg^{-1}r^{-1}} ) \right)^r \\ 
+  & = &  \left( (s^{-1})^{r(\dg q)r^{-1}} s \right)^r 
+  \;=\;  \left( (s^r)^{-1} \right)^{\dg q} s^r 
+  \;=\;  \eta_{(s^r)}q 
+  \;=\;  \ddi(s^r)(q) \,.
+\end{eqnarray*} 
+\end{pf}
+
+The $\gamma$-version of the \emph{inner actor crossed module} of $\calX$ 
+is the image $\iota_{\gamma}\calX$. 
+The source group consists of the principal $\gamma$-derivations, 
+and the range group consists of the $\gamma$-conjugation automorphisms. 
+For further details see Norrie's thesis \cite{nor2}. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Whitehead crossed module $\calW_{\gamma}(\calX)$ of $\calX$} 
+\label{subs:Whitehead-xmod}
+
+\bigskip
+\begin{lem} \label{lem:deriv-act}
+There is an action of the Whitehead group $W_{\gamma}$ on $S$ given by
+$$
+s^{\chi} \;:=\; s^{\beta_{\chi}} 
+          \;=\; \ddb_{\chi} \ddg^{-1} s
+          \;=\; s(\chi\dg^{-1}\partial s)
+$$
+which makes  $\calW_{\gamma}(\calX) = (\ddi_{\gamma} : S \to W_{\gamma})$  
+a crossed module.
+\end{lem}
+\begin{pf}
+We first verify that this is an action:
+\begin{eqnarray*} 
+\left( s^{\chi_1} \right)^{\chi_2} 
+  & = &  \ddb_{\chi_2} \ddg^{-1} \left( s(\chi_1\dg^{-1}\partial s) \right) 
+  \;=\;  s(\chi_1\dg^{-1}\partial s)\, 
+         \chi_2\partial\ddg^{-1} \left( s(\chi_1\dg^{-1}\partial s) \right) \\ 
+  & = &  s(\chi_1\dg^{-1}\partial s)\, 
+         \chi_2\left( (\dg^{-1}\partial s)
+                      (\dg^{-1}\partial\chi_1\dg^{-1}\partial s) \right) \\  
+  & = &  s(\chi_1\dg^{-1}\partial s)\, 
+         (\chi_2\dg^{-1}\partial s)^{\partial\chi_1\dg^{-1}\partial s} 
+             (\chi_2\dg^{-1}\partial\chi_1\dg^{-1}\partial s)  \\
+  & = &  s(\chi_2\dg^{-1}\partial s)(\chi_1\dg^{-1}\partial s)
+             (\chi_2\dg^{-1}\partial\chi_1\dg^{-1}\partial s)  \\
+  & = &  s \left( (\chi_1 \star_{\gamma} \chi_2)(\dg^{-1}\partial s) \right) 
+  \;=\;  s^{(\chi_1 \star_{\gamma} \chi_2)} \,.
+\end{eqnarray*} 
+
+\noindent
+The first crossed module axiom 
+$\eta_{(s^{\chi})} \,=\, 
+ \overline{\chi} \star_{\gamma} \eta_s \star_{\gamma} \chi$
+is verified by checking 
+\begin{eqnarray*} 
+(\eta_s \star_{\gamma} \chi)\,r
+  & = &  (\chi r)(\ddb_{\chi} \ddg^{-1} \eta_s r) 
+  \;=\;  (\chi r)\left(\ddb_{\chi}\ddg^{-1}((s^{-1})^{\dg r}s)\right)  
+  \;=\;  (\chi r)(\ddb_{\chi}\ddg^{-1}s^{-1})^{\db_{\chi}r} 
+           (\ddb_{\chi}\ddg^{-1}s) \\
+  & = &  \left((s^{\chi})^{-1}\right)^{\dg r}(\chi r)(s^{\chi}) 
+  \;=\;  \left((s^{\chi})^{-1}\right)^{\dg r}
+            (s^{\chi})(\chi r)
+            \left((s^{\chi})^{-1}\right)^{\dg(\dg^{-1}\partial\chi r)} 
+            (s^{\chi}) \\  
+  & = &  \left(\eta_{(s^{\chi})}r\right)(\chi r)
+           \left(\eta_{(s^{\chi})}\dg^{-1}\partial\chi r\right) 
+  \;=\;  \left(\chi \star_{\gamma} \eta_{(s^{\chi})}\right)\,r\,.
+\end{eqnarray*}
+
+\noindent
+The second crossed module axiom is verified by:
+$$ 
+s^{\ddi s^{\prime}} 
+  \;=\; s^{\eta_{s'}} 
+  \;=\; s^{\beta_{\eta_{s'}}} 
+  \;=\; \ddb_{\eta_{s'}} \ddg^{-1} s 
+  \;=\; s(\eta_{s'} \partial \ddg^{-1} s) 
+  \;=\; s[s,s'] 
+  \;=\; s^{s'}\,. 
+$$ 
+\end{pf}
+
+\vspace{3mm}
+\noindent
+{\bf [We might show here that $(\partial,\Delta)$ is a morphism.]}
+\vspace{3mm}
+
+\begin{lem}
+$$
+(\eta_s)^{\alpha} \;\;=\;\; \eta_{(s^{\alpha})}~.
+$$
+\end{lem}
+\begin{pf} 
+\begin{eqnarray*}
+(\eta_s)^{\alpha}q 
+  & = &  \dda \ddg^{-1} \eta_s \da^{-1} \dg q  
+  \;=\;  \dda \ddg^{-1} 
+           \left( (s^{-1})^{\dg\da^{-1}\dg q}\,s \right) 
+  \;=\;  \dda\left( (\ddg^{-1}s^{-1})^{\da^{-1}\dg q}\,(\ddg^{-1}s)\right) \\ 
+  & = &  (\dda \ddg^{-1} s^{-1})^{\dg q}\,(\dda \ddg^{-1}s)  
+  \;=\;  ((s^{\alpha})^{-1})^{\dg q}\,(s^{\alpha}) 
+  \;=\;  \eta_{(s^{\alpha})}q \,. 
+\end{eqnarray*}
+\end{pf}
+
+\bigskip 
+The right-hand square of morphisms of crossed modules in (\ref{eq:sqX})
+becomes a \emph{crossed square} $\calS_{\gamma}(\calX)$ 
+(see Example \ref{ex:actor-square} for the identity case) 
+when the \emph{crossed pairing} (see Section \ref{sect:natp}) 
+$\bt : R \times W_{\gamma} \to S,\; (r,\chi) \mapsto \chi \dg^{-1} r$, 
+is added to the structure. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The actor $\calA(\calC)$} \label{subs:AC}
+
+(This Subsection (for now) covers only identity derivations and sections.) 
+
+\medskip\noindent
+The diagram corresponding to equation (\ref{eq:sqX}) is
+\begin{equation} \label{eq:sqC}
+\vcenter{\xymatrix{
+  G \ar[dd]  \ar[dd] <-1.0ex>_{t,h}
+    &&  G \ar[ll]_{\barb}  \ar[rr]^(0.4){\ddk}
+          \ar[dd]  \ar[dd] <-1.0ex>_{t,h}
+       &&  A(\calC) \ltimes W(\calC)  
+            \ar[dd]  \ar[dd] <-1.0ex>_{T,H}  \\
+    && &&   \\
+  R \ar[uu] <-1.0ex>_e 
+    &&  R \ar[uu] <-1.0ex>_e \ar[ll]^{\db} \ar[rr]_(0.4){\dk}
+       &&  A(\calC) \ar[uu] <-1.0ex>_{E} \\
+}} 
+\end{equation}
+where $W = W(\calC)$ and $A = A(\calC)$ are defined as follows:
+\begin{itemize}
+\item~
+$W$ is the group of sections of $\calC$
+with composition given by equation (\ref{eq:section-comp}),
+\item~
+$A=\Aut(\calC)$ is the group of automorphisms of $\calC$,
+\item~
+$\Delta_{\calC} : W \to A,~
+\xi \mapsto (\barb_{\xi}, \db_{\xi})$~
+(see equations (\ref{eq:five-endos})).
+\end{itemize}
+
+\noindent
+{\bf Note:}~~ $T,H,E$ were previously written $\Delta_t,\Delta_h,\Delta_e$. 
+
+\bigskip\noindent
+The homomorphisms 
+$\ddk, \dk, T, H, E$ are given as follows.
+\begin{itemize}
+\item~
+$\dk \,:\, R \to A, \quad
+r \,\mapsto\, \beta'_r = (\barb_r,\db_r) : \calC \to \calC,
+\quad  \barb_r g_0 = g_0^r\,,
+\quad  \db_r r_0 = r_0^r = r^{-1}r_0r$\,,\\
+using the action of $R$ on $G$ in equation (\ref{eq:RactsonG}).
+\item~
+$\ddk : G \to A \ltimes W,\;
+g \mapsto (\dk tg, \kappa_g : R \to G)
+\quad\mbox{where}\;\;  \kappa_g(r) = (er)^{(etg^{-1})g}$~.
+\item~
+$T(\beta,\xi) = \beta, \quad
+H(\beta,\xi) = \beta \ast \Delta_{\calC}(\xi), \quad
+E(\beta) = (\beta,\id)$.
+\end{itemize}
+
+\bigskip\noindent
+{\bf [Add in here the associated cat2-group with groups 
+$(A \ltimes W) \ltimes (R \ltimes S),~
+A \ltimes W,~ A \ltimes R,~ A$.]}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+\input{act-xmod/act-xmod_5.tex}
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+\input{act-xmod/act-xmod_6.tex}
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Actions of a Cat1-group}
+
+\begin{defn}
+To be added.
+\end{defn}

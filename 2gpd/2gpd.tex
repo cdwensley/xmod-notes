@@ -1,0 +1,364 @@
+%% 2gpd.tex,  version 22/04/17
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{$2$-groupoid enrichments}
+
+\noindent
+{\bf How does a group act on a set?}
+
+Let $G$ be a group (thought of as a $1$-object groupoid) 
+and $X$ a set (with $0$ groupoid structures). 
+Construct the ($1$-)groupoid $\Symm(X)$, 
+whose arrows form the group of permutations of $X$.
+An action of $G$ on $X$ is then determined by a groupoid homomorphism 
+$\theta : G \to \Symm(X)$.
+
+We now form a cat$^0$-group $X_G$ (which is just a group) from $G$, 
+by throwing away the single object, 
+leaving a set with extra structure (the group multiplication). 
+We then require the subgroupoid of $\Symm(X_G)$ whose arrows 
+are the permutations which preserve the multiplication. 
+This subgroupoid is of course $\Aut(G)$. 
+The inner morphism $\iota$, mapping $g \in G$ to conjugation by $g$, 
+gives an action of $G$ on itself. 
+The actor crossed module of $G$ is then $(\iota : G \to \Aut(G))$, 
+which can be thought of as a cat$^1$-group, 
+or group-groupoid, or $2$-groupoid.
+
+\bigskip\noindent
+{\bf How does a crossed module act on a groupoid?} 
+
+Let $\calX$ be a crossed module, 
+thought of as a $2$-groupoid $\calG$ with one object, 
+and let $\Gamma$ be a groupoid. 
+Construct the $2$-groupoid $\Symm(\Gamma)$, with one object $\bullet$, 
+the automorphisms of $\Gamma$ as arrows, 
+thought of as functors $\Gamma \to \Gamma$, 
+and natural transformations between these functors as $2$-cells. 
+An action of $\calX$ on $\Gamma$ is then determined by a 
+$2$-groupoid homomorphism $\theta : \calG \to \Symm(\Gamma)$.
+
+We now form a cat$^1$-group (group-groupoid) $\Gamma_{\calX}$ from $\calX$ 
+by throwing away the single object, 
+leaving a groupoid with extra structure (again group multiplication).
+We then require the sub-$2$-groupoid $\Act(\calX)$ 
+of $\Symm(\Gamma_{\calX})$ whoses arrows 
+are the automorphims which preserve the cat$^1$-structure 
+(and whose $2$-cells preserve ???). 
+The inner morphism $\iota : \calX \to \Act(\calX)$ then has to be determined.  
+The actor crossd square of $\calX$ is then 
+$(\iota : \calX \to \Act(\calX))$, 
+which can be thought of as a cat$^2$-group, 
+or $3$-groupoid, or group-double groupoid (is this correct?), or whatever.
+
+\bigskip\noindent 
+{\bf How does a crossed square act on a double groupoid?} 
+
+Let $\calS$ be a crossed square, thought of as a $3$-groupoid, 
+and let $\calD$ be a double groupoid. 
+Construct the $3$-groupoid $\Symm(\calD)$ 
+(or should this be a $2$-double groupoid?)
+with one object, whose arrows are automorphisms of $\calD$ (double functors), 
+$2$-cells are homotopies, or double natural transformations (?), 
+and $3$-cells are $2$-homotopies of some sort? 
+An action of $\calS$ on $\calD$ is then determined by a 
+$3$-groupoid homomorphism $\theta : \calS \to \Symm(\calD)$.
+
+We now form a cat$^2$-group (group-double groupoid) 
+$\calD_{\calS}$ from $\calS$ by throwing away the single object, 
+leaving a double groupoid with extra structure (again group multiplication).
+We then require the sub-$3$-groupoid $\Act(\calS)$ 
+of $\Symm(\calD_{\calS})$ whoses arrows 
+are the automorphims which preserve the cat$^2$-structure 
+(and whose $2$-cells and $3$-cells preserve ???). 
+The inner morphism $\iota : \calS \to \Act(\calS)$ then has to be determined.  
+The actor crossd cube of $\calS$ is then 
+$(\iota : \calS \to \Act(\calS))$, 
+which can be thought of as a cat$^3$-group, 
+or $4$-groupoid, or group-triple groupoid (is this also correct?) 
+and, no doubt, lots of other gadgets in the crossed menagerie!
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The automorphism $2$-category of $\calG$}
+
+This material is adapted from \cite{kamps:port}.
+
+Let $\calG$ be the ``$2$-group associated to the crossed module 
+$\calX = (\partial : S \to R)$'', 
+as described in Subsection \ref{subs:twogps}, 
+with $2$-cells
+
+$$
+\xy
+\xymatrix{
+  && && \\
+  \bullet  \ar@/^5ex/[rrrr]^{r} 
+           \ar@/_5ex/[rrrr]_{r(\partial s)} 
+  && \Downarrow (r,s)
+     && \bullet \\
+  && && \\
+}
+\endxy
+$$
+
+\medskip\noindent
+We now seek to describe $\calF = \calF(\calG,\calG)$, 
+the automorphism $2$-category of $\calG$.
+
+\medskip\noindent
+{\large{\bf objects of $\calF$}}\\ 
+These are strict $2$-functors $\beta,\gamma,\ldots : \calG \to \calG$, 
+where we write $\beta = (\id_{\bullet},\db, \barb=(\db,\ddb))$, 
+mapping $\bullet$ to itself, $r$ to $\db r$, 
+and $(r,s)$ to $(\db r, \ddb s)$. 
+Of course $\db,\ddb$ are automorphisms of $R,S$ respectively. 
+(Perhaps generalise to endomorphisms.)
+Since $\beta$ is a $2$-functor, tail and head maps are preserved, 
+so $\partial\ddb = \db\partial$.
+
+\medskip\noindent
+{\large{\bf $1$-arrows of $\calF$}}\\
+These have the form $\barch : \beta \to \gamma$, 
+and are $2$-natural transformations which make the following assignments. 
+To the object $\bullet$ we assign an element 
+$q = q_{\beta}^{\gamma} = \barch(\bullet) \in R$.
+
+\noindent
+To $r \in R$ we assign a square $2$-cell
+$$
+%\vcenter{
+{\xy
+\xymatrix{
+  \bullet \ar[rr]^{\db r} 
+    & \ar @{=>} [dr]_{\barch r}
+      & \bullet 
+        & & \\
+    & & & \equiv
+          & \\
+  \bullet \ar[uu]^q \ar[rr]_{\dg r} 
+    & & \bullet \ar[uu]_q
+        & & \\
+}
+\endxy}
+{\xy
+\xymatrix{
+  && && \\
+  \bullet  \ar@/^5ex/[rrrr]^{q(\db r)} 
+           \ar@/_5ex/[rrrr]_{(\dg r)q} 
+  && \Downarrow\, \barch r
+     && \bullet \\
+  && && \\
+}
+\endxy}
+%}
+$$
+where 
+$\barch r = \barch_{\beta}^{\gamma} r = (q(\db r),\ddch r) \in R \ltimes S$, 
+say.
+Since $\barch r$ has head $(\dg r)q$, we have
+\begin{equation} \label{eq:partial-ddch-r} 
+(\db r)(\partial \ddch r) ~=~ (\dg r)^q \quad\mbox{in}~R,
+\end{equation}
+so that $\partial \ddch r$ measures the amount by which the square 
+does not commute.
+
+\medskip\noindent
+The squares $\barch r$, for $r \in R$, are required to satisfy three axioms.
+\begin{enumerate}[(i)]
+\item
+For the identity in $R$ we have $\barch 1_R = \Downarrow(1,q)$, 
+the vertical identity $2$-cell at $q$.
+\item
+Product in $R$ is preserved: $\barch(r_1 \sharpz r_2)$ corresponds to 
+the vertical composite $\barch r_1 \star_0 \barch r_2$ 
+shown in the following diagram.
+$$
+{\vcenter 
+{\xy
+\xymatrix{
+  \bullet \ar[rr]^{\db r_1} 
+    & \ar @{=>} [dr]_{\barch r_1} 
+      & \bullet \ar[rr]^{\db r_2} 
+        & \ar @{=>} [dr]_{\barch r_2}  
+          & \bullet \\
+    & & & & \\
+  \bullet \ar[uu]^q \ar[rr]_{\dg r_1}  
+    & & \bullet \ar[uu]_q \ar[rr]_{\dg r_2}  
+        & & \bullet \ar[uu]_q \\
+}
+\endxy}
+\quad=\quad
+{\xy
+\xymatrix @C=1.5pc{
+    & & & & & \\
+  \bullet  \ar@/^5ex/[rr]^{q(\db r_1)} 
+           \ar@/_5ex/[rr]_{(\dg r_1)q} 
+    & \Downarrow\, (q(\db r_1), \ddch r_1)
+       & \bullet \ar[r]^{q^{-1}} 
+          & \bullet \ar@/^5ex/[rr]^{q(\db r_2)} 
+                    \ar@/_5ex/[rr]_{(\dg r_2)q} 
+              & \Downarrow\, (q(\db r_2), \ddch r_2) 
+                   & \bullet \\
+    & & & & & \\
+}
+\endxy}
+}$$
+The composite of these is
+$$
+\xy
+\xymatrix @C=1.8pc{
+  && && \\
+  \bullet  \ar@/^5ex/[rrrr]^{q(\db r_1)(\db r_2)} 
+           \ar@/_5ex/[rrrr]_{(\dg r_1)(\dg r_2)q} 
+  && \Downarrow\, (q(\db r_1)(\db r_2), (\ddch r_1)^{\db r_2}(\ddch r_2))
+      && \bullet \\
+  && && \\
+}
+\endxy
+$$
+This composite $2$-cell is required to be be equal to
+$$
+{\vcenter 
+{\xy
+\xymatrix{
+  \bullet \ar[rr]^{\db(r_1r_2)} 
+    &  \ar @{=>} [dr]_{\barch(r_1r_2)} 
+      & \bullet \\
+    & & \\
+  \bullet \ar[uu]^q \ar[rr]_{\dg(r_1r_2)} 
+    & & \bullet \ar[uu]_q \\
+}
+\endxy} 
+\quad\equiv\quad 
+{\xy
+\xymatrix{
+    && && \\
+    \bullet \ar@/^5ex/[rrrr]^{q\db(r_1r_2)} 
+            \ar@/_5ex/[rrrr]_{\dg(r_1r_2)q} 
+    && \Downarrow\, (q\db(r_1r_2),\ddch(r_1r_2))
+       && \bullet \\
+    && && \\
+}
+\endxy}
+}$$
+We deduce that $\ddch$ is a $\beta$-derivation:
+$$
+\ddch(r_1r_2) ~=~ (\ddch r_1)^{\db r_2}\;(\ddch r_2).
+$$
+
+\item
+If $(r,s) : r \to r(\partial s)$ then $(\barb(r,s),\barg(r,s))$ forms a 
+vertical homotopy from $\barch r$ to $\barch(r(\partial s))$. 
+This means that the following composite $2$-cells are equal. 
+$$
+{\vcenter 
+{\xy
+\xymatrix @C=1.6pc{ 
+    & & & & \\
+  \bullet \ar@/^5ex/[rrrr]^{\db r}
+    & & & \ar@{=>} [dr]_{\barch r}
+          & \bullet \\
+    & & & & \\
+  \bullet \ar[uu]^q \ar@/^5ex/[rrrr]^{\dg r}
+          \ar@/_5ex/[rrrr]_{\dg(r(\partial s))}
+    & & \Downarrow(\dg r,\ddg r)
+        & & \bullet \ar[uu]_q \\
+    & & & & \\
+}
+\endxy}
+\qquad=\qquad
+{\xy 
+\xymatrix @C=1.6pc@R=0.9pc{ 
+    & & & & \\ 
+  \bullet \ar@/^5ex/[rrrr]^{\db r} \ar@/_5ex/[rrrr]_{\db(r(\partial s))}
+    & & \Downarrow(\db r,\ddb r)
+        & & \bullet \\
+    & & & \ar@{=>} [ddr]_{\barch(r(\partial s))}
+          & \\ 
+    & & & & \\
+    & & & & \\ 
+  \bullet \ar[uuuu]^q \ar@/_5ex/[rrrr]_{\dg(r(\partial s))}
+    & & & & \bullet \ar[uuuu]_q \\ 
+    & & & & \\ 
+}
+\endxy}
+}$$
+It follows that
+\begin{eqnarray*}
+       (\barch r) \sharpo ((\dg r,\ddg s) \sharpz q)
+ & = & (q \sharpz (\db r,\ddb s)) \sharpo \barch(r(\partial s)), \\
+       (q(\db r),\ddch r) \sharpo ((\dg r)q,(\ddg s)^q)
+ & = & (q(\db r),\ddb s) \sharpo (q\db(r(\partial s)),\ddch(r(\partial s))), \\
+       (q(\db r), (\ddch r)(\ddg s)^q) 
+ & = & (q(\db r),(\ddb s)(\ddch r)^{\db\partial s}(\ddch\partial s)), \\ 
+       (\ddch r)(\ddg s)^q 
+ & = & (\ddb s)(\ddch r)^{\partial\ddb s}(\ddch\partial s), \\
+       (\ddch r)(\ddg s)^q 
+ & = & (\ddch r)(\ddb s)(\ddch\partial s), 
+\end{eqnarray*}
+which gives the identity (compare with equation (\ref{eq:partial-ddch-r}))
+\begin{equation} \label{eq:ddch-partial-r} 
+(\ddg s)^q  ~=~  (\ddb s)(\ddch\partial s),~~ 
+\end{equation}
+which shows that $\ddch \partial s$ measures the amount by which 
+$(\ddg s)^q$ differs from $\ddb s$.
+\end{enumerate}
+
+\medskip
+The composite $\barch_{\beta}^{\delta}$ 
+of $\barch_{\beta}^{\gamma} : \beta \to \gamma$ 
+with $\barch_{\gamma}^{\delta} : \gamma  \to \delta$, 
+is shown in the following diagram.
+$$
+{(\barch_{\beta}^{\gamma} r) \star_1 (\barch_{\gamma}^{\delta} r)}
+{\quad=\quad}
+{\xy
+\xymatrix{
+  \bullet \ar[rr]^{\db r} 
+    & \ar @{=>} [dr]_{\barch_{\beta}^{\gamma} r}
+      & \bullet \\
+    & & \\
+  \bullet \ar[uu]^{q_{\beta}^{\gamma}} 
+          \ar[rr]^(0.3){\dg r} 
+    & \ar @{=>} [dr]_{\barch_{\gamma}^{\delta} r} 
+      & \bullet \ar[uu]_{q_{\beta}^{\gamma}} \\
+    & & \\
+  \bullet \ar[uu]^{q_{\gamma}^{\delta}} \ar[rr]_{\dd r} 
+    & & \ar[uu]_{q_{\gamma}^{\delta}} \\
+}
+\endxy}
+{\quad=\quad} 
+{(q_{\gamma}^{\delta} \sharpz (\barch_{\beta}^{\gamma} r)) 
+\sharpo
+((\barch_{\gamma}^{\delta} r) \sharpz (q_{\beta}^{\gamma})),} 
+$$
+so that
+$$
+\barch_{\beta}^{\delta}(\bullet) \;=\; q_{\gamma}^{\delta}q_{\beta}^{\gamma}
+\qquad\mbox{and}\qquad
+\barch_{\beta}^{\delta}(r) \;=\; \Downarrow 
+(q_{\gamma}^{\delta}q_{\beta}^{\gamma}(\db r), 
+ (\chi_{\beta}^{\gamma}r)(\chi_{\gamma}^{\delta}r)^{q_{\beta}^{\gamma}}).
+$$
+
+
+\medskip
+Suppose there exists $s \in S$ such that $\partial s = q$. 
+Then, using the principal $\gamma$-derivation $\eta_s$, 
+we may define the \emph{principal $2$-cell} 
+$\bare_{\gamma}^{\gamma} r = (q(\dg r),\eta_s r)$ 
+with tail $q(\dg r)$ and head 
+$$
+q(\dg r) \partial((s^{-1})^{\dg r}s)
+ \;=\; q(\dg r)(q^{-1})^{\dg r}q 
+ \;=\; (\dg r)q~.
+$$
+
+
+\bigskip\noindent
+{\large{\bf $2$-arrows of $\calF$}}\\
+To $\barch,\barch' \in \calF$
+

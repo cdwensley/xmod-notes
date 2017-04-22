@@ -1,0 +1,691 @@
+%% dbl-gpd-dev.tex,  version 22/04/17
+\newpage
+\noindent
+{\bf [This is now only in the development version.]}
+
+\bigskip
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{From actor crossed square to group-double groupoid}
+
+{\bf [Why start with the actor? -- Because we know it works!]}
+
+\bigskip\noindent
+The correspondence from actor crossed square to cat$^2$-group is
+$$
+\xymatrix @C=4.0pc @R=2.0pc{
+S \ar[r]^{\eta} \ar[dd]_{\partial}
+  & W \ar[dd]^{\Delta} 
+    & & (A \ltimes R)\ltimes(W \ltimes S) 
+        \ar[r]<1.0ex>^(0.65){\ddtto,\ddhho} \ar[r]<0.2ex>
+        \ar[dd]<-1.0ex>_{\ddttt,\ddhht} \ar[dd]<-0.2ex>
+        & A \ltimes W  \ar[l]<1.0ex>^(0.35){\ddeeo} 
+                       \ar[dd]<1.0ex>^{\dttt,\dhht} \ar[dd]<0.2ex>\\
+  & & \longrightarrow
+      & & \\
+R \ar[r]_{\iota}
+  & A
+    & & A \ltimes R \ar[r]<-1.0ex>_{\dtto,\dhho} \ar[r]<-0.2ex>
+                    \ar[uu]<-1.0ex>_{\ddeet}
+        & R \ar[l]<-1.0ex>_{\deeo}  \ar[uu]<1.0ex>^{\deet}
+}
+$$
+
+We saw in Subsection \ref{subs:cat1} (\ref{eq:sdpcat1}) that the maps on 
+$(e;t,h: R \ltimes S \to R)$ are 
+$t(r,s)=r, h(r,s)=r(\partial s)$ and $er = (r,1)$.
+These may be used immediately to define $\ddttt,\ddhht$ and $\ddeet$.
+They may also be used to define $\ddtto, \ddhho$ and $\ddeeo$ 
+after applying the isomorphism $\tau$
+between $G = (A \ltimes R)\ltimes(W \ltimes S)$ 
+and $\tilde{G} = (A \ltimes W)\ltimes(R \ltimes S)$ 
+as shown in the following diagram
+$$
+\xymatrix @C=4.0pc @R=4.0pc{
+G \ar[rr]<0.6ex>^{\tau}
+  \ar[dr]<-0.2ex> \ar[dr]<-1.0ex>_{\ddtto,\ddhho}
+  & & \tilde{G} \ar[dl]<0.2ex> \ar[dl]<1.0ex>^{\tilde{t}_1,\tilde{h}_1} 
+                \ar[ll]<0.2ex>^{\tilde{\tau}} \\
+  & A \ltimes W \ar[ul]<-1.0ex>_{\ddeeo} \ar[ur]<1.0ex>^{\tilde{e}_1}
+    & \\
+}
+$$
+
+\bigskip\noindent
+Recall from Proposition \ref{prop:tau} that the formulae for $\tau$ 
+and its inverse $\tilde{\tau}$ are
+\begin{eqnarray*}
+\tau((\alpha,r),(\chi,s))
+ & = &  ((\alpha,\chi),(r,(r \bt \chi)s)), \\
+\tilde{\tau}((\alpha,\chi),(r,s)) 
+ & = &  ((\alpha,r),(\chi,(r \bt \chi)^{-1}s)). 
+\end{eqnarray*}
+
+\noindent
+Applying these formulae, using $r \bt \chi = \chi r$, we obtain
+\begin{eqnarray*}
+g 
+    &=& ((\alpha,r),(\chi,s)), \\
+\tau g 
+    &=& ((\alpha,\chi),(r,(\chi r)s)), \\
+\ddtto g ~=~ 
+  \tilde{t}_1 \tau g 
+    &=& (\alpha,\chi), \\
+\tilde{e}_1 \tilde{t}_1 \tau g 
+    &=& ((\alpha,\chi),(1,1)), \\
+\ddeeo\ddtto g ~=~
+  \tilde{\tau} \tilde{e}_1 \tilde{t}_1 \tau g 
+    &=& ((\alpha,1),(\chi,1)), \\
+\ddhho g ~=~ 
+  \tilde{h}_1 \tau g 
+    &=& (\alpha,\chi)(\iota r, \eta((\chi r)s))  \\
+    &=& (\alpha,\chi)(\beta_r, \eta_{\chi r} \star \eta_s) \\
+    &=& (\alpha * \beta_r, \chi^{\beta_r} \star \eta_{\chi r} \star \eta_s),\\
+\tilde{e}_1 \tilde{h}_1 \tau g 
+    &=& ((\alpha*\beta_r,\chi^{\beta_r}\star\eta_{\chi r}\star\eta_s),(1,1)),\\
+\ddeeo\ddhho g ~=~ 
+\tilde{\tau} \tilde{e}_1 \tilde{h}_1 \tau g 
+    &=& ((\alpha*\beta_r,1),(\chi^{\beta_r}\star\eta_{\chi r}\star\eta_s,1)).\\
+\end{eqnarray*}
+
+\noindent
+Thus the images of the various maps in the cat$^2$-group are given by
+\begin{eqnarray*}
+\ddtto((\alpha,r),(\chi,s)) 
+ & = &  (\alpha,\chi), \\
+\ddhho((\alpha,r),(\chi,s)) 
+ & = &  (\alpha * \beta_r,~ \chi^{\beta_r}\star\eta_{\chi r}\star\eta_s), \\
+\ddttt((\alpha,r),(\chi,s)) 
+ & = &  (\alpha,r), \\
+\ddhht((\alpha,r),(\chi,s)) 
+ & = &  (\alpha * \beta_{\chi},~ r(\partial\chi r)(\partial s)), \\
+\dtto(\alpha,r)
+ & = &  \alpha, \\
+\dhho(\alpha,r)
+ & = &  \alpha * \beta_r, \\
+\dttt(\alpha,\chi) 
+ & = &  \alpha, \\ 
+\dhht(\alpha,\chi) 
+ & = &  \alpha * \beta_{\chi}. 
+\end{eqnarray*}
+
+\medskip\noindent
+{\bf From crossed square to group-double groupoid:}
+
+Here is the same calculation, but starting with a general crossed square 
+rather than an actor crossed square.
+
+$$
+\xymatrix @C=3.0pc @R=5.0pc{
+  & (P \ltimes M)\ltimes(N \ltimes L) 
+    \ar[rr]<0.5ex>^{\tau} 
+    \ar[dl]<0.2ex> \ar[dl]<+0.8ex>^{\ddttt,\ddhht}
+    \ar[dr]<-0.2ex>\ar[dr]<-1.0ex>_{\ddtto,~\ddhho}
+    & & (P \ltimes N)\ltimes(M \ltimes L)  
+        \ar[ll]<0.5ex>^{\tilde{\tau}} 
+        \ar[dl]<0.2ex> \ar[dl]<+0.8ex>^{\tilde{t}_1,~\tilde{h}_1} \\
+P \ltimes M \ar[ur]<1.0ex>^{\ddeet}
+\ar[dr]<-0.2ex>\ar[dr]<-1.0ex>_{\dtto,~\dhho}
+      & & P \ltimes N 
+      \ar[ul]<-1.0ex>_{\ddeeo} \ar[ur]<1.0ex>^{\tilde{e}_1}
+      \ar[dl]<0.2ex> \ar[dl]<+0.8ex>^{\dttt,\dhht} 
+        & \\
+  & P \ar[ur]<1.0ex>^{\deet} \ar[ul]<-1.0ex>_{\deeo} \\
+}
+$$
+
+\bigskip\noindent
+Again we evaluate some images. 
+The formulae for $\ddtto,\ddhho$ are obtained by first applying 
+$\tilde{\tau}$ and then using formulae equivalent to $\ddttt,\ddhht$.
+\begin{eqnarray*}
+g &=& ((p,m),(n,\ell)), \\
+\ddttt g
+ &=&  (p,m), \\
+\ddhht g
+ &=&  (p,m)(\dbdyt n, \ddbdyt\ell) \\
+ &=& (p(\dbdyt n), m^n (\ddbdyt\ell)), \hspace*{37mm}
+        \mbox{{\bf (**)}} \\
+\tau g
+ &=&  ((p,n),(m,(m \bt n)\ell)), \\
+\ddtto g ~=~ \tilde{t}_1 \tau g 
+ &=&  (p,n), \\
+\ddhho g ~=~ \tilde{h}_1 \tau g
+ &=&  (p,n)(\dbdyo m, \ddbdyo((m \bt n)\ell)) \\
+ &=& (p(\dbdyo m), n^m((n^{-1})^mn)(\ddbdyo\ell)) \\
+ &=& (p(\dbdyo m), n(\ddbdyo\ell)) \hspace*{40mm} 
+        \mbox{{\bf (***)}} \\
+\dtto(p,m) 
+ &=& p, \\
+\dhho(p,m) 
+ &=&  p(\dbdyo m), \\
+\dttt(p,n) 
+ &=&  p,\\
+\dhht(p,n) 
+ &=&  p(\dbdyt n). 
+\end{eqnarray*}
+{\bf [Note the minor difference betwen (**) and (***),
+which will be very important!]}
+
+\newpage
+We now check the axioms  in (\ref{eq:cat-commute}) for a cat$^2$-group, 
+where we put $g = ((p,m),(n,\ell))$, 
+\begin{eqnarray*}
+\dtto\ddhht g
+ &=& \dtto(p(\dbdyt n), m^n(\ddbdyt\ell)) 
+ ~=~ p(\dbdyt n) 
+ ~=~ \dhht(p,n)
+ ~=~ \dhht\ddtto g, \\
+\dttt\ddhho g
+ &=& \dttt(p(\dbdyo m), n(\ddbdyo\ell)) 
+ ~=~ p(\dbdyo m)  
+ ~=~ \dhho(p,m)
+ ~=~ \dhho\ddttt g, \\
+\ddttt\ddeeo (p,n) 
+ &=& \ddttt((p,1),(n,1)) 
+ ~=~ (p,1) 
+ ~=~ \deeo p 
+ ~=~ \deeo\dttt (p,n), \\
+\ddtto\ddeet (p,m) 
+ &=& \ddtto((p,m),(1,1)) 
+ ~=~ (p,1) 
+ ~=~ \deet p 
+ ~=~ \deet\dtto (p,m), \\
+\ddhht\ddeeo (p,n) 
+ &=& \ddhht((p,1),(n,1)) 
+ ~=~ (p(\dbdyt n),1) 
+ ~=~ \deeo(p(\dbdyt n)) 
+ ~=~ \deeo\dhht (p,n), \\
+\ddhho\ddeet (p,m) 
+ &=& \ddhho((p,m),(1,1)) 
+ ~=~ (p(\dbdyo m),1) 
+ ~=~ \deet(p(\dbdyo m)) 
+ ~=~ \deet\dhho (p,m). \\
+\dttt\ddtto g 
+ &=& \dttt(p,n)
+ ~=~ p 
+ ~=~ \dtto(p,m) 
+ ~=~ \dtto\ddttt g, \\ 
+\dhho\ddhht g
+ &=& \dhho (p(\dbdyt n), m^n(\ddbdyt\ell)) 
+ ~=~ p(\dbdyt n)(\dbdyo m^n)(\barbdy\ell) 
+ ~=~ p(\dbdyo m)(\dbdyt n)(\barbdy\ell) \hspace*{12mm}\mbox{{\bf (****)}} \\
+ &=& \dhht(p(\dbdyo m), n(\ddbdyo\ell)) 
+ ~=~\dhht\ddhho g, \\
+\ddeeo\deet p 
+ &=& \ddeeo(p,1) 
+ ~=~ ((p,1),(1,1)) 
+ ~=~ \ddeet(p,1) 
+ ~=~ \ddeet\deeo p, \\
+\end{eqnarray*}
+
+\vspace*{-6mm}\noindent
+{\bf [Note that the third equality in (****) is the crucial step!]}
+
+\medskip\noindent
+Vertical composition is easy to evaluate.
+\begin{lem}
+If we let  $(p',m') = (p(\dbdyt n),m^n(\ddbdyt\ell))$  
+then a vertical composite square evaluates as 
+$$
+((p,m),(n,\ell)) \ddastt ((p',m'),(n',\ell'))
+~=~
+((p,m),(nn',\ell^{n'}\ell')).
+$$
+\end{lem}
+\begin{pf}
+Applying formula (\ref{eq:gpgpd-comp}) for the composite,
+\begin{eqnarray*}
+ & &  ((p,m),(n,\ell)) \ddasto ((p',m'),(n',\ell')) \\
+ &=&  ((p,m),(n,\ell))((p',m')^{-1},(1,1))((p',m'),(n',\ell')) \\
+ &=&  ((p,m),(n,\ell)(n',\ell')).
+\end{eqnarray*}
+\end{pf}
+
+\noindent
+Horizontal composition is more complicated.
+\begin{lem}
+If we let  
+$(p^{\prime\prime},n^{\prime\prime}) = (p(\dbdyo m),n(\ddbdyo\ell))$ 
+then a horizontal composite square evaluates as 
+$$
+((p,m),(n,\ell)) \ddasto ((p^{\prime\prime},m^{\prime\prime}),
+                          (n^{\prime\prime},\ell^{\prime\prime}))
+~=~
+((p,mm^{\prime\prime}),(n,\ell\ell^{\prime\prime})).
+$$
+\end{lem}
+\begin{pf}
+Applying formula (\ref{eq:gpgpd-comp}) again,
+\begin{eqnarray*}
+ & &  ((p,m),(n,\ell))~ 
+       (({p^{\prime\prime}}^{-1},1),
+        (({n^{\prime\prime}}^{-1})^{{p^{\prime\prime}}^{-1}},1))~ 
+           ((p^{\prime\prime},m^{\prime\prime}),
+             (n^{\prime\prime},\ell^{\prime\prime})) \\
+ &=&  ((p,m)(1,m^{\prime\prime}),\; 
+      (n,\ell)^{(1,m^{\prime\prime})}
+      (({n^{\prime\prime}}^{-1})^{{p^{\prime\prime}}^{-1}},1)
+         ^{(p^{\prime\prime},m^{\prime\prime})}
+      (n^{\prime\prime},\ell^{\prime\prime})) \\
+ &=&  ((p,mm^{\prime\prime}),
+       (n,(m^{\prime\prime} \bt n)^{-1}\ell^{m^{\prime\prime}})
+       ({n^{\prime\prime}}^{-1},
+         ({m^{\prime\prime}} \bt {n^{\prime\prime}}^{-1})^{-1})  
+         (n^{\prime\prime},\ell^{\prime\prime})) \\
+ &=&  ((p,mm^{\prime\prime}),
+       (n,(m^{\prime\prime} \bt n)^{-1}\ell^{m^{\prime\prime}} 
+     (({m^{\prime\prime}} \bt {n^{\prime\prime}}^{-1})^{-1})^{n^{\prime\prime}}
+          \ell^{\prime\prime})) \\
+ &=&  ((p,mm^{\prime\prime}),
+       (n,(m^{\prime\prime} \bt n)^{-1}\ell^{m^{\prime\prime}} 
+         (m^{\prime\prime} \bt n(\ddbdyo\ell))\ell^{\prime\prime})) 
+      \hspace{25mm}\mbox{(by Proposition \ref{prop:xpair}(b))}     \\
+ &=&  ((p,mm^{\prime\prime}),
+       (n,(m^{\prime\prime} \bt n)^{-1}\ell^{m^{\prime\prime}} 
+         (m^{\prime\prime} \bt \ddbdyo\ell) 
+         (m^{\prime\prime} \bt n)^{\ddbdyo\ell}\ell^{\prime\prime})) \\
+ &=&  ((p,mm^{\prime\prime}),
+       (n,(m^{\prime\prime} \bt n)^{-1}\ell^{m^{\prime\prime}} 
+         ((\ell^{-1})^{m^{\prime\prime}}\ell) 
+         (\ell^{-1}(m^{\prime\prime} \bt n)\ell)  
+          \ell^{\prime\prime})) \\
+ &=&  ((p,mm^{\prime\prime}), (n,\ell\ell^{\prime\prime}). 
+\end{eqnarray*}
+\end{pf}\\
+{\bf [The difference between these two composites should be very significant!]}
+
+\bigskip
+Now consider the two composites of four squares with elements as shown: 
+$$
+\xymatrix  @C=0.8pc @R=0.8pc{
+\cdot \ar[rr]^{(p_1,m_1)} \ar[dd]_{(p_1,n_1)} 
+  &   & \cdot \ar[rr]^{(p_2,m_2)} \ar[dd] 
+          &   & \cdot \ar[dd]^{(p_2(\dbdyo m_2),n_2(\ddbdyo\ell_2))}  \\
+  & ((p_1,m_1),(n_1,\ell_1)) 
+      &   & ((p_2,m_2),(n_2,\ell_2)) 
+              &  \\
+\cdot \ar[rr] \ar[dd]_{(p_3,n_3)}  
+  &   & \cdot \ar[rr] \ar[dd]
+          &   & \cdot \ar[dd]^{(p_4(\dbdyo m_4),n_4(\ddbdyo\ell_4))}  \\
+  & ((p_3,m_3),(n_3,\ell_3))  
+      &   & ((p_4,m_4),(n_4,\ell_4)) 
+              &  \\
+\cdot \ar[rr]_{(p_3(\dbdyt n_3),m_3^{n_3}(\ddbdyt\ell_3))}  
+  &   & \cdot \ar[rr]_{(p_4(\dbdyt n_4),m_4^{n_4}(\ddbdyt\ell_4))}  
+          &   & \cdot  \\
+}
+$$
+For the horizontal composites to be defined we require 
+$$
+p_2 = p_1(\dbdyo m_1), \quad
+n_2 = n_1(\ddbdyo\ell_1), \quad
+p_4 = p_3(\dbdyo m_3), \quad
+n_4 = n_3(\ddbdyo\ell_3).
+$$
+Similarly, for the vertical composites, we require
+$$
+p_3 = p_1(\dbdyt n_1), \quad
+m_3 = {m_1}^{n_1}(\ddbdyt\ell_1), \quad
+p_4 = p_2(\dbdyt n_2), \quad
+m_4 = {m_2}^{n_2}(\ddbdyt\ell_2).
+$$
+The two requirements on $p_4$ are consistent since
+\begin{eqnarray*}
+p_4 &=&  p_2(\dbdyt n_2)
+    ~=~  p_1(\dbdyo m_1)(\dbdyt n_1)(\dbdyt\ddbdyo\ell_1) 
+    ~=~  p_1(\dbdyt n_1)(\dbdyo({m_1}^{n_1}))(\dbdyo\ddbdyt\ell_1) 
+    ~=~  p_3(\dbdyo m_3). \\
+\end{eqnarray*}
+Composing horizontally, we obtain 
+$$
+\xymatrix  @C=0.8pc @R=0.8pc{
+\cdot \ar[rr] \ar[dd] 
+  &   & \cdot \ar[dd]  \\
+  & ((p_1,m_1m_2),(n_1,\ell_1\ell_2)) 
+      &  \\
+\cdot \ar[rr] \ar[dd] 
+  &   & \cdot \ar[dd]  \\
+  & ((p_3,m_3m_4),(n_3,\ell_3\ell_4))  
+      &  \\
+\cdot \ar[rr] 
+  &   & \cdot  \\
+}
+$$
+The vertical composite is then
+$$
+((p_1,m_1m_2),(n_1,\ell_1\ell_2)(n_3,\ell_3\ell_4))
+~=~ ((p_1,m_1m_2),(n_1n_3,(\ell_1\ell_2)^{n_3}(\ell_3\ell_4)). 
+$$
+
+\noindent
+When the four squares are composed vertically then horizontally, 
+we obtain
+$$
+\xymatrix  @C=0.8pc @R=0.8pc{
+\cdot \ar[rr] \ar[dd] 
+  &   & \cdot \ar[rr] \ar[dd]  
+         &   & \ar[dd]  \\
+  & ((p_1,m_1),(n_1n_3,{\ell_1}^{n_3}\ell_3)) 
+      &  &  ((p_2,m_2),(n_2n_4,{\ell_2}^{n_4}\ell_4)) 
+             &  \\
+\cdot \ar[rr] 
+  &   & \cdot \ar[rr]  
+         &   &  \\
+}
+$$
+and the horizontal composite is~  
+$$
+((p_1,m_1m_2), 
+  (n_1n_3,{\ell_1}^{n_3}\ell_3{\ell_2}^{n_3(\ddbdyo\ell_3)}\ell_4))
+~=~ 
+((p_1,m_1m_2), 
+  (n_1n_3,{\ell_1}^{n_3}{\ell_2}^{n_3}\ell_3\ell_4))
+$$
+as before. 
+We have therefore verified the interchange law for this double groupoid.
+
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{From cat$^2$-group to group-double groupoid ~(1)}
+
+Recall the cat$^1$-group semidirect factorisation of 
+Subsection \ref{subs:cat1} (\ref{eq:cat1-sdp-fact})
+$$
+(\phi',\id_R) ~:~ \calC = (e;t,h : G \to R) 
+                ~\to~ \calC' = (e';t',h' : R \ltimes S \to R),
+                \quad g \mapsto (tg,ug),~~ ug = (etg^{-1})g, 
+$$
+and the properties of the projection $u : G \to \ker t$ 
+in Lemma \ref{lem:u-props},
+$$
+tug = 1_R, \quad
+hug = (tg^{-1})(hg), \quad 
+uer = 1_G, \quad
+u(g_1g_2) = (ug_2)(ug_1)^{g_2}, \quad
+(ug)^{-1} = g^{-1}(etg) = (u(g^{-1}))^g.
+$$
+
+\noindent
+Generalising this isomorphism to cat$^2$-groups, the relevant diagram is: 
+$$
+\xymatrix @C=5.0pc @R=2.0pc{
+G \ar[r]<1.0ex>^{\ddtto,\ddhho} \ar[r]<0.2ex> 
+  \ar[dd]<-1.0ex>_{\ddttt,\ddhht} \ar[dd]<-0.2ex> 
+  & K \ar[dd]<1.0ex>^{\dttt,\dhht} \ar[dd]<0.2ex> 
+      \ar[l]<1.0ex>^{\ddeeo}
+    & & (J \ltimes F) 
+        \ar[r]<1.0ex>^{{\ddtto}^{\,\prime},{\ddhho}^{\,\prime}} 
+        \ar[r]<0.2ex>
+        \ar[dd]<-1.0ex>_{{\ddttt}^{\,\prime},{\ddhht}^{\,\prime}} 
+        \ar[dd]<-0.2ex>
+        & P \ltimes N  \ar[l]<1.0ex>^{{\ddeeo}^{\,\prime}} 
+                       \ar[dd]<1.0ex>^{{\dttt}^{\,\prime},{\dhht}^{\,\prime}} 
+                       \ar[dd]<0.2ex>\\
+  & & \stackrel{\phi}{\longrightarrow} 
+      & & \\
+J \ar[r]<-1.0ex>_{\dtto,\dhho} \ar[r]<-0.2ex>
+  \ar[uu]<-1.0ex>_{\ddeet} 
+  & P \ar[l]<-1.0ex>_{\deeo} \ar[uu]<1.0ex>^{\deet} 
+    & & P \ltimes M \ar[r]<-1.0ex>_{{\dtto}^{\,\prime},{\dhho}^{\,\prime}} 
+                    \ar[r]<-0.2ex>
+                    \ar[uu]<-1.0ex>_{{\ddeet}^{\,\prime}}
+        & P \ar[l]<-1.0ex>_{{\deeo}^{\,\prime}}  
+            \ar[uu]<1.0ex>^{{\deet}^{\,\prime}}
+}
+$$
+where
+$$
+J \cong P \ltimes M, \quad
+K \cong P \ltimes N, \quad
+E \cong M \ltimes L, \quad
+F \cong N \ltimes L.
+$$
+
+\noindent
+The components of $\phi$ and the fourth semidirect product isomorphism are: 
+\begin{eqnarray*}
+\phi_{[2]} &:& G \to K \ltimes E, \quad
+  g \mapsto (\ddtto g, (\ddeeo\ddtto g^{-1})g) ~=~ (\ddtto g, \dduuo g),\\
+\phi_{\{1\}} &:& J \to P \ltimes M, \quad
+  j \mapsto (\dtto j, (\deeo\dtto j^{-1})j) ~=~ (\dtto j, \duuo j),\\
+\phi_{\{2\}} &:& K \to P \ltimes N, \quad
+  k \mapsto (\dttt k, (\deet\dttt k^{-1})k) ~=~ (\dttt k, \duut k),\\
+\phi_{\emptyset} &:& P \to P, \hspace{13mm} p \mapsto p,\\
+\phi_{[2']} &:& F \to N \ltimes L, \quad
+  f \mapsto (\ddttt f, (\ddeet\ddttt f^{-1})f) ~=~ (\ddttt f, \dduut f),\\
+\mbox{or}~~ ? &:& G \to J \ltimes F, \quad
+  g \mapsto (\ddttt g, (\ddeet\ddttt g^{-1})g) ~=~ (\ddttt g, \dduut g).
+\end{eqnarray*}
+
+\noindent
+Recall the following identities from (\ref{eq:cat2gp-ids}), 
+$$
+\duuo\ddttt = \ddttt\dduuo, \quad
+\duuo\ddhht = \ddhht\dduuo, \quad
+\dduuo\ddeet = \ddeet\duuo, \quad
+\duut\ddtto = \ddtto\dduut, \quad
+\duut\ddhho = \ddhho\dduut, \quad
+\dduut\ddeeo = \ddeeo\duut. 
+$$
+
+\noindent
+Combining these isomorphisms (as in Lemma \ref{lem:cat1iso-prime}) we obtain
+\begin{eqnarray*}
+\phi ~:~ G & \to & (P \ltimes M)\ltimes(N \ltimes L), \\
+    g & \mapsto & (~(t_{[2]}g,~ \duut\ddtto g),~
+        (\duuo\ddttt g,~ \dduut\dduuo g)~), \\
+\mbox{where}\quad \dduut\dduuo g
+   & = & (\ddeet\ddttt g^{-1})(e_{[2]}t_{[2]}g)(\ddeeo\ddtto g^{-1})g.
+\end{eqnarray*}
+
+\noindent
+For the alternative semidirect product decomposition of $G$ we obtain: 
+\begin{eqnarray*}
+\tilde{\phi} ~:~ G & \to & (P \ltimes N)\ltimes(M \ltimes L), \\
+    g & \mapsto & (~(t_{[2]}g,~ \duuo\ddttt g),~
+        (\duut\ddtto g,~ \dduuo\dduut g)~).\\ 
+\end{eqnarray*}
+The difference between the two fourth coordinates 
+(corresponding to $m \bt n$ in the crossed square version) 
+is given by~ 
+$(\dduut\dduuo g)(\dduuo\dduut g)^{-1}$. 
+Thus the crossed pairing corresponds to a mapping
+\begin{eqnarray} \label{eq:uboxt}
+u_{[2]} ~:~ G \to G, \quad g 
+  & \mapsto & (\dduut\dduuo g)(\dduuo\dduut g)^{-1} \\
+  &=&  (\ddeet\ddttt g^{-1})(e_{[2]}t_{[2]}g)(\ddeeo\ddtto g^{-1})
+       (\ddeet\ddttt g)(e_{[2]}t_{[2]}g^{-1})(\ddeeo\ddtto g), \nonumber
+\end{eqnarray}
+which measures the difference between the two composite projections onto
+$\ker\ddtto \cap \ker\ddttt$.
+
+\begin{lem}~  $u_{[2]}g ~\in~ [\ker\ddtto,\ker\ddttt]$.
+\end{lem}
+\begin{pf}
+Put  $y = (e_{[2]}t_{[2]}g^{-1})(\ddeet\ddttt g) \in \ker \ddtto$
+and  $z = (e_{[2]}t_{[2]}g^{-1})(\ddeeo\ddtto g) \in \ker \ddttt$.
+Then, by (\ref{eq:uboxt}),  
+$u_{[2]}g = [y,z] ~\in~ [\ker\ddtto,\ker\ddttt]$.
+\end{pf}
+
+\bigskip
+We are now ready to define the associated group-double groupoid.
+There is a square for each element  $g \in G$, 
+and the tail and head cat$^2$ homomorphisms give the two groupoid 
+source and target functions.
+$$
+\xymatrix{
+\dtto\ddttt g \ar[rr]^{\ddttt g} \ar[dd]_{\ddtto g} 
+  &   & \dtto\ddhht g \ar[dd]^{\ddhho g} \\
+  & g & \\
+\dhho\ddttt g \ar[rr]_{\ddhht g} 
+  &   & \dhho\ddhht g \\
+}
+$$
+Vertical composition is given as in (\ref{eq:gpgpd-comp}),
+$$
+g_1 *_1 g_3 ~=~ g_1(\ddeet\ddhht{g_1}^{-1})g_3 
+\qquad\mbox{when}\quad
+\ddhht g_1 = \ddttt g_3,
+$$
+while horizontal composition first applies $\phi_{M,N}$ 
+and then (\ref{eq:gpgpd-comp}),
+$$
+\ldots~\ldots ~~\mbox{{\bf to be completed}} ~~\ldots~\ldots
+$$
+
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{From cat$^2$-group to group-double groupoid ~(2)}
+
+Given a cat$^2$-group $\calG$,  define a douple groupoid 
+$\calD = \calD(\calG)$ to have as squares the elements of $\calG$, 
+with the head and tail maps in $\calG$ providing the 
+boundary maps in $\calD$.
+
+Consider the following composite square of cat$^1$-group elements
+$$
+\xymatrix  @C=1.2pc @R=0.8pc{
+\cdot \ar[rr] \ar[dd]
+  &   & \cdot \ar[rr] \ar[dd]|{\phantom{gZ}w\phantom{gZ}}
+          &   & \cdot \ar[dd] 
+                 &   &  \\
+  & a &   & b &  &   &  w = \ddhho a = \ddtto b,\quad
+                        z = \ddhho c = \ddtto d, \hspace{6mm}\\
+\cdot \ar[rr]|{~x~} \ar[dd] 
+  &   & p \ar[rr]|{~y~} \ar[dd]|{\phantom{gZ}z\phantom{gZ}}
+          &   & \cdot \ar[dd] 
+                 &   &  x = \ddhht a = \ddttt c,\quad
+                        y = \ddhht b = \ddttt d, \hspace{6mm}
+\\
+  & c &   & d &  &   &  p = \dhho\ddhht a = \dhht\ddtto b 
+                          = \dttt\ddhho c = \dtto\ddttt d. \\
+\cdot \ar[rr] 
+  &   & \cdot \ar[rr] 
+          &   & \cdot 
+                 &   &  \\
+}
+$$
+
+\noindent
+Define horizontal and vertical composition as in 
+$$
+a \ddastt b ~=~ a(\ddeeo w^{-1})b, \qquad
+a \ddasto c ~=~ a(\ddeet x^{-1})c,
+$$
+{\bf [N.B.~ Either one of these is incorrect, 
+or else some boundary maps should be changed!]}
+
+\bigskip\noindent
+Note that squares such as $\ddeeo w$ and $\ddeet x$ are identities for 
+the groupoid structures $\ddastt,\ddasto$ respectively:
+$$
+a \ddastt (\ddeeo w) ~=~ a(\ddeeo w^{-1})(\ddeeo w) ~=~ a, 
+\qquad
+a \ddasto (\ddeet x) ~=~ a(\ddeet x^{-1})(\ddeet x) ~=~ a, 
+$$
+while $e_{[2]}p = \deeo\ddeet p$ is an identity for both groupoid structures. 
+
+\bigskip\noindent
+Note also that
+$$
+\ddhht(a \ddastt b) ~=~ (\ddhht a)(\ddhht\ddeeo w^{-1})(\ddhht b) 
+                    ~=~ x(\deeo p^{-1})y 
+                    ~=~ \ddttt( c \ddastt d).
+$$
+
+\bigskip\noindent
+Here is an expanded view of the composite square using nine squares: 
+$$
+\xymatrix  @C=1.0pc @R=1.4pc{
+\cdot \ar[rr] \ar[dd]
+  &   & \cdot \ar[rr] \ar[dd]|{\phantom{gZ}w\phantom{gZ}}
+          &   & \cdot \ar[rr] \ar[dd]|{\phantom{gZ}w\phantom{gZ}} 
+                  &   & \cdot \ar[dd] \\
+  & a &   & \ddeeo w 
+              &   & b &  \\
+\cdot \ar[rr]|{~x~} \ar[dd] 
+  &   & p \ar[rr]|{~\deeo p~} 
+          \ar[dd]|{\phantom{gZ} \deet p \phantom{gZ}}
+          &   & p \ar[rr]|{~y~} 
+                  \ar[dd]|{\phantom{gZ} \deet p \phantom{gZ}}
+                  &   & \cdot \ar[dd] \\
+  & \ddeet x 
+      &   & e_{[2]} p 
+              &   & \ddeet y 
+                      &  \\
+\cdot \ar[rr]|{~x~} \ar[dd]
+  &   & p \ar[rr]|{~\deeo p~} 
+          \ar[dd]|{\phantom{gZ}z\phantom{gZ}}
+          &   & p \ar[rr]|{~y~} \ar[dd]|{\phantom{gZ}z\phantom{gZ}}
+                  &   & \cdot \ar[dd] \\
+  & c &   & \ddeeo z 
+              &   & d &  \\
+\cdot \ar[rr] 
+  &   & \cdot \ar[rr] 
+          &   & \cdot \ar[rr]
+                  &   &  \cdot \\
+}
+$$
+
+\bigskip\noindent
+Composing in two ways, we obtain
+\begin{eqnarray*}
+(a \ddastt b) \ddasto (c \ddastt d) 
+ &=& (a(\ddeeo w^{-1})b) \ddasto (c(\ddeeo z^{-1})d) \\
+ &=& (a(\ddeeo w^{-1})b) 
+        ~(\ddeet (y^{-1}(\deeo p)x^{-1})) 
+           ~(c(\ddeeo z^{-1})d) \\
+ &=& a(\ddeeo w^{-1})b
+         (\ddeet y^{-1})(e_{[2]} p)(\ddeet x^{-1})
+              c(\ddeeo z^{-1})d, \\
+(a \ddasto c) \ddastt (b \ddasto d) 
+ &=& (a(\ddeet x^{-1})c) \ddastt (b(\ddeet y^{-1})d) \\
+ &=& (a(\ddeet x^{-1})c) 
+        ~(\ddeeo (z^{-1}(\deet p)w^{-1})) 
+           ~(b(\ddeet y^{-1})d) \\
+ &=& a(\ddeet x^{-1})c
+         (\ddeeo z^{-1})(e_{[2]} p)(\ddeeo w^{-1})
+              b(\ddeet y^{-1})d, \\
+\end{eqnarray*}
+
+\noindent
+For these to be equal we require
+$$
+a(\ddeeo w^{-1})b
+         (\ddeet y^{-1})(e_{[2]} p)(\ddeet x^{-1})
+              c(\ddeeo z^{-1})d 
+\quad=\quad
+a(\ddeet x^{-1})c
+         (\ddeeo z^{-1})(e_{[2]} p)(\ddeeo w^{-1})
+              b(\ddeet y^{-1})d 
+$$
+which we may rewrite as
+$$
+a(\dduuo b)(\dduuo\ddeet y)^{-1}(\dduut c)(\dduuo d)
+\quad=\quad
+a(\dduut c)(\dduut\ddeeo z)^{-1}(\dduuo b)(\dduut d).
+$$
+
+\bigskip\noindent
+This equation does not appear to be satisfied, 
+so the interchange law is not satisfied.
+On the other hand, the group-double groupoid obtained earlier from 
+a crossed square does satisfy the interchange law.
+
+\bigskip\noindent
+{\bf [This contradiction still needs to be sorted out!]}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{The double groupoid associated to a crossed module}
+

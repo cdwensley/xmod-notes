@@ -1,0 +1,369 @@
+%% xpair.tex,  version 22/04/17
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Crossed Pairings and Nonabelian Tensor Products} \label{sect:natp}
+
+The \emph{nonabelian tensor product} 
+\index{tensor product} \index{nonabelian tensor product}
+was introduced by Brown and Loday in \cite{brow:lod}
+and developed in Brown, Johnson, Robertson \cite{brow:jo:ro}.
+
+When  $G,H$  are both abelian,  $\ugth$  is the usual tensor product.
+
+Many computations of the \emph{nonabelain tensor square} 
+\index{tensor square} 
+$\ugtg$  of a group  $G$  have been made.
+Here is a small sample of known results:
+
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+symmetric group        &  $S_3$              &  $C_6$              \\
+alternating group      &  $A_4$              &  $Q_8 \times C_3$   \\
+dihedral groups        &  $D_{2n}$, $n$ odd  &  $\mathbf{Z}_{2n}$  \\
+Heisenberg group       &  $\calH$            &  ${\mathbf Z}^6$    \\
+\hline
+\end{tabular}
+\end{center}
+
+The nonabelian tensor product is a special case of a crossed pairing.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Compatible Group Actions}
+
+\begin{defn}
+Let  $G$  and  $H$  be groups which act on themselves by conjugation, 
+and also act on each other.  
+These four actions are said to be \emph{compatible} if
+$$
+{g_1}^{(h^g)} \;=\; (({g_1}^{g^{-1}})^h)^g~, \qquad
+{h_1}^{(g^h)} \;=\; (({h_1}^{h^{-1}})^g)^h~.
+$$
+\end{defn}
+
+\begin{example}
+\emph{If $G,H$ are normal subgroups of a group $\Gamma$, then each acts on the 
+other by conjugation and the actions are compatible.}
+\end{example}
+
+\begin{example} \label{ex:xmod-actions}
+\emph{Let $\calX = (\partial : S \to R)$ be a crossed module.
+If $r^s$ is defined to be $(\partial s^{-1})r(\partial s)$ 
+then both $R$ and $S$ act on each other and on themselves.
+Compatibility is easily checked:}
+\begin{itemize}
+\item~
+${s_1}^{(r^s)} \;=\; {s_1}^{(\partial s^{-1})r(\partial s)}
+\;=\;  {s_1}^{s^{-1}r(\partial s)}
+\;=\;  {s_1}^{s^{-1}rs}$\,,
+\item~
+${r_1}^{(s^r)} \;=\; (\partial {s^r})^{-1} r_1 (\partial s^r) 
+\;=\; (r^{-1}(\partial s)r)^{-1} r_1 (r^{-1}(\partial s)r)
+\;=\; (({r_1}^{r^{-1}})^s)^r$\,.
+\end{itemize}
+\end{example}
+
+
+\bigskip
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Crossed Pairings} \label{subs:xp}
+\index{crossed pairing}
+
+There are two standard definitions of a \emph{crossed pairing}.
+Here is the one which we shall use.\\
+(There is a more general definition when the two actions are
+not compatible.)
+
+\begin{defn} \label{def:xpair} 
+\index{compatible action} \index{action!compatible}
+Let  $G,H$  be groups which act compatibly on each other 
+and on a group  $L$.\\
+A map  $\bt : \ugxh \to L,\; (g,h) \mapsto g \bt h$,
+is a crossed pairing if
+\begin{enumerate}[{\rm (a)}]
+\item\quad
+$(g_1g_2 \bt h) \;=\; (g_1 \bt h)^{g_2}\;(g_2 \bt h)$~,
+\item\quad
+$(g \bt h_1h_2) \;=\; (g \bt h_2)\;(g \bt h_1)^{h_2}$~,
+\item\quad
+$(g \bt h)^x  \;=\; g^x \bt h^x \quad \mbox{for all} 
+   \;\; x \in G \cup H$~. 
+\end{enumerate}
+\end{defn}
+
+The alternative definition does not require actions on  $L$
+and omits axiom (c).
+It is then observed that   
+$\im \bt \leq L$  inherits  $G$-  and  $H$-actions given by (c).
+
+\begin{example}
+If $N \unlhd G$ then a crossed pairing is provided by commutators:
+\begin{eqnarray*}
+\mbox{\emph{(a)}}~~ \bt ~:~ G \times N \to N,
+ && g \bt n = [g,n] = (n^{-1})^g \; n, \\
+\mbox{\emph{(b)}}~~ \bt ~:~ N \times G \to N,
+ && n \bt g = [n,g] = n^{-1} \; n^g. \\
+\end{eqnarray*}
+\end{example}
+
+Here are some standard properties of crossed pairings
+(see Proposition 3 of \cite{brow:jo:ro}).
+
+\begin{prop} \label{prop:xpair}
+The following relations hold for all  $g,g_1,g_2 \in G$
+and for all  $h,h_1,h_2 \in H$~.
+\begin{enumerate}[{\rm (a)}]
+\item\quad
+$(g \bt 1_H)
+  \;=\; (1_G \bt h)
+  \;=\; 1_L$~;
+\item\quad
+$(g \bt h)^{-1}
+  \;=\; (g^{-1} \bt h)^g
+  \;=\; (g \bt h^{-1})^h
+  \;=\; (g^{-1} \bt h^g)
+  \;=\; (g^h \bt h^{-1})$~;
+\item\quad
+$(g_1 \bt h_1)^{h_2g_2}\,(g_2 \bt h_2)
+  \;=\; (g_2 \bt h_2)\,(g_1 \bt h_1)^{g_2h_2}$~;
+\item\quad
+$(g^h \bt h_1)
+   \;=\; (g \bt h)^{-1}\,(g \bt h_1)\,(g \bt h)^{h_1}
+ \quad\mbox{and}\quad
+ (g_1 \bt h^g)
+   \;=\; (g \bt h)^{g_1}\,(g_1 \bt h)\,(g \bt h)^{-1}$~;
+\item\quad
+$(g_1g_2 \bt h)
+  \;=\; (g_2 \bt h^{g_1})(g_1 \bt h)
+ \quad\mbox{and}\quad
+ (g \bt h_1h_2)
+  \;=\; (g \bt h_1)(g^{h_1} \bt h_2)$~;
+\item\quad
+$(g \bt h)^{[g_2,h_2]}
+  \;=\; (g_2 \bt h_2)^{-1}\,(g \bt h)\,(g_2 \bt h_2)$~;
+\item\quad
+$(g^{-1}\,g^h \bt h_1)
+  \;=\; (g \bt h)^{-1}\,(g \bt h)^{h_1}
+ \quad\mbox{and}\quad
+ (g_1 \bt (h^{-1})^g\,h)
+  \;=\; ((g \bt h)^{-1})^{g_1}\,(g \bt h)$~;
+\item\quad
+$[(g_1 \bt h_1),\,(g_2 \bt h_2)]
+  \;=\; ((g_1^{-1}\,{g_1}^{h_1}) \bt ((h_2^{-1})^{g_2}\,h_2))$~.
+\end{enumerate}
+\end{prop}
+\begin{pf}
+Where there are two formulae, the proof of the second
+mirrors that of the first.
+\begin{enumerate}[(a)]
+\item\quad
+$\gbh \;=\; g1 \bt h \;=\; (\gbh)^1\,(1 \bt h) $
+\item\quad
+$1\;=\; 1 \bt h \;=\; g^{-1}g \bt h \;=\; (g^{-1} \bt h)^g \,(\gbh)$
+\item\quad\vspace{-7mm}
+\begin{eqnarray*}
+g_1g_2 \bt h_1h_2
+  & = &  (g_1g_2 \bt h_2)\,(g_1g_2 \bt h_1)^{h_2} \\
+  & = &  (g_1 \bt h_2)^{g_2}\,(\gbht)\,
+          (\gbho)^{g_2h_2}\,(g_2 \bt h_1)^{h_2} \\
+\mbox{and} \quad
+g_1g_2 \bt h_1h_2
+  & = &  (g_1 \bt h_1h_2)^{g_2}\,(g_2 \bt h_1h_2) \\
+  & = &  (g_1 \bt h_2)^{g_2}\,(\gbho)^{h_2g_2}\,
+          (\gbht)\,(g_2 \bt h_1)^{h_2} \\
+\Rightarrow \quad
+   (\gbho)^{h_2g_2}\,(\gbht) 
+  & = &  (\gbht)\,(\gbho)^{g_2h_2}
+\end{eqnarray*}
+\item\quad\vspace{-7mm}
+\begin{eqnarray*}
+g^h \bt h_1
+  & = &  (g \bt {h_1}^{h^{-1}})^h  \;=\;  (g \bt hh_1h^{-1})^h \\
+  & = &  (g \bt h^{-1})^h\,(g \bt h_1)\,(\gbh)^{h_1} \\
+  & = &  (\gbh)^{-1}\,(g \bt h_1)\,(\gbh)^{h_1} 
+\end{eqnarray*}
+\item\quad
+These alternative forms for \ref{def:xpair} (a),(b)
+follow immediately from (d).
+\item\quad
+Substitute  $\,g = {g_1}^{h_2g_2},\; h = {h_1}^{h_2g_2}\,$  in (c).
+\item\quad\vspace{-7mm}
+\begin{eqnarray*}
+(g^{-1}g^h) \bt h_1
+  & = &  (g^{-1} \bt h_1)^{g^h}\,(g^h \bt h_1)
+  \;=\;  (g^{-1} \bt h_1^g)^{[g,h]}\,(g^h \bt h_1) \\
+  & = &  (\gbh)^{-1}\,(g \bt h_1)^{-1}\,(\gbh)
+          .(\gbh)^{-1}\,(g \bt h_1)\,(\gbh)^{h_1}
+           \quad \mbox{by (b),(d),(e)} \\
+  & = &  (\gbh)^{-1}\,(\gbh)^{h_1}
+\end{eqnarray*}
+\item\quad\vspace{-7mm}
+\begin{eqnarray*}
+[\gbho,\gbht]
+  & = &  (\gbho)^{-1}\,(\gbht)^{-1}\,(\gbho)\,(\gbht) \\
+  & = &  (\gbho)^{-1}\,(\gbho)^{[g_2,h_2]}
+  \;=\;  (\gbho)^{-1}\,(\gbho)^{(h_2^{-1})^{g_2}h_2}
+         \quad \mbox{by (e)} \\
+  & = &  ((g_1^{-1}\,{g_1}^{h_1}) \bt ((h_2^{-1})^{g_2}\,h_2)) 
+         \quad \mbox{by (f)}.
+\end{eqnarray*}
+\end{enumerate}
+\end{pf}
+
+\begin{lem}
+\index{principal crossed pairing} \index{crossed pairing!principal}
+The \emph{principal crossed pairing} of a crossed module
+$\calX = (\partial : S \to R)$ is given by
+$$
+\bt : R \times S \to S,~ (r,s) \mapsto \eta_s(r) = (s^{-1})^rs\ .
+$$
+\end{lem}
+\begin{pf}
+We have seen in Example \ref{ex:xmod-actions}
+that $R$ and $S$ have compatible actions.
+The three axioms are easily checked.
+\begin{enumerate}[(a)]
+\item~
+$$
+(r_1 \bt s)^{r_2}(r_2 \bt s)
+~=~ ((s^{-1})^{r_1}s)^{r_2}((s^{-1})^{r_2}s)
+~=~ (s^{-1})^{r_1r_2}s
+~=~ r_1r_2 \bt s
+$$
+\item~
+$$
+(r \bt s_1)(r \bt s_1)^{s_2}
+~=~ ((s_2^{-1})^r s_2)(s_2^{-1}(s_1^{-1})^rs_1s_2)
+~=~ ((s_1s_2)^{-1})^r (s_1s_2)
+~=~ r \bt s_1s_2
+$$
+\item~
+$$
+r^{r_0} \bt s^{r_0}
+~=~ ((s^{r_0})^{-1})^{r^{r_0}}s^{r_0}
+~=~ (s^{-1})^{rr_0}s^{r_0}
+~=~(r \bt s)^{r_0}
+$$
+$$
+r^{\partial s_0} \bt s^{s_0}
+~=~ ((s^{s_0})^{-1})^{s_0^{-1}rs_0} s^{s_0}
+~=~ ((s^{-1})^r s)^{s_0}
+~=~ (r \bt s)^{s_0}
+$$
+\end{enumerate}
+\end{pf} 
+
+\noindent
+So we may write principal derivations as $\eta_s r = r \bt s$ 
+and principal sections as $\kappa_s r = (r, r \bt s)$.
+
+\medskip
+A standard result concerning crossed pairings 
+shows that the nonabelian tensor product is the universal
+object for this construction.
+
+\begin{defn}
+Given groups  $G$  and  $H$  which act compatibly on each other,
+the \emph{nonabelian tensor product}  $\ugth$ 
+of  $G$  and  $H$  has generating set
+$\{ \gth \;\mid\; g \in G,\, h \in H\}$
+subject to relations
+\begin{equation} \label{eq:tensrels}
+(g_1g_2 \ot h) \;=\; (g_1 \ot h)^{g_2}\,(g_2 \ot h)~, \quad
+(g \ot h_1h_2) \;=\; (g \ot h_2)\,(g \ot h_1)^{h_2}~, 
+\end{equation}
+where  
+$$
+(\gth)^x \;=\; (g^x \ot h^x)
+\quad \mbox{for all} \; x \in G \cup H~.
+$$\end{defn}
+
+
+\begin{thm} \label{thm:uni-prop}
+The nonabelian tensor product function
+$$
+\ot \;:\; \ugxh \to \ugth, \;\; (g,h) \mapsto \gth
+$$
+is a crossed pairing.
+Moreover, given any crossed pairing  $\bt : \ugxh \to L$,
+there is a unique homomorphism  $\bt_{\ot} : \ugth \to L$
+satisfying  $\bt = \bt_{\ot} \circ \ot$
+so that the following diagram commutes:
+$$
+\xymatrix{ 
+   \ugxh \ar[dd]_{\ot} \ar[ddrr]^{\bt}
+         &&   \\
+     &&  \\
+   \ugth \ar[rr]_{\bt_{\ot}} 
+         &&  L ~.
+}
+$$
+\end{thm}
+
+Checking that a potential crossed pairing satisfies the axioms
+of Definition \ref{def:xpair}  can be a tedious process.  
+However we can convert this into checking that
+maps to certain semidirect products are homomorphisms.
+
+\begin{lem} \label{lem:xpair-to-homs}
+Let  $\bt : \ugxh \to L$  be a crossed pairing.  Then
+\begin{enumerate}[{\rm (a)}]
+\item
+given a fixed element   $h \in H$,  the map
+$$
+\theta_h \;:\; G \to G \ltimes L, \;\; g \mapsto (g,\,g \bt h)
+$$
+is a group homomorphism;
+\item
+given a fixed element   $g \in G$,  the map
+$$
+\theta_g \;:\; H \to H \ltimes L, \;\; h \mapsto (h,(g \bt h)^{-1})
+$$
+is a group homomorphism.
+\end{enumerate}
+\end{lem}
+\begin{pf}
+$$
+\theta_h(g_1g_2)
+  \;=\;  (g_1g_2,\,(g_1 \bt h)^{g_2}\;(g_2 \bt h)) 
+  \;=\;  (g_1,\,g_1 \bt h)\;(g_2,\,g_2 \bt h)    
+  \;=\;  (\theta_h g_1)\;(\theta_h g_2)~.
+$$
+$$
+\theta_g(h_1h_2)
+  \;=\;  (h_1h_2,\;\{(g \bt h_2)\;((g \bt h_1))^{h_2}\}^{-1}) 
+  \;=\;  (h_1,\,(g \bt h_1)^{-1})\;(h_2,\;(g \bt h_2)^{-1})    
+  \;=\;  (\theta_g h_1)\;(\theta_g h_2)~.
+$$
+\end{pf}
+
+The converse proposition gives a way of checking
+that a given map is a crossed pairing.
+
+\begin{prop} \label{prop:homs-to-xpair}
+Given a map  $\odot : \ugxh \to L$
+and an action  $(\goh)^x = g^x \odot h^x$  for all  $x \in G \cup H$,
+such that for all  $h \in H$ and $g \in G$
+\begin{itemize}
+\item
+$\theta_h : G \to G \ltimes L,\; g \mapsto (g,\goh)$
+is a homomorphism, and
+\item
+$\theta_g : H \to H \ltimes L,\; h \mapsto (h, (\goh)^{-1})$
+is a homomorphism,
+\end{itemize}
+then  $\odot$  is a crossed pairing.
+\end{prop}
+\begin{pf}
+\begin{eqnarray*}
+(g_1g_2,\, g_1g_2 \odot h)
+  & = &  \theta_h(g_1g_2)
+  \;=\;  (\theta_h g_1)(\theta_h g_2)  \\
+  & = &  (g_1,\, g_1 \odot h)(g_2,\, g_2 \odot h) \\
+  & = &  (g_1g_2,\, (g_1 \odot h)^{g_2}\,(g_2 \odot h)) ~.
+\end{eqnarray*}
+A similar argument shows that (\ref{def:xpair})(b)  is also satisfied,
+so  $\odot$  is a crossed pairing.
+\end{pf}
+

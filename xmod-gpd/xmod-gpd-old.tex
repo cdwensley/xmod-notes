@@ -1,0 +1,228 @@
+%% xmod-gpd.tex,  version 26/06/07
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Crossed modules of groupoids} \label{sec:xmod-gpd}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Basic definitions}  \label{sec:xmod-gpd-defs}
+
+Let $\bbR=(R_1,R_0)$ be a groupoid and $\bbQ=(Q_1,Q_0)$ 
+a union of groups with the same object set $Q_0=R_0$, 
+and let $\bbQ,\bbR$ act upon themselves by conjugation 
+(as in (\ref{eq:gpd-conj})):
+$$
+{q_1}^q = q^{-1}q_1q, 
+\qquad {r_1}^r = r^{-1} \diamond r_1 \diamond r, 
+$$
+defined when $q_1,q$ are loops at the same vertex and when $sr = tr_1$. 
+A \emph{pre-crossed module of groupoids}  
+\index{pre-crossed module!of groupoids}
+$\calQ = (\delta : \bbQ \to \bbR)$ 
+consists of a morphism of groupoids $(\delta,\id)$ 
+(which we usually call $\delta$), 
+the \emph{boundary} of $\calQ$, \index{boundary}
+$$
+\bbQ ~=~ 
+\vcenter{
+\xymatrix{ 
+  Q_1  \ar[r]^{\delta}  \ar[d]<+0.5ex>^t \ar[d]<-0.5ex>_s 
+     &  R_1 \ar[d]<+0.5ex>^t \ar[d]<-0.5ex>_s \\ 
+  Q_0  \ar[r]_{\id}
+     &  R_0  \\
+}}
+\qquad\text{or, more simply,}\qquad
+\xymatrix{ 
+  Q_1  \ar[r]^{\delta}  
+     &  R_1 \ar[r]<+0.5ex>^s \ar[r]<-0.5ex>_t 
+        &  R_0 ~, \\
+}
+$$
+together with an action $\alpha$ of $\bbR$ on $\bbQ$ 
+such that $\delta$  is an $\bbR$-morphism.
+So, for all $q \in \Arr(\bbQ)$  and  $r \in \Arr(\bbR)$,
+\begin{center}
+\begin{tabular}{c r c l }
+\textbf{X1:} 
+  &  $\delta(q^r)$   &  =  &  $r^{-1} \diamond (\delta q) \diamond r$~.
+\end{tabular}
+\end{center}
+
+\noindent
+The pre-crossed module  $\calQ$  is a \emph{crossed module of groupoids}
+\index{crossed module!of groupoids}
+if it also satisfies, for all  $q_1,q \in \Arr(\bbQ)$,
+\begin{center}
+\begin{tabular}{c r c l }
+\textbf{X2:} 
+  &  ${q_1}^{\delta q}$  &  =  &  $q^{-1}q_1q$~. 
+\end{tabular}
+\end{center}
+Note that, for all $u \in Q_0$, $(\delta : \bbQ(u) \to \bbR(u))$ 
+is a crossed module of groups. 
+
+\medskip 
+\index{morphism!of crossed modules}
+A \emph{morphism of pre-crossed modules} $\alpha : \calQ_1 \to \calQ_2$ 
+is a pair  $\alpha = (\dda, \da)$, 
+where $\dda : Q_1 \to Q_2$ and $\da : R_1 \to R_2$ 
+are morphisms of groupoids satisfying
+$$
+\delta_2 \dda = \da \delta_1, \; \;
+\dda(q^r) = (\dda  q)^{\da r},
+$$
+making the following diagram commute:
+$$
+\xymatrix{ 
+  Q_1 \ar[r]^{\dda} \ar[d]_{\delta_1}
+     & Q_2 \ar[d]^{\delta_2} \\
+  R_1 \ar[r]_{\da}
+     & R_2
+}
+$$
+When $\bbQ_1,\bbQ_2$ are crossed modules, 
+$\alpha$ is a morphism of crossed modules.
+
+
+\begin{example}
+Let $N \unlhd G$ and $\bbG = \Gpd(G)$. 
+Take $\bbC = \bbG\times\bbI_n$ and let $\bbN$ be the totally disconnected 
+subgroupoid, consisting of $n$ copies of $\Gpd(N)$. 
+Then $\bbC$ acts on $\bbN$ by conjugation, 
+and $\calX = (\iota : \bbN \to \bbC)$ is a \emph{conjugation crossed module}, 
+where $\iota$ is the inclusion map. 
+\end{example}
+
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Derivations of a crossed module of groupoids}
+
+Recall that for $\calX = ((\partial,\id) : \bbC_2 \to \bbC_1$ 
+a $1$-homotopy $H : f \simeq g$, where $f,g$ are automorphisms of $\calX$, 
+is a pair of functions $(H_1:C_1 \to C_2,~ H_0:C_0 \to C_1)$ 
+satisfying various conditions including, in particular, 
+\begin{equation} \label{eq:deriv-cond}
+H_1(cc') = (H_1c)^{gc'}(H_1c').
+\end{equation}
+
+In the special case that $g=\id_{\calX}$ we call $H$ a \emph{free derivation}. 
+In another special case, when $H_0u = 1_u$ for all $u \in C_0$ 
+we call $H$ a \emph{derivation over the identity}. 
+A free derivation over the identity is simply called a \emph{derivation}. 
+
+\noindent
+[It might be better to call $H_1$ the free derivation or derivation?]
+
+\medskip
+We show first that when $\bbC_1 = \bbG \times \bbI_n$ that a derivation 
+is determined by 
+\begin{itemize}
+\item
+a derivation $\chi : C_1(1) \to C_2(1)$ 
+for the crossed module of groups $(\partial : C_2(1) \to C_1(1))$, 
+so that $H_1(1,c,1) = (1,\chi c,1)$, 
+\item
+a choice of images $H_1(1,e,j) = (j,a_j,j),~ 2 \leqslant j \leqslant n$. 
+\end{itemize}
+Applying condition (\ref{eq:deriv-cond}) we find 
+\begin{eqnarray*}
+H_1(j,e,1) &=& (H_1(1,e,j)^{-1})^{(j,e,1)} 
+               ~=~ (1,a_j^{-1},1), \\
+H_1(1,c,j) &=& (1,\chi c,1)^{(1,e,j)}(j,a_j,j) 
+               ~=~ (j,(\chi c)a_j,j), \\
+H_1(j,c,j) &=& (1,a_j^{-1},1)^{(1,c,j)}(1,\chi c,1)^{(1,e,j)}(j,a_j,j) 
+               ~=~ (j,(a_j^{-1})^c(\chi c)a_j,j), \\
+H_1(j,c,1) &=& (j,(a_j^{-1})^c(\chi c)a_j,j)^{(j,e,1)}(1,a^{-1},1) 
+               ~=~ (1,(a_j^{-1})^c(\chi c),1), \\
+\text{and, in general,}\qquad
+H_1(j,c,k) &=& (k,(a_j^{-1})^c(\chi c)a_k,k). 
+\end{eqnarray*}
+
+\noindent 
+When $H,K$ are two derivations, 
+determined by $\chi,\psi : C_1(1) \to C_2(1)$ respectively, 
+and by $H_1(1,e,j) = (j,a_j,j),~ K_1(1,e,j) = (j,b_j,j)$, 
+the Whitehead product $H_1 \star K_1$ is given, as usual, by the formula 
+$$
+(H_1 \star K_1)x ~=~ (K_1 x)(H_1 x)(K_1 \partial H_1 x). 
+$$
+For the loops at $1$ this gives 
+$$
+(H_1 \star K_1)(1,c,1) ~=~ (1, (\chi\star\psi)c, 1),  
+$$
+while the image of $(1,e,j)$ is given by 
+\begin{eqnarray*}
+(H_1 \star K_1)(1,e,j) 
+  &=&  (j,b_j,j)(j,a_j,j)(K_1\partial(j,a_j,j)) \\
+  &=&  (j,b_ja_j,j)(K_1(j,\partial a_j,j)) \\
+  &=&  (j,b_ja_j,j)(j,(b_j^{-1})^{\partial a_j}(\psi\partial a_j)b_j,j) \\
+  &=&  (j,a_j(\psi\partial a_j)b_j,j).
+\end{eqnarray*}
+
+\medskip
+Repeating the above calculations for homotopies 
+$H : f \simeq g$ over the identity, where $g \neq 1$, 
+we show that when $\bbC_1 = \bbG \times \bbI_n$ that a derivation 
+over the identity is determined by 
+\begin{itemize}
+\item
+a $g$-derivation $\chi : C_1(g1) \to C_2(g1)$ 
+for the crossed module of groups $(\partial : C_2(1) \to C_1(1))$, 
+so that $H_1(1,c,1) = (g1,\chi c,g1)$, 
+\item
+a choice of images $H_1(1,e,j) = (gj,a_j,gj),~ 2 \leqslant j \leqslant n$, 
+\item 
+the elements $g_j \in G$ where $g(1,e,j) = (g1,g_j,gj)$. 
+\end{itemize}
+Again, applying condition (\ref{eq:deriv-cond}), we find 
+\begin{eqnarray*}
+H_1(j,e,1) &=& (H_1(1,e,j)^{-1})^{(gj,g_j^{-1},g1)} 
+               ~=~ (g1,(a_j^{-1})^{g_j^{-1}},g1), \\
+H_1(1,c,j) &=& (g1,\chi c,g1)^{(g1,g_j,gj)}(gj,a_j,gj) 
+               ~=~ (gj,(\chi c)^{g_j}a_j,gj), \\
+H_1(j,c,j) &=& (g1,a_j^{-1},g1)^{(g1,gc,gj)}(g1,\chi c,g1)^{(g1,e,gj)}(gj,a_j,gj) 
+               ~=~ (gj,(a_j^{-1})^{gc}(\chi c)a_j,gj), \\
+H_1(j,c,1) &=& (gj,(a_j^{-1})^{gc}(\chi c)a_j,gj)^{(gj,e,g1)}(g1,a^{-1},g1) 
+               ~=~ (g1,(a_j^{-1})^{gc}(\chi c),g1), \\
+H_1(j,c,k) &=& (gk,(a_j^{-1})^{gc}(\chi c)a_k,gk). 
+\end{eqnarray*}
+
+\noindent 
+When $H,K$ are two $g$-derivations, 
+determined by $\chi,\psi : C_1(g1) \to C_2(g1)$ respectively, 
+and by $H_1(1,e,j) = (gj,a_j,gj),~ K_1(1,e,j) = (gj,b_j,gj)$, 
+the Whitehead product $H_1 \star K_1$ is given, as usual, by the formula 
+$$
+(H_1 \star K_1)x ~=~ (K_1 x)(H_1 x)(K_1 g^{-1} \partial H_1 x). 
+$$
+For the loops at $1$ this gives 
+$$
+(H_1 \star K_1)(1,c,1) ~=~ (g1, (\chi\star\psi)c, g1),  
+$$
+while the image of $(1,e,j)$ is given by 
+\begin{eqnarray*}
+(H_1 \star K_1)(1,e,j) 
+  &=&  (gj,b_j,gj)(gj,a_j,gj)(K_1 g^{-1}\partial(gj,a_j,gj)) \\
+  &=&  (gj,b_ja_j,gj)(K_1(j,g^{-1}\partial a_j,j)) \\
+  &=&  (gj,b_ja_j,gj)(gj,(b_j^{-1})^{\partial a_j}(\psi g^{-1}\partial a_j)b_j,gj) \\
+  &=&  (gj,a_j(\psi g^{-1} \partial a_j)b_j,gj).
+\end{eqnarray*}
+
+
+
+
+
+
+
+
+
+\subsection{Homotopies of crossed modules of groupoids}
+
+This subsection is intended to cover section 2 of
+Brown and \.{I}\c{c}en \cite{brow:icen}.
+
+

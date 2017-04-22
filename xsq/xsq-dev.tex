@@ -1,0 +1,308 @@
+% xsq-dev.tex,  version 22/04/17
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\noindent
+{\bf [This is now only in the development version.]}
+
+\bigskip
+\subsection{Semidirect Factorisation of a cat$^2$-group}
+\label{subs:sdpfact-catt}
+\index{semidirect factorisation!for cat2-groups}
+
+Starting with the cat$^2$-group 
+$$
+\xymatrix @C=2pc @R=2pc{
+ & \GGot \ar[dd] <-1.2ex>  \ar[dd] <-2.0ex>_{\ddttt,\ddhht}
+     \ar[rr] <+1.2ex>  \ar[rr] <+2.0ex>^{\ddtto,\ddhho}
+    &&  \GGbt  \ar[ll]^{\ddeeo}
+            \ar[dd]<+1.2ex>  \ar[dd] <+2.0ex>^{\dttt,\dhht}  \\
+\calG \quad = \quad
+ &  &&   \\
+ & \GGbo \ar[uu]_{\ddeet}
+     \ar[rr] <-1.2ex>  \ar[rr] <-2.0ex>_{\dtto,\dhho} 
+    &&  \GGe \ar[uu]^{\deet}   \ar[ll]_{\deeo} 
+ \\
+}
+$$
+we wish to generalise the semidirect factorisation of 
+Subsection \ref{subs:cat1} equation (\ref{eq:cat1-sdp-fact}).
+Put
+$$
+\ddSSo = \ker\ddtto, \quad
+\ddSSt = \ker\ddttt, \quad
+ \dSSo = \ker\dtto, \quad
+ \dSSt = \ker\dttt \quad\mbox{and}\quad
+ \SSot = \ker\ttot,
+$$
+giving isomorphisms
+\begin{eqnarray*}
+\dpho ~:~ \GGbo ~\cong~ \GGe \ltimes \dSSo,
+  \quad  b \mapsto (\dtto b, \duuo b), 
+& \quad &
+\ddpho ~:~ \GGot ~\cong~ \GGbt \ltimes \ddSSo,
+  \quad  g \mapsto (\ddtto g, \dduuo g),      \\
+\dpht ~:~ \GGbt ~\cong~ \GGe \ltimes \dSSt,
+  \quad  c \mapsto (\dttt c, \duut c),   
+& \quad &
+\ddpht ~:~ \GGot ~\cong~ \GGbo \ltimes \ddSSt,
+  \quad  g \mapsto (\ddttt g, \dduut g), 
+\end{eqnarray*}
+where, for example, $\duuo b = (\deeo\dtto b^{-1})b$.
+
+\medskip\noindent
+Note that~ $\SSot = (\ker \ddtto) \cap (\ker \ddttt)$.
+
+\medskip\noindent
+Where possible we keep to the convention that
+$$
+g \in \GGot,~~
+b \in \GGbo,~~
+c \in \GGbt,~~
+p \in \GGe,~~
+j \in \ddSSo,~~
+k \in \ddSSt,~~
+m \in \dSSo,~~
+n \in \dSSt,~~
+\ell \in \SSot.
+$$
+The following identities are easily verified:
+\begin{equation} \label{eq:cat2gp-ids}
+\duuo\ddttt = \ddttt\dduuo, \quad
+\duuo\ddhht = \ddhht\dduuo, \quad
+\dduuo\ddeet = \ddeet\duuo, \quad
+\duut\ddtto = \ddtto\dduut, \quad
+\duut\ddhho = \ddhho\dduut, \quad
+\dduut\ddeeo = \ddeeo\duut. 
+\end{equation} 
+
+\noindent
+We thus obtain the following result.
+
+\begin{lem}
+There is a cat$^1$-group isomorphism 
+$\phi_1 = (\ddpho,\dpho) : \ddcalGt \to \barGGt$,
+$$
+\xymatrix @C=2pc @R=2pc{
+ \GGot \ar[dd] <-1.2ex>  \ar[dd] <-2.0ex>_{\ddttt,\ddhht}
+   \ar[rr]^(0.45){\ddpho}
+  &&  \GGbt \ltimes \ddSSo 
+       \ar[dd] <+1.2ex>  \ar[dd] <+2.0ex>^{\barttt,\barhht}  \\
+  &&   \\
+ \GGbo \ar[uu]_{\ddeet}
+   \ar[rr]_(0.45){\dpho}
+  &&  \GGe \ltimes \dSSo  \ar[uu]^{\bareet}
+ \\
+}
+$$
+with structure maps on $\barGGt$  given by
+$$
+\quad \barttt(c,j) = (\dttt c, \ddttt j),
+\quad \barhht(c,j) = (\dhht c, \ddhht j),
+\quad \bareet(p,m) = (\deet p, \ddeet m).
+$$
+\end{lem}
+\begin{pf}
+There are three equations to be verified. 
+$$
+\barttt(c,j)
+~=~ \dpho\ddttt\ddpho^{-1}(c,j) \\
+~=~ \dpho\ddttt(\ddeeo c)j \\
+~=~ \dpho((\deeo\dttt c)(\ddttt j)) \\
+~=~ (\dtto((\deeo\dttt c)(\ddttt j)), \duuo((\deeo\dttt c)(\ddttt j))).
+$$
+The first of these terms is~
+$(\dttt c)(\dttt\ddtto j) ~=~ \dttt c$~ since ~$\ddtto j = 1$.
+
+\medskip\noindent
+The second term is~
+$(\duuo(\ddttt j))(\duuo(\deeo\dttt c))^{\ddttt j}
+~=~ (\deeo\dtto\ddttt j^{-1})(\ddttt j) ~=~ \duuo\ddttt j ~=~ \ddttt j$~ 
+since ~$\dduuo j = j$. 
+
+\medskip\noindent
+{\bf [Parts 2,3 added 01/05/07, and need to be checked.]}
+
+\medskip\noindent 
+Similarly 
+$$
+\barhht(c,j)
+~=~ \dpho\ddhht\ddpho^{-1}(c,j) \\
+~=~ \dpho\ddhht(\ddeeo c)j \\
+~=~ \dpho((\deeo\dhht c)(\ddhht j)) \\
+~=~ (\dtto((\deeo\dhht c)(\ddhht j)), \duuo((\deeo\dhht c)(\ddhht j))).
+$$
+The first of these terms is~
+$(\dhht c)(\dtto\ddhht j) ~=~ (\dhht c)(\dhht \ddtto j) 
+                          ~=~ \dhht(c(\ddtto j))$. 
+
+\medskip\noindent
+The second term is~
+$(\duuo(\ddhht j))(\duuo(\deeo\dhht c))^{\ddhht j}
+~=~ (\deeo\dtto\ddhht j^{-1})(\ddhht j) ~=~ \duuo\ddhht j 
+                                        ~=~ \ddhht(\dduuo j)$.
+Hence
+$$
+\barhht(c,j) ~=~ (\dhht(c(\ddtto j)), \ddhht(\dduuo j)) ~=~ (\dhht c,\ddhht j).
+$$
+
+\medskip\noindent
+Thirdly, 
+$$
+\bareet(p,m)
+~=~ \ddpho\ddeet\ddpho^{-1}(p,m) \\
+~=~ \ddpho\ddeet(\deeo p)m \\
+~=~ \ddpho(\ddeeo\deet p)(\ddeet m) \\
+~=~ (\ddtto((\ddeeo\deet p)(\ddeet m)), \dduuo((\ddeeo\deet p)(\ddeet m))).
+$$
+The first of these terms is~
+$(\deet p)(\deet\dtto m) ~=~ \deet(p(\dtto m)$. 
+
+\medskip\noindent
+The second term is 
+$(\dduuo(\ddeet m))(\dduuo(\ddeeo\deet p))^{\ddeet m} 
+~=~ (\ddeeo\ddtto\ddeet m^{-1})(\ddeet m) 
+~=~ (\ddeet\deeo\dtto m^{-1})(\ddeet m) 
+~=~ \ddeet(\duuo m)$. 
+Hence
+$$
+\bareet(p,m) ~=~ (\deet(p(\ddtto m)), \ddeet(\duuo m)) ~=~ (\deet p,\ddeet m).
+$$
+\end{pf}
+
+\bigskip\noindent
+Now $\ker\barttt = \ddpho(\ker\ddttt) = \ddpho\ddSSt$.
+\hfill {\bf [Really?]} 
+
+\medskip\noindent
+A typical element in $\ddSSt$ is $\dduut g$, and
+\begin{equation}
+\ddpho\dduut g = (\ddtto\dduut g, \dduuo\dduut g) \in \dSSt \ltimes \SSot
+% \qquad\mbox{where}\qquad \SSot ~=~ (\ker\ddtto) \cup (\ker\ddttt).
+\qquad\mbox{so}\qquad
+\ker\barttt ~=~ \dSSt \ltimes \SSot ~\unlhd~ \GGbt \ltimes \ddSSo.
+\end{equation}
+
+\begin{lem} \label{lem:cat1iso-prime}
+There is a cat$^1$-group isomorphism~ 
+$\phi_1{}^{\prime} = (\ddphod,1) : \barGGt \to \ddcalGtd$
+$$
+\xymatrix @C=2pc @R=2pc{
+  \GGbt \ltimes \ddSSo 
+   \ar[dd] <-1.2ex>  \ar[dd] <-2.0ex>_{\barttt,\barhht}
+   \ar[rr]^(0.45){\ddphod}
+  &&  (\GGe \ltimes \dSSo) \ltimes (\dSSt \ltimes \SSot) 
+       \ar[dd] <+1.2ex>  \ar[dd] <+2.0ex>^{\ddtttd,\ddhhtd}  \\
+  &&   \\
+ \GGe \ltimes \dSSo  \ar[uu]_{\bareet}
+   \ar[rr]_(0.45){1}
+  &&  \GGe \ltimes \dSSo  \ar[uu]^{\ddeetd}
+ \\
+}
+$$
+where $\ddphod(c,j) \quad=\quad (\barttt(c,j),\baruut(c,j))$, 
+and the structure maps on $\ddcalGd$ are given by
+\begin{eqnarray*}
+\ddtttd((p,m),(n,\ell)) &=& (p(\dttt n),m^{\dttt n}(\ddttt\ell)),\\
+\ddhhtd((p,m),(n,\ell)) &=& (p(\dhht n),m^{\dhht n}(\ddhht\ell)),\\
+\ddeetd(p,m) &=& ((p,m),(1,1)).
+\end{eqnarray*}
+\end{lem}
+\begin{pf}
+Since
+$$
+\baruut(c,j)
+~=~ (\bareet\barttt(c^{-1},(j^{-1})^{c^{-1}}))(c,j)
+~=~ (\deet\dttt c^{-1}, \ddeet\ddttt(j^{-1})^{c^{-1}})(c,j)
+~=~ (\duut c, \dduut j),
+$$
+it follows that 
+$$
+\ddphod(c,j) \quad=\quad
+(\,(\dttt c,~\ddttt j),~ (\duut c,~\dduut j)\,).
+$$
+
+\noindent
+We verify the first of the structure map formulae -- the rest 
+follow similarly:
+\begin{eqnarray*}
+\ddtttd((p,m),(n,\ell)) 
+  &=&  \barttt \ddphod{}^{-1}((p,m),(n,\ell)) \\
+  &=&  \barttt(\bareet(p,m)(n,\ell)) \\
+  &=&  (p,m)\barttt(n,\ell) \\
+  &=&  (p,m)(\dttt n, \ddttt \ell) \\
+  &=&  (p,m)(1,1) ~=~ (p,m).
+\end{eqnarray*}
+\end{pf}
+
+\noindent
+The composite source group isomorphism $\phot = \ddphod \circ \ddpho$ 
+is therefore
+$$
+\phot ~:~ \GGot \to (\GGe \ltimes \dSSo) \ltimes (\dSSt \ltimes \SSot), 
+\quad g \mapsto 
+      (\,(\ttot g,\duuo\ddttt g),~(\duut\ddtto g,~\dduut\dduuo g)\,).
+$$
+
+\bigskip\noindent
+Combining $\phi_1$ with $\phi_1{}^{\prime}$ we obtain the following result.
+\begin{thm}
+There is an isomorphism of cat$^2$-groups
+$$
+\phi ~=~ (\phot,\dpht,\dpho,1) ~:~ \calG \to \calG'~.
+$$
+$$
+\xymatrix @C=2pc @R=2pc{
+   & \GGot \ar[dd] <-1.2ex>  \ar[dd] <-2.0ex>_{\ddttt,\ddhht}
+     \ar[rr] <+1.2ex>  \ar[rr] <+2.0ex>^{\ddtto,\ddhho}
+    && \GGbt  \ar[ll]^{\ddeeo}
+       \ar[dd]<+1.2ex>  \ar[dd] <+2.0ex>^{\dttt,\dhht}  
+      &&  (\GGe \ltimes \dSSo) \ltimes (\dSSt \ltimes \SSot) 
+           \ar[dd] <+1.2ex>  \ar[dd] <+2.0ex>^{\ddtttd,\ddhhtd} 
+           \ar[rr] <+1.2ex>  \ar[rr] <+2.0ex>^(0.6){\ddttod,\ddhhod}       
+        && \GGe \ltimes \dSSt  \ar[ll]^(0.4){\ddeeod}
+           \ar[dd]<+1.2ex>  \ar[dd] <+2.0ex>^{\dtttd,\dhhtd} \\
+\phi~: 
+   &&&& \qquad\to
+       &&&                                                   \\
+   & \GGbo \ar[uu]_{\ddeet}
+     \ar[rr] <-1.2ex>  \ar[rr] <-2.0ex>_{\dtto,\dhho} 
+    && \GGe \ar[uu]^{\deet}   \ar[ll]_{\deeo} 
+      && \GGe \ltimes \dSSo  \ar[uu]^{\ddeetd} 
+         \ar[rr] <-1.2ex>  \ar[rr] <-2.0ex>_{\dttod,\dhhod} 
+        && \GGe  \ar[uu]^{\deetd}  \ar[ll]_{\ddeeod}         \\
+}
+$$
+where
+\begin{eqnarray*}
+\qquad\qquad\qquad~
+\phot(g) &=& (\,(\ttot g,\duuo\ddttt g),~(\duut\ddtto g,~\dduut\dduuo g)\,),\\
+\dpht(c) &=& (\dttt c, \duut c),\\
+\dpho(b) &=& (\dtto b, \duuo b),
+\end{eqnarray*}
+and the $12$ homomorphisms are given by
+\begin{eqnarray*}
+\ddtttd((p,m),(n,\ell)) 
+  &=& (p(\dttt n),m^{\dttt n}(\ddttt\ell)),\\
+\ddhhtd((p,m),(n,\ell)) 
+  &=& (p(\dhht n),m^{\dhht n}(\ddhht\ell)),\\
+\ddeetd(p,m) 
+  &=& ((p,m),(1,1)), \\
+\ddttod((p,m),(n,\ell)) 
+  &=& (p(\dtto m)(\dttt n),(\duut n)(\duut\ddtto\ell)),\\
+\ddhhod((p,m),(n,\ell)) 
+  &=& ((?,?),(?,?)),\\
+\ddeeod(p,n) 
+  &=& ((p,1),(n,1)), \\
+\dttt(p,n)  &=& p(\dttt n),\\
+\dhht(p,n)  &=& p(\dhht n),\\
+\deet(p) &=& (p,1) \\
+\dtto(p,m)  &=& p(\dtto m),\\
+\dhho(p,m)  &=& p(\dhho m),\\
+\deeo(p) &=& (p,1).
+\end{eqnarray*}
+\end{thm}
+\begin{pf}
+To be added.
+\end{pf}
+

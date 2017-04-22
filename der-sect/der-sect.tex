@@ -1,0 +1,834 @@
+% der-sect.tex  (12/06/09)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Derivations and Sections} \label{sect:der-sec}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Derivations} \label{subsec:der} \index{derivations}
+
+The Whitehead monoid \index{Whitehead monoid} $\Der(\calX)$  of  $\calX$ 
+was defined in \cite{W-48b} 
+to be the monoid of all {\it derivations}
+from $R$ to $S$, that is the set of all maps  $R \to S$,
+with composition  $\ \star \ $, satisfying
+\begin{center}
+\begin{tabular}{c r c l }
+\textbf{D1:}  &  $\chi(qr)$              &  = 
+           & $(\chi q)^{r} \; (\chi r)$  \\
+\textbf{D2:}  &  $(\chi_1 \star \chi_2)(r)$  &  =
+           & $(\chi_2 r)(\chi_1 r)(\chi_2 \partial \chi_1 r)$. 
+\end{tabular}
+\end{center}
+
+\noindent
+The definition of Whitehead multiplication used here 
+differs from that in \cite{alp:wens-ijac} in that it is now 
+defined as multiplication on the right rather than on the left, 
+which is why we are using `$\star$' in place of `$\circ$'. 
+Invertible elements in the monoid are called \emph{regular}. 
+\index{regular derivation} \index{derivation!regular} 
+The Whitehead group $W = W(\calX)$ is the group of the monoid. 
+
+In Brown and Gilbert \cite{brow:gilb} the notion of derivation 
+was extended to that of $\gamma$-derivation, as in the following definition. 
+Since ordinary derivations may be obtained from $\gamma$-derivations 
+by setting $\gamma$ to be the identity automorphism oh $\calX$, 
+we shall give properties in terms of the more general case. 
+
+\begin{defn} \index{$\gamma$-derivation}
+If $\gamma = (\ddg,\dg)$ is an automorphism of $\calX$,
+the Whitehead monoid $\Der_{\gamma}(\calX)$  of  $\calX$ 
+is the monoid of all $gamma$-{\it derivations}
+from $R$ to $S$, that is the set of all maps  $R \to S$,
+with composition written  $\ \star_{\gamma} \ $, satisfying
+\begin{center}
+\begin{tabular}{c r c l }
+\textbf{\emph{D1:}}  &  $\chi(qr)$              &  = 
+           & $(\chi q)^{\dg r}(\chi r)~.$  \\
+\textbf{\emph{D2:}}  &  $(\chi_1 \star_{\gamma} \chi_2)(r)$  &  =
+           & $(\chi_2 r)(\chi_1 r)(\chi_2 \dg^{-1} \partial \chi_1 r)$. 
+\end{tabular}
+\end{center}
+\end{defn}
+
+The following Lemma verifies that $\Der_{\gamma}(\calX)$ \emph{is} a monoid.
+ 
+\begin{lem} \label{lem:invchir}
+\mbox{  }\\
+\vspace{-5mm}
+\begin{enumerate}[{\rm (a)}]
+\item~
+$\chi 1 = 1$~,
+\item~
+$(\chi r)^{-1} \;\;=\;\; (\chi\,r^{-1})^{\dg r}$~,
+\item~
+the zero map is a derivation and an identity for the Whitehead multiplication,
+\item~
+the Whitehead multiplication is associative. 
+\end{enumerate}
+\end{lem}
+\begin{pf}
+%\vspace{-5mm}
+\begin{enumerate}[(a)]
+\item
+This follows from $\chi(r1) = (\chi r)^1(\chi 1)$.
+\item 
+This follows from  $1 = \chi(r^{-1}r) = (\chi r^{-1})^{\dg r}(\chi r)$~.
+\item
+It is clear that $0 : R \to S,~ r \mapsto 1$ is a derivation, and that
+$$
+(\chi\star_{\gamma}0)r = 1(\chi r)1 = \chi r = (\chi r)11 
+= (0\star_{\gamma}\chi)r~.
+$$
+\item
+Expansion by {\bf D2:} using either bracketing 
+(though one requires more work!) gives: 
+$$
+(\chi_1 \star \chi_2 \star \chi_3)r \;\;=\;\;
+(\chi_3 r)(\chi_2 r)(\chi_3\dg^{-1}\partial\chi_2 r)
+(\chi_1 r)(\chi_3\dg^{-1}\partial\chi_1 r)(\chi_2\dg^{-1}\partial\chi_1 r)
+(\chi_3\dg^{-1}\partial\chi_2\dg^{-1}\partial\chi_1 r)~.
+$$
+\end{enumerate}
+\end{pf}
+
+For $\chi$ a $\gamma$-derivation, define 
+$\psi=\psi_{\chi} : R \to S$ by $\psi r = \chi \dg^{-1}r$ or, equivalently, 
+$\psi\dg r = \chi r$.
+\begin{equation} \label{eq:chi-psi}
+\vcenter{\xymatrix{
+   S \ar[rr]^{\ddg} \ar[dd]_{\partial} 
+     && S \ar[dd] <0.5ex>^{\partial} \\
+     &&  \\
+   R \ar[uurr]^{\chi} \ar[rr]_{\dg} 
+     && R \ar[uu] <0.5ex>^{\psi}
+}}
+\end{equation}
+
+\noindent
+Then $\psi$ is a (identity-) derivation since 
+$$
+\psi(qr)
+~=~ \chi((\dg^{-1}q)(\dg^{-1}r)) 
+~=~ (\chi\dg^{-1}q)^{\dg(\dg^{-1}r)}(\chi\dg^{-1}r) 
+~=~ (\psi q)^r(\psi r).
+$$
+
+\begin{lem} \label{lem:wgamma-to-w} 
+The map $\Der_{\gamma}(\calX) \to \Der(\calX),~ \chi \mapsto \psi_{\chi}$, 
+is a monoid homomorphism. 
+\end{lem} 
+\begin{pf} 
+If $\psi_1,\psi_2$ are the derivations corresponding to $\gamma$-derivations 
+$\chi_1,\chi_2$, then 
+\begin{eqnarray*}
+(\psi_1 \star \psi_2)(\dg r)
+  &=& (\psi_2\dg r)(\psi_1\dg r)(\psi_2\dg\dg^{-1}\partial\psi_1\dg r) \\
+  &=& (\chi_2 r)(\chi_1 r)(\chi_2\dg^{-1}\partial\chi_1 r) \\
+  &=& (\chi_1 \star_{\gamma} \chi_2)r.
+\end{eqnarray*}
+\end{pf} 
+
+
+\begin{lem} \label{lem:gamma-beta-chi}
+Given a $\gamma$-derivation $\chi$ of $\calX$ there is an endomorphism 
+$\beta_{\chi} = (\ddb_{\chi}, \db_{\chi})$
+of $\calX$ where
+$$
+\ddb_{\chi} : S \to S, \;\; s \mapsto (\ddg s)(\chi \partial s), \quad
+ \db_{\chi} : R \to R, \;\; r \mapsto  (\dg r)(\partial \chi r)
+$$
+such that 
+\begin{enumerate}[{\rm (a)}]
+\item~
+$\ddb_{\chi}(s^r) 
+  \;\;=\;\;  (\ddb_{\chi}s)^{\db_{\chi}r}
+  \;\;=\;\;  (\chi r)^{-1}\,(\ddb_{\chi} s)^{\dg r}\,(\chi r)$~,
+\item~
+$\db_{\chi}(q^r)
+  \;\;=\;\;  (\db_{\chi}q)^{\db_{\chi}r}
+  \;\;=\;\;  ((\dg r)(\partial\chi r))^{-1}(\dg q)(\partial\chi q)
+                     ((\dg r)(\partial\chi r))$~, 
+\item~ 
+$(\chi_1\star_{\gamma}\chi_2) r 
+\;=\;
+(\chi_2 r)(\ddb_{\chi_2} \ddg^{-1} \chi_1 r)
+\;=\;
+(\chi_1 r)(\chi_2 \dg^{-1} \db_{\chi_1} r)$~,
+\item~
+$\chi\,*\,{\ddg}^{-1}\,*\,\ddb_{\chi}\ 
+ \;=\; \db_{\chi}\,*\,{\dg}^{-1}\,*\,\chi
+ \;:\; R \to S, \quad r \mapsto (\chi r)(\chi\dg^{-1}\partial\chi r)$\,,~
+\emph{so that the following diagram commutes:}
+\begin{equation} \label{eq:gamma-sqchi}
+\vcenter{\xymatrix{
+   S \ar[rrr]^{{\ddg}^{-1}\,*\,\ddb_{\chi}}
+     &&& S \\
+     &&&  \\
+   R \ar[uu]^{\chi} \ar[rrr]_{\db_{\chi}\,*\,{\dg}^{-1}} 
+     &&& R \ar[uu]_{\chi}
+}}
+\end{equation}
+\item~
+The endomorphism  $\ddb_{\chi} * \ddg^{-1}$  
+commutes with  $\partial * \chi * \ddg^{-1}$  
+while  $\dg^{-1} * \db_\chi$ commutes with  $\dg^{-1} * \chi * \partial$~. 
+\item~
+When $\psi = \psi_{\chi}$ as in \emph{(\ref{eq:chi-psi})}, 
+then ~$\db_{\chi}r ~=~ \db_{\psi}(\dg r)$~ 
+and ~$\ddb_{\chi}s ~=~ \ddb_{\psi}(\ddg s)$. 
+\end{enumerate}
+\end{lem}
+\begin{pf}
+We first check that $\db_{\chi}$ and $\ddb_{\chi}$ are homomorphisms.
+\begin{eqnarray*}
+\db_{\chi}(r_1r_2) 
+  &=&   \dg(r_1r_2)\partial((\chi r_1)^{\dg r_2}(\chi r_2)) 
+    ~=~ (\dg r_1)(\partial\chi r_1)(\dg r_2)(\partial\chi r_2) 
+    ~=~ (\db_{\chi}r_1)(\db_{\chi}r_2), \\
+\ddb_{\chi}(s_1s_2)
+  &=&   \ddg(s_1s_2)(\chi((\partial s_1)(\partial s_2)) 
+    ~=~ (\ddg s_1)(\ddg s_2)(\chi\partial s_1)^{\partial\ddg s_2}
+           (\chi\partial s_2) 
+    ~=~ (\ddb s_1)(\ddb s_2).
+\end{eqnarray*}
+
+\noindent
+We now verify the six properties.
+\begin{enumerate}[(a)]
+\item
+\mbox{}\vspace*{-9mm} 
+\begin{eqnarray*} 
+\ddb_{\chi}(s^r) 
+  & = &  (\ddg s^r)(\chi\partial(s^r)) 
+    \;=\; (\ddg s)^{\dg r}(\chi(r^{-1}(\partial s)r)) 
+    \;=\; (\ddg s)^{\dg r}(\chi(r^{-1}))^{(\partial\ddg s)(\dg r)}
+              (\chi\partial s)^{\dg r}(\chi r) \\
+  & = &  \{(\chi(r^{-1}))(\ddg s)(\chi\partial s)\}^{\dg r}(\chi r) 
+    \;=\;  (\chi r)^{-1}(\ddb_{\chi} s)^{\dg r}(\chi r) 
+    \;=\;  (\ddb_{\chi} s)^{(\dg r)(\partial\chi r)} 
+    \;=\;  (\ddb_{\chi} s)^{\db_{\chi}r}~.
+\end{eqnarray*}
+\item
+\mbox{}\vspace*{-9mm} 
+\begin{eqnarray*}
+\db_{\chi}(q^r)
+  & = &  (\dg(q^r))(\partial\chi(r^{-1}qr)) 
+    \;=\;  (\dg(q^r))\,\partial\{(\chi(r^{-1}))^{\dg(qr)}
+                (\chi q)^{\dg r}(\chi r)\} \\
+  & = &  (\dg(q^r))(\partial\chi(r^{-1}))^{(\dg r)(\dg q^r)} 
+                (\partial\chi q)^{\dg r}(\partial\chi r) 
+    \;=\;  (\partial((\chi r)^{-1})(\dg(q^r))
+                (\partial\chi q)^{\dg r}(\partial\chi r) \\
+  & = &  (\partial\chi r)^{-1}\{(\dg q)(\partial\chi q)\}^{\dg r} 
+                (\partial\chi r) 
+    \;=\;  (\db_{\chi}q)^{\db_{\chi}r}~.
+\end{eqnarray*}
+\item 
+\mbox{}\vspace*{-9mm} 
+\begin{eqnarray*} 
+(\chi_1\star_{\gamma}\chi_2)r 
+  & = &
+    (\chi_2 r)\{(\chi_1 r)(\chi_2\partial(\ddg^{-1}\chi_1 r))\}
+    \;=\; (\chi_2 r)(\ddb_{\chi_2} \ddg^{-1} \chi_1 r)~, \\ 
+(\chi_2 \dg^{-1} \db_{\chi_1})r
+  & = & 
+    \chi_2(r(\dg^{-1} \partial \chi_1 r))
+  \;=\; (\chi_2 r)^{\partial\chi_1 r}\,(\chi_2 \dg^{-1} \partial \chi_1 r)
+  \;=\; (\chi_1 r)^{-1}(\chi_2 r)(\chi_1 r)(\chi_2\dg^{-1}\partial\chi_1 r)~. 
+\end{eqnarray*} 
+\item
+\mbox{}\vspace*{-9mm} 
+\begin{eqnarray*}
+\ddb_{\chi}(\ddg^{-1}\chi r)
+  &=& \ddg(\ddg^{-1}\chi r)(\chi\partial\ddg^{-1}\chi r) 
+     ~=~ (\chi r)(\chi\dg^{-1}\partial\chi r)~, \quad \text{and} \\
+(\chi\dg^{-1})(\db_{\chi}r) 
+  &=& \chi(r(\dg^{-1}\partial\chi r)) 
+     ~=~ (\chi r)^{\partial\chi r}(\chi\dg^{-1}\partial\chi r) 
+     ~=~ (\chi r)(\chi\dg^{-1}\partial\chi r)~. 
+\end{eqnarray*} 
+\item
+\mbox{}\vspace*{-9mm} 
+\begin{eqnarray*} 
+\text{By (d)},~~ 
+  &&     (\ddb_{\chi} * \ddg^{-1}) * (\partial * \chi * \ddg^{-1}) 
+     ~=~ \partial * (\db_{\chi} * \dg^{-1} * \chi) * \ddg^{-1} 
+     ~=~ (\partial * \chi * \ddg^{-1}) * (\ddb_{\chi} * \ddg^{-1}), \\ 
+  &&     (\dg^{-1} * \db_{\chi}) * (\dg^{-1} * \chi * \partial) 
+     ~=~ \dg^{-1} * (\chi * \ddg^{-1} * \ddb_{\chi}) * \partial 
+     ~=~ (\dg^{-1} * \chi * \partial) * ( \dg^{-1} * \db_{\chi}). 
+\end{eqnarray*} 
+\item 
+This relationship between $\beta_{\chi}$ and $\beta_{\psi}$ is immediate. 
+\vspace*{-9mm} 
+\end{enumerate} 
+\end{pf}
+
+\bigskip 
+Using Lemma \ref{lem:gamma-beta-chi} and the first crossed module axiom,
+the identity {\bf D1:} for derivations generalises as follows.
+\begin{lem}
+\mbox{  }\\
+\vspace{-5mm}
+\begin{enumerate}[{\rm (a)}]
+\item\quad
+$\chi(r_1r_2 \ldots r_k) \;=\;
+(\chi r_1)^{\dg(r_2 \ldots r_k)}(\chi r_2)^{\dg(r_3 \ldots r_k)}
+\,\ldots\,(\chi r_{k-1})^{\dg r_k}(\chi r_k)$~,
+\item\quad
+$\partial\chi(r_1r_2 \ldots r_k) \;=\;
+(\dg(r_1r_2 \ldots r_k))^{-1}\,
+(\db_{\chi}r_1)(\db_{\chi}r_2) \ldots (\db_{\chi}r_k)$~,
+\item\quad
+$\chi\partial(s_1s_2 \ldots s_k) \;=\;
+(\ddg(s_1s_2 \ldots s_k))^{-1}\,
+(\ddb_{\chi}s_1)(\ddb_{\chi}s_2) \ldots (\ddb_{\chi}s_k)$~.
+\end{enumerate}
+\end{lem}
+
+\medskip 
+It is straightforward to verify that for $g$ an invertible element 
+in a monoid $M$, the set $M_g = (M,\ast_g)$ of elements in $M$ with 
+multiplication $\ast_g$ defined in terms of the usual multiplication by
+\begin{equation} \label{eq:star-g-defn} 
+m \ast_g n ~:=~ mg^{-1}n, 
+\end{equation} 
+is a monoid with identity $g$. 
+If $m \in M$ is invertible in $M$ then $m$ has $\ast_g$-inverse 
+$\overline{m} := gm^{-1}g$. 
+The resulting monoids are isomorphic, 
+either by $\theta_g : M \to M_g, m \mapsto mg$ 
+or by $\theta'_g : M \to M_g, m \mapsto gm$.  
+When $M$ is a group the $g$-conjugation automorphisms are the  
+\begin{equation} \label{eq:g-conj} 
+\wedge_g m \;:\; G \to G,~ 
+    n \,\mapsto\, \overline{m} \ast_g n \ast_g m = gm^{-1}ng^{-1}m\,. 
+\end{equation} 
+
+This notion generalises to categories and to crossed modules, 
+but the application we require here is to the monoid of endomorphisms 
+$\End_{\gamma}(\calX)$, 
+where $\gamma = (\ddg,\dg)$ is an automorphism of $\calX$, 
+with multiplication 
+\begin{equation} \label{eq:star-gamma-calX} 
+\alpha\ast_{\gamma}\beta ~:=~ 
+(\dda\ast_{\ddg}\ddb,~ \da\ast_{\dg}\db). 
+\end{equation} 
+
+\newpage
+\begin{thm} \label{thm:Delta}
+There is a monoid homomorphism 
+$\Delta_{\gamma} : \Der_{\gamma}(\calX) \to \End_{\gamma}(\calX),~ 
+                   \chi \mapsto \beta_{\chi} = (\ddb_{\chi},\db_{\chi})$.
+\end{thm}
+\begin{pf}
+Since 
+\vspace*{-9mm} 
+\begin{eqnarray*}
+(\ddb_{\chi_1} \ast_{\gamma} \ddb_{\chi_2})s 
+ &=& (\ddb_{\chi_1} * \ddg^{-1} * \ddb_{\chi_2})s \\ 
+ &=& \ddb_{\chi_2}(s(\ddg^{-1}\chi_1\partial s)  \\ 
+ &=& (\ddg s)(\chi_1\partial s)\chi_2((\partial s)
+       (\dg^{-1}\partial\chi_1\partial s) \\ 
+ &=& (\ddg s)(\chi_1\partial s)(\chi_2\partial s)^{\partial\chi_1\partial s} 
+       (\chi_2\dg^{-1}\partial\chi_1\partial s) \\ 
+ &=& (\ddg s)(\chi_2\partial s)(\chi_1\partial s)
+       (\chi_2\dg^{-1}\partial\chi_1\partial s) \\ 
+ &=& \ddb_{\chi_1 \star_{\gamma} \chi_2}\ s, \\
+(\db_{\chi_1} \ast_{\gamma} \db_{\chi_2})r 
+ &=& (\db_{\chi_1} * \dg^{-1} * \db_{\chi_2})r \\ 
+ &=& \db_{\chi_2}(r(\dg^{-1}\partial\chi_1 r)) \\
+ &=& (\dg r)(\partial\chi_1 r)\partial\left( 
+       (\chi_2 r)^{\partial\chi_1r}(\chi_2\dg^{-1}\partial\chi_1 r)\right) \\ 
+ &=& (\dg r)\partial\left( 
+       (\chi_2r)(\chi_1r)(\chi_2\dg^{-1}\partial\chi_1 r)\right) \\
+ &=& \db_{\chi_1\star\chi_2}\ r, 
+\end{eqnarray*}
+it follows that~ 
+$(\Delta_{\gamma}\chi_1) \ast_{\gamma} (\Delta_{\gamma}\chi_2) 
+ = \Delta_{\gamma}(\chi_1 \star_{\gamma} \chi_2)$.
+\end{pf}
+
+
+\medskip
+We shall see later that there is a homomorphism from $S$ to $\Der(\calX)$ 
+mapping $s$ to the principal derivation $\eta_s$. 
+
+\begin{lem} \label{lem:gamma-eta_s}
+For each $s \in S$ the function $\eta_s$ 
+(which we may also write as $\eta_{\gamma,s}$ when required)  
+$$
+\eta_s : R \to S, \quad r \mapsto (s^{-1})^{\dg r} s 
+$$  
+is a $\gamma$-derivation, 
+\index{derivation!principal} \index{principal derivation} 
+called a \emph{principal $\gamma$-derivation}, satisfying   
+$$
+\eta_s(\partial s_0) \,=\, [\ddg s_0,s], 
+\qquad\mbox{and}\qquad 
+\partial(\eta_s r) \,=\, [\dg r, \partial s].
+$$
+\end{lem}
+\begin{pf} 
+$$
+(\eta_s q)^{\dg r}\,(\eta_s r) 
+  \;=\; ((s^{-1})^{\dg q}\,s)^{\dg r}\,(s^{-1})^{\dg r}\,s)
+  \;=\; (s^{-1})^{\dg(qr)}\,s  \;=\;  \eta_s(qr) ~,
+$$
+$$
+\eta_s \partial s_0 \;=\; (s^{-1})^{\dg \partial s_0}\,s
+                    \;=\; (s^{-1})^{\partial \ddg s_0}\,s
+                    \;=\; (\ddg s_0)^{-1}\,s^{-1}\,(\ddg s_0)\,s
+                    \;=\; [\ddg s_0,s]~,
+$$
+$$
+\partial(\eta_s r)  \;=\; (\partial s^{-1})^{\dg r}(\partial s) 
+                    \;=\; [\dg r, \partial s]~.
+$$
+\end{pf}
+
+\begin{lem}[Properties of principal derivations] \label{lem:princ-prop}
+\mbox{}\\
+\vspace{-5mm}
+\begin{enumerate}[{\rm (a)}]
+\item~
+$\eta_1$ is the zero map,
+\item~
+$\ddb_{\eta_s}s_0 = (\ddg s_0)^s 
+\qquad\mbox{and}\qquad
+\db_{\eta_s}r = (\dg r)^{\partial s}$~,
+\item~
+$\eta_{s_1} \star_{\gamma} \eta_{s_2} = \eta_{s_1s_2} 
+\qquad\mbox{and}\qquad
+\overline{\eta_s} = \eta_{s^{-1}}$~.
+\end{enumerate}
+\end{lem}
+\begin{pf}
+\begin{enumerate}[(a)]
+\item~
+$\eta_1 r = 1^r 1 = 1$~,
+\item~
+$\ddb_{\eta_s} s_0 = (\ddg s_0)(\eta_s(\partial s_0))
+= (\ddg s_0) [\ddg s_0,s] = (\ddg s_0)^s$  
+
+and \quad 
+$\db_{\eta_s}r = (\dg r)(\partial \eta_s r)
+= (\dg r) [\dg r, \partial s] 
+= (\dg r)^{\partial s}$~,
+\item~
+%% $(\eta_{s_1} \star_{\gamma} \eta_{s_2})r 
+$(\eta_{s_2}r)(\eta_{s_1}r)(\eta_{s_2}\partial\ddg^{-1}\eta_{s_1}r)) 
+~=~ (\eta_{s_2}r)(\eta_{s_1}r)[\eta_{s_1}r,s_2] 
+~=~ (\eta_{s_2}r)s_2^{-1}(\eta_{s_1}r)s_2 
+~=~ (s_2^{-1})^{\dg r}(s_1^{-1})^{\dg r}s_1s_2 
+%% ~=~ \eta_{s_1s_2}r  
+$\,.
+\end{enumerate}
+\end{pf}
+
+\newpage 
+\begin{lem} \label{lem:chi-sigma-rho}
+The following statements are equivalent.
+\begin{enumerate}[{\rm (i)}]
+\item~ 
+$\chi$ has a Whitehead $\gamma$-inverse $\overline{\chi}$; 
+\item~ 
+$\ddb{_\chi} \in \Aut(S)$, 
+where $\ddb_{\chi}(s) = (\ddg s)(\chi \partial s)$;
+\item~ 
+$\db_{\chi} \in \Aut(R)$,
+where $\db_{\chi}(r) = (\dg r)(\partial \chi r)$;
+\item~
+$\beta = (\ddb,\db) \in \Aut_{\gamma}(\calX)$.
+\end{enumerate}
+When these conditions are satisfied, 
+$$
+\overline{\chi}r \;=\; ({\ddg\overline{\ddb_{\chi}}}\,\chi\,r)^{-1}
+                 \;=\; (\chi\,\overline{\db_{\chi}}\dg\,r)^{-1}\,,~~  
+(\chi r)(\overline{\chi}r) \;=\; 
+(\chi \dg^{-1} \partial \overline{\chi}r)^{-1}\,,
+~~\text{and}~~ 
+(\overline{\chi}r)(\chi r) \;=\; 
+(\overline{\chi} \dg^{-1} \partial \chi r)^{-1}\,. 
+$$
+\end{lem}
+\begin{pf}
+Theorem \ref{thm:Delta} shows that, when $\chi$ is a regular derivation,
+both  $\ddb_{\chi}$  and  $\db_{\chi}$  are automorphisms, 
+so (i) implies (ii) and (iii), and hence (iv).
+
+\medskip
+Now suppose that  $\ddb_{\chi}$  has $\gamma$-inverse $\overline{\ddb_{\chi}}$.
+We first show that  $\chi^{\$}$  is a derivation where
+$\chi^{\$} r = (\ddg \overline{\ddb_{\chi}} \chi r)^{-1}$~.
+Using the equivalent formula, 
+$\ddb_{\chi} \ddg^{-1} \chi^{\$}r = (\chi r)^{-1}$~,
+\begin{eqnarray*}
+\ddb_{\chi} \ddg^{-1}(\,(\chi^{\$} q)^{\dg r} \,(\chi^{\$} r)\,)
+  & = &
+    (\ddb_{\chi} \ddg^{-1} \chi^{\$} q)^{\db_{\chi}r} 
+     (\ddb_{\chi} \ddg^{-1} \chi^{\$} r)
+      \quad \mbox{by Theorem \ref{lem:gamma-beta-chi} (a)} \\
+  & = &
+    ((\chi q)^{-1})^{(\dg r)(\partial \chi r)} (\chi r)^{-1} 
+      \quad\quad \mbox{by definition of} \quad \chi^{\$} \\
+  & = &
+    (\chi r)^{-1}(\,(\chi q)^{-1}~)^{\dg r} 
+  \;=\; 
+    ((\chi q)^{\dg r}\,(\chi r))^{-1} 
+  \;=\;
+    (\chi(qr))^{-1}
+  \;=\;
+    \ddb_{\chi} \ddg^{-1} \chi^{\$}(qr)~.
+\end{eqnarray*}
+
+\noindent 
+We now show that  $\chi^{\$}$  is the Whitehead $\gamma$-inverse 
+$\overline{\chi}$ of  $\chi$, 
+using Lemma \ref{lem:gamma-beta-chi} (c), (d) :  
+\begin{eqnarray*}
+(\chi^{\$} \star_{\gamma} \chi)r 
+  & = &  (\chi r)(\ddb_{\chi} \ddg^{-1} \chi^{\$} r) 
+  \;=\;  (\chi r)(\chi r)^{-1}~, \\ 
+(\chi \star_{\gamma} \chi^{\$})r 
+  & = &  (\chi r)(\chi^{\$} \dg^{-1} \db_{\chi} r) 
+  \;=\;  (\chi r)(\ddg \overline{\ddb_{\chi}} \chi \dg^{-1} \db_{\chi} r)^{-1} 
+  \;=\;  (\chi r)(\chi r)^{-1}~. 
+\end{eqnarray*}
+
+\noindent
+Thus (ii) implies (i), (iii) and (iv).
+
+\medskip
+Similarly, suppose that  $\db_{\chi}$  has an inverse  $\db_{\chi}^{-1}$.
+We show that  $\chi^{\#}$  is a derivation where
+$\chi^{\#} r = (\chi \overline{\db_{\chi}} \dg r)^{-1}$\,.
+Define  $r' = \overline{\db_{\chi}} \dg r$  so that  
+$\chi^{\#}r = (\chi r')^{-1}$, 
+and similarly for  $q'$.  Then
+\begin{eqnarray*} 
+(\chi^{\#}q)^{\dg r}\, (\chi^{\#} r) 
+  & = & 
+    \left( (\chi q')^{-1} \right)^{\dg r}\, (\chi r')^{-1} 
+  \;=\; 
+    \left( (\chi r') (\chi q')^{\db_{\chi} r'} \right)^{-1} 
+  \;=\; 
+    \left( (\chi r') (\chi q')^{(\dg r')(\partial\chi r')} \right)^{-1} \\ 
+  & = & 
+    \left( (\chi q')^{\dg r'} (\chi r') \right)^{-1}
+  \;=\; 
+    (\chi(qr)')^{-1}
+  \;=\; 
+    \chi^{\#}(qr)~. 
+\end{eqnarray*}
+
+\noindent
+This  $\chi^{\#}$  is another form of $\overline{\chi}$ since, 
+again using Lemma \ref{lem:gamma-beta-chi} (c), (d) :  
+\begin{eqnarray*}
+(\chi^{\#} \star_{\gamma} \chi) r
+  & = &  (\chi r)(\ddb_{\chi} \ddg^{-1} \chi^{\#} r) 
+  \;=\;  (\chi r)(\ddb_{\chi} \ddg^{-1} \chi \overline{\db_{\chi}} \dg r)^{-1} 
+  \;=\;  (\chi r)(\chi r)^{-1} , \\
+(\chi \star_{\gamma} \chi^{\#}) r
+  & = &  (\chi r)(\chi^{\#} \dg^{-1} \db_{\chi} r)
+  \;=\;  (\chi r)(\chi r)^{-1}~.
+\end{eqnarray*}
+
+\noindent
+Thus (iii) implies (i), (ii) and (iv). 
+
+\medskip\noindent 
+Finally, (iv) implies (ii) and (iii), and hence (i). 
+
+\medskip\noindent 
+The expressions for $(\chi r)(\overline{\chi}r)$  
+and $(\overline{\chi}r)(\chi r)$ are obtained by  
+expanding  $(\overline{\chi} \star_{\gamma} \chi) r$  
+and  $(\chi \star_{\gamma} \overline{\chi}) r$.  
+\end{pf}
+
+\medskip
+We shall see in Subsection \ref{subs:AX} that $W_{\gamma}(\calX)$ 
+is the source group in the $\gamma$-\emph{actor} of $\calX$, 
+$$
+\Act_{\gamma}(\calX) 
+~=~ 
+(\Delta_{\gamma} : W_{\gamma}(\calX) \to \Aut_{\gamma}(\calX))~. 
+$$
+Lue and Norrie, in \cite{lue1,nor1,nor2}, 
+showed that $\Act(\calX)$ is the automorphism object of  $\calX$
+in the category \catXMod.
+Gilbert, in \cite{gilb1}, has discussed a connection between
+derivations and group extensions.
+
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sections}  \label{subsec:sec} \index{section}
+
+The construction for a cat$^1$-group $\calC = (e;t,h : G \to R)$ 
+equivalent to the $\gamma$-derivation of the corresponding crossed module 
+is the \emph{$\gamma$-section}, 
+namely a group monomorphism  $\xi : R \to G$  satisfying:
+\begin{center}
+\begin{tabular}{l l}
+\textbf{S1:}  &  $t \xi(r) = \dg r \;\; \mbox{for all} \;\; r \in R$.
+\end{tabular}
+\end{center}
+The equations  
+\begin{equation}\label{eq:x2c}
+\xi r = (e \dg r)(\epsilon \chi r) = (\dg r, \chi r)\,,
+\quad\quad
+\chi r = (e \dg r)^{-1} (\xi r) 
+\end{equation}
+define a section  $\xi$  of  $\calC$  
+in terms of a derivation  $\chi$  of  $\calX$,  and conversely.
+The automorphism $\gamma = (\ddg,\dg)$ of $\calX = (\partial : S \to R)$ 
+determines an automorphism $\barg$ of $R \ltimes S$, 
+and hence an automorphism $(\barg,\dg)$ 
+of the corresponding cat$^1$-group. 
+
+\medskip
+The \emph{principal section} $\kappa_s,\; s \in \ker t$, 
+\index{principal section} \index{section!principal} 
+and the corresponding principal derivation $\eta_s$
+are given by
+$$
+\eta_s r ~=~ (s^{-1})^{\dg r} s \quad\quad
+\kappa_s r ~=~ (e \dg r)^s ~=~ s^{-1}(e \dg r)s\,.
+$$
+In the semidirect product notation we have 
+$$
+\kappa_s r ~=~ (\dg r,\eta_s r) ~=~ (\dg r,(s^{-1})^{\dg r} s) ~=~
+(1,s^{-1})(\dg r,1)(1,s) ~=~ (\dg r,1)^{(1,s)}\,.
+$$
+
+\noindent
+Since $(ehg^{-1})(\xi \dg^{-1} hg) \in \ker t$ and $(ehg^{-1})g \in \ker h$ 
+we have, in the group groupoid, 
+\begin{equation} \label{eq:sect-reversal}
+g * \xi \dg^{-1} hg ~=~
+g(ehg^{-1})(\xi \dg^{-1} hg) ~=~
+(ehg)((ehg^{-1})g)((ehg^{-1})(\xi \dg^{-1} hg)) ~=~
+(\xi \dg^{-1} hg)(ehg^{-1})g.
+\end{equation}
+
+\noindent
+These sections form the monoid  $\rm{Sect}(\calC)$  of  $\calC$,
+whose composition rule we determine from the rule  
+\textbf{D2:}  for  $\Der(\calX)$  by evaluating:
+\begin{eqnarray*}
+(\xi_1 \star_{\gamma} \xi_2)r
+ & = & (e \dg r)(\epsilon (\chi_1 \star \chi_2) r) \\
+ & = & (e \dg r)(\epsilon \chi_2 r)(\epsilon \chi_1 r)
+           (\epsilon \chi_2 \dg^{-1} h \epsilon \chi_1 r) \\
+ & = & (\xi_2 r)(e \dg r^{-1})(\xi_1 r)(eh(\epsilon \chi_1 r)^{-1})
+        (\xi_2 \dg^{-1} h \epsilon \chi_1 r) \\
+ & = & (\xi_2 r)(e \dg r^{-1})(\xi_1 r)(eh((\xi_1 r)^{-1}(e \dg r)))
+        (\xi_2 \dg^{-1} h ((e \dg r^{-1})(\xi_1 r))) \\
+ & = & ((e \dg r)(\xi_2 r^{-1}))^{-1} ((\xi_1 r)(e h \xi_1 r^{-1}))
+        ((e \dg r)(\xi_2 r^{-1})) (\xi_2 \dg^{-1} h \xi_1 r).
+\end{eqnarray*}
+Since  
+$(e \dg r)(\xi_2 r^{-1}) \in \ker t$
+while  $(\xi_1 r)(e h \xi_1 r^{-1}) \in \ker h$,
+we obtain, using (\ref{eq:sect-reversal}),
+\begin{equation} \label{eq:section-comp}
+\begin{tabular}{l l}
+\textbf{S2:}  &  $(\xi_1 \star_{\gamma} \xi_2)r
+ ~=~ (\xi_1 r)(e h \xi_1 r^{-1})(\xi_2 \dg^{-1} h \xi_1 r)
+ ~=~ (\xi_2 \dg^{-1} h \xi_1 r)(eh \xi_1 r^{-1})(\xi_1 r)$.
+\end{tabular}
+\end{equation}
+(Note that this axiom also differs from that in \cite{alp:wens-ijac}
+in that it is converted to a multiplication on the right.) 
+
+The section  $\dg*e$  is the identity for this composition,
+and equation (\ref{eq:x2c}) determines a monoid isomorphism
+$\Der(\calX) \cong \Sect(\calC)$.
+A section is  \emph{regular}  when  $h \xi$  is an automorphism of $R$, 
+and the group of regular sections is isomorphic to the Whitehead group.
+
+Each  $\chi$  and its associated  $\xi$  determine endomorphisms of  
+$R, S, G, \calX$ and $\calC$, namely 
+\begin{eqnarray} \label{eq:five-endos}
+   \db_{\chi} ~=~ \db_{\xi}  &  :  &  R \to R, 
+                  \quad  r \mapsto (\dg r)(\partial \chi r) = h \xi r,  
+\nonumber \\
+  \ddb_{\chi} ~=~ \ddb_{\xi}  &  :  &  S \to S,
+                  \quad  s \mapsto (\ddg s)(\chi \partial s) \,
+                      = \, (\ddg s)(e\partial\ddg s^{-1})(\xi \partial s) \, 
+                      = \, (\xi \partial s)(e\partial\ddg s^{-1})(\ddg s), 
+\nonumber \\
+ \barb_{\chi} ~=~ \barb_{\xi}  &  :  &  G \to G,
+                  \quad  g \mapsto (eh \xi tg)(\xi tg^{-1})
+                           (\barg g)(eh \barg g^{-1})(\xi hg),  \\
+  (\ddb_{\chi}, \db_{\chi})  ~=~  (\ddb_{\xi}, \db_{\xi}) 
+    & : & \calX \to \calX, 
+\nonumber \\
+  (\barb_{\chi}, \db_{\chi})  ~=~  (\barb_{\xi}, \db_{\xi}) 
+    & : & \calC \to \calC, 
+\nonumber
+\end{eqnarray}
+and these assignments determine group homomorphisms from the
+Whitehead group to these five endomorphism groups.
+The accompanying diagram shows the relationship between the various 
+groups and homomorphisms.
+
+%\TurnRadius{12pt}
+$$\xy
+\xymatrix{
+   &&&&&&  \\
+  \Aut(S)  \ar @{.} [0,2]^(0.4){\curvearrowright}
+    &&  S  \ar[rrr] <+0.5ex>^(0.4){\epsilon} 
+           \ar[ddd] _{\partial}  
+           \ar `u[ul] `[0,-1]_{\ddb_{\chi},\ddg} 
+                          `[0,0]<+0.5ex> [0,0]<+0.5ex>
+   &&&  G  \ar[ddd] <+0.5ex>^h  
+           \ar[ddd] <-0.5ex>_t
+           \ar `u[ur] `[r]^{\barb_{\chi},\barg} 
+                      `[0,0]<-0.5ex> [0,0]<-0.5ex>
+     &    \\
+   &&&&&& \\
+   &&&&&& \\
+    &&  R  \ar `l [ll]<+0.5ex> [uuull]<+0.5ex>^(0.43){\alpha}
+           \ar `l[uuul] `[uuu]^{\chi} [uuu]
+           \ar[rrr] <-0.5ex>_(0.4){\id_R}
+           %\ar`l"2,2"`"1,3"`"2,4"`"3,3"[0,0]
+   &&&  R  \ar `l[uuul] `[uuu]^{e}   [uuu]
+           \ar `r[uuur]  `[uuu]_{\xi} [uuu]
+           \ar `d[dr] `[r]_{\db_{\chi},\dg} 
+                      `[0,0]<+0.5ex> [0,0]<+0.5ex>
+     &    \\ 
+   &&&&&& \\ 
+   &&&&&& \\
+}
+\endxy$$
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The group-groupoid equivalent of derivations and sections}
+\label{subs:gpd-sect}
+
+(This Subsection (for now) covers only identity derivations and sections.) 
+
+\medskip\noindent 
+The cat$^1-$formula (\ref{eq:section-comp}) 
+for Whitehead composition of sections is 
+$$ 
+\textbf{S2:} \qquad
+(\xi_1 \star \xi_2)r
+ ~=~ (\xi_1 r)(e h \xi_1 r^{-1})(\xi_2 h \xi_1 r)
+ ~=~ (\xi_2 h \xi_1 r)(eh \xi_1 r^{-1})(\xi_1 r)~,
+$$
+which is rather obscure.  
+Considering the group-groupoid $\calG$ 
+associated to the cat$^1$-group $\calC$, 
+as discussed in Subsection \ref{subs:gpgpd}, 
+we see that sections of $\calC$ are associated to automorphisms of $\calG$.
+
+\bigskip\noindent
+A section $\xi$ of $\calC$ defines a groupoid endomorphism 
+$\lambda = \lambda_{\xi} : \calG \to \calG$ 
+as follows.  Consider the diagram
+\begin{equation} \label{eq:gpd-section}
+\vcenter{\xymatrix{ 
+  h\xi tg \ar[rr]^{\lambda g} 
+     && h\xi hg  \\
+     &&  \\
+  tg \ar[rr]_{g} \ar[uu]^{\xi tg}
+     && hg \ar[uu]_{\xi hg}
+}}
+\end{equation}
+where $t \lambda g = h\xi tg$ and $h \lambda g = h\xi hg$.
+The morphism $\lambda$ is defined on objects and arrows by 
+\begin{equation} \label{eq:def_lambda}
+\lambda r ~=~ h\xi r, \quad\quad 
+\lambda g ~=~ (\widetilde{\xi t g}) * g * \xi h g
+~=~ (eh\xi tg)(\xi tg^{-1})g(ehg^{-1})(\xi hg). 
+\end{equation}
+The product of the first four terms is in $\ker h$, 
+while the product of the last four terms is in $\ker t$. 
+It is easily verified that $\lambda$ is a groupoid morphism. 
+If $r_0 = tg_1,~ r_1 = hg_1 = tg_2$ and $r_2 = hg_2$, then
+\begin{eqnarray*}
+(\lambda g_1) * (\lambda g_2)
+& = & (eh\xi r_0)(\xi r_0^{-1})g_1(er_1^{-1})(\xi r_1)
+      .(eh\xi r_1^{-1})
+      .(eh\xi r_1)(\xi r_1^{-1})g_2(er_2^{-1})(\xi r_2) \\
+& = & (eh\xi r_0)(\xi r_0^{-1})(g_1 * g_2)(er_2^{-1})(\xi r_2) \\
+& = & \lambda(g_1 * g_2). 
+\end{eqnarray*}
+
+\bigskip\noindent
+When we consider $\xi_1$ followed by $\xi_2$ we get 
+$$
+\xymatrix{ 
+ &  h\xi_2 h\xi_1 tg \ar[rr]^{\lambda_2\lambda_1 g}
+    & & h\xi_2 h\xi_1 hg 
+        & &  \\
+ &  & & & &  \\
+ &  h\xi_1 tg \ar[rr]^{\lambda_1 g} \ar[uu]^(0.6){\xi_2 h\xi_1 tg} 
+            \ar `dl[0,-1] `[0,-1]^{eh\xi_1tg} `[0,0] [0,0] 
+            %% \ar@(ul,dl)_{eh\xi_1tg}
+    & & h\xi_1 hg \ar[uu]_(0.6){\xi_2h\xi_1 hg} 
+            \ar `ur[0,1] `[0,1] `[0,0]^{eh\xi_1hg} [0,0] 
+            %% \ar@(ur,dr)^{eh\xi_1hg}
+        & &  \\
+ &  & & & &  \\
+ &  tg \ar[rr]^{g} \ar[uu]^(0.4){\xi_1 tg}
+    & & hg \ar[uu]_(0.4){\xi_1 hg}
+        & &
+}
+$$
+and the composite on the left-hand side is 
+$$
+(\xi_1 tg)*(\xi_2 h\xi_1 tg) ~=~
+(\xi_1 tg)(eh\xi_1 tg^{-1})(\xi_2 h\xi_1 tg)
+$$
+in agreement with {\bf S2:}, 
+and similarly for the right-hand side.
+Thus $\lambda_{\xi_1\star\xi_2} ~=~ \lambda_{\xi_1} * \lambda_{\xi_2}$  
+and we have the following result. 
+\begin{lem}
+There is a monoid homomorphism 
+$$
+\Sect(\calC) \rightarrow \End(\calG), \qquad \xi \mapsto \lambda_{\xi} 
+$$
+which restricts to a homomorphism $W(\calC) \to \Aut(\calG)$.
+\end{lem}
+
+\bigskip\noindent
+Associated to a principal derivation $\eta_sr = (s^{-1})^rs$, 
+and the corresponding principal section $\kappa_sr = (er)^s$, 
+there is a \emph{principal endomorphism} \index{principal endomorphism} 
+$\lambda_s$ of $\calG$. 
+
+\begin{prop}
+The principal endomorphism $\lambda_s = \lambda_{\kappa_s} : \calG \to \calG$ 
+is given by
+$$
+\lambda_s r ~=~ r^{hs}, \qquad  \lambda_s g ~=~ g^{hs}.
+$$ 
+\end{prop}
+\begin{pf}
+Applying the formulae in equation (\ref{eq:def_lambda}), 
+and $[\ker t,\ker s] = 1$,  
+\begin{eqnarray*}
+\lambda_s r 
+  &=& h \kappa_s r ~=~ (hs^{-1})r(hs) ~=~ r^{hs}, \\
+\lambda_s g
+  &=& (\widetilde{\kappa_stg})*g*(\kappa_shg) \\
+  &=& (\widetilde{(etg)^s})*g*(ehg)^s \\
+  &=& (eh(s^{-1}(etg)s)(s^{-1}(etg)s)^{-1}(et(s^{-1}(etg)s)(etg^{-1})g(ehg)^{-1}(ehg)^s \\
+  &=& (ehs^{-1})(etg)(ehs)s^{-1}(etg^{-1})[s][g(ehg)^{-1}]s^{-1}(ehg)s \\
+  &=& (ehs^{-1})(etg)[(ehs)s^{-1}][(etg^{-1})g]s \\
+  &=& (ehs^{-1})g(ehs) \\
+  &=& g^{hs}. 
+\end{eqnarray*}
+\end{pf}
+

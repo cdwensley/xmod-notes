@@ -1,0 +1,490 @@
+%% xpair-dev.tex,  version 22/04/17
+\noindent
+{\bf [This is now only in the development version.]}
+
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Interchange Laws} \label{subs:intlaw}
+
+The crossed pairing rules of Definition \ref{def:xpair}:
+$$
+(g_1g_2 \bt h) \;=\; 
+(g_1 \bt h)^{g_2} (g_2 \bt h)~,
+\qquad
+(g \bt h_1h_2) \;=\;
+(g \bt h_2)   (g \bt h_1)^{h_2}~,
+$$
+generalise to
+\begin{equation}\label{eq:Ggen}
+\qquad\quad
+(g_1 \ldots g_{k}\bt h) \quad=\quad 
+ (g_1 \bt h)^{g_2 \ldots g_{k}}   
+  (g_2 \bt h)^{g_{3} \ldots g_{k}} \ldots 
+   (g_{k-1}\bt h)^{g_{k}}   (g_{k}\bt h)~,
+\end{equation}
+\begin{equation}\label{eq:Hgen}
+\mbox{and}\quad
+(g \bt h_1 \ldots h_{l}) \quad=\quad (g \bt h_{l})  
+ (g \bt h_{l-1})^{h_{l}} \ldots (g \bt h_2)^{h_{3} \ldots h_{l}}
+  (g \bt h_1)^{h_2 \ldots h_{l}}~.
+\end{equation}
+
+\medskip
+The element  $(g_1 g_2 \ldots g_k \bt h_1 h_2 \ldots h_{l})$
+can be expanded in many ways, but by its $GH$-\emph{expansion}
+we mean applying (\ref{eq:Ggen}) first,
+and then applying (\ref{eq:Hgen}) to each of the  $k$  terms which result.
+Similarly the $HG$-\emph{expansion} is obtained by
+applying (\ref{eq:Hgen}) first, and then (\ref{eq:Ggen}) to the $l$ terms.
+
+In Proposition \ref{prop:xpair}(c) we equated the two expansions of  
+$(g_1g_2 \bt h_1h_2)$  
+to obtain the basic \emph{interchange law}
+\begin{equation}
+(g_1 \bt h_1)^{h_2g_2}(g_2 \bt h_2)
+\quad=\quad 
+(g_2 \bt h_2)(g_1 \bt h_1)^{g_2h_2}~.
+\end{equation}
+
+We now consider the cases  $k=2, l=3$  and  $k=l=3$.
+
+\vspace{2mm}\noindent
+The $GH$-expansion of $(g_1g_2 \bt h_1h_2h_{3})$ is:
+\begin{eqnarray*}
+         g_1g_2 \bt h_1h_2h_{3} 
+  & = &  (g_1 \bt h_1h_2h_{3})^{g_2}   
+          (g_2 \bt h_1h_2h_{3}) \\
+  & = &  (g_1 \bt h_{3})^{g_2}   (g_1 \bt h_2)^{h_{3}g_2} 
+          (g_1 \bt h_1)^{h_2h_{3}g_2} (g_2 \bt h_{3}) (g_2 \bt h_2)^{h_{3}} 
+           (g_2 \bt h_1)^{h_2h_{3}}
+\end{eqnarray*}
+The $HG$-expansion of  $(g_1g_2 \bt h_1h_2h_{3})$ is:
+\begin{eqnarray*}
+g_1g_2 \bt h_1h_2h_{3}  
+  & = &  (g_1g_2 \bt h_{3})   (g_1g_2 \bt h_2)^{h_{3}} 
+          (g_1g_2 \bt h_1)^{h_2h_{3}} \\  
+  & = &  (g_1 \bt h_{3})^{g_2} (g_2 \bt h_{3}) (g_1 \bt h_2)^{g_2h_{3}}
+           (g_2 \bt h_2)^{h_{3}} (g_1 \bt h_1)^{g_2h_2h_{3}} 
+             (g_2 \bt h_1)^{h_2h_{3}}
+\end{eqnarray*}
+
+By applying a series of interchanges to the second expansion of
+$(g_1g_2 \bt h_1h_2h_{3})$, 
+moving each term involving  $g_2$  to the right, 
+it is clear that these two expansions are equal:
+\begin{eqnarray*}
+ &   & (g_1 \bt h_{3})^{g_2}   \underbrace{(g_2 \bt h_{3})  
+       (g_1 \bt h_2)^{g_2h_{3}}}   \underbrace{(g_2 \bt h_2)^{h_{3}} 
+        (g_1 \bt h_1)^{g_2h_2h_{3}}} 
+         (g_2 \bt h_1)^{h_2h_{3}} \\
+ & = & (g_1 \bt h_{3})^{g_2}   (g_1 \bt h_2)^{h_{3}g_2} 
+       \underbrace{(g_2 \bt h_{3})    (g_1 \bt h_1)^{h_2g_2h_{3}}} 
+        (g_2 \bt h_2)^{h_{3}}   (g_2 \bt h_1)^{h_2h_{3}} \\
+ & = & (g_1 \bt h_{3})^{g_2}    (g_1 \bt h_2)^{h_{3}g_2}  
+       (g_1 \bt h_1)^{h_2h_{3}g_2}   (g_2 \bt h_{3}) 
+        (g_2 \bt h_2)^{h_{3}}   (g_2 \bt h_1)^{h_2h_{3}}~.
+\end{eqnarray*}
+
+
+Similarly, by applying a series of interchanges to
+the  $HG$-expansion of  $(g_1g_2g_{3}\bt h_1h_2h_{3})$,
+moving terms involving  $g_3$  to the right, 
+we obtain: 
+
+\begin{eqnarray*}
+  &   &  (g_1 \bt h_{3})^{g_2g_{3}}   (g_2 \bt h_{3})^{g_{3}} 
+          \underbrace{(g_{3}\bt h_{3})   (g_1 \bt h_2)^{g_2g_{3}h_{3}}} 
+           (g_2 \bt h_2)^{g_{3}h_{3}} \\
+  &   &  \qquad
+         \underbrace{(g_{3}\bt h_2)^{h_{3}}  
+          (g_1 \bt h_1)^{g_2g_{3}h_2h_{3}}}  
+           (g_2 \bt h_1)^{g_{3}h_2h_{3}}   
+            (g_{3}\bt h_1)^{h_2h_{3}} \\
+  & = &  (g_1 \bt h_{3})^{g_2g_{3}}   (g_2 \bt h_{3})^{g_{3}} 
+          (g_1 \bt h_2)^{g_2h_{3}g_{3}}   \underbrace{(g_{3}\bt h_{3}) 
+           (g_2 \bt h_2)^{g_{3}h_{3}}} \\
+  &   &  \qquad
+         (g_1 \bt h_1)^{g_2h_2g_{3}h_{3}}  
+          \underbrace{(g_{3}\bt h_2)^{h_{3}}  
+           (g_2 \bt h_1)^{g_{3}h_2h_{3}}}  
+            (g_{3}\bt h_1)^{h_2h_{3}} \\
+  & = &  (g_1 \bt h_{3})^{g_2g_{3}}   (g_2 \bt h_{3})^{g_{3}}  
+          (g_1 \bt h_2)^{g_2h_{3}g_{3}} 
+           (g_2 \bt h_2)^{h_{3}g_{3}} \\
+  &   &  \qquad
+         \underbrace{(g_{3}\bt h_{3})  
+          (g_1 \bt h_1)^{g_2h_2g_{3}h_{3}}} 
+           (g_2 \bt h_1)^{h_2g_{3}h_{3}}   (g_{3}\bt h_2)^{h_{3}} 
+            (g_{3}\bt h_1)^{h_2h_{3}} \\
+  & = &  (g_1 \bt h_{3})^{g_2g_{3}}   (g_2 \bt h_{3})^{g_{3}}  
+          (g_1 \bt h_2)^{g_2h_{3}g_{3}}  
+           (g_2 \bt h_2)^{h_{3}g_{3}} \\
+  &   &  \qquad
+         (g_1 \bt h_1)^{g_2h_2h_{3}g_{3}}  
+          \underbrace{(g_{3}\bt h_{3})   (g_2 \bt h_1)^{h_2g_{3}h_{3}}} 
+           (g_{3}\bt h_2)^{h_{3}}   (g_{3}\bt h_1)^{h_2h_{3}} \\
+  & = &  (g_1 \bt h_{3})^{g_2g_{3}}   (g_2 \bt h_{3})^{g_{3}} 
+          (g_1 \bt h_2)^{g_2h_{3}g_{3}} 
+           (g_2 \bt h_2)^{h_{3}g_{3}} \\
+  &   &  \qquad
+         (g_1 \bt h_1)^{g_2h_2h_{3}g_{3}} 
+          (g_2 \bt h_1)^{h_2h_{3}g_{3}}   (g_{3}\bt h_{3})  
+           (g_{3}\bt h_2)^{h_{3}}   (g_{3}\bt h_1)^{h_2h_{3}} \\
+  & = &  \Big(HG-\mbox{expansion of} \quad(g_1g_2
+          \bt h_1h_2h_{3})\Big)^{g_{3}}\Big(g_{3}\bt h_1h_2h_{3}\Big) \\
+  & = &  \Big(GH-\mbox{expansion of} \quad(g_1g_2
+          \bt h_1h_2h_{3})\Big)^{g_{3}}\Big(g_{3}\bt h_1h_2h_{3}\Big) \\
+  & = &  \Big(GH-\mbox{expansion of} 
+          \quad(g_1g_2g_{3}\bt h_1h_2h_{3})\Big) ~.
+\end{eqnarray*}
+
+\noindent
+These two examples indicate how to develop an inductive argument
+to prove the following result.
+
+\begin{prop}\label{prop:GHeqHG}
+The $GH$-expansion and $HG$-expansion of
+$(g_1 g_2 \ldots g_k \bt h_1 h_2 \ldots h_{l})$
+are equal.
+\end{prop}
+\begin{pf}
+Assume the result to be true for
+$(g_1 g_2 \ldots g_{k-1} \bt h_1 h_2 \ldots h_{l})$~.\\
+The first $l-1$ terms involving  $g_k$  in the $HG$-expansion
+can each be interchanged with the term on the right:
+$$
+\{(g_{k}\bt h_{j}) (g_1 \bt h_{j+1})^{g_2 \ldots g_{k}h_{j}}\}
+  ^{h_{j+1} \ldots h_{l}}
+\quad \longrightarrow \quad
+\{(g_1 \bt h_{j+1})^{g_2 \ldots g_{k-1}h_{j}g_{k}} (g_{k}\bt h_{j})\}
+  ^{h_{j+1} \ldots h_{l}}~,
+$$
+and then with the next term on the right:
+$$
+\{(g_{k}\bt h_{j}) (g_2 \bt h_{j+1})^{g_3 \ldots g_{k}h_{j}}\}
+  ^{h_{j+1} \ldots h_{l}}
+\quad \longrightarrow \quad
+\{(g_2 \bt h_{j+1})^{g_3 \ldots g_{k-1}h_{j}g_{k}} (g_{k}\bt h_{j})\}
+  ^{h_{j+1} \ldots h_{l}}~,
+$$
+and so on.
+After $k-1$ sets of interchanges the last two terms in the expansion are
+$(g_k \bt h_2)^{h_3 \ldots h_{l}}\,(g_k \bt h_1)^{h_2 \ldots h_{l}}\,$,
+and there remain  $l-2$  terms involving  $g_k$  
+still to be moved to the right.
+After a total of  $\frac{1}{2}(k-1)(l-1)l$  interchanges, we obtain
+\begin{eqnarray*}
+   &   &  \Big(HG-\mbox{expansion of} 
+            \quad(g_1 \ldots g_{k}\bt h_1 \ldots h_{l})\Big) \\
+   & = &  \Big(HG-\mbox{expansion of} 
+            \quad(g_1 \ldots g_{k-1}\bt h_1 \ldots 
+           h_{l})\Big)^{g_{k}}\Big(g_{k}\bt h_1 \ldots h_{l}\Big) \\
+   & = &  \Big(GH-\mbox{expansion of} 
+            \quad(g_1 \ldots g_{k-1}\bt h_1 \ldots 
+           h_{l})\Big)^{g_{k}}\Big(g_{k}\bt h_1 \ldots h_{l}\Big) 
+             \qquad \mbox{(by induction)} \\
+   & = &  \Big(GH-\mbox{expansion of} 
+            \quad(g_1 \ldots g_{k}\bt h_1 \ldots h_{l}\Big) ~.
+\end{eqnarray*}
+A similar argument can be used when starting with the $GH$-expansion.
+\end{pf}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{An alternative construction for $\ugth$}
+
+This describes work of Rodrigues and Wensley.
+
+\vspace{2mm}\noindent
+Let  $G$  and  $H$  be groups which act on themselves and each other
+in a compatible way.
+
+\vspace{2mm}
+\noindent
+A presentation  $<C_G \,|\, R_G>$  for  $G$  is constructed as follows.
+\begin{itemize}
+\item
+A generating set  $C_G$  for  $G$  is chosen, which is closed 
+under the actions of both  $G$  and  $H$.
+\item
+A list of elements  $E_G$  for  $G$  is initialised
+as  $[1_G]$  and  $R_G$  is initialised as an empty list.
+\item
+A fixed word in the generators for each element of  $G$
+is chosen by the following iteration:
+\begin{itemize}
+ \item
+ take the next element  $g$  from  $E_G$~;
+ \item
+ for each  $c \in C_G$  let  $g' = gc$~;
+ \item
+ if  $g' \notin E_G$  then add  $g'$  to  $E_G$,
+ else add  $gc = g'$  to  $R_G$~;
+\end{itemize}
+\end{itemize}
+
+A similar presentation  $<C_H\,|\,R_H>$  for  $H$  is also constructed.
+We use the notation 
+$$
+C_G = \{c_1,c_2,\ldots\}, \quad
+E_G = \{g_1,g_2,\ldots\}, \quad
+C_H = \{d_1,d_2,\ldots\}, \quad
+E_H = \{h_1,h_2,\ldots\}~.
+$$
+
+Define  $\ugoh = <C_{(\ugoh)}\,|\,R_{(\ugoh)}>$  
+to be the group where 
+\begin{itemize}
+\item
+\quad$C_{(\ugoh)}$  is the set of symbols  
+$\{c \odot d \,|\, c \in C_G,\, d \in C_H\}$ \\
+with actions  $(c \odot d)^x \;=\; (c^x \odot h^x)$
+for all  $x \in G \cup H$,
+\item
+\quad$R_{(\ugoh)}$  is the relator set consisting of:
+\begin{enumerate}[(1)]
+\item
+for each  $gc = g' \in R_G$  where
+$g = c_1c_2 \ldots c_k,~ g' = c'_1c'_2 \ldots c'_{k'}$,
+and for each  $d_j \in C_H$,
+$$
+(c_1 \odot d_j)^{c_2\ldots c_kc}\,\ldots\,
+ (c_k \odot d_j)^c\,(c \odot d_j)
+\;\;=\;\;
+(c'_1 \odot d_j)^{c'_2\ldots c'_{k'}}\,\ldots\,(c'_{k'} \odot d_j)~;
+$$
+\item
+for each  $hd = h' \in R_H$  where
+$h = d_1d_2 \ldots d_k,~ h' = d'_1d'_2 \ldots d'_{k'}$,
+and for each  $c_i \in C_G$,
+$$
+ (c_i \odot d)\,(c_i \odot d_k)^d\,\ldots\,(c_i \odot d_1)^{d_2\ldots d_kd}
+\;\;=\;\;
+ (c'_i \odot d'_{k'})\,\ldots\,(c'_i \odot d'_1)^{d'_2\ldots d'_{k'}}~;
+$$
+\item 
+for each  $c_i,c_{i'} \in C_G$  and for each  $d_j,d_{j'} \in C_H$  
+the interchange laws
+$$
+(c_{i'} \odot d_{j'})^{d_j c_i}\;(c_i \odot d_j)
+\quad=\quad 
+(c_i \odot d_j)\;(c_{i'} \odot d_{j'})^{c_i d_j}~.
+$$
+\noindent
+\end{enumerate}
+(\textbf{Note:} we hope to restrict to a subset of these in due course.)
+\end{itemize}
+
+\noindent
+Define a map, which we shall show to be a crossed pairing, 
+$\odot : \ugxh \to \ugoh,\; (g,h) \mapsto g \odot h$~,
+extending the obvious map  $C_G \times C_H \to C_{(\ugoh)}$  
+to the whole of  $\ugxh$  by 
+\begin{enumerate}[{\rm (a)}]
+\item\quad
+if  $g_i \,=\, c_1c_2\ldots c_k$  ~then~
+$g_i \odot d_j \,=\, 
+ (c_1 \odot d_j)^{c_2\ldots c_k}\,\ldots\,
+ (c_{k-1} \odot d_j)^{c_k}\,(c_k \odot d_j)$~,
+\item\quad
+if  $h_j \,=\, d_1d_2\ldots d_{l}$  ~then~
+$c_i \odot h_j \,=\,
+ (c_i \odot d_{l})\,(c_i \odot d_{l-1})^{d_{l}}\,\ldots\,
+ (c_i \odot d_1)^{d_2\ldots d_{l}}$~,
+\item\quad
+$g_k \odot h_{l} \,=\, GH$-expansion of
+$c_1c_2\ldots c_k \odot d_1d_2\ldots d_{l}$~.
+\end{enumerate}
+
+Recall the \emph{Substitution Test} (see Johnson, p.29),
+a corollary of von Dyck's Theorem,
+which we may use to verify that a given map is a homomorphism 
+of finitely presented groups.
+
+\begin{thm}
+Suppose we are given a presentation  $\Gamma = <C\,|\,R>$,
+a group  $\Delta$  and a mapping  $\theta' : C \to \Delta$~.
+Then  $\theta'$  extends to a homomorphism
+$\theta : \Gamma \to \Delta$  if and only if,
+for all  $(u_i = v_i) \in R$,
+the result of substituting  $\theta' c$  for each letter 
+$c$  in  $u_i$  and  $v_i$  yeilds a relation for  $\Delta$~.
+\end{thm}
+
+\begin{lem} \label{lem:odot-gens}
+The map
+$$
+\theta'_{d_j} : C_G \to G \ltimes \ugoh, \quad
+c_i \mapsto (c_i,\,c_i \odot d_j)
+$$
+determines a homomorphism  $\theta_{d_j} : G \to G \ltimes (\ugoh)$~.
+\end{lem}
+\begin{pf}
+Let  $(gc = g') \in R_G$  be a deduction for  $G$.  
+Then, by definition of  $\theta_{d_j}$ 
+and by the semidirect product multiplication rule,
+\begin{eqnarray*}
+\theta_{d_j}(gc)
+  \;=\;  (\theta_{d_j}c_1)\ldots(\theta_{d_j}c_k)(\theta_{d_j}c)
+  & = &  (c_1,c_1 \odot d_j)(c_2,c_2 \odot d_j) \ldots
+           (c_k,c_k \odot d_j)(c,c \odot d_j) \\
+  & = &  (c_1\ldots c_kc,\,(c_1 \odot d_j)^{c_2\ldots c_kc}\,
+           \ldots (c_k \odot d_j)^{c}\,(c,c \odot d_j) ~, \\
+\mbox{and}\qquad\qquad 
+\theta_{d_j}(g')
+  \;=\;  (\theta_{d_j}c'_1)\ldots(\theta_{d_j}c'_{k'})
+  & = &  (c'_1\ldots c'_{k'},\,
+          (c'_1 \odot d_j)^{c'_2\ldots c'_{k'}}\, \ldots (c'_{k'} \odot d_j) ~.
+\end{eqnarray*}
+The two $(\ugoh)$-components in these expansions are equal by 
+a relator of type (1) in $R_{(\ugoh)}$~.
+\end{pf}
+
+\begin{lem} \label{lem:odot-elts}
+The map
+$$
+\theta'_{d_{j_1} \ldots d_{j_{l}}} : C_G \to G \ltimes (\ugoh), \quad
+c_i \mapsto (c_i,\,c_i \odot d_{j_1} \ldots d_{j_{l}})
+$$
+determines a homomorphism  
+$\theta_{d_{j_1} \ldots d_{j_{l}}} : G \to G \ltimes (\ugoh)$~.
+\end{lem}
+\begin{pf}
+We again use the Substitution Test to verify this result.
+
+The proof of Proposition \ref{prop:GHeqHG} requires only 
+the basic interchange laws for elements of  $\ugth$. 
+Since the interchange laws for the generating elements of  $\ugoh$
+have been imposed in  $R_{(\ugoh)}$, it is also true that
+the $GH$-expansion and $HG$-expansion of
+$~(c_1 c_2 \ldots c_k \odot d_1 d_2 \ldots d_{l})~$
+are equal.
+
+Let  $(gc = g') \in R_G$  be a deduction for  $G$.  
+Then,
+by definition of  $\theta_{d_{j_1} \ldots d_{j_{l}}}$~,
+\begin{eqnarray*}
+\theta_{d_{j_1} \ldots d_{j_{l}}}(c_1c_2\ldots c_kc)
+  & = &  (c_1,c_1 \odot d_{j_1} \ldots d_{j_{l}}) \ldots
+         (c_k,c_k \odot d_{j_1} \ldots d_{j_{l}})
+         (c,c \odot d_{j_1} \ldots d_{j_{l}})~.
+\end{eqnarray*}
+Part (b) of the definition of  $\odot$ gives,
+$$
+(c',\,c' \odot d_{j_1} \ldots d_{j_{l}}) \;=\; 
+(c',\,c' \odot d_{j_{l}})\,(c',\,c' \odot d_{j_{l-1}})^{d_{j_{l}}}
+\ldots (c',\,c' \odot d_{j_1})^{d_{j_2}\ldots d_{j_{l}}}
+\quad \mbox{for all} \quad  c' \in C_G~.
+$$
+Hence
+\begin{eqnarray*}
+\theta_{d_{j_1} \ldots d_{j_{l}}}(gc) 
+  & = &  GH-\mbox{expansion of}\quad gc \odot d_{j_1} \ldots d_{j_{l}} \\
+  & = &  HG-\mbox{expansion of}\quad gc \odot d_{j_1} \ldots d_{j_{l}} \\
+  & = &  (\theta_{d_{j_1}}(gc) )\;(\theta_{d_{j_2}}(gc) )
+         \ldots (\theta_{d_{j_{l}}}(gc) )    \\
+  & = &  (\theta_{d_{j_1}}(g') )\;(\theta_{d_{j_2}}(g') )
+         \ldots (\theta_{d_{j_{l}}}(g') ) 
+        \qquad\qquad\qquad \mbox{by the previous Lemma,}   \\
+  & = &  HG-\mbox{expansion of}\quad g' \odot d_{j_1} \ldots d_{j_{l}} \\
+  & = &  GH-\mbox{expansion of}\quad g' \odot d_{j_1} \ldots d_{j_{l}} \\
+  & = &  \theta_{d_{j_1} \ldots d_{j_{l}}}(g') ~.
+\end{eqnarray*}
+\end{pf}
+
+\begin{thm}
+The group  $\ugoh$  is isomorphic to  $\ugth$~.
+\end{thm}
+\begin{pf}
+We have shown in Lemma \ref{lem:odot-elts} that  
+$\theta_h : G \to G \ltimes (\ugoh)$  is a homomorphism,
+and it can be shown in the same way that  
+$\theta_g : H \to H \ltimes (\ugoh)$  is also a homomorphism.  
+It follows from Proposition \ref{prop:homs-to-xpair}
+that  $\odot$  is a crossed pairing.
+The unique homomorphism  $\odot_{\ot} : \ugth \to \ugoh$
+given by the universal property of Theorem \ref{thm:uni-prop}
+maps  $\gth$  to  $\goh$.
+
+In order to show that  $\ugoh$  is a universal crossed pairing
+we require homomorphisms  $\bt_{\odot}$  and  $\ot_{\odot}$
+making the following diagram commute:
+$$
+\xymatrix{ 
+   &&  \ugxh \ar[ddll]_{\ot} \ar[dd]_{\odot} \ar[ddrr]^{\bt}
+      &&  \\
+   && &&  \\
+ \ugth  \ar[rr]<+0.5ex>^{\odot_{\ot}}
+   \ar `d[1,4] `[rrrr]^{\bt_{\ot}} [rrrr]
+   &&  \ugoh  \ar[ll]<+0.5ex>^{\ot_{\odot}} \ar[rr]_{\bt_{\odot}}
+      &&  L ~. \\
+   && &&
+}
+$$
+Commutativity forces the images of the generators to be given by maps
+$$
+\bt'_{\odot} : C_{(\ugoh)} \to L\,,\;      \cod \mapsto \cbd\;, \qquad
+\ot'_{\odot} : C_{(\ugoh)} \to \ugth\,,\;  \cod \mapsto \ctd\;.
+$$
+It is easy to see that these two maps determine the required homomorphisms
+and that these are unique.
+Since  $\ugoh$  satisfies the universal property of the tensor product,
+$\ugoh \cong \ugth$  and 
+$\odot_{\ot}\,,\;\ot_{\odot}$  are inverse isomorphisms.
+\end{pf}
+
+
+
+%\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Heisenberg group $\calH_2$}
+
+This describes work of Bacon and Kappe.
+
+Nilpotent groups generalise abelian groups in that multiple commutators
+of a certain length are all trivial.
+A nilpotent group  $G$  of class $2$ is such that its commutator subgroup
+$G'$  is a subgroup of the centre of  $G$.
+
+The Heisenberg group  $\calH_2$  is the free nilpotent group of class $2$
+with presentation
+$$
+\calH_2 \quad = \quad <\,a,b,c \;|\; [a,b]=c,\,[a,c]=1,\,[b,c]=1\,>~.
+$$
+
+\begin{prop}
+$$
+\calH_2 \;\ot\; \calH_2 \quad\cong\quad \mathbf{Z}^6~.
+$$
+\end{prop}
+\begin{pf}
+Here is a brief outline of the proof.
+\begin{itemize}
+\item
+show that the tensor square is abelian;
+\item
+show that every element of  $\calH_2$ can be written in the form
+$a^m\,b^n\,c^l$~;
+\item
+show that every element of the tensor square is a sum of multiples of
+$$
+a \ot a,\quad
+b \ot b,\quad
+a \ot b,\quad
+b \ot a,\quad
+a \ot c,\quad \mbox{and}\quad
+b \ot c~;
+$$
+\item
+it follows that the tensor square is a quotient of $\mathbf{Z}^6$~;
+\item
+construct a surjective crossed pairing  
+$\phi : \calH_2 \times \calH_2 \to \mathbf{Z}^6$~;
+\item
+it follows that there is a unique homomorphism from the tensor square
+onto $\mathbf{Z}^6$  and hence that the tensor square is isomorphic
+to $\mathbf{Z}^6$~.
+\end{itemize}
+\end{pf}

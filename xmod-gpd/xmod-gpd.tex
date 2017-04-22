@@ -1,0 +1,246 @@
+%% xmod-gpd.tex,  version 22/04/17
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Crossed modules of groupoids} \label{sec:xmod-gpd}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Basic definitions}  \label{sec:xmod-gpd-defs}
+
+Let $\bbC_1=(C_1,C_0)$ be a groupoid and $\bbC_2=(C_2,C_0)$ 
+a union of groups with the same object set, 
+and let $\bbC_2,\bbC_1$ act upon themselves by conjugation:
+$$
+{a_1}^a = a^{-1}a_1a, 
+\qquad {c_1}^c = c^{-1} \diamond c_1 \diamond c, 
+$$
+defined when $a_1,a$ are loops in $\bbC_2$ at the same object 
+and when $sc = sc_1 = tc_1$ in $\bbC_1$. \\
+{\bf [But is this the correct notion of conjugacy?]}
+
+\medskip
+A \emph{pre-crossed module of groupoids}  
+\index{pre-crossed module!of groupoids}
+$\calC = (\gamma : \bbC_2 \to \bbC_1)$ 
+consists of a morphism of groupoids $\gamma = (\gamma,\id)$ 
+(abusing notation), 
+the \emph{boundary} of $\calC$, \index{boundary} 
+pictured as: 
+$$
+\bbC_2 ~=~ 
+\vcenter{
+\xymatrix{ 
+  C_2  \ar[r]^{\gamma}  \ar[d]<+0.5ex>^t \ar[d]<-0.5ex>_s 
+     &  C_1 \ar[d]<+0.5ex>^t \ar[d]<-0.5ex>_s \\ 
+  C_0  \ar[r]_{\id}
+     &  C_0  \\
+}}
+\qquad\text{or, more simply,}\qquad
+\xymatrix{ 
+  C_2  \ar[r]^{\gamma}  
+     &  C_1 \ar[r]<+0.5ex>^s \ar[r]<-0.5ex>_t 
+        &  C_0 ~, \\
+}
+$$
+together with an action %%% $\alpha$ 
+of $\bbC_1$ on $\bbC_2$ 
+such that $\gamma$  is a $\bbC_1$-morphism.
+So $\gamma*s=s,~ \gamma*t=t$ and, 
+for all $a \in \Arr(\bbC_2)$  and  $c \in \Arr(\bbC_1)$,
+\begin{center}
+\textbf{X1:} \qquad
+  $\gamma(a^c) ~=~ c^{-1} (\gamma a) c$ 
+  \quad when \quad $sa = ta = sc$.\qquad
+\end{center}
+
+\noindent
+The pre-crossed module  $\calC$  is a \emph{crossed module of groupoids}
+\index{crossed module!of groupoids}
+if it also satisfies 
+\begin{center}
+\textbf{X2:} \qquad
+  ${a_1}^{\gamma a} ~=~ {a_1}^a$ 
+  \quad for all \quad  
+  $a_1,a \in \bbC_2(u),~ u \in C_0$.  
+\end{center}
+Note that, when both axioms are satisfied, 
+the restriction $(\gamma_u : \bbC_2(u) \to \bbC_1(u))$ 
+is a crossed module of groups for all $u \in C_0$. 
+
+\medskip 
+\index{morphism!of crossed modules}
+A \emph{morphism of pre-crossed modules} $\alpha : \calC \to \calD$, 
+where $\calD = (\delta : \bbD_2 \to \bbD_1)$, 
+is a triple  $(\alpha_2, \alpha_1, \alpha_0)$, 
+where $(\alpha_2,\alpha_0) : \bbC_2 \to \bbD_2$ 
+and $(\alpha_1,\alpha_0) : \bbC_1 \to \bbD_1$ 
+are morphisms of groupoids satisfying 
+$$
+\alpha_2*\delta ~=~ \gamma*\alpha_1, \qquad
+\alpha_2(a^c) ~=~ (\alpha_2 a)^{\alpha_1 c},
+$$
+making the following diagram commute:
+$$
+\xymatrix{ 
+  C_2 \ar[r]^{\gamma} \ar[d]_{\alpha_2}
+    &  C_1 \ar[d]_{\alpha_1} \ar[r]<+0.5ex>^s \ar[r]<-0.5ex>_t 
+       &  C_0  \ar[d]^{\alpha_0}  \\
+  D_2 \ar[r]_{\delta} 
+    &  D_1 \ar[r]<+0.5ex>^s \ar[r]<-0.5ex>_t 
+       &  D_0
+}
+$$
+When $\calC,\calD$ are crossed modules, 
+$\alpha$ is a morphism of crossed modules.
+
+
+\begin{example}
+Let $N \unlhd G$ and $\bbG = \Gpd(G)$. 
+Take $\bbC_1 = \bbG\times\bbI_n$ and let $\bbC_2 = \bbN \times \bbO_n$ 
+be the totally disconnected subgroupoid 
+consisting of $n$ copies of $\bbN=\Gpd(N)$. 
+Then $\bbC_1$ acts on $\bbC_2$ by conjugation, 
+and $\calC = (\iota : \bbC_2 \to \bbC_1)$ is a 
+\emph{conjugation crossed module}, where $\iota$ is the inclusion map. 
+\end{example}
+
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Homotopies of a crossed module of groupoids}
+
+This subsection is intended to cover section 2 of
+Brown and \.{I}\c{c}en \cite{brow:icen}.
+
+\bigskip
+Let $g,h : \calC=(\gamma:\bbC_2\to\bbC_1) \to \calD=(\delta:\bbD_2\to\bbD_1)$ 
+be morphisms of crossed modules. 
+A \emph{$(g,h)$-homotopy} $H : g \simeq h$ 
+is a pair of functions $(H_0,H_1)$ such that 
+\begin{itemize} 
+\item
+$H_0 : C_0 \to C_1$ is a $(g,h)$-section:~ $H_0 * s = g_0,~~ H_0 * t = h_0$, 
+\item
+$H_1 : C_1 \to C_2$ satisfies:~ 
+$H_1*t = h_1*t,~~ H_1(cc') ~=~ (H_1c)^{h_1c'}(H_1c')$, 
+\item 
+for all $(c : u \to v) \in \bbC_1$ and $(a : v \to v) \in \bbC_2$, 
+$\delta H_1 c$ and $H_1 \gamma a$ measure the divergence from 
+commutativity of the following squares 
+(in the second square dashed lines denote arrows in $\bbC_2$), 
+$$
+\xymatrix{
+g_0u \ar[rr]^{g_1c} \ar[dd]_{H_0u} 
+  &&  g_0v \ar[dd]^{H_0v}
+      &&  &&  g_0v \ar[rr]^{g_2a} \ar@{-->}[dd]_{H_0v} 
+              &&  g_0v \ar@{-->}[dd]^{H_0v} \\
+  &&  &&  &&  &&                         \\ 
+h_0u \ar[rr]_{h_1c} 
+  &&  h_0v 
+      &&  &&  h_0v \ar[rr]_{h_2a} 
+              &&  h_0v
+}$$
+\begin{equation}  \label{eq:comm-rules}
+\delta H_1 c ~=~ (h_1c)^{-1}(H_0u)^{-1}(g_1c)(H_0v), \qquad 
+H_1 \gamma a ~=~ (h_2a)^{-1} (g_2a)^{H_0v}. 
+\end{equation}
+\end{itemize}
+
+When $H$ is a $(g,h)$-homotopy, we call $H_1$ a $(g,h)$-derivation. 
+We shall usually be concerned with the case $\calC=\calD$, 
+so that $g,h$ are automorphisms. 
+In the special case that $g=\id_{\calC}$ we call $H$ a \emph{free homotopy} 
+and $H_1$ a \emph{free derivation}. 
+In another special case, when $H_0u = 1_u$ for all $u \in C_0$ 
+we call $H$ a \emph{homotopy over the identity} 
+and $H_1$ a \emph{derivation over the identity}. 
+A free derivation over the identity is simply called a \emph{derivation}. 
+
+\medskip
+Consider the case when $\calC = (\gamma : \bbC_2 \to \bbC_1)$ is connected, 
+so $\bbC_1 = \bbG_1 \ltimes \bbI_n,~ \bbC_2 = \bbG_2 \times \bbO_n,~ 
+\bbG_1 = \Gpd(G_1),~ \bbG_2 = \Gpd(G_2)$, and 
+$\calX = (\overline{\gamma} : G_2 \to G_1)$ is a crossed module of groups, 
+where $\gamma(j,a,j) = (j,\overline{\gamma}a,j)$. 
+Because of the multiplication rule for $H_1$, we may define an $h$-derivation 
+by specifying the images of a generating set 
+(just as we did for automorphisms).  
+Thus an $h$-derivation of $\calC$ is determined by 
+\begin{itemize}
+\item
+a derivation $\chi : G_1 \to G_2$ for the crossed module $\calX$, 
+so $\chi(cc') = (\chi c)^{c'}(\chi c')$, 
+\item
+a choice of images $H_1(1,e,q) = (h_0q,a_q,h_0q),~ 2 \leqslant q \leqslant n$ 
+for arrows in the tree $T_1$. 
+\end{itemize}
+The $h$-derivation for $\calX$ associated to $\chi$ 
+is given by $\psi c = \chi h_1 c$, 
+so that $\psi(cc') = (\psi c)^{h_1 c'}(\psi c')$, 
+and we define $H_1(1,c,1) = (h_01,\chi h_1 c, h_01)$. 
+Applying the multiplication rule, we find 
+\begin{eqnarray*}
+H_1(q,e,1) &=& (H_1(1,e,q)^{-1})^{h(q,e,1)} 
+               ~=~ (h_01,a_q^{-1},h_01), \\
+H_1(1,c,q) &=& (h_01,\chi h_1c,h_01)^{h(1,e,q)}(h_0q,a_q,h_0q) 
+               ~=~ (h_0q,(\chi h_1 c)a_q,h_0q), \\
+H_1(q,c,q) &=& (h_01,a_q^{-1},h_01)^{h(1,c,q)}
+                (h_01,\chi h_1c,h_01)^{h(1,e,q)}(h_0q,a_q,h_0q) 
+               ~=~ (h_0q,(a_q^{-1})^{h_1c}(\chi h_1c)a_q,h_0q), \\
+H_1(q,c,1) &=& (h_0q,(a_q^{-1})^{h_1c}(\chi h_1 c)a_q,h_0q)^{h(q,e,1)} 
+                (h_01,a_q^{-1},h_01) 
+               ~=~ (h_01,(a_q^{-1})^{h_1c}(\chi h_1c),h_01), \\
+H_1(q,c,r) &=& (h_0r,(a_q^{-1})^{h_1c}(\chi h_1c)a_r,h_0r). 
+\end{eqnarray*}
+
+\medskip\noindent
+We may check the multiplication rule as follows: 
+\begin{eqnarray*}
+ & &  H_1 \left( (p,c,q)(q,c',r) \right) \\
+ &=&  (h_0q,(a_p^{-1})^{h_1c}(\chi h_1c)a_q,h_0q)^{h(q,c',r)}~
+       (h_0r,(a_q^{-1})^{h_1c'}(\chi h_1c')a_r,h_0r) \\ 
+ &=&  (h_0r,((a_p^{-1})^{h_1c}(\chi h_1c)a_q)^{h_1c'},h_0r) 
+       (h_0r,(a_q^{-1})^{h_1c'}(\chi h_1c')a_r,h_0r) \\ 
+ &=&  (h_0r,(a_p^{-1})^{(h_1c)(h_1c')}(\chi h_1c)^{h_1c'}{a_q}^{h_1c'} 
+             (a_q^{-1})^{h_1c'}(\chi h_1c')a_r,h_0r) \\ 
+ &=&  (h_0r,(a_p^{-1})^{h_1(cc')}(\chi h_1c)^{h_1c'}(\chi h_1c')a_r,h_0r) \\ 
+ &=&  (h_0r,(a_p^{-1})^{h_1(cc')}(\chi h_1(cc')a_r,h_0r) \\ 
+ &=&  H_1(p,cc',r).
+\end{eqnarray*}
+
+
+\bigskip\noindent
+{\bf [It is the case that the multiplication rule holds for this $H_1$, 
+but we probably also need to check the axioms in (\ref{eq:comm-rules}).]}
+
+\bigskip\noindent 
+When $H,K$ are two $(g,h)$-homotopies determined by derivations 
+$\chi,\zeta$ of $\calX$, 
+by $H_1(1,e,q) = (h_0q,a_q,h_0q)$, and by $K_1(1,e,q) = (h_0q,b_q,h_0q)$, 
+the Whitehead product $H_1 \star K_1$ is given, as usual, by the formula 
+$$
+(H_1 \star K_1)x ~=~ (K_1 x)(H_1 x)(K_1 \gamma h_1^{-1} H_1 x). 
+\qquad\text{{\bf ???}} 
+$$
+
+\medskip\noindent
+{\bf [The following calculation is probably wrong, and needs to be checked!]}
+
+\medskip\noindent
+For the loops at $1$ this gives 
+$$
+(H_1 \star K_1)(1,c,1) ~=~ (h_01, (\chi\star\zeta)h_1c, h_01),  
+$$
+while the image of $(1,e,q)$ is given by 
+\begin{eqnarray*}
+(H_1 \star K_1)(1,e,q) 
+  &=&  (h_0q,b_q,h_0q)(h_0q,a_q,h_0q)(K_1\gamma(h_0q,a_q,h_0q)) \\
+  &=&  (h_0q,b_qa_q,h_0q)(K_1(h_0q,\gamma a_q,h_0q)) \\
+  &=&  (h_0q,b_qa_q,h_0q)(h_0q,(b_q^{-1})^{\gamma a_q}
+         (\zeta\gamma a_q)b_q,h_0q) \\
+  &=&  (h_0q,a_q(\zeta\gamma a_q)b_q,h_0q).
+\end{eqnarray*}
+

@@ -1,0 +1,493 @@
+%% 2xmod.tex,  version 22/04/17
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{$2$-crossed modules} \label{sect:2xmod}
+
+The reader is refered to
+Brown--Gilbert \cite{brow:gilb}, 
+Conduch\'e \cite{conduche:jpaa},\cite{conduche:gmj}, 
+and Mutlu--Porter \cite{mutlu:porter5} 
+for background information on $2$-crossed modules.
+
+\begin{defn} \index{$2$-crossed module}
+A $2$-crossed module is comprised of the following: 
+\begin{itemize}
+\item
+a $2$-complex of groups
+$$
+\xymatrix{
+\calZ 
+  & = &  (~T \ar[rr]^{\delta_2} 
+         &&  U \ar[rr]^{\delta_1}
+             && V~) \\
+}
+$$
+(so that  $\delta_1\circ\delta_2 = 0 : T \to V$);
+\item
+an action of $V$ on $T$ and on $U$, and on itself by conjugation,
+such that $\delta_1, \delta_2$ are morphisms which preserve the actions;
+\item
+a function, called the \emph{Peiffer lifting},
+$$
+\{~,~\} ~:~ U \times U \to T,
+$$
+making $(\delta_2 : T \to U)$ a crossed module with action
+\begin{equation} \label{eq:2Xaction}
+t^u ~:=~ t\,\{\delta_2t,u\}\;.
+\end{equation}
+\end{itemize}
+The following axioms are also required: 
+\begin{enumerate}[{\rm (2X1)}]
+\item~
+$\delta_2\{u_1,u_2\} = \langle u_1, u_2 \rangle
+                     = u_1^{-1} u_2^{-1} u_1 {u_2}^{\delta_1 u_1}$ 
+\quad\mbox{(a Peiffer commutator)},
+\item~
+$\{u, \delta_2 t\} = (t^{-1})^u\, t^{\delta_1 u}$,
+\item~ 
+$\{u_1u_2, u_3\} = \{u_1,u_3\}^{u_2} \{u_2,{u_3}^{\delta_1 u_1}\}$,
+\item~ 
+$\{u_1, u_2u_3\} = \{u_1,u_3\} \{u_1,u_2\}^{{u_3}^{\delta_1 u_1}}$,
+\item~ 
+$\{u_1,u_2\}^v = \{{u_1}^v, {u_2}^v\}$.
+\end {enumerate}
+\end{defn}
+
+\noindent
+An additional axiom, $\{\delta_2t,u\} = t^{-1}t^n$ id often specified, 
+but we have used this identity in (\ref{eq:2Xaction}) to define the action. 
+Note that $\delta_2$ maps {(2X3)}, {(2X4)} and {(2X5)} 
+to identities (b), (c) and (d) in Lemma \ref{lem:Peiffer} 
+for Peiffer commutators. 
+Compare also (2X3), (2X4) with identities (a), (b) for crossed pairings 
+in Definition \ref{def:xpair}. 
+
+\medskip\noindent
+We will check that the crossed module action  $t^u = t\,\{\delta_2t,u\}$ 
+given by formula (\ref{eq:2Xaction}) is well defined:
+\begin{eqnarray*}
+(t_1t_2)^{u} 
+  & = &  t_1 t_2 \{(\delta_2 t_1)(\delta_2 t_2), u \} \\
+  & = &  t_1 t_2 \{\delta_2 t_1, u \}^{\delta_2 t_2} 
+                 \{\delta_2 t_2, u^{\delta_1 \delta_2 t_1} \} \\
+  & = &  t_1 t_2 t_2^{-1} \{\delta_2 t_1, u \}
+                 t_2 \{\delta_2 t_2, u\} \\
+  & = &  {t_1}^u\,{t_2}^u, \\
+t^{(u_1u_2)} 
+  & = &  t \{\delta_2 t, u_1u_2 \} \\
+  & = &  t \{\delta_2 t,u_2\}\{\delta_2 t, u_1\}^{{u_2}^{\delta_1\delta_2 t}}\\
+  & = &  t^{u_2} \{\delta_2 t, u_1\}^{u_2} \\
+  & = &  (t^{u_1})^{u_2}. \\
+\end{eqnarray*}
+
+\begin{lem} \label{lem:Peiffer-props}
+\begin{enumerate}[{\rm (a)}]
+\item~
+$\{\delta_2t_1,\delta_2t_2\} = [t_1,t_2]$.
+\end{enumerate}
+\end{lem}
+\begin{pf}
+\begin{enumerate}[(a)]
+\item~
+$\{\delta_2t_1,\delta_2t_2\} = t_1^{-1}\,{t_1}^{\delta_2t_2} = [t_1,t_2]$,
+by definition of the crossed module action.
+\end{enumerate}
+\end{pf}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Morphisms and Homotopies of $2$-crossed modules} 
+\label{subs:morph-homot}
+
+\begin{defn} \index{morphism!of $2$-crossed modules} 
+A morphism of $2$-crossed modules is a triple of group homomorphisms
+$$
+f_{\bullet} ~\equiv~ (f_2, f_1, f_0) ~:~ \cal Z \to \calZ'
+$$
+such that
+$$
+f_1\delta_2 = \delta_2'f_2,~~
+f_0\delta_1 = \delta_1'f_1,~~
+f_2(t^v) = (f_2t)^{f_0v},~~
+f_1(u^v) = (f_1u)^{f_0v},~~
+f_2\{u_1,u_2\} = \{f_1u_1,f_1u_2\}.
+$$
+\end{defn}
+$$
+\xymatrix{
+\calZ ~~:
+  &  T \ar[rr]^{\delta_2} \ar[dd]_{f_2}
+     &&  U \ar[rr]^{\delta_1} \ar[dd]_{f_1}
+         && V~ \ar[dd]_{f_0} \\
+f_{\bullet} ~~:
+  &  &&  &&  \\
+\calZ' ~~:
+  &  T' \ar[rr]^{\delta_2'} 
+     &&  U' \ar[rr]^{\delta_1'}
+         && V'~ \\
+}
+$$
+
+\noindent
+An automorphism of $\calZ$ is an endomorphism with inverse
+${f_{\bullet}}^{-1} = (f_2^{-1},f_1^{-1},f_0^{-1})$.
+
+Note that
+$$
+f_2(t^u) ~=~ (f_2t)\{f_1\delta_2t,f_1u\}
+         ~=~ (f_2t)\{\delta_2'f_2t,f_1u\}
+         ~=~ (f_2t)^{f_1u}
+$$
+so $(f_2,f_1) : (\delta_2 : T \to U) \to (\delta_2' : T' \to U')$ 
+is a morphism of crossed modules.
+
+\begin{defn} \index{homotopy!of $2$-crossed modules}
+A homotopy of the $2$-crossed module $\calZ$
+is a pair of homomorphisms $\phi_{\bullet} = (\phi_1,\phi_0)$
+such that 
+$$
+\delta_2\phi_1 ~=~ \phi_0\delta_1 \qquad\mbox{{\bf [Is that all~???]}}
+$$
+\end{defn}
+$$
+\xymatrix{
+    T \ar[rr]^{\delta_2} \ar[dd]_{f_2}
+    &&  U \ar[rr]^{\delta_1} \ar[dd]_{f_1}
+        && V~ \ar[dd]_{f_0} \\
+    &&  &&  \\
+    T \ar[rr]^{\delta_2} 
+    &&  U \ar[rr]^{\delta_1} \ar[lluu]^{\phi_1}
+        && V~ \ar[lluu]^{\phi_0}  \\
+}
+$$
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{$2$-crossed modules of groupoids}  \label{subsec:2xmod-gpd}
+
+
+
+
+
+
+
+
+
+
+\newpage
+\vspace*{5mm}
+\begin{center}
+{\bf [The rest of this section really belongs in a crossed squares chapter.]}
+\end{center}
+
+\vspace*{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The $2$-crossed module associated to a crossed square}
+
+We follow Brown--Gilbert \cite{brow:gilb} in defining the appropriate 
+Peiffer lifting to be 
+$\{(m_1, n_1),(m_2,n_2) \} = {m_2}^{m_1} \boxtimes n_1$.
+
+\medskip
+\begin{prop} \label{prop:2xmod-xsq}
+Given a crossed square $\calR$ there is an associated $2$-crossed module 
+$\calZ$, as shown in the following diagram: 
+$$
+\xymatrix{
+  & R_{[2]} \ar[rr]^{\ddbdyo} \ar[dd]_{\ddbdyt} 
+    & & R_{\{2\}} \ar[dd]^{\dbdyt} 
+        & & & & &  \\
+  \calR~: 
+  & & & & & \calZ~: 
+            & (~R_{[2]} \ar[r]^(0.35){\delta_2} 
+              &  R_{\{1\}} \ltimes R_{\{2\}} \ar[r]^(0.6){\delta_1}
+                & R_{\emptyset}~) \\
+  & R_{\{1\}} \ar[rr]_{\dbdyo}  
+    & & R_{\emptyset} 
+        & & & & &
+}
+$$
+where
+$$
+\delta_2 \ell = (\ddbdyt \ell, \ddbdyo \ell^{-1})
+\qquad\mbox{and}\qquad
+\delta_1(m,n) = (\dbdyo m)(\dbdyt n)\;,
+$$
+$R_{\emptyset}$ acts diagonally on $R_{\{1\}} \ltimes R_{\{2\}}$,
+and the Peiffer lifting is given by
+$$
+\{(m_1, n_1),(m_2,n_2) \} ~=~ {m_2}^{m_1} \boxtimes n_1\;.
+$$
+\end{prop}
+\begin{pf}
+We first check that $\delta_1$ and $\delta_2$ are homomorphisms 
+preserving the $R_{\emptyset}$-actions,
+and that $\delta_1\delta_2 = 0$\;:
+\begin{eqnarray*}
+% \delta_1 is a hom
+\delta_1((m_1,n_1),(m_2,n_2))
+& = & \delta_1(m_1m_2, {n_1}^{m_2}n_2)
+      ~=~ \dbdyo(m_1m_2)\,\dbdyt({n_1}^{\dbdyo m_2} n_2) \\
+& = & (\dbdyo m_1)(\dbdyo m_2)(\dbdyt n_1)^{\dbdyo m_2}(\dbdyt n_2)
+      ~=~ \delta_1(m_1,n_1)\,\delta_1(m_2,n_2). \\
+% \delta_1 preserves the action
+\delta_1((m,n)^p)
+& = & \delta_1(m^p,n^p)
+      ~=~ \dbdyo(m^p)\,\dbdyt(n^p)
+      ~=~ (\dbdyo m)^p\,(\dbdyt m)^p
+      ~=~ (\delta_1(m,n))^p\;. \\
+% \delta_2 is a hom
+(\delta_2 \ell_1)(\delta_2 \ell_2)
+& = & (\ddbdyt\ell_1,\ddbdyo\ell_1^{-1})(\ddbdyt\ell_2,\ddbdyo\ell_2^{-1})\\
+& = & ((\ddbdyt \ell_1)(\ddbdyt \ell_2),
+            (\ddbdyo \ell_1^{-1})^{\dbdyo\ddbdyt\ell_2}(\ddbdyo \ell_2^{-1}))\\
+& = & (\ddbdyt(\ell_1\ell_2),
+            (\ddbdyo \ell_1^{-1})^{\dbdyt\ddbdyo\ell_2}(\ddbdyo \ell_2^{-1}))\\
+& = & (\ddbdyt(\ell_1\ell_2),(\ddbdyo \ell_2^{-1})(\ddbdyo \ell_1^{-1}))
+      \hspace{35mm} \mbox{by {\bf X2:} for}~ \dcalRt\\
+& = & \delta_2(\ell_1\ell_2).\\
+% \delta_2 preserves the action
+\delta_2(\ell^p)
+& = & (\ddbdyt(\ell^p), \ddbdyo((\ell^p)^{-1}))
+      ~=~ ((\ddbdyt \ell)^p, (\ddbdyo \ell^{-1})^p)
+      ~=~ (\ddbdyt \ell, \ddbdyo \ell^{-1})^p
+      ~=~ (\delta_2 \ell)^p\;. \\
+% composite is zero
+\delta_1\delta_2\ell
+& = & \delta_1(\ddbdyt\ell, \ddbdyo\ell^{-1})
+      ~=~ (\dbdyo\ddbdyt\ell)(\dbdyt\ddbdyo\ell^{-1})
+      ~=~ 1\;.
+\end{eqnarray*}
+
+\noindent
+Secondly we identify the crossed module action in $\calZ$ in this case
+to be $\ell^{(m,n)} = \ell^m$. 
+\begin{eqnarray*}
+\ell^{(m,n)}
+  & = &  \ell\,\{(\ddbdyt\ell,\ddbdyo\ell^{-1}),(m,n)\} \\
+  & = &  \ell\,(m^{\ddbdyt\ell} \bt \ddbdyo\ell^{-1}) \\
+  & = &  \ell\,\ell^{(\ddbdyt\ell^{-1})m(\ddbdyt\ell)}\,\ell^{-1} 
+         \hspace{50mm} \mbox{by Definition \ref{def:xsq} (e)} \\
+  & = &  \ell\,(\ell^m)^{(\ddbdyt\ell)}\,\ell^{-1}
+   ~=~   \ell^m
+         \hspace{54mm} \mbox{by {\bf X2:} (twice).} 
+\end{eqnarray*}
+It is clear that this \emph{is} an action,
+so we verify the two crossed module axioms:
+\begin{eqnarray*}
+{\bf X1:} \qquad
+(\delta_2\ell)^{(m,n)}
+  & = &  (m^{-1},(n^{-1})^{m^{-1}})(\ddbdyt\ell,\ddbdyo\ell^{-1})(m,n) \\
+  & = &  (m^{-1}(\ddbdyt\ell)m,\, 
+          (n^{-1})^{\dbdyo\ddbdyt\ell^m} (\ddbdyo\ell^{-1})^m n) \\
+  & = &  ((\ddbdyt\ell)^m,\, 
+          (n^{-1})^{\dbdyt(\ddbdyo\ell)^m} (\ddbdyo\ell^m)^{-1} n) \\
+  & = &  ((\ddbdyt\ell)^m,\, 
+          (\ddbdyo\ell^m)^{-1} n^{-1} n) \\
+  & = &  \delta_2(\ell^m) ~=~ \delta_2(\ell^{(m,n)})\,, \\
+{\bf X2:} \hspace{16mm}
+{\ell_0}^{\delta_2\ell}
+  & = &  {\ell_0}^{(\ddbdyt\ell,\ddbdyo\ell^{-1})}
+   ~=~   {\ell_0}^{\ddbdyt\ell}
+   ~=~   {\ell_0}^{\ell}\,. \\
+\end{eqnarray*}
+
+\noindent
+Thirdly, we verify the five axioms.
+\begin{enumerate}[{\bf 2X1:}]
+\item~
+
+\vspace*{-12mm}
+\begin{eqnarray*}
+  &   &  (m_1,n_1)^{-1}\,(m_2,n_2)^{-1}\,
+          (m_1,n_1)\,(m_2,n_2)^{\delta_1(m_1,n_1)} \\
+  & = &  ({m_1}^{-1},({n_1}^{-1})^{{m_1}^{-1}})\,
+          ({m_2}^{-1},({n_2}^{-1})^{{m_2}^{-1}})\,
+           (m_1,n_1)\,
+            (m_2,n_2)^{(\dbdyo m_1)(\dbdyt n_1)} \\
+  & = &  (m_1^{-1}m_2^{-1}m_1{m_2}^{m_1n_1},
+          (n_1^{-1})^{m_1^{-1}m_2^{-1}m_1{m_2}^{m_1n_1}}
+           (n_2^{-1})^{m_2^{-1}m_1{m_2}^{m_1n_1}}
+            {n_1}^{{m_2}^{m_1n_1}}
+             {n_2}^{m_1n_1} ) 
+\end{eqnarray*}
+The left hand element is
+$$
+({m_2}^{m_1})^{-1}\, ({m_2}^{m_1})^{n_1}
+  ~=~  \ddbdyt({m_2}^{m_1} \bt n_1)
+$$
+It follows that the right hand element is
+\begin{eqnarray*}
+  &   &  (n_1^{-1}(n_2^{-1})^{m_1})^{\ddbdyt({m_2}^{m_1} \bt n_1)}\,
+          {n_1}^{{m_2}^{m_1n_1}}\,
+           {n_2}^{m_1n_1} \\
+  & = &  (n_1^{-1}({n_2}^{m_1})^{-1})^{(n_1^{-1})^{{m_2}^{m_1}}n_1}\,
+          ({n_1}^{{m_2}^{m_1}})^{n_1}\,
+           ({n_2}^{m_1})^{n_1} 
+         \hspace{18mm} 
+         \mbox{by Lemmas \ref{lem:gamma-eta_s}(c) and \ref{lem:invchir}(d)}, \\
+  & = &  (n_1^{-1}) ({n_1}^{{m_2}^{m_1}}) (n_1^{-1}) ({n_2}^{m_1})^{-1} 
+          ({n_1}^{{m_2}^{m_1}})^{-1} (n_1)\,
+           (n_1^{-1}) ({n_1}^{{m_2}^{m_1}}) (n_1)\,
+            (n_1^{-1}) ({n_2}^{m_1}) (n_1) \\
+  & = &  \ddbdyo({m_2}^{m_1} \bt n_1)^{-1} 
+\end{eqnarray*}
+So the pair of elements is 
+~$\delta_2({m_2}^{m_1} \bt n_1) ~=~ \delta_2\{(m_1,n_1),(m_2,n_2)\}$.
+\item~
+$$
+\{(m,n),\delta_2\ell\}
+  ~ = ~  \{(m,n),(\ddbdyt\ell,\ddbdyo\ell^{-1})\} 
+  ~ = ~  \ddbdyt(\ell^m) \bt n
+  ~ = ~  (\ell^m)^{-1}(\ell^m)^n
+  ~ = ~  (\ell^{-1})^{(m,n)} \ell^{\delta_1(m,n)}\,.
+$$
+\item~
+
+\vspace*{-12mm}
+\begin{eqnarray*}
+  &   &  \{(m_1,n_1),(m_3,n_3)\}^{(m_2,n_2)}\,
+           \{(m_2,n_2),(m_3,n_3)^{m_1n_1}\} \\
+  & = &  ({m_3}^{m_1} \bt n_1)^{m_2}\,
+           ({m_3}^{m_1n_1m_2} \bt n_2) \\
+  & = &  (m_0 \bt n_0)\,({m_0}^{n_0} \bt n_2)
+         \hspace{50mm}\mbox{where}~ m_0 = {m_3}^{m_1m_2},~ n_0 = {n_1}^{m_2}\\
+  & = &  (m_0 \bt n_2)\,(m_0 \bt n_0)^{n_2}
+         \hspace{70mm} \mbox{by Proposition \ref{prop:xpair}(d)} \\
+  & = &  m_0 \bt n_0n_2 \\
+  & = &  {m_3}^{m_1m_2} \bt {n_1}^{m_2}n_2 \\
+  & = &  \{(m_1m_2, {n_1}^{m_2}n_2), (m_3,n_3)\} \\
+  & = &  \{(m_1,n_1)(m_2,n_2),(m_3,n_3)\}
+\end{eqnarray*}
+\item~
+\begin{eqnarray*}
+  &   &  \{(m_1,n_1),(m_2m_3, {n_2}^{m_3}n_3)\} \\
+  & = &  (m_2m_3)^{m_1} \bt n_1 \\
+  & = &  ({m_2}^{m_1} \bt n_1)^{{m_3}^{m_1}}\,({m_3}^{m_1} \bt n_1) \\
+  & = &  (m_4 \bt n_1)^{n_1m_5}\,(m_5 \bt n_1)
+         \hspace{47mm}
+         \mbox{where}~ m_4 = {m_2}^{m_1n_1^{-1}},~ m_5 = {m_3}^{m_1}\\
+  & = &  (m_5 \bt n_1)(m_4 \bt n_1)^{m_5n_1}
+         \hspace{70mm} \mbox{by Proposition \ref{prop:xpair}(c)} \\
+  & = &  ({m_3}^{m_1} \bt n_1)({m_2}^{m_1} \bt n_1)^{n_1^{-1}{m_3}^{m_1}n_1} \\
+  & = &  \{(m_1,n_1),(m_3,n_3)\}\,
+         \{(m_1,n_1),(m_2,n_2)\}^{(m_3,n_3)^{\delta_1(m_1,n_1)}}
+\end{eqnarray*}
+\item~
+$$
+\{({m_1}^p,{n_1}^p), ({m_2}^p,{n_2}^p)\}
+  ~=~  ({m_2}^p)^{{m_1}^p} \bt {n_1}^p
+  ~=~  ({m_2}^{m_1} \bt n_1)^p
+  ~=~  \{(m_1,n_1),(m_2,n_2)\}^p
+$$
+\end{enumerate}
+\end{pf}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The crossed square associated to a $2$-crossed module}
+
+Maybe there is no exact construction?
+
+\vspace*{10mm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Homotopies of the actor $2$-crossed module}
+
+{\bf [This needs significant revision.]}
+
+\begin{defn}
+A homotopy of the $2$-crossed module $\calZ$
+is a pair of homomorphisms $\phi_{\bullet} = (\phi_1,\phi_0)$
+such that 
+$\phi_0: R_{\emptyset} \to R_{\{1\}} \ltimes R_{\{2\}}, \ 
+ p \mapsto(\phi_0^{N}p, \phi_0^{M}p)$ where
+\begin{eqnarray*}
+\phi_0(p_1p_2) 
+  & = &  (\phi_0^{N}(p_1p_2), \phi_0^{M}(p_1p_2)) \\
+  & = &  (\phi_0^{N}p_1, \phi_0^{M}p_1)(\phi_0^{N}p_2, \phi_0^{M}p_2) \\
+  & = &  (\phi_0^{N}p_1 \phi_0^{N}p_2, 
+          (\phi_0^{M}p_1)^{\phi_0^{N}p_2} \phi_0^{M}p_2)
+\end{eqnarray*}
+\end{defn}
+
+So $\phi_0^{M}$ is a $\phi_0^{N}$-derivation.
+$\phi_1:  R_{\{1\}} \ltimes R_{\{2\}} \to R_{[2]}, \ 
+ (n, m) \mapsto (\phi_1^{N}n)( \phi_1^{M}m)$
+\begin{eqnarray*}
+\phi_1(n,m) & = & \phi_1((n,1)(1, m)) \\
+                       & = & \phi_1(n,1) \phi_1(1,m) \\
+                       & = & (\phi_1^{N}n)( \phi_1^{M}m)
+\end{eqnarray*}
+      
+\bigskip\noindent
+{\bf [Moved what was Lemma 7.6 to cat2-group section.]}
+
+\begin{lem}
+There is an action of $R_{\emptyset} \ltimes R_{\{2\}}$ 
+on $R_{\{1\}} \ltimes R_{[2]}$
+defined on the image of some derivation $\chi$ by
+$$
+\chi(p,m)^{(p_1,m_1)} = \chi(pp_1, m^{p_1}m_1) \chi(p_1, m_1)^{-1} 
+$$
+which is well defined {\bf (should use the usual action!)}
+\end{lem}
+\begin{pf}
+\begin{eqnarray*}
+\chi((p,m)^{(p_1,m_1})^{(p_2,m_2)} 
+  & = &  (\chi(pp_1, m^{p_1}m_1) \chi(p_1,m_1)^{-1})^{(p_2, m_2)} \\
+  & = &  \chi(pp_1, m^{p_1}m_1)^{(p_2,m_2)} (\chi(p_1,m_1)^{(p_2,m_2)})^{-1} \\
+  & = &  \chi(pp_1p_2, m^{p_1p_2}m_1^{p_2}m_2)(\chi(p_2,m_2)^{-1} 
+          (\chi(p_1p_2,m_1^{p_2}m_2) \chi(p_2,m_2)^{-1})^{-1} \\
+  & = &  \chi(pp_1p_2, m^{p_1p_2}m_1^{p_2}m_2) 
+          \chi(p_1p_2, m_1^{p_2}m_2)^{-1} \\
+\chi(p,m)^{(p_1,m_1)(p_2,m_2)} 
+  & = &  \chi(p,m)^{(p_1p_2, m_1^{p_2}m_2)} \\
+  & = &  \chi(pp_1p_2, m^{p_1p_2}m_1^{p_2}m_2) \chi(p_1p_2, m_1^{p_2}m_2)^{-1}
+\end{eqnarray*}
+\end{pf}
+\begin{lem}
+Consider a derivation 
+$\chi: R_{\emptyset} \ltimes R_{\{2\}} \to R_{\{1\}} \ltimes R_{[2]}$ 
+such that $\chi(p,m) = (\chi^L(p,m), \chi^{N}(p,m))$.
+Then the rules for $\chi^L$ and $\chi^N$ are as follows: ~?~?~?
+\end{lem}
+\begin{pf}
+we will show that above derivation is satisfies the derivation rule
+\begin{eqnarray*}
+\chi((p_1,m_1)(p_2,m_2)) 
+  & = &  \chi(p_1p_2, m_1^{p_2}m_2) \\
+\chi((p_1,m_1)(p_2,m_2)) 
+  & = &  \chi(p_1,m_1)^{(p_2,m_2)} \chi(p_2,m_2) \\
+  & = &  \chi(p_1p_2, m_1^{p_2}m_2) \chi(p_2,m_2)^{-1} \chi(p_2, m_2) \\
+  & = &  \chi(p_1p_2, m_1^{p_2}m_2)
+\end{eqnarray*}
+\end{pf}
+\begin{defn} \index{derivation!of $2$-crossed module}
+Now we can define a derivation which is depends on the derivation ${\chi^L}$
+\begin{eqnarray*}
+\theta_p & = & \chi^{L}(p,1) \\
+\ddch m & = & \chi^{L}(1,m)
+\end{eqnarray*}
+\end{defn}
+\begin{eqnarray*}
+\theta(p_1p_2) 
+  & = &  \chi^{L}(p_1p_2, 1) \\
+  & = &  \chi^{L}((p_1,1),(p_1,1)) \\
+  & = &  (\chi^{L}(p_1,1))^{(p_2,1)} (\chi^{L}(p_2,1)) \\
+  & = &  (\theta p_1)^{p_2} (\theta p_2)
+\end{eqnarray*}
+
+\begin{lem}
+$\chi^{L} : R_{\emptyset} \ltimes R_{\{2\}} \to R_{[2]}$ is a derivation.
+\end{lem}
+\begin{pf}
+\begin{eqnarray*}
+\chi^{L}(p,m) 
+  & = &  \chi^{L}((p,1)(1,m)) \\
+  & = &  (\chi^{L}(p,1))^{(1,m)} (\chi^{L}(1,m)) \\
+  & = &  (\theta p)^{m} (\ddch m)
+\end{eqnarray*}
+\end{pf}

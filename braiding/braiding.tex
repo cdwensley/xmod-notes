@@ -1,0 +1,119 @@
+%% braiding.tex,  version 06/07/07
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Braidings} \label{sec:braiding}
+
+Brown and Gilbert, in \cite{brow:gilb}, have shown that 
+$2$-crossed modules are equivalent to regular braided crossed modules. 
+This construction has also been discussed in \cite{brow:icen}. 
+Our aim here is review this material, using right actions consistently. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Crossed module bimorphisms}  \label{subsec:xmod-bim}
+
+Let $\calA = ((\partial,\id) : \bbA_2 \to \bbA_1)$ 
+be a crossed module of groupoids. 
+A \emph{bimorphism} $b : (\calA,\calA) \to \calA$ consists of a family of maps 
+$$
+b_{ij} ~:~ A_i \times A_j \to A_{i+j}, \qquad 0 \leqslant i+j \leqslant 2, 
+$$
+satisfying the following axioms. 
+\begin{enumerate}[(a)] 
+\item
+The map $b_{00}$ provides a monoid structure on $A_0$, with identity $e$, 
+written $b_{00}(u,v) = uv$. 
+As usual, $A_0$ acts on itself on the left and the right 
+using this multiplication. 
+\item
+The maps $b_{10},b_{20}$ give left actions of $A_0$ on $A_1,A_2$ 
+respectively, while $b_{01},b_{02}$ provide right actions. 
+These left actions commute with the right actions. 
+We write these actions using '$\cdot$' to avoid confusion 
+with the crossed module action of $A_1$ on $A_2$. 
+So, for $u,v \in A_0,~ a \in A_1$ and $\ell \in A_2$,  we have 
+$$
+(u \cdot a) \cdot v ~=~ u \cdot (a \cdot v), \qquad
+(u \cdot \ell) \cdot v ~=~ u \cdot (\ell \cdot v).
+$$
+\item 
+These actions are compatible with the groupoid structure: 
+for $p,q \in A_1$ or $p,q \in A_2$,  
+\begin{eqnarray*}
+s(u \cdot p) &=& u(sp), \qquad t(u \cdot p) ~=~ u(tp), \\
+s(p \cdot v) &=& (sp)v, \qquad t(p \cdot v) ~=~ (tp)v, \\
+u \cdot (pq) &=& (u \cdot p)(u \cdot q), \qquad 
+                 (pq) \cdot v ~=~ (p \cdot v)(q \cdot v), 
+                 \quad\text{provided}~ tp = sq. 
+\end{eqnarray*}
+Hence $u \cdot 1_v = 1_{uv} = 1_u \cdot v$ and 
+$(u \cdot b)^{-1} = u \cdot b^{-1},~ (b \cdot v)^{-1} = b^{-1} \cdot v$. 
+\item
+The actions are compatible with the crossed module action:  
+when $\ell \in A_2(x)$, $a \in A_1(x,y)$, and $\ell^a \in A_2(y)$,  
+$$
+u \cdot (\ell^a) ~=~ (u \cdot \ell)^{u \cdot a} \in A_2(uy), \qquad 
+(\ell^a) \cdot v ~=~ (\ell \cdot v)^{a \cdot v} \in A_2(yv). 
+$$
+\item 
+The boundary morphism $\partial : A_2 \to A_1$ is equivariant 
+with respect to these actions: 
+$$
+\partial(u \cdot \ell) ~=~ u \cdot (\partial\ell), \qquad 
+\partial(\ell \cdot v) ~=~ (\partial\ell) \cdot v. 
+$$
+\item
+We write the images of the map $b_{11} : A_1 \times A_1 \to A_2$ 
+as a bracing: 
+$$
+b_{11}(a,b) ~=~ \{a,b\}, \quad\text{a loop at}~ (ta)(tb).
+$$
+This bracing interacts with composition in $A_1$ according to: 
+$$
+\{1_e,b\} = 1_{tb},\qquad 
+\{a,1_e\} = 1_{ta},\qquad 
+\{aa',b\} = \{a',b\}\{a,b\}^{a' \cdot tb},\qquad 
+\{a,bb'\} = \{a,b\}^{ta \cdot b'}\{a,b'\}. 
+$$
+\item
+Given $a,b \in A_1$, we may act with the source or target of one 
+on the other in four ways, forming 
+$sa \cdot b,~ ta \cdot b,~ a \cdot sb,~ a \cdot tb$. 
+These arrows fit together to form the square 
+$$
+\xymatrix{
+  (sa)(sb) \ar[rr]^{sa \cdot b}  \ar[dd]_{a \cdot sb} 
+    &&  (sa)(tb) \ar[dd]^{a \cdot tb} 
+        &&  \\
+    &&  &&  \\
+  (ta)(sb) \ar[rr]_{ta \cdot b} 
+    &&  (ta)(tb) \ar `ur[0,1] `[1,0] `[0,0]^(0.2){\partial\{a,b\}} [0,0]
+        &&  \\
+    &&  &&  \\
+}$$
+and the loop $\partial\{a,b\}$ measures the lack of commutativity: 
+$$
+\partial\{a,b\}~=~(ta \cdot b)^{-1}(a \cdot sb)^{-1}(sa \cdot b)(a \cdot tb). 
+$$ 
+\item
+The bracing interacts with the boundary map as follows: 
+$$
+\{a,\partial\ell\} ~=~ (sa \cdot \ell\}^{a \cdot t\ell}\,(ta \cdot \ell),
+\qquad 
+\{\partial\ell,b\} ~=~ (\ell^{-1} \cdot tb)\,(\ell \cdot sb)^{t\ell \cdot b}. 
+$$
+\item
+The actions of $A_0$ on the bracing are given by: 
+$$
+u \cdot \{a,b\} ~=~ \{u \cdot a.b\}, \qquad 
+\{a,b\} \cdot v ~=~ \{a,b \cdot v\}, \qquad 
+\{a \cdot u,b\} ~=~ \{a,u \cdot b\}. 
+$$
+\end{enumerate}
+
+\bigskip\noindent 
+{\bf [Now do some checks?]} 
+
+

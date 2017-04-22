@@ -1,0 +1,1258 @@
+%% xxmod.tex,  version 22/04/17
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Crossed squares and $2$-fold crossed modules} \label{sect:xxmod}
+
+We now show how the action of one crossed module on another 
+leads to a crossed square.
+As a first step, we consider alternative formulations of the
+crossed module axioms in order to find one which can most easily
+be generalised.
+
+%% \subsection{First alternative formulation} moved to notes9_1_old.tex ??
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{An alternative formulation for crossed modules} 
+\label{subs:alt-viewt}
+
+Let $\calX = (\partial : S \to R)$  be a crossed module.
+Define maps $\iota_S$ (similarly $\iota_R$) and $\bara$  by
+$$
+\bari_S : S \times S \to S,~ (s_1,s) \mapsto {s_1}^s = s^{-1}s_1s,
+\qquad
+\bara : S \times R \to S,~ (s,r) \mapsto s^r.
+$$
+From these we may define
+\begin{eqnarray*}
+\iota_s ~=~ \bari_S(-,s) ~:~ S \to S,~ s_1 \mapsto s^{-1}s_1s
+& ~\mbox{and}~ &
+\iota_S ~:~ S \to \Aut(S),~ s \mapsto \iota_s,  \\
+\alpha_r ~=~ \bara(-,r) ~:~ S \to S,~ s \mapsto s^r
+& ~\mbox{and}~ &
+\alpha ~:~ R \to \Aut(S),~ r \mapsto \alpha_r,
+\end{eqnarray*}
+
+\medskip\noindent
+The first crossed module axiom says that the following diagram commutes: 
+\begin{equation} 
+\vcenter{\xymatrix{
+S \times R \ar[rr]^(0.4){1_S \times \alpha}
+           \ar[dd]_{\partial \times \iota_R}
+  && S \times \Aut S \ar[rr]^(0.6){{\rm eval}}
+    && S \ar[dd]^{\partial} \\
+  && && \\
+R \times \Aut R \ar[rrrr]_{{\rm eval}}
+  && && R
+}} 
+\end{equation}
+mapping $(s,r)$ to $\alpha_r(\partial s) = r^{-1}(\partial s)r$ 
+and to $\partial(s^r)$.
+
+\medskip\noindent
+The corresponding diagram for $2$-fold crossed modules, 
+where $\calY = (\delta : Q \to P)$, is 
+\begin{equation}
+\vcenter{\xymatrix{
+\calX \times \calY \ar[rr]^(0.4){1_{\calX} \times \alpha}
+           \ar[dd]_{\mu \times \iota_{\calY}}
+  && \calX \times \Act \calX \ar[rr]^(0.6){{\rm eval}}
+    && \calX \ar[dd]^{\mu} \\
+  && && \\
+\calY \times \Act \calY \ar[rrrr]_{{\rm eval}}
+  && && \calY
+}} 
+\end{equation}
+
+\medskip\noindent
+Applying these maps to $s \in S,~ r \in R,~ q \in Q,~ p \in P$ 
+clockwise around the rectangle we obtain:
+$$
+\left( \begin{tabular}{c} $s$ \\ $r$ \\ \end{tabular} \right),
+\left( \begin{array}{c} q \\ p \\ \end{array} \right)
+\quad\mapsto\quad
+\left( \begin{array}{c} s \\ r \\ \end{array} \right),
+\left( \begin{array}{c} \chi_q \\ \alpha_p \\ \end{array} \right)
+\quad\mapsto\quad
+\left( \begin{array}{c} \chi_q r \\ 
+         \left( \begin{array}{c} \dda_p s \\ \da_p r \\ \end{array} \right) \\ 
+       \end{array} \right),
+\left( \begin{array}{c} \dda\ddm s \\ \da\dm r \\ \end{array} \right)
+\quad\mapsto\quad
+\left( \begin{array}{c} \ddm(\chi_q r) \\ 
+        \left( \begin{array}{c} \ddm(s^p) \\ \dm(r^p) \\ \end{array} \right) \\
+       \end{array} \right).
+$$
+
+\noindent
+In the other direction,
+$$
+\left( \begin{tabular}{c} $s$ \\ $r$ \\ \end{tabular} \right),
+\left( \begin{array}{c} q \\ p \\ \end{array} \right)
+\quad\mapsto\quad
+\left( \begin{array}{c} \ddm s \\ \dm r \\ \end{array} \right),
+\left( \begin{array}{c} \eta_{q} \\ \beta_{p} \\ \end{array} \right)
+\quad\mapsto\quad
+\left( \begin{array}{c} \eta_q(\dm r) \\ 
+        \left( \begin{array}{c} \ddb_p(\ddm s) \\ \db_p(\dm r) \\ 
+               \end{array} \right) \\
+       \end{array} \right). 
+$$
+
+\noindent
+Hence we obtain
+\begin{eqnarray}
+\begin{tabular}{rcccl}
+$\eta_q(\dm r)$   & $=$ & $(q^{-1})^{\dm r}q$  & $=$ & $\ddm(\chi_q r)$ \\
+$\ddb_p (\ddm s)$ & $=$ & $(\ddm s)^p$         & $=$ & $\ddm(s^p)$ \\
+$\db_p(\dm r)$    & $=$ & $p^{-1}(\dm r)p$     & $=$ & $\dm(r^p)$ \\
+\end{tabular}
+\end{eqnarray}
+
+\medskip\noindent
+From this we may deduce (for example)
+\begin{equation} \label{eq:mu-of-q-on-s}
+\ddm(s^q) = \ddm(s^{\delta q}) = (\ddm s)^{\delta q} = q^{-1}(\ddm s)q~.
+\end{equation}
+
+\bigskip
+Now we have to do a similar development for the second crossed module axiom.
+Corresponding to the diagram
+\begin{equation}
+\vcenter{\xymatrix{
+S \times S \ar[rr]^{1_S \times \partial}
+           \ar[dd]_{1_S \times \iota_S}
+  && S \times R \ar[rr]^{1_S \times \alpha}
+    && S \times \Aut S \ar[dd]^{{\rm eval}} \\
+  && && \\
+S \times \Aut S \ar[rrrr]_{{\rm eval}}
+  && && S
+}} 
+\end{equation}
+\medskip\noindent
+mapping $(s_0,s)$ to ${s_0}^s$ and to ${s_0}^{\partial s}$, 
+the diagram for $2$-fold crossed modules is :
+\begin{equation}
+\vcenter{\xymatrix{
+\calX \times \calX \ar[rr]^{1_{\calX} \times \mu}
+           \ar[dd]_{1_{\calX} \times \iota_{\calX}}
+  && \calX \times \calY \ar[rr]^{1_{\calX} \times \alpha}
+    && \calX \times \Act \calX \ar[dd]^{{\rm eval}} \\
+  && && \\
+\calX \times \Act \calX \ar[rrrr]_{{\rm eval}}
+  && && \calX
+}} 
+\end{equation}
+
+\medskip\noindent
+Applying these maps to $s,s_0 \in S,\; r,r_0 \in R$ 
+clockwise around the rectangle we have:
+$$
+\left( \begin{tabular}{c} $s_0$ \\ $r_0$ \\ \end{tabular} \right),
+\left( \begin{array}{c} s \\ r \\ \end{array} \right)
+\quad\mapsto\quad
+\left( \begin{array}{c} s_0 \\ r_0 \\ \end{array} \right),
+\left( \begin{array}{c} \ddm s \\ \dm r \\ \end{array} \right)
+\quad\mapsto\quad
+\left( \begin{array}{c} s_0 \\ r_0 \\ \end{array} \right),
+\left( \begin{array}{c} \dda\ddm s \\ \da\dm r \\ \end{array} \right)
+\quad\mapsto\quad
+\left( \begin{array}{c} \chi_{\ddm s} r_0 \\ 
+                        {s_0}^{\dm r} \\
+                        {r_0}^{\dm r} \\ \end{array} \right).
+$$
+
+\noindent
+In the other direction,
+$$
+\left( \begin{tabular}{c} $s_0$ \\ $r_0$ \\ \end{tabular} \right),
+\left( \begin{array}{c} s \\ r \\ \end{array} \right)
+\quad\mapsto\quad
+\left( \begin{array}{c} s_0 \\ r_0 \\ \end{array} \right),
+\left( \begin{array}{c} \eta_{s} \\ \beta_{r} \\ \end{array} \right)
+\quad\mapsto\quad
+\left( \begin{array}{c} \eta_s r_0 \\ 
+                        {s_0}^r \\
+                        {r_0}^r \\ \end{array} \right). 
+$$
+
+\noindent
+Thus we obtain
+\begin{eqnarray}
+\chi_{\ddm s} r_0 & = & (s^{-1})^{r_0}s~, \nonumber\\
+    {s_0}^{\dm r} & = & {s_0}^r~, \\
+    {r_0}^{\dm r} & = & r^{-1} r_0 r~. \nonumber
+\end{eqnarray}
+
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Crossed Modules of Crossed Modules} 
+
+Using the generalisation of the crossed module axioms given 
+in the previous section we obtain the following definition.
+
+\begin{defn} \index{crossed module!of crossed modules} 
+\index{$2$-fold crossed module}
+A \emph{crossed module of crossed modules} 
+or \emph{$2$-fold crossed module}  has the form 
+$\calM = (\mu : \calX \to \calY)$
+where  $\calX = (\partial : S \to R)$,~ $\calY = (\delta : Q \to P)$,
+and $\mu = (\ddm,\dm) : \calX \to \calY$
+is a morphism of crossed modules, 
+together with an action of  $\calY$  on  $\calX$,  
+as in Subsection \ref{subs:xmod-action}, satisfying:
+
+\begin{center}
+\begin{tabular}{rccc}
+{\bf CC1:}\quad  &
+ $\ddm({s}^p) \,=\, (\ddm s)^p\,$, &
+  $\dm({r}^p) \,=\, p^{-1}(\dm r)p\,$,  &
+  $\ddm \circ \chi_q \,=\, \eta_q\circ \dm\,$, \\
+ & & \\
+{\bf CC2:}\quad  &
+  ${s_0}^{\dm r} \,=\, {s_0}^r\,$, &
+  ${r_0}^{\dm r} \,=\, r^{-1}\,r_0\,r\,$, &
+  $\chi_{\ddm s} \,=\, \eta_s\,$. \\
+ & & \\
+\end{tabular}
+\end{center}
+\end{defn}
+\begin{equation} \label{eq:xxsq}
+\vcenter{\xymatrix{ 
+     &&  && \\
+  S \ar[rr]^(0.4){\ddi} \ar[dd]_{\partial}
+    \ar `u[-1,1] `[0,4]_{\ddm} [0,4]
+     && W(\calX) \ar[dd]^{\Delta}
+     && Q \ar[ll]_(0.4){\dda} \ar[dd]^{\delta}  \\
+     &&  &&  \\
+  R \ar[rr]_(0.4){\di}
+    \ar `d[1,1] `[0,4]^{\dm} [0,4]
+     && A(\calX) 
+     && P \ar[ll]^(0.4){\da} \\
+     &&  &&
+}} 
+\end{equation}
+
+\bigskip\noindent
+Axioms \textbf{CC1:} and \textbf{CC2:} are sufficient 
+to make the diagram commute.
+
+\begin{lem}
+$$
+\alpha\mu ~=~ \iota\,.
+$$
+\end{lem}
+\begin{pf}
+$$
+\dda\ddm s \;=\;
+\chi_{\ddm s} \;=\; \eta_s \;=\; \ddi s
+\qquad\mbox{and}\qquad  
+\da\dm r \;=\;
+\beta_{\dm r} \;=\; \beta_r \;=\; \di r~.
+$$
+\end{pf}
+
+\bigskip\noindent
+In order to show that $\calX$ and $\calY$ form a crossed square 
+we have to define a crossed pairing, 
+and there is one obvious choice.
+
+
+\begin{prop} \label{prop:xxmod-is-xsq}
+The $2$-fold crossed module $\calM$ is a crossed square with crossed pairing
+$$
+\bt ~:~ R \times Q \to S, \quad 
+(r,q) \mapsto r \bt q \,=\, (\dda q)r \,=\, \chi_q r.
+$$
+\end{prop}
+
+\medskip\noindent
+\begin{pf}
+Axiom (a) for crossed squares requires  $\ddm(s^p) = (\ddm s)^p$ 
+and  $\partial(s^p) = (\partial s)^p$.
+The first of these is given by \textbf{CC1:} 
+while $(\partial s)^p = \db_p\partial s = \partial\ddb_p s = \partial(s^p)$.
+
+\medskip\noindent
+For (b) we require that  $(\ddm : S \to Q)$ and $(\dm : R \to P)$ 
+are crossed modules:
+$$
+\ddm(s^q) = q^{-1}(\ddm s)q \quad\mbox{by (\ref{eq:mu-of-q-on-s})\quad and}
+\quad {s_0}^{\ddm s} = {s_0}^{\delta\ddm s} = {s_0}^{\dm \partial s}
+                     = {s_0}^{\partial s} = s^{-1}s_0s~,
+$$
+$$
+\dm(r^p) = p^{-1}(\dm r)p \quad\mbox{by \textbf{CC1:}\quad and}
+\quad {r_0}^{\dm r} = r^{-1}r_0r \quad \mbox{by \textbf{CC2:}}~.
+$$
+
+\medskip\noindent
+We then verify that ~$\bt$~ is a crossed pairing.
+\begin{enumerate}[(i)]
+\item
+$\quad
+(r_1r_2) \bt q  ~~=~~ (\dda q)(r_1r_2) ~~=~~
+((\dda q)(r_1))^{r_2}\,((\dda q)(r_2)) ~~=~~ (r_1 \bt q)^{r_2}\,(r_2 \bt q) $
+\item
+$\quad
+r \bt (q_1q_2)  ~~=~~
+\dda(q_1q_2)(r) ~~=~~ (\dda q_1 \star \dda q_2)(r) ~~=~~
+(\chi_{q_2}r)(\chi_{q_1}r)( \chi_{q_2} \partial \chi_{q_1} r) $
+
+\hspace*{23mm}
+$=~~ (\chi_{q_2} r)\,(\chi_{q_1} r)^{q_2} 
+\quad\mbox{(using Lemma \ref{lem:ids5} (b))}
+~~=~~ (r \bt q_2)\,(r \bt q_1)^{q_2}\,.$
+\item
+$\quad
+r^{p} \bt q^{p}
+  ~ = ~  (\dda q^{p})\,(r^{p})
+  ~ = ~  (\dda q)^{\da p}\,(r^{p})
+  ~ = ~  (\chi_q)^{\beta_p}\,(r^{p}) 
+  ~ = ~  \ddb_{p} \chi_q {\db_{p}}^{-1} (r^{p})
+  ~ = ~  \ddb_{p} \chi_q r
+  ~ = ~  (r \bt q)^{p}\,.$
+\end{enumerate}
+
+\medskip\noindent
+To verify axiom (d) for a crossed square, we check:
+$$
+\ddm(r \bt q) = \ddm(\chi_q r) = (q^{-1})^{\dm r}q = (q^{-1})^rq \;,
+$$
+$$
+r \partial(r \bt q) = r(\partial\chi_q r) = \db_{\chi_q}r = \Delta \chi_q r
+= (\Delta \dda q)r = (\da \delta q)r  
+= \db_{\delta q}r = r^{\delta q} = r^q \;.
+$$
+
+\medskip\noindent
+To verify axiom (e) we check the following: 
+$$
+(r \bt \ddm s) = \chi_{\ddm s}r = \eta_s r = (s^{-1})^r s \;,
+$$
+$$
+s(\partial s \bt q) = s(\chi_q \partial s) = \ddb_{\chi_q}s = \Delta \chi_q s
+= (\Delta \dda q)s = (\da \delta q)s 
+= \ddb_{\delta q}s = s^{\delta q} = s^q\;.
+$$
+\end{pf}
+
+\medskip
+\begin{defn} \index{morphism!of $2$-fold crossed modules}
+A \emph{morphism of crossed module of crossed modules}
+$$
+\theta ~~:~~ \calM_1 = (\mu_1 : \calX_1 \to \calY_1) 
+       ~\to~ \calM_2 = (\mu_2 : \calX_2 \to \calY_2)
+$$
+is a pair of crossed module morphisms
+$$
+\ddth : \calX_1 \to \calX_2, \qquad 
+ \dth : \calY_1 \to \calY_2,
+$$
+plus some extra condition(s) which say that the action is preserved.
+
+\noindent
+{\bf [Complete this definition.]}
+\end{defn}
+
+\bigskip
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{A $2$-fold crossed module from a crossed square}
+
+In order to show that the category {\sf XXMod} of $2$-fold 
+crossed modules and their morphisms is equivalent to the
+category {\sf XSq} of crossed squares and their morphisms 
+we require a construction in the reverse direction.
+
+\begin{thm}  \label{thm:xxmod-from-square}
+Let  $\calR$  be a crossed square with crossed pairing
+\;$\bt : R_{\{1\}} \times R_{\{2\}} \to R_{[2]}$, 
+$$
+\xymatrix{
+\calR \quad = 
+  & R_{[2]} \ar[rr]^{\ddbdyo} \ar[dd]_{\ddbdyt}
+     && R_{\{2\}} \ar[dd]^{\dbdyt}  \\
+  &  &&  \\
+  & R_{\{1\}} \ar[rr]_{\dbdyo}
+     && R_{\emptyset}
+}
+$$
+so that
+$\ddcalRt = (\ddbdyt: R_{[2]} \to R_{\{1\}})$ and 
+$\dcalRt = (\dbdyt:R_{\{2\}} \to R_{\emptyset})$  are crossed modules, 
+$(\ddbdyo, \dbdyo): \ddcalRt \to \dcalRt$  is a crossed module morphism, 
+and  $R_{\{1\}}$ and $R_{\{2\}}$ act on $R_{[2]}$ via $R_{\emptyset}$. 
+Then there is an action of  $\dcalRt$ on $\ddcalRt$ which makes 
+$(\partial_1 : \ddcalRt \to \dcalRt)$ a crossed module of crossed modules.
+\end{thm}
+\begin{pf}
+We first demonstrate an action of $\dcalRt$ on $\ddcalRt$ by showing 
+that there exists a morphism of crossed modules 
+$\alpha \,:\, \dcalRt \to \calA(\ddcalRt)$ as in the following diagram:
+
+\begin{equation}  \label{eq:xxmod-from-square-diag}
+\vcenter{\xy
+\xymatrix{ 
+  &&&&&& \\
+  &      R_{[2]} \ar[rr]^(0.4){\ddi} \ar[dd] <1.0ex>^{\ddbdyt}
+           \ar `u[-1,1] `[0,4]_{\ddbdyo} [0,4]
+           \ar `u[-1,-1] `[0,-1] `[0,0]_{\ddb_m, \ddb_p} [0,0]
+   &&    W(\ddcalRt) \ar[dd]^{\Delta}
+     &&  R_{\{2\}} \ar[ll]_(0.4){\dda} \ar[dd]^{\dbdyt} 
+       & \\
+  &&&&&& \\
+  &      R_{\{1\}} \ar[rr]_(0.4){\di}  \ar[uu] <1.0ex>^{\chi_{\ell},\chi_n}
+           \ar `d[1,1] `[0,4]^{\dbdyo} [0,4]
+           \ar `d[1,-1] `[0,-1] `[0,0]^{\db_m, \db_p} [0,0]
+   &&    A(\ddcalRt)
+     &&  R_{\emptyset} \ar[ll]^(0.4){\da}
+       & \\
+  &&&&&& \\
+  & \ddcalRt && \calA(\ddcalRt) && \dcalRt & \\
+}
+\endxy} 
+\end{equation}
+
+\medskip\noindent
+Define 
+$$
+\da : R_{\emptyset} \to \calA(\ddcalRt), \quad
+p \mapsto \beta_p : \ddcalRt \to \ddcalRt 
+\quad\mbox{for all}\quad 
+p \in R_{\emptyset}~,
+$$
+where  
+$$
+\ddb_p \ell = \ell^p \quad\mbox{for all}\quad  \ell \in R_{[2]}
+\qquad\mbox{and}\qquad  
+\db_p m = m^p \quad\mbox{for all}\quad  m \in R_{\{1\}}~.
+$$ 
+We see that $\da p$ is a crossed module morphism since $\ddb$ and $\db$ are
+group homomorphisms and 
+%$$
+%\ddb_{p_1p_2} \ell  \;=\;
+%\ell^{p_1p_2}  \;=\;
+%(\ddb_{p_1} \ell)^{p_2}  \;=\;
+%(\ddb_{p_2} \circ \ddb_{p_1})\,\ell \;=\;
+%(\ddb_{p_1} * \ddb_{p_2})\,\ell ~,
+%$$
+%and similarly for the action on  $R_{\{2\}}$.
+$$
+(\ddb_p\ell)^{\db_pm} ~=~ (\ell^p)^{m^p} ~=~ \ell^{pp^{-1}mp} 
+~=~ \ell^{mp} ~=~ \ddb_p(\ell^m)~.
+$$
+
+\vspace*{12mm}\noindent
+The map  $\dda : R_{\{2\}} \to W(\ddcalRt)$  is defined by
+\begin{equation} \label{eq:chi-n-m}
+\dda n \;=\; \chi_n : R_{\{1\}} \to R_{[2]},\quad 
+\chi_n m = m \bt n, \quad 
+\mbox{for all} ~~ m \in R_{\{1\}}~.
+\end{equation}
+Each  $\chi_n$  is a derivation of  $\ddcalRo$   since
+$$
+\chi_n(m_1m_2) \;=\;
+(m_1m_2 \bt n) \;=\;
+(m_1 \bt n)^{m_2}\;(m_2 \bt n) \;=\;
+(\chi_n m_1)^{m_2}\,(\chi_n m_2)~.
+$$
+
+\noindent
+That  $\dda$  is a homomorphism is verified by 
+\begin{eqnarray*}
+(\chi_{n_1} \star \chi_{n_2})\,m
+  & = &  (\chi_{n_2}m)\,(\chi_{n_1}m)\, \chi_{n_2} \ddbdyt (m \bt n_1) \\
+  & = &  (m \bt n_2)\,(m \bt n_1)\,\chi_{n_2}(m^{-1}\,m^{n_1}) \\
+  & = &  (m \bt n_2)\,(m \bt n_1)\,
+          (\chi_{n_2}m^{-1})^{m^{n_1}}\,(\chi_{n_2}m^{n_1}) \\
+  & = &  (m \bt n_2)\,(m \bt n_1)\,(m^{-1} \bt n_2)^{n_1^{-1}mn_1}\,
+           (m^{n_1} \bt n_2) \\
+  & = &  (m \bt n_2)\,(m \bt n_1)\,((m \bt n_2)^{[m,n_1]})^{-1}\, 
+          (m \bt n_1)^{-1}\,(m \bt n_2)\,(m \bt n_1)^{n_2} \\
+  & = &  (m \bt n_1)\,\{(m \bt n_1)^{-1}\,(m \bt n_2)\}\,(m \bt n_1)^{n_2} \\
+  & = &  (m \bt n_2)\,(m \bt n_1)^{n_2}
+  \;=\;  (m \bt n_1n_2)
+  \;=\;  \chi_{n_1n_2}\,m ~.
+\end{eqnarray*}
+
+\noindent
+To show that  $\alpha$  preserves actions, we calculate
+\begin{eqnarray*}
+\dda(n^p) \;=\; \chi_{n^p} 
+  & : &  m \mapsto (m \bt n^p) ~, \\
+(\dda n)^{\da p} 
+  \;=\;  \beta_p^{-1} \ast \chi_n \ast \beta_p
+  & : &  m \mapsto  \ddb_p \chi_n \db_p^{-1} m
+  \;=\;  \ddb_p \chi_n(m^{p^{-1}})
+  \;=\;  (m^{p^{-1}} \bt n)^p
+  \;=\;  (m \bt n^p)~.
+\end{eqnarray*}
+
+\noindent
+To show that the right-hand square in diagram (\ref{eq:xxsq}) commutes,
+$\da \dbdyt \,=\, \Delta \dda\,$,
+note that
+$$
+\Delta \dda \,n \;=\; \Delta \chi_n \;=\; (\ddb_{\chi_n},\db_{\chi_n})
+$$
+where
+$$
+\db_{\chi_n}m \;=\; m(\ddbdyt \chi_n m) \;=\; m (\ddbdyt (m \bt n))
+\;=\; m(m^{-1}m^n) \;=\; m^n \;=\; \db_{\dbdy_2 n}m ~,
+$$
+and
+$$
+\ddb_{\chi_n}\ell \;=\; \ell(\chi_n \ddbdyt \ell)
+\;=\; \ell(\ddbdyt \ell \bt n) \;=\; \ell^n \;=\; \ddb_{\dbdy_2 n}\ell ~.
+$$
+So  
+$$
+\Delta \dda n \;=\; (\ddb_{\dbdy_2 n}, \db_{\dbdy_2 n}) 
+\;=\; \beta_{\dbdy_2 n} \;=\; \da \dbdy_2 n ~.
+$$
+This completes the proof that
+$\alpha : \dcalRt \to \calA(\ddcalRt)$ is a morphism of crossed modules. 
+
+\medskip\noindent
+Thus the crossed square  $\calR$
+gives rise to a semidirect crossed module
+$\dcalRt \ltimes \ddcalRt$~.
+
+\medskip
+Of course we could obtain a second semidirect product crossed module 
+$\dcalRo \ltimes \ddcalRo$  for the transpose of  $\calR$
+by reversing the roles of $R_{\{1\}}$ and $R_{\{2\}}$
+and using the crossed pairing  $\tilde{\bt}$~.
+
+\bigskip
+The morphism $\iota = (\di, \ddi)$ in diagram (\ref{eq:xxmod-from-square-diag})
+is given (see Subsection \ref{subs:inner-morphism}) by:
+
+$$
+\di \,:\, R_{\{1\}} \to A, \quad
+\di m = \beta_m = (\ddb_m,\db_m) : \ddcalRt \to \ddcalRt,
+\quad\mbox{for all}\quad m \in R_{\{1\}}~,
+$$
+where\quad
+$\ddb_m \ell = \ell^m$ \quad
+for all\quad 
+$\ell \in R_{[2]}$\quad
+and\quad
+$\db_m m_0 = {m_0}^m = m^{-1}m_0m$\quad
+for all\quad 
+$m_0 \in R_{\{1\}}$, 
+and
+$$
+\ddi \,:\, R_{[2]} \to W, \quad 
+\ell \,\mapsto\, \eta_{\ell} : R_{\{1\}} \to R_{[2]},\; 
+m \mapsto (\ell^{-1})^m\,\ell \quad\mbox{for all}\quad m \in R_{\{1\}}~.
+$$
+
+\bigskip
+The $2$-fold crossed module axioms for $(\partial_1 : \ddcalRt \to \dcalRt)$ 
+are easily verified.
+\begin{enumerate}[{\bf CC1:}]
+\item
+\begin{enumerate}[{\rm (i)}]
+\item
+$\ddbdyo(\ell^p) = (\ddbdyo \ell)^p$ by (a),
+\item
+$\dbdyo(m^p) = p^{-1}(\dbdyo m)p$ by \textbf{M1:} for $\dcalRo$,
+\item
+$\ddbdyo(\chi_n m) = \ddbdyo(m \bt n) = (n^{-1})^mn 
+                  = (n^{-1})^{\dbdyo m}n = \eta_n(\dbdyo m)$~.
+\end{enumerate}
+\item
+\begin{enumerate}[{\rm (i)}]
+\item
+$\ell^{\dbdyo m} = \ell^m$ by definition of the action,
+\item
+${m_0}^{\dbdyo m} = m^{-1}m_0m$ by \textbf{M2:} for $\dcalRo$,
+\item
+$\chi_{\ddbdyo\ell}m = m \bt \ddbdyo\ell = (\ell^{-1})^m\ell = \eta_{\ell}m$. 
+\end{enumerate}
+\end{enumerate}
+\end{pf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{$2$-fold derivations and sections} 
+%\label{subs:dder-ssec}
+%% {\bf [(19-21/04/04) - big changes to this section]}
+
+\subsection{Derivations of a $2$-fold crossed module} 
+\label{subs:-der-xxmod}
+
+The following definition (b) of an $\calR_1$-derivation \emph{appears}
+to be correct, but we shall see that an extra axiom is appropriate when 
+we consider the corresponding version of a section.
+The missing information is an expansion for $\ddch(n^p)$.
+A revised version will be given as Definition \ref{def:chi-b}.
+
+\begin{defn} \label{def:chi-a}
+Let ${\calR_1}$ be the usual crossed square $\calR$ of (\ref{eq:Rsquare}) 
+considered as a crossed module of crossed modules  
+$(\partial_1 = (\ddbdyo,\dbdyo) ~:~ \ddcalRt \to \dcalRt)$.
+\begin{equation} \label{eq:Rsqder}
+\vcenter{\xymatrix{
+        &   &    R_{[2]} \ar[rr] <+0.8ex>^{\ddbdyo} 
+                         \ar[dd]_{\ddbdyt}
+             &&  R_{\{2\}} \ar[ll] <+0.8ex>^{\ddph,\,\ddch} 
+                           \ar[dd]^{\dbdyt} \\
+\calR_1 & = &&&  \\
+        &   &    R_{\{1\}} \ar[rr] <-0.8ex>_{\dbdyo}
+             &&  R_{\emptyset} \ar[ll] <-0.8ex>_{\dph,\,\dch}
+}} 
+\end{equation}
+\begin{enumerate}[\rm (a)]
+\item 
+An $\calR_1$-map is a pair of maps 
+$\phi = (\ddph, \dph) : \dcalRt \to \ddcalRt$ which commute with the two 
+boundaries:
+$$ 
+\ddph \ast \ddbdyt = \dbdyt \ast \dph 
+$$
+\item 
+An $\calR_1$-derivation is an $\calR$-map $\chi = (\ddch, \dch)$ 
+such that $\ddch$ is a derivation of $\ddcalRo$ 
+and $\dch$ is a derivation of $\dcalRo$.
+\end{enumerate}
+
+Similarly, let $\calR_2$ be $\calR$ considered as
+$(\partial_2 = (\ddbdyt,\dbdyt) : \ddcalRo \to \dcalRo)$,
+giving notions of $\calR_2$-map and $\calR_2$-derivation.
+\end{defn}
+
+\begin{lem}
+To check that a pair of derivations 
+$\chi = (\ddch,\dch)$ is an $\calR_1$-derivation
+it is sufficient to check that $\ddch\ast\ddbdyt = \dbdyt\ast\dch$
+on a generating set of $R_{\{2\}}$.
+\end{lem}
+\begin{pf}
+If $\ddbdyt\ddch n_1 = \dch\dbdyt n_1$ 
+and  $\ddbdyt\ddch n_2 = \dch\dbdyt n_2$ then
+$$
+\ddbdyt\ddch(n_1n_2)
+= \ddbdyt((\ddch n_1)^{n_2}(\ddch n_2))
+= (\ddbdyt\ddch n_1)^{\dbdyt n_2}(\ddbdyt\ddch n_2)
+= (\dch\dbdyt n_1)^{n_2}(\dch\dbdyt n_2)
+= \dch\dbdyt(n_1n_2).
+$$ 
+\end{pf}
+
+\begin{lem}
+The set of $\calR_1$-derivations has a Whitehead multiplication 
+$$ 
+\chi_1 \star  \chi_2 = (\ddch_1 \star  \ddch_2, \: \dch_1 \star  \dch_2).
+$$
+\end{lem}
+\begin{pf}
+Since $\ddch_1 \star \ddch_2$ and $\dch_1 \star \dch_2$ are derivations of 
+$\ddcalRo$ and $\dcalRo$ respectively, 
+we only have to show that $\chi_1 \star \chi_2$ is an $\calR_1$-map.
+\begin{eqnarray*}
+\ddbdyt (\ddch_1 \star \ddch_2)(n)  
+  & = & (\ddbdyt \ddch_2 n) (\ddbdyt \ddch_1 n) 
+         (\ddbdyt \ddch_2 \ddbdyo \ddch_1 n) \\
+  & = & (\dch_2 \dbdyt n) (\dch_1 \dbdyt n) 
+         (\dch_2 \dbdyt \ddbdyo \ddch_1 n) \\
+  & = & (\dch_2 \dbdyt n) (\dch_1 \dbdyt n) 
+         (\dch_2 \dbdyo \ddbdyt \ddch_1 n) \\
+  & = & (\dch_2 \dbdyt n) (\dch_1 \dbdyt n) 
+         (\dch_2 \dbdyo \dch_1 \dbdyt n) \\
+  & = & (\dch_2 \star \dch_1)(\dbdyt n)~.
+\end{eqnarray*}
+\end{pf}
+
+\bigskip\noindent
+{\bf [Not sure if the following Lemma is true!]}
+\vspace{3mm}
+
+\begin{lem}
+A pair of principal derivations $\eta = ( \dde_{\ell}, \de_m)$ 
+is an $\calR_1$-derivation if and only if 
+$(\ddbdyt\ell)m^{-1}$  is fixed by the action of  $\dbdyt R_{\{2\}}$.
+\end{lem}
+\begin{pf}
+$$
+\ddbdyt \dde_{\ell} n ~=~ \de_{m} \dbdyt n
+~\Leftrightarrow~
+(\ddbdyt \ell^{-1})^{\dbdyt n} (\ddbdyt \ell) ~=~ (m^{-1})^{\dbdyt n} m 
+~\Leftrightarrow~
+(\ddbdyt\ell)m^{-1} ~=~ ((\ddbdyt\ell)m^{-1})^{\dbdyt n}~.
+$$
+{\bf [But what about equation (\ref{eq:extra-axiom})?]}
+\end{pf}
+
+\bigskip
+\begin{defn}  \index{Principal derivation!of $2$-fold crossed modules}
+A \emph{principal $\calR_1$-derivation} is an $\calR_1$-derivation 
+$\eta = ( \dde_{\ell}, \de_m)$ such that $\dde_{\ell}, \de_m$ 
+are principal derivations.
+\end{defn}
+
+\medskip
+Given an $\calR_1$-derivation $\chi = (\ddch,\dch)$ 
+we have automorphisms
+$\beta_{\ddch} = (\ddb_{\ddch},\db_{\ddch})$  of  $\ddcalRo$ 
+and
+$\beta_{\dch} = (\ddb_{\dch},\db_{\dch})$  of  $\dcalRo$ 
+given by
+$$ 
+\ddb_{\ddch} \ell = \ell(\ddch \ddbdyo \ell), \qquad
+    \db_{\ddch} n = n(\ddbdyo \ddch n),  \qquad
+    \ddb_{\dch} m = m(\dch \dbdyo m),  \qquad
+     \db_{\dch} p = p(\dbdyo \dch p), 
+$$
+such that
+$$
+\ddb_{\ddch} \ddch ~=~ \ddch \db_{\ddch},~ 
+n \mapsto (\ddch n)(\ddch \ddbdyo \ddch n)
+\qquad\mbox{and}\qquad
+\ddb_{\dch} \dch ~=~ \dch \db_{\dch},~
+p \mapsto (\dch p)(\dch \dbdyo \dch p).
+$$
+
+\medskip\noindent
+These automorphisms will be important for our construction 
+of the actor crossed square.
+
+Since these maps are automorphisms, we know that
+$$
+\ddb_{\ddch} (\ell^n) ~=~ (\ddb_{\ddch} \ell)^{\db_{\ddch} n}
+\qquad\mbox{and}\qquad
+    \ddb_{\dch} (m^p) ~=~ (\ddb_{\dch} m)^{\db_{\dch} p}.
+$$
+
+\begin{lem}
+These four group automorphisms combine to give automorphisms 
+$$
+\beta_{\ddch} = (\ddb_{\ddch}, \ddb_{\dch}) ~\mbox{of}~ \ddcalRt
+\qquad\mbox{and}\qquad
+ \beta_{\dch} = (\db_{\ddch}, \db_{\dch}) ~\mbox{of}~ \dcalRt.
+$$
+\end{lem}
+\begin{pf}
+We first check commutation:
+$$
+\ddbdyt \ddb_{\ddch} \ell 
+  ~=~ (\ddbdyt \ell)(\ddbdyt \ddch \ddbdyo \ell) 
+  ~=~ (\ddbdyt \ell)(\dch \dbdyt \ddbdyo \ell) 
+  ~=~ (\ddbdyt \ell) (\dch \dbdyo(\ddbdyt \ell)) 
+  ~=~ \ddb_{\dch} \ddbdyt \ell,\quad
+$$
+$$
+\dbdyt \db_{\ddch} n 
+  ~=~ (\dbdyt n)(\dbdyt \ddbdyo \ddch n) 
+  ~=~ (\dbdyt n) (\dbdyo \ddbdyt \ddch n) 
+  ~=~ (\dbdyt n)(\dbdyo \dch (\dbdyt n))  
+  ~=~ \db_{\dch} \dbdyt n.
+$$
+
+We now require to prove
+$$
+\mbox{(a)}~~
+\ddb_{\ddch}(\ell^m) ~=~ (\ddb_{\ddch} \ell)^{\ddb_{\dch} m}
+\qquad\mbox{and}\qquad 
+\mbox{(b)}~~
+    \db_{\ddch}(n^p) ~=~ (\db_{\ddch} n)^{\db_{\dch} p}.
+$$
+We prove (b) as follows.
+\begin{eqnarray*}
+\db_{\ddch}(n^p)
+ &=&  n^p (\ddbdyo \ddch (n^p)) \\
+ &=&  n^p~\ddbdyo[(\dch p \bt n^p)^{-1} (\ddch n)^{p(\dch p)}] \\
+ &=&  n^p~(n^p)^{-1}~(n^p)^{\dch p}~(\ddbdyo \ddch n)^{p(\dbdyo \dch p)} \\
+ &=&  (n(\ddbdyo \ddch n))^{p(\dbdyo \dch p)} \\
+ &=&  (\db_{\ddch} n)^{\db_{\dch} p}.
+\end{eqnarray*}
+
+\medskip\noindent
+{\bf [We still need to check (a) !~]}
+\end{pf}
+
+\bigskip
+\begin{lem}
+The endomorphisms $\ddb_{\ddch}, \db_{\ddch}, \ddb_{\dch}, \db_{\dch}$ 
+commute with 
+$\ddch \ddbdyo, \ddbdyo \ddch, \dch \dbdyo, \dbdyo \dch$ respectively.
+\end{lem}
+\begin{pf}
+This follows immediately from Lemma \ref{lem:gamma-beta-chi}(d).
+\end{pf}
+
+\begin{lem}
+Given a composite $\calR_1$-derivation $\chi = \chi_1 * \chi_2$, 
+$$
+\ddb_{\ddch} ~=~ \ddb_{\ddch_1} * \ddb_{\ddch_2} 
+\qquad \mbox{and} \qquad
+ \db_{\dch}  ~=~ \db_{\dch_1} * \db_{\dch_2}.
+$$
+\end{lem}
+\begin{pf}
+This is immediate from Corollary \ref{lem:wgamma-to-w}. \\
+{\bf [Result on derivations changed to $gamma$-derivations 
+-- what happens here?]}
+\end{pf}
+
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sections of a crossed module of cat$^1$-groups}
+
+Replacing the crossed modules $\ddcalRo, \dcalRo$  by the corresponding
+cat$^1$-groups, we obtain the following 
+\emph{crossed module of cat$^1$-groups},
+(equivalently a \emph{cat$^1$-group of crossed modules} 
+as in Section \ref{sect:cat2-xsq}), where
+$\barbdyt : 
+ R_{\{2\}} \ltimes R_{[2]} \to R_{\emptyset} \ltimes R_{\{1\}}, \: 
+ (n, \ell) \mapsto (\dbdyt n, \ddbdyt \ell)$.
+
+\begin{equation} 
+\vcenter{\xymatrix{
+ & R_{\{2\}} \ltimes R_{[2]} \ar[dd]_{\barbdyt}
+     \ar[rr] <+1.2ex>  \ar[rr] <+2.0ex> ^(0.55){\ddtto,\ddhho}
+     &&  R_{\{2\}}   \ar[dd]^{\dbdyt}  
+             \ar[ll] \ar[ll] <+0.8ex> ^(0.45){\ddeeo,\ddx} \\
+\calC_1 ~~=
+ &   &&   \\
+ & R_{\emptyset} \ltimes R_{\{1\}}  
+     \ar[rr] <-1.2ex>  \ar[rr] <-2.0ex> _(0.55){\dtto,\dhho}
+     &&  R_{\emptyset} \ar[ll]  \ar[ll] <-0.8ex> _(0.45){\deeo,\dx} 
+ \\
+}}
+\end{equation}
+
+\begin{lem}
+The pair $(\barbdyt,\dbdyt)$ is a morphism of cat$^1$-groups.
+\end{lem}
+\begin{pf}
+We first show that $\barbdyt$ is a group homomorphism.
+\begin{eqnarray*}
+\barbdyt ((n_1, \ell_1)(n_1,\ell_2))  
+   & = & \barbdyt(n_1n_2, \ell_1^{n_2} \ell_2) \\  
+   & = & (\dbdyt(n_1 n_2), \ddbdyt(\ell_1^{n_2} \ell_2)) \\
+   & = & ((\dbdyt n_1)(\dbdyt n_2), 
+          (\ddbdyt \ell_1)^{\dbdyt n_2} \ddbdyt \ell_2) \\
+   & = & (\dbdyt n_1, \ddbdyt \ell_1)(\dbdyt n_2, \ddbdyt \ell_2) 
+\end{eqnarray*}
+Next we check that $(\barbdyt,\dbdyt)$ commutes with 
+$t_1 = (\ddtto,\dtto),~ h_1 = (\ddhho,\dhho)$  and  $e_1 = (\ddeeo,\deeo)$.
+$$
+(\barbdyt * \dtto)(n,\ell)
+ ~=~ \dtto(\dbdyt n, \ddbdyt\ell)
+ ~=~ \dbdyt n
+ ~=~ (\ddtto * \dbdyt)(n,\ell)
+$$
+$$
+(\barbdyt * \dhho)(n,\ell)
+ ~=~ \dhho(\dbdyt n, \ddbdyt\ell)
+ ~=~ (\dbdyt n)(\dbdyo\ddbdyt\ell)
+ ~=~ (\dbdyt n)(\dbdyt\ddbdyo\ell)
+ ~=~ \dbdyt(n(\ddbdyo\ell))
+ ~=~ (\ddhho * \dbdyt)(n,\ell)
+$$
+$$
+(\deeo * \barbdyt)n
+ ~=~ \barbdyt(n,1)
+ ~=~ (\dbdyt n, 1)
+ ~=~ \deeo(\dbdyt n)
+ ~=~ (\dbdyt * \deeo) n
+$$
+\end{pf}
+
+\vspace*{-8mm}
+\begin{defn} \mbox{}\\
+\begin{enumerate}[{\rm (a)}]
+\item
+\vspace*{-6mm}
+A \emph{$\calC_1$-map} is a pair of maps 
+$\phi = (\ddph,\dph) : \dcalRt \to \dcalRt \ltimes \ddcalRt$ 
+which commute with the two boundaries.
+\item
+A \emph{$\calC_1$-section} is a pair  $\xi = (\ddx,\dx)$  such that
+\begin{itemize}
+\item
+$\xi$ is a $\calC_1$-map:~
+$\barbdyt \circ \ddx ~=~ \dx \circ \dbdyt$, 
+\item
+$\ddx$ is a section of $\ddcalRo$ and $\dx$ is a section of $\dcalRo$,
+\item
+$t \circ \xi = 1_{\dcalRt}$,
+\item
+$\xi$ is a crossed module morphism:~ $\ddx(n^p) = (\ddx n)^{\dx p}$.
+\end{itemize}
+\end{enumerate}
+\end{defn}
+
+\begin{lem}
+If $\xi$ is an $\calC_1$-section, then there is an $\calR_1$-derivation $\chi$
+such that $\dx p = (p, \dch p)$  and  $\ddx n = (n, \ddch n)$.
+\end{lem}
+\begin{pf}
+The sections $\ddx, \dx$ determine derivations 
+$\ddch : R_{\{2\}} \to R_{\emptyset}$ and 
+$\dch : R_{\emptyset} \to R_{\{1\}}$, so we have to verify
+that $\chi = (\ddch,\dch)$ is an $\calR_1$-map.
+Since
+$$
+(\ddx * \barbdyt) n 
+    ~=~  \barbdyt(n, \ddch n) 
+    ~=~ (\dbdyt n, \ddbdyt \ddch n) 
+\qquad\mbox{and}\qquad
+(\dbdyt * \dx) n
+    ~=~  \dx(\dbdyt n)
+    ~=~(\dbdyt n, \dch \dbdyt n),
+$$
+commuting sections imply commuting derivations.
+\end{pf}
+
+\begin{defn} \index{Whitehead group}
+A Whitehead multiplication for $\calR_1$-sections is defined as follows 
+$$
+\xi_1 \star \xi_2 ~=~ ( \ddx_1 \star \ddx_2,\, \dx_1 \star \dx_2). 
+$$ 
+\end{defn}
+
+
+\medskip
+Let us investigate whether the requirement that $\xi$ is a morphism 
+of crossed modules gives further information about $\chi$.
+Since
+\begin{eqnarray*}
+\ddx(n^p)
+& = &  (n^p,\ddch(n^p))~, \\
+(\ddx n)^{\dx p}
+& = &  (n, \ddch n)^{(p, \dch p)} 
+~ = ~  (n^p,~(\dch p \bt n^p)^{-1}~(\ddch n)^{p(\dch p)})~,
+\end{eqnarray*}
+we obtain the additional identity
+\begin{equation} \label{eq:extra-axiom}
+\ddch(n^p) ~=~ (\dch p \bt n^p)^{-1}~(\ddch n)^{p(\dch p)})~.
+\end{equation}
+
+We can now provide the modified version of Definition \ref{def:chi-a}
+as promised earlier.
+
+\begin{defn} \label{def:chi-b}
+An $\calR_1$-derivation is an $\calR$-map $\chi = (\ddch, \dch)$ 
+such that $\ddch$ is a derivation of $\ddcalRo$, 
+$\dch$ is a derivation of $\dcalRo$,
+and equation (\ref{eq:extra-axiom}) is satisfied.
+\end{defn}
+
+\bigskip
+{\bf The hope is that this extra information (\ref{eq:extra-axiom}) 
+will prove useful in simplifying formulae to found later.
+On the other hand, the right-hand side is rather a messy expression,
+so perhaps we should stick to sections?
+
+\medskip
+Here is a tricky task: prove that a principal derivation
+$\eta = (\dde_{\ell},\de_m)$ satisfies (\ref{eq:extra-axiom}).\\
+Perhaps it is easier to do for principal sections?}
+
+
+\vspace*{15mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{$2$-fold derivations of a crossed square} \label{subs:xsq-der}
+\index{derivation!of a crossed square}
+
+The maps $\theta : R_{\emptyset} \to R_{[2]}$ which we shall use to form
+the group of $2$-derivations can be considered as the final part of a map
+$$
+C_{\emptyset} \to C_{[2]},\quad
+p \mapsto (~(p, \chi p),~(\phi p, \theta p)~)\,,
+$$
+where $C_{\emptyset} = R_{\emptyset}$ and $C_{[2]} = 
+(R_{\emptyset} \ltimes R_{\{1\}}) \ltimes (R_{\{2\}} \ltimes R_{[2]})$
+as in diagram (\ref{eq:cat2-sdp}).
+
+Applying the formula for semidirect product multiplication 
+(Proposition \ref{eq:xmod-of-cat1s}(b) ???) 
+and the semidirect product action (\ref{eq:action2}), we obtain
+\begin{eqnarray*}
+  &   & ((p, \chi p),(\phi p, \theta p))((q, \chi q),(\phi q, \theta q)) \\
+  & = & ((p, \chi p)(q, \chi q),
+         (\phi p, \theta p)^{(q, \chi q)}(\phi q,\theta q)) \\
+  & = & ((pq, (\chi p)^q \chi q),
+         ((\phi p)^q, (\chi q \boxtimes (\phi p)^q)^{-1} 
+                      (\theta p)^{q (\chi q)}) (\phi q, \theta q)) \\
+  & = & ((pq, (\chi p)^q \chi q),
+         ((\phi p)^q, ((\phi p)^q \boxtimes \chi q) 
+                      (\theta p)^{q (\chi q)}) (\phi q, \theta q)) \\
+  & = & ((pq, (\chi p)^q \chi q),
+         ((\phi p)^q \phi q, ((\phi p)^q \boxtimes \chi q)^{\phi q} 
+                      (\theta p)^{[q (\chi q)(\phi q)]} (\theta q))) \\
+\end{eqnarray*}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sections of a cat$^2$-group}
+\index{section!of a cat$2$-group}
+
+Recall from Section \ref{subs:cattwo} that a cat$^2$-group  $\calC$  
+comprises $4$ groups and $15$ homomorphisms,
+as shown in the following diagram,
+$$
+\xymatrix{
+ & C_{[2]} \ar[ddd] <-1.2ex>  \ar[ddd] <-2.0ex>_{\ddttt,\ddhht}
+     \ar[rrr] <+1.2ex>  \ar[rrr] <+2.0ex>^{\ddtto,\ddhho}
+     \ar[dddrrr] <-0.2ex>  \ar[dddrrr] <-1.0ex>_(0.55){\ttot,\hhot}
+    &&&  C_{\{2\}}  \ar[lll]^{\ddeeo, \ddxo}
+            \ar[ddd]<+1.2ex>  \ar[ddd] <+2.0ex>^{\dttt,\dhht}  \\
+\calC \quad = \quad
+ &  &&&   \\
+ &  &&&   \\
+ & C_{\{1\}} \ar[uuu]_{\ddeet, \ddxt}
+     \ar[rrr] <-1.2ex>  \ar[rrr] <-2.0ex>_{\dtto,\dhho} 
+    &&&  C_{\emptyset} \ar[uuu]^{\deet, \dxt}   \ar[lll]_{\deeo, \dxo} 
+           \ar[uuulll] <-1.0ex>_(0.55){\eeot, \xot}
+ \\
+}
+$$
+where the four sides of the square are all cat$^1$-groups,
+and
+\begin{equation} \label{eq:cat-commute}
+\left\{ \begin{array}{l}
+ \dtto\ddhht = \dhht\ddtto, \quad
+ \dttt\ddhho = \dhho\ddttt, \quad
+ \deeo\dttt = \ddttt\ddeeo, \quad
+ \deet\dtto = \ddtto\ddeet, \quad
+ \deeo\dhht = \ddhht\ddeeo, \quad
+ \deet\dhho = \ddhho\ddeet,  \\
+ \dtto\ddttt = \dttt\ddtto = \ttot, \quad 
+ \dhho\ddhht = \dhht\ddhho = \hhot, \quad
+ \deeo\ddeet = \deet\ddeeo = \eeot, \\
+\end{array} \right.
+\end{equation}
+while the diagonal is only a pre-cat$^1$-group.
+
+\medskip
+We name the four cat$^1$-groups as 
+$\ddcalCo$, $\dcalCo$, $\ddcalCt$, $\dcalCt$ 
+and the diagonal as $\calCot$, 
+so that 
+$t_1 = (\ddtto,\dtto),~ h_1 = (\ddhho,\dhho) : \ddcalCo \to \dcalCo$ 
+and
+$e_1 = (\ddeeo,\deeo) : \dcalCo \to \ddcalCo$ 
+are horizontal morphisms of cat$^1$-groups, while 
+$t_2 = (\ddttt,\dttt),~ h_2 = (\ddhht,\dhht) : \ddcalCt \to \dcalCt$ 
+and
+$e_2 = (\ddeet,\deet) : \dcalCt \to \ddcalCt$ 
+are vertical morphisms.
+Pairs such as $(\ddtto,\id_{C_{\emptyset}})$ are pre-cat$^1$-morphisms.
+
+\begin{lem} \label{lem:xio-is-sect}
+For $\ddxo$ a section of $\ddcalCo$, the map $\dxo = \ddttt\ddxo\deet$ 
+is a section of $\dcalCo$. 
+\end{lem}
+\begin{pf}
+$$
+\dtto\dxo ~=~ \dtto\ddttt\ddxo\deet ~=~ \dttt\ddtto\ddxo\deet 
+~=~ \dttt\deet ~=~ \id_{C_{\emptyset}}.
+$$
+\end{pf}
+
+We now consider $\calC_1 = (e_1;t_1,h_1 : \ddcalCo \to \dcalCo)$ 
+as a \emph{cat$^1$-group of cat$^1$-groups} and define the
+notion of section in this situation.
+
+\begin{defn}
+A section of $\calC_1$ is a pair of maps $\xi_1 = (\ddxo,\dxo)$ 
+where $\ddxo$ is a section of $\ddcalCo$ and
+\begin{equation} \label{eq:two-section-axioms}
+%\dxo = \ddttt\ddxo\deet, \quad 
+\ddttt\ddxo = \dxo\dttt, \quad 
+\ddhht\ddxo = \dxo\dhht  \quad\mbox{and}\quad
+\ddeet\dxo = \ddxo\deet.
+\end{equation}
+\end{defn}
+
+\noindent
+By Lemma \ref{lem:xio-is-sect}, $\xi_1$ a morphism of cat$^1$-groups.  
+Since both $\ddxo$ and $\dxo$ are sections, 
+the usual formula {\bf S1:} $t_1\xi_1 = \id_{\dcalCt}$ holds.
+
+\bigskip
+Recall that the Whitehead multiplication for sections of a 
+cat$^1$-group applied to two sections of $\ddcalCo$ gives 
+$$
+(\ddxo \star {\ddzo})k
+ ~=~ (\ddxo k)(\ddeeo\ddhho\ddxo k^{-1})({\ddzo}\ddhho\ddxo k)
+ ~=~ ({\ddzo}\ddhho\ddxo k)(\ddeeo\ddhho\ddxo k^{-1})(\ddxo k)~.
+$$
+
+
+\begin{lem}
+The section of $\dcalCo$ associated to $\ddxo \star {\ddzo}$ 
+is $\dxo \star {\dzo}$.
+\end{lem}
+\begin{pf}
+The associated section is 
+$\ddttt(\ddxo \star {\ddzo})\deet$ which maps $p \in C_{\emptyset}$ to
+\begin{eqnarray*}
+(\ddttt\ddxo\deet p)~(\ddttt\ddeeo\ddhho\ddxo\deet p^{-1})~
+(\ddttt{\ddzo}\ddhho\ddxo\deet p) 
+& = & 
+(\dxo\dttt\deet p)~(\deeo\dhho\dxo\dttt\deet p^{-1})~
+({\dzo}\dhho\dxo\dttt\deet p) \\
+& = & 
+(\dxo p)~(\deeo\dhho\dxo p^{-1})~({\dzo}\dhho\dxo p) 
+~ = ~
+(\dxo \star {\dzo})p~,
+\end{eqnarray*}
+where identities (\ref{eq:cat-commute}) and (\ref{eq:two-section-axioms}) 
+are frequently used.
+\end{pf}
+
+\bigskip
+Recall that a section $\xi$ of a cat$^1$-group 
+$\calC = (e;t,h : C \to R)$ determines a cat$^1$-group endomorphism 
+$(\gamma,\rho)$ of $\calC$ where
+\begin{eqnarray*}
+  \rho : R \to R, && r \mapsto h \xi r, \\
+\gamma : C \to C, && g \mapsto (eh \xi tg)(\xi tg^{-1})g(ehg^{-1})(\xi hg). \\
+\end{eqnarray*}
+The equivalent definitions for our $\dcalCo$ are
+\begin{eqnarray*}
+\rho_1 = (\ddro,\dro): \dcalCt \to \dcalCt, 
+  & &  k \mapsto \ddhho \ddxo k, \quad
+       p \mapsto \dhho \dxo p, \\
+\gamma_1 = (\ddgo,\dgo) : \ddcalCt \to \ddcalCt, 
+  & &  j \mapsto (\deeo\dhho\dxo\dtto j)(\dxo\dtto j^{-1})j
+                 (\deeo\dhho j^{-1})(\dxo\dhho j), \\
+  & &  g \mapsto (\ddeeo\ddhho\ddxo\ddtto g)(\ddxo\ddtto g^{-1})g
+                 (\ddeeo\ddhho g^{-1})(\ddxo\ddhho g).
+\end{eqnarray*}
+It is easy to check that $\rho_1$ and $\gamma_1$ are endomorphisms 
+of cat$^1$-groups.  For example,
+$$
+\dttt\ddro k ~=~
+\dttt\ddhho\ddxo k ~=~
+\dhho\ddttt\ddxo k ~=~
+\dhho\dxo\dttt k ~=~
+\dro\dttt k~.
+$$
+
+Of course we may also consider 
+$\calC_2 = (e_2;t_2,h_2 : \ddcalCt \to \dcalCt)$ 
+as a second cat$^1$-group of cat$^1$-groups, and define 
+sections $\xi_2 = (\ddxt,\dxt) : \dcalCt \to \ddcalCt$.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sections of $\calC$}
+
+A first attempt at defining a section of $\calC$ 
+might be as a homomorphism $\xot : C_{\emptyset} \to C_{[2]}$ 
+which composes with the tail maps in various ways to give identities
+$$
+t_{[2]}\xot ~=~ \id_{C_{\emptyset}}, \qquad
+\ddtto\xot\dttt ~=~ \id_{C_{\{2\}}}, \qquad
+\ddttt\xot\dtto ~=~ \id_{C_{\{1\}}}.
+$$
+This will not do because, when $\dtto = 0$ (say)
+the last identity puts to many restrictions of $\xi_{[2]}$.
+
+\noindent
+Since $t_{[2]} = \dtto\ddttt = \dttt\ddtto$, the first identity gives 
+$$
+\dtto(\ddttt\xot)  ~=~ \id_{C_{\emptyset}}
+\quad\mbox{and}\quad
+\dttt(\ddtto\xot)  ~=~ \id_{C_{\emptyset}}
+$$
+so that $\ddttt\xot$ is a section of $\dcalCo$ 
+and $\ddtto\xot$ is a section of $\dcalCt$.
+
+\bigskip
+An alternative approach is to consider commuting pairs of sections.
+
+\begin{defn}
+A \emph{cat$^2$-group section} of $\calC$ is a pair 
+$\xi = (\xi_1,\xi_2)$ 
+where $\xi_1 = (\ddxo,\dxo)$ is a section of $\calC_1$, 
+and $\xi_2 = (\ddxt,\dxt)$ is a section of $\calC_2$, such that 
+$$
+\ddxt\dxo ~=~ \ddxo\dxt ~:~ C_{\emptyset} \to C_{[2]}.
+$$
+\end{defn}
+
+We denote the common composite by $\xot : C_{\emptyset} \to C_{[2]}$ 
+and, since
+$$
+\ttot\xot ~=~ \dtto\ddttt\ddxo\dxt ~=~ \dtto\dxo\dttt\dxt ~=~ 1,
+$$
+the map $\xot$ is a section of $\calCot$.
+
+\bigskip
+We expect Whitehead multiplication of cat$^2$-sections to be defined by 
+$$
+\xi\star\zeta ~=~ (\ddxo\star\ddzo)(\dxt\star\dzt)
+~:~ C_{\emptyset} \to C_{[2]},
+$$
+but for this to make sense we must first show that a 
+product of commuting sections commutes.
+
+\begin{lem}
+$$
+(\ddxo\star\ddzo)(\dxt\star\dzt) ~=~ (\ddxt\star\ddzt)(\dxo\star\dzo).
+$$
+\end{lem}
+\begin{pf}
+\begin{eqnarray*}
+&   &  (\ddxo\star\ddzo)(\dxt\star\dzt)p \\
+& = &  (\ddxo\dxt p)(\ddxo\deet\dhht\dxt p^{-1})(\ddxo\dzt\dhht\dxt p)
+       (\ddeeo\ddhho\ddxo\dzt\dhht\dxt p^{-1})
+       (\ddeeo\ddhho\ddxo\deet\dhht\dxt p)(\ddeeo\ddhho\ddxo\dxt p^{-1})\\
+&   &  \qquad(\ddzo\ddhho\ddxo\dxt p)(\ddzo\ddhho\ddxo\deet\dhht\dxt p^{-1})
+       (\ddzo\ddhho\ddxo\dzt\dhht\dxt p)\\
+& = &  (\ddxt\dxo p)(\ddeet\ddhht\ddxt\dxo p^{-1})(\ddxo\dzt\dhht\dxt p)
+       (\ddeeo\ddhho\ddxo\dzt\dhht\dxt p^{-1})
+       (\ddeeo\ddhho\ddeet\ddhht\ddxt\dxo p)(\ddeeo\ddhho\ddxt\dxo p^{-1})\\
+&   &  \qquad(\ddzo\ddhho\ddxo\dxt p)(\ddzo\ddhho\ddeet\ddhht\ddxt\dxo p^{-1})
+       (\ddzo\ddhho\ddxo\dzt\dhht\dxt p)\\
+& = & ?????
+\end{eqnarray*}
+
+\noindent
+This seems to be going nowhere fast!
+
+\noindent
+Perhaps the group-groupoid or double groupoid approaches are better 
+(see Subsection 2.3 of the Notes)  -- and the next Section.
+\end{pf}
+
+
+\bigskip\noindent
+{\bf What needs doing next?}
+\begin{itemize}
+\item
+Prove that the definition of Whitehead multiplication of sections
+makes sense.
+\item
+Investigate the corresponding $(\gamma,\rho)$ pairs.
+\item
+{\bf Eventually:} convert to crossed squares and see what
+the corresponding formulae are for $2$-fold derivations.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Gareth's Diagram
+%$$\xymatrix @C = 0.5pc @R = 3pc {
+%& N_{1} \cap N_{2} \cap N_{3}
+%  \ar[ld] \ar[rr] \ar'[d][dd]
+%&& N_{2} \cap N_{3} \ar[dd] \\
+%  N_{1} \cap N_{3} \ar[dd] \ar[rr]
+%&& N_{3} \ar[dd] \ar[ur] \\
+%& N_{1} \cap N_{2} \ar'[r][rr] \ar[ld]
+%&& N_{2} \ar[ld] \\
+%N_{1} \ar[rr] && G
+%}$$

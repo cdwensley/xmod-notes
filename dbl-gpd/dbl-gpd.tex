@@ -1,0 +1,425 @@
+%% dbl-gpd.tex,  version 22/04/17
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Double Categories and Double Groupoids} \label{sect:dblgpd}
+
+Our interest here is in double groupoids and their connection with 
+crossed squares and cat$^2$-groups.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Double Categories} \label{subs:dblcat}
+
+A \emph{double category} $\calD$ consists of four sets and 
+four category structures, and satisfies an interchange law:
+\begin{itemize}
+\item~ $D_{[2]}$, a set of \emph{squares},
+\item~ $D_{\{2\}}$, a set of \emph{vertical} 
+or \emph{up-down arrows},
+\item~ $D_{\{1\}}$, a set of \emph{horizontal} 
+or \emph{left-right arrows},
+\item~ $D_{\emptyset}$, a set of \emph{objects}, 
+\item~ maps $\ddtto,\ddhho : D_{[2]} \to D_{\{2\}}$ 
+       and $\ddeeo : D_{\{2\}} \to D_{[2]}$ 
+       and a composition $\ddasto$ giving a category structure 
+       $\ddcalDo$ on squares displayed horizontally, 
+\item~ maps $\ddttt,\ddhht : D_{[2]} \to D_{\{1\}}$
+       and $\ddeet : D_{\{1\}} \to D_{[2]}$ 
+       and a composition $\ddastt$ giving a category structure 
+       $\ddcalDt$ on squares displayed vertically, 
+\item~ maps $\dtto,\dhho : D_{\{1\}} \to D_{\emptyset}$, 
+       and $\deeo : D_{\emptyset} \to D_{\{1\}}$ 
+       and a composition $\dasto$ 
+       giving a category structure $\dcalDo$ on horizontal arrows, 
+\item~ maps $\dttt,\dhht : D_{\{2\}} \to D_{\emptyset}$, 
+       and $\deet : D_{\emptyset} \to D_{\{2\}}$ 
+       and a composition $\dastt$ 
+       giving a category structure $\dcalDt$ on vertical arrows, 
+\item~ the tail and head maps commute as follows:
+$$
+\dttt\ddtto = \dtto\ddttt, \quad
+\dttt\ddhho = \dhho\ddttt, \quad
+\dhht\ddtto = \dtto\ddhht, \quad
+\dhht\ddhho = \dhho\ddhht,
+$$
+\item~ for all squares $A,B,C,D$ such that the compositions are defined,
+$$
+\xymatrix  @C=0.8pc @R=0.8pc{
+\cdot \ar[rr] \ar[dd] 
+  &   & \cdot \ar[rr] \ar[dd]
+          &   & \cdot \ar[dd] 
+                 &   &  \\
+  & A &   & B &  &   &  \\
+\cdot \ar[rr] \ar[dd] 
+  &   & \cdot \ar[rr] \ar[dd]
+          &   & \cdot \ar[dd] 
+                 &   &  (A \ddasto B) \ddastt (C \ddasto D) ~=~
+                        (A \ddastt C) \ddasto (B \ddastt D). \\
+  & C &   & D &  &   &  \\
+\cdot \ar[rr] 
+  &   & \cdot \ar[rr] 
+          &   & \cdot 
+                 &   &  \\
+}
+$$
+\end{itemize}
+
+For a square $A$ the four arrows and the four objects are displayed as follows.
+$$
+\xymatrix{
+\dtto\ddttt A \ar[rr]^{\ddttt A} \ar[dd]_{\ddtto A} 
+  &   & \dhho\ddttt A \ar[dd]^{\ddhho A} \\
+  & A & \\
+\dtto\ddhht A \ar[rr]_{\ddhht A} 
+  &   & \dhho\ddhht A \\
+}
+$$
+
+\medskip
+The structure of a double category is shown in the following diagram: 
+\begin{equation} \label{eq:dblcat}
+\vcenter{\xymatrix @C=2pc @R=2pc{
+ & D_{[2]} \ar[dd] <-1.2ex>  \ar[dd] <-2.0ex>_{\ddttt,\ddhht}
+     \ar[rr] <+1.2ex>  \ar[rr] <+2.0ex>^{\ddtto,\ddhho}
+    &&  D_{\{2\}}  \ar[ll]^{\ddeeo}
+            \ar[dd]<+1.2ex>  \ar[dd] <+2.0ex>^{\dttt,\dhht}  \\
+\calD \quad = \quad
+ &  &&   \\
+ & D_{\{1\}} \ar[uu]_{\ddeet}
+     \ar[rr] <-1.2ex>  \ar[rr] <-2.0ex>_{\dtto,\dhho} 
+    &&  D_{\emptyset} \ar[uu]^{\deet}   \ar[ll]_{\deeo} 
+ \\
+}} 
+\end{equation}
+
+Horizontal, vertical and double identity squares 
+($e_{[2]} = \ddeet\deeo = \ddeeo\deet$) are represented by 
+$$
+\xymatrix @C=1.5pc @R=1.5pc{
+\cdot \ar[rr]^{\deeo\dtto a} \ar[dd]_{a}
+  &  &  \cdot \ar[dd]^{a} \\
+  &  \ddeeo a
+     & \\
+\cdot \ar[rr]_{\deeo \dhho a}
+  &  &  \cdot
+}
+\qquad\qquad
+\xymatrix @C=1.5pc @R=1.5pc{
+\cdot \ar[dd]_{\deet\dttt c} \ar[rr]^{c}
+  &  &  \cdot \ar[dd]^{\deet \dhht c} \\
+  &  \ddeet c
+     & \\
+\cdot \ar[rr]_{c}
+  &  &  \cdot
+}
+\qquad\qquad
+\xymatrix @C=1.3pc @R=1.5pc{
+r \ar[dd]_{\deet r} \ar[rr]^{\deeo r}
+  &  &  r \ar[dd]^{\deet r} \\
+  &  e_{[2]} r
+     & \\
+r \ar[rr]_{\deeo r}
+  &  &  r
+}
+$$
+
+
+\begin{defn} \index{morphism!of double categories} 
+A morphism of double categories is a \emph{double functor}
+$\lambda : \calD \to \calE$,  given by a quadruple 
+$\lambda=(\lambda_{[2]},\lambda_{\{2\}},\lambda_{\{1\}},\lambda_{\emptyset})$ 
+of maps 
+$$
+      \lambda_{[2]} : D_{[2]} \to E_{[2]},\quad
+    \lambda_{\{2\}} : D_{\{2\}} \to E_{\{2\}},\quad
+    \lambda_{\{1\}} : D_{\{1\}} \to E_{\{1\}},\quad
+\lambda_{\emptyset} : D_{\emptyset} \to E_{\emptyset},
+$$
+which combine to give functors from 
+$\ddcalDo,\ddcalDt,\dcalDo,\dcalDt$ to
+$\ddcalEo,\ddcalEt,\dcalEo,\dcalEt$ respectively, 
+and which preserve all compositions. 
+\end{defn}
+
+\medskip\noindent
+{\bf [Expand on this?]}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Double Groupoids and Group -- Double Groupoids} 
+\label{subs:dblgpd}
+
+A \emph{double groupoid} is a double category in which the four 
+category structures are all groupoids.\\
+When the two sets of arrows coincide, $D_{\{1\}}=D_{\{2\}}$, 
+we have an \emph{arrow-symmetric double groupoid}.
+These are the subject of Chapter 6 of Brown and Sivera \cite{brow:siv}.
+
+\medskip
+By analogy with the equivalence between cat$^1$-groups and group-groupoids, 
+we attempt to describe an equivalence between cat$^2$-groups and
+group-double groupoids.
+
+\begin{defn} \index{group-double groupoid}
+A \emph{group-double groupoid} is a double groupoid $\calD$ 
+where each of 
+$\calD_{[2]}, \calD_{\{2\}}, \calD_{\{1\}}, \calD_{\emptyset}$ are groups 
+and the twelve structure maps in (\ref{eq:dblcat}) are group homomorphisms, 
+so that the four category structures 
+$\ddcalDo, \dcalDo, \ddcalDt, \dcalDt$ are all group-groupoids.
+\end{defn}
+
+\bigskip\noindent
+{\bf [Is the diagonal a group-groupoid?]}
+
+
+
+%\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Horizontal, Vertical and Double Sections} \label{subs:dsect}
+
+We saw in Subsections \ref{subs:gpgpd} and \ref{subs:gpd-sect} 
+that a section of a group-groupoid is a group monomorphism 
+$\xi : G_0 \to G_1$ such that $t\xi = 1_{G_0}$.
+In order to generalise this to a horizontal section of a 
+group-double groupoid $\calD$, we require compatible monomorphisms 
+from up-down arrows to squares and from points to left-right arrows.
+In order to see what `compatible' means in this context 
+we note that, in the following diagrams, the left-right boundaries of
+$\ddxo g$ should be the images of the points of $g$ under $\dxo$, 
+while $\ddxo\deet r$ should be the vertical identity square for $\dxo r$.
+We show up-down arrows as dashed in the diagrams in this Subsection.
+
+$$
+\xymatrix @C=3.0pc @R=1.5pc{
+\dttt g \ar@{-->}[dd]_{g} \ar[rr]^{\dxo\dttt g = \ddttt\ddxo g}
+  &  &  \dttt\ddhho\ddxo g \ar@{-->}[dd]^{\ddhho\ddxo g} \\
+  &  \ddxo g
+     & \\
+\dhht g \ar[rr]_{\dxo\dhht g = \ddhht\ddxo g}
+  &  &  \dhht\ddhho\ddxo g
+}
+\qquad\qquad
+\xymatrix @C=1.5pc @R=1.5pc{
+r \ar@{-->}[dd]_{\deet r} \ar[rr]^{\dxo r}
+  &  &  \dhho\dxo r \ar@{-->}[dd]^{\ddhho\ddxo\deet r} \\
+  &  \ddxo\deet r = \ddeet\dxo r
+     & \\
+r \ar[rr]_{\dxo r} 
+  &  &  \dhho\dxo r
+}
+$$
+
+\begin{defn} \index{section!horizontal} \index{horizontal section} \mbox{}\\
+{\rm (a)}~
+A \emph{horizontal section} of a group-double groupoid $\calD$ 
+is a pair $\xi_1 = (\ddxo,\dxo)$ of monomorphisms 
+$\ddxo : D_{1} \to D_{[2]}$ and $\dxo : D_{\emptyset} \to D_{\{2\}}$ 
+such that 
+$$
+\ddtto\ddxo = 1_{D_{\{1\}}}, \quad
+\dtto\dxo = 1_{D_{\emptyset}}, \quad
+\ddttt\ddxo g = \dxo\dttt g, \quad
+\ddhht\ddxo g = \dxo\dhht g, \quad
+\ddxo\deet r = \ddeet\dxo r.
+$$
+{\rm (b)}~
+A \emph{vertical section} of a group-double groupoid $\calD$ 
+is a pair $\xi_2 = (\ddxt,\dxt)$ of monomorphisms 
+$\ddxt : D_{2} \to D_{[2]}$ and $\dxt : D_{\emptyset} \to D_{\{1\}}$ 
+such that 
+$$
+\ddttt\ddxt = 1_{D_{\{2\}}}, \quad
+\dttt\dxt = 1_{D_{\emptyset}}, \quad
+\ddtto\ddxt g = \dxt\dtto g, \quad
+\ddhho\ddxt g = \dxt\dhho g, \quad
+\ddxt\deeo r = \ddeeo\dxt r.
+$$
+{\bf [Maybe we should swap $1$ and $2$ in $\xi_1, \xi_2$~?]}
+\end{defn}
+
+\bigskip
+Given a section $\xi_1 = (\ddxo,\dxo)$ of $\ddcalDo$ 
+we may apply the construction in Subsection \ref{subs:gpd-sect} 
+to obtain a groupoid automorphism $\lambda_1$ of $\ddcalDo$, 
+which extends to a double groupoid automorphisms 
+$\lambda_1 : \calD \to \calD$.
+
+$$
+\xymatrix @C=0.5pc @R=2pc{
+\dhho\dxo\dtto\ddttt A 
+\ar[rr]^{\dlo\ddttt A} 
+\ar@{-->}[dd]_{\ddhho\ddxo\ddtto A}
+ & & \dhho\dxo\dhho\ddttt A 
+     \ar@{-->}[dd]^{\ddhho\ddxo\ddhho A} 
+     & & & & \dhho\dxo\dtto\ddttt A 
+             \ar@{-->}[dd]_{\ddhho\ddxo\ddtto A} 
+             & & \dtto\ddttt A 
+                 \ar[ll]_(0.4){\dxo\dtto\ddttt A}
+                 \ar[rr]^{\ddttt A} 
+                 \ar@{-->}[dd]^{\ddtto A} 
+                 & & \dhho\ddttt A 
+                     \ar@{-->}[dd]_{\ddhho A} 
+                     \ar[rr]^(0.4){\dxo\dhho\ddttt A}
+                     & & \dhho\dxo\dhho\ddttt A 
+                         \ar@{-->}[dd]^{\ddhho\ddxo\ddhho A} \\
+ & \ddlo A 
+   & & & = 
+         & & & \ddxo\ddtto A 
+               & & A 
+                   & & \ddxo\ddhho A
+                       & \\ 
+\dhho\dxo\dtto\ddhht A 
+\ar[rr]_{\dlo\ddhht A}
+ & & \dhho\dxo\dhho\ddhht A 
+     & & & & \dhho\dxo\dtto\ddhht A 
+             & & \dtto\ddhht A 
+                 \ar[ll]^(0.4){\dxo\dtto\ddhht A} 
+                 \ar[rr]_{\ddhht A}
+                 & & \dhho\ddhht A 
+                     \ar[rr]_(0.4){\dxo\dhho\ddhht A} 
+                     & & \dhho\dxo\dhho\ddhht A \\
+}
+$$
+The defining equations for $\lambda_1$ are:
+\begin{eqnarray} \label{eq:lambdao}
+(\lambda_1)_{[2]}\,A 
+  &=& (\widetilde{\ddxo\ddtto A}) \ddasto A \ddasto (\ddxo\ddhho A)\,,\\
+(\lambda_1)_{\{2\}}\,a 
+  &=& \ddhho\ddxo\,a\,, \nonumber \\
+(\lambda_1)_{\{1\}}\,c 
+  &=& (\widetilde{\dxo\dtto c}) \dasto c \dasto (\dxo\dhho c), \nonumber \\
+(\lambda_1)_{\emptyset}\,p 
+  &=& \dhho\dxo\,p\,. \nonumber
+\end{eqnarray}
+
+\medskip\noindent
+Similarly, given a section $\xi_2 = (\ddxt,\dxt)$ of $\ddcalDt$, 
+applying the same construction we obtain
+$$
+\xymatrix @C=0.8pc @R=2pc{
+ & & & & & & \dhht\dxt\dtto\ddttt A 
+             \ar[rr]^{\ddhht\ddxt\ddttt A} 
+             & & \dhht\dxt\dhho\ddttt A \\
+ & & & & & & & \ddxt\ddttt A 
+               & \\
+\dhht\dxt\dtto\ddttt A 
+\ar[rr]^{\ddhht\ddxt\ddttt A} 
+\ar@{-->}[dd]_{\dlt\ddtto A} 
+ & & \dhht\dxt\dhho\ddttt A 
+     \ar@{-->}[dd]^{\dlt\ddhho A}
+     & & & & \dtto\ddttt A 
+             \ar[rr]_{\ddttt A} 
+             \ar@{-->}[dd]_{\ddtto A} 
+             \ar@{-->}[uu]^{\dxt\dtto\ddttt A} 
+             & & \dhho\ddttt A 
+                 \ar@{-->}[dd]^{\ddhho A} 
+                 \ar@{-->}[uu]_{\dxt\dhho\ddttt A}\\
+ & \ddlt A 
+   & & & = 
+         & & & A 
+               & \\ 
+\dhht\dxt\dtto\ddhht A 
+\ar[rr]_{\ddhht\ddxt\ddhht A} 
+ & & \dhht\dxt\dhho\ddhht A 
+     & & & & \dtto\ddhht A 
+             \ar[rr]^{\ddhht A} 
+             \ar@{-->}[dd]_{\dxt\dtto\ddhht A} 
+             & & \dhho\ddhht A 
+                 \ar@{-->}[dd]^{\dxt\dhho\ddhht A}\\
+ & & & & & & & \ddxt\ddhht A 
+               & \\
+ & & 
+     & & & & \dhht\dxt\dtto\ddhht A 
+             \ar[rr]_{\ddhht\ddxt\ddhht A} 
+             & & \dhht\dxt\dhho\ddhht A \\
+}
+$$
+This determines a double groupoid automorphism $\lambda_2$ of $\calD$ where
+\begin{eqnarray} \label{eq:lambdat}
+(\lambda_2)_{[2]}\,A 
+  &=& (\widetilde{\ddxt\ddttt A}) \ddastt A \ddastt (\ddxt\ddhht A)\,,\\
+(\lambda_2)_{\{2\}}\,a 
+  &=& (\widetilde{\dxt\dttt a}) \dastt a \dastt (\dxt\dhht a)\,, \nonumber \\
+(\lambda_2)_{\{1\}}\,c 
+  &=& \ddhht\ddxt\,c\,, \nonumber \\
+(\lambda_2)_{\emptyset}\,p 
+  &=& \dhht\dxt\,p\,. \nonumber
+\end{eqnarray}
+
+\bigskip
+Given a pair of sections $\xi = (\xi_1,\xi_2)$, 
+one horizontal and one vertical, 
+if we apply both constructions we obtain an automorphism 
+$\lambda = \lambda_{\xi}$ of $\calD$ 
+provided $\lambda_1 A = \lambda_2 A$.
+We call $\xi$ a \emph{double section} of $\calD$.
+The requirement  $\lambda_1 A = \lambda_2 A$  implies
+four equations at the four levels of $\calD$, 
+\begin{eqnarray*}
+\dhho\dxo\,p
+  &=&  \dhht\dxt\,p\,, \\
+\ddhho\ddxo\,a
+  &=&  (\widetilde{\dxt\dttt a}) \dastt a \dastt (\dxt\dhht a)
+      ~=~ \dlt\,a\,, \\
+\dlo\,c ~=~  (\widetilde{\dxo\dtto c}) \dasto c \dasto (\dxo\dhho c)
+  &=&  \ddhht\ddxt\,c\,, \\
+\ddlo\,A ~=~ (\widetilde{\ddxo\ddtto A}) \ddasto A \ddasto (\ddxo\ddhho A) 
+  &=&  (\widetilde{\ddxt\ddttt A}) \ddastt A \ddastt (\ddxt\ddhht A)
+       ~=~ \ddlt\,A\,.
+\end{eqnarray*}
+
+\bigskip
+The previous two diagrams may be combined into the cube-like figure 
+of equation (\ref{eq:cube-like}), where the six square faces are denoted 
+$F$=front, $L$=left, $R$=right, $U$=up, $D$=down and $B$=back, and
+$$
+F = A, \quad 
+L = \ddxo \ddtto A, \quad 
+R = \ddxo \ddhho A, \quad
+U = \ddxt \ddttt A, \quad 
+D = \ddxt \ddhht A, \quad
+B = \lambda A. 
+$$
+
+
+\begin{equation} \label{eq:cube-like}
+\vcenter{\xymatrix  @C=1.3pc %%% @C = 0.5pc @R = 3pc 
+{
+  && && \dhho\dxo\dtto\ddttt A 
+        \ar[rrrrrr]^{\ddhht\ddxt\ddttt A ~=~ \dlo\ddttt A}
+        \ar@{-->}'[dddd][dddddd]^(-0.7){\ddhho\ddxo\ddtto A}
+            ^(-0.5){~=~} ^(-0.35){\dlt\ddtto A}
+        && && && \dhho\dxo\dhho\ddttt A 
+                 \ar@{-->}[dddddd]^(0.38){\ddhho\ddxo\ddhho A}
+                   ^(0.45){~=~}^(0.5){\dlt\ddhho A} \\ %1
+  && && && && && \\ %2
+  && && && && && \\ %3
+  && && && && && \\ %4
+\dtto\ddttt A 
+\ar[rrrrrr]_{\ddttt A} \ar@{-->}[dddddd]_{\ddtto A} 
+\ar@/^3ex/[rrrruuuu]^(0.45){\dxo\dtto\ddttt A}
+\ar@{-->}@/^-3ex/[rrrruuuu]_(0.4){\dxt\dtto\ddttt A} 
+  && && && \dhho\ddttt A 
+           \ar@{-->}[dddddd]_{\ddhho A} 
+           \ar@{-->}@/^3ex/[rrrruuuu]^(0.45){\dxt\dhho\ddttt A}
+           \ar@/^-3ex/[rrrruuuu]_(0.45){\dxo\dhho\ddttt A} 
+         && && \\ %5
+  && && && && && \\ %6
+  && && \dhho\dxo\dtto\ddhht A 
+        \ar'[rr][rrrrrr]^(0.0){\ddhht\ddxt\ddhht A ~=~ \dlo\ddhht A}
+        && && && \dhho\dxo\dhho\ddhht A \\ %7
+  && && && && && \\ %8
+  && && && && && \\ %9
+  && && && && && \\ %10
+\dtto\ddhht A 
+\ar[rrrrrr]_{\ddhht A} 
+\ar@/^3ex/[rrrruuuu]^(0.6){\dxo\dtto\ddhht A}
+\ar@{-->}@/^-3ex/[rrrruuuu]_(0.55){\dxt\dtto\ddhht A} 
+  && && && \dhho\ddhht A 
+           \ar@{-->}@/^3ex/[rrrruuuu]^(0.55){\dxt\dhho\ddhht A}
+           \ar@/^-3ex/[rrrruuuu]_(0.55){\dxo\dhho\ddhht A} 
+         && && \\ %11
+  && && && && && \\ %12 - blank
+}}
+\end{equation}
+
