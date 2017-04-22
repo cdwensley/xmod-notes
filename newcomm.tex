@@ -1,0 +1,399 @@
+%newcomm.tex,  version 04/07/07
+
+%all newcommands for notes, notesdev and macdw
+
+%% package names and categories, sans serif
+\newcommand{\Cat}     {{\sf Cat}}
+\newcommand{\GAP}     {{\sf GAP}}
+\newcommand{\Gpd}     {{\sf Gpd}}
+\newcommand{\SimpSet} {{\sf SimpSet}}
+\newcommand{\XMod}    {{\sf XMod}}
+\newcommand{\PreXMod} {{\sf PreXMod}}
+
+%% names for categories
+\newcommand{\catCat}    {{\bf Cat}}
+\newcommand{\cattCat}   {{\bf 2-Cat}}
+\newcommand{\catGp}     {{\bf Gp}}
+\newcommand{\cattGp}    {{\bf 2-Gp}}
+\newcommand{\catGpd}    {{\bf Gpd}}
+\newcommand{\cattGpd}   {{\bf 2-Gpd}}
+\newcommand{\catGpGpd}  {{\bf GpGpd}}
+\newcommand{\catPreXMod}{{\bf PreXMod}}
+\newcommand{\catSet}    {{\bf Set}}
+\newcommand{\catXComp}  {{\bf XComp}}
+\newcommand{\catXMod}   {{\bf XMod}}
+
+%% math Roman
+\newcommand{\ab}    {\mathrm{ab}\,}
+\newcommand{\arr}   {\mathrm{arr}}
+\newcommand{\Act}   {\mathrm{Act}}
+\newcommand{\Arr}   {\mathrm{Arr}}
+\newcommand{\Aut}   {\mathrm{Aut}}
+\newcommand{\coker} {\mathrm{coker}\,}
+\newcommand{\cosk}  {\mathrm{cosk}\,}
+\newcommand{\Costar}{\mathrm{Costar}}
+\newcommand{\Der}   {\mathrm{Der}}
+\newcommand{\End}   {\mathrm{End}}
+\newcommand{\even}  {\mathrm{even}\,}
+\newcommand{\Hol}   {\mathrm{Hol}}
+\newcommand{\grp}   {\mathrm{grp}}
+\newcommand{\id}    {\mathrm{id}}
+\newcommand{\ids}   {\mathrm{ids}}
+\newcommand{\im}    {\mathrm{im}\,}
+\newcommand{\Inn}   {\mathrm{Inn}}
+\newcommand{\mon}   {\mathrm{mon}}
+\newcommand{\Mor}   {\mathrm{Mor}}
+\newcommand{\nat}   {\mathrm{nat}}
+\newcommand{\Ner}   {\mathrm{Ner}}
+\newcommand{\obj}   {\mathrm{obj}}
+\newcommand{\Ob}    {\mathrm{Ob}}
+\newcommand{\odd}   {\mathrm{odd}\,}
+\newcommand{\Out}   {\mathrm{Out}}
+\newcommand{\Sect}  {\mathrm{Sect}}
+\newcommand{\Sing}  {\mathrm{Sing}} 
+\newcommand{\sk}    {\mathrm{sk}\,}
+\newcommand{\Star}  {\mathrm{Star}}
+\newcommand{\Stab}  {\mathrm{Stab}}
+\newcommand{\Symm}  {\mathrm{Symm}} 
+\newcommand{\Top}   {\mathrm{Top}} 
+
+%% brackets
+\newcommand{\dlb} {\ [\hspace{-0.4em}[\ }
+\newcommand{\drb} {\ ]\hspace{-0.4em}]\ }
+
+%% blackboard font
+\newcommand{\bbA} {\mathbb{A}}
+\newcommand{\bbAut} {\mathbb{A}{\mathrm ut}}
+\newcommand{\bbB} {\mathbb{B}}
+\newcommand{\bbC} {\mathbb{C}}
+\newcommand{\bbD} {\mathbb{D}}
+\newcommand{\bbE} {\mathbb{E}}
+\newcommand{\bbF} {\mathbb{F}}
+\newcommand{\bbG} {\mathbb{G}}
+\newcommand{\bbH} {\mathbb{H}}
+\newcommand{\bbI} {\mathbb{I}}
+\newcommand{\bbJ} {\mathbb{J}}
+\newcommand{\bbN} {\mathbb{N}}
+\newcommand{\bbO} {\mathbb{O}}
+\newcommand{\bbQ} {\mathbb{Q}}
+\newcommand{\bbR} {\mathbb{R}}
+\newcommand{\bbS} {\mathbb{S}}
+\newcommand{\bbT} {\mathbb{T}}
+\newcommand{\bbZ} {\mathbb{Z}}
+
+%% bold symbol for vectors
+\newcommand{\bsyb}  {\boldsymbol{b}}
+\newcommand{\bsyc}  {\boldsymbol{c}}
+\newcommand{\bsye}  {\boldsymbol{e}}
+\newcommand{\bsyg}  {\boldsymbol{g}}
+\newcommand{\bsyx}  {\boldsymbol{x}}
+\newcommand{\bsyy}  {\boldsymbol{y}}
+\newcommand{\bsyz}  {\boldsymbol{z}}
+
+%% calligraphic letters
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calW}{\mathcal{W}}
+\newcommand{\calX}{\mathcal{X}}
+\newcommand{\calY}{\mathcal{Y}}
+\newcommand{\calZ}{\mathcal{Z}}
+
+%%% dotted Greek letters
+\newcommand{\da}  {\dot{\alpha}}
+\newcommand{\dda} {\ddot{\alpha}}
+\newcommand{\bara}{\bar{\alpha}}
+\newcommand{\db}  {\dot{\beta}}
+\newcommand{\ddb} {\ddot{\beta}}
+\newcommand{\barb}{\bar{\beta}}
+\newcommand{\dd}  {\dot{\delta}}
+\newcommand{\ddd} {\ddot{\delta}}
+\newcommand{\bard}{\bar{\delta}}
+\newcommand{\dg}  {\dot{\gamma}}
+\newcommand{\ddg} {\ddot{\gamma}}
+\newcommand{\barg}{\bar{\gamma}}
+\newcommand{\ddgo} {\ddot{\gamma}_1}
+\newcommand{\ddgt} {\ddot{\gamma}_2}
+\newcommand{\dgo} {\dot{\gamma}_1}
+\newcommand{\dgt} {\dot{\gamma}_2}
+\newcommand{\di}  {\dot{\iota}}
+\newcommand{\ddi} {\ddot{\iota}}
+\newcommand{\bari}{\bar{\iota}}
+\newcommand{\dk}  {\dot{\kappa}}
+\newcommand{\ddk} {\ddot{\kappa}}
+\newcommand{\bark}{\bar{\kappa}}
+\newcommand{\ddl} {\ddot{\lambda}}
+\newcommand{\dl} {\dot{\lambda}}
+\newcommand{\ddlo} {\ddot{\lambda}_1}
+\newcommand{\ddlt} {\ddot{\lambda}_2}
+\newcommand{\dlo} {\dot{\lambda}_1}
+\newcommand{\dlt} {\dot{\lambda}_2}
+\newcommand{\lot} {\lambda_{[2]}}
+\newcommand{\barl}{\bar{\lambda}}
+\newcommand{\dm}  {\dot{\mu}}
+\newcommand{\ddm} {\ddot{\mu}}
+\newcommand{\dmo} {\dot{\mu}_1}
+\newcommand{\ddmo}{\ddot{\mu}_1}
+\newcommand{\dmt} {\dot{\mu}_2}
+\newcommand{\ddmt}{\ddot{\mu}_2}
+\newcommand{\dn}  {\dot{\nu}}
+\newcommand{\ddn} {\ddot{\nu}}
+\newcommand{\barn}{\bar{\nu}}
+\newcommand{\ddph}{\ddot{\phi}}
+\newcommand{\ddpho}{\ddot{\phi}_1}
+\newcommand{\ddpht}{\ddot{\phi}_2}
+\newcommand{\ddphod}{\ddot{\phi}_1{}^{\prime}}
+\newcommand{\ddphtd}{\ddot{\phi}_2{}^{\prime}}
+\newcommand{\dph} {\dot{\phi}}
+\newcommand{\dpho} {\dot{\phi}_1}
+\newcommand{\dpht} {\dot{\phi}_2}
+\newcommand{\dphod}{\dot{\phi}_1{}^{\prime}}
+\newcommand{\dphtd}{\dot{\phi}_2{}^{\prime}}
+\newcommand{\phot} {\phi_{[2]}}
+\newcommand{\ddps}{\ddot{\psi}}
+\newcommand{\dps} {\dot{\psi}}
+\newcommand{\ddch}{\ddot{\chi}}
+\newcommand{\dch} {\dot{\chi}}
+\newcommand{\barch}{\bar{\chi}}
+\newcommand{\dds} {\ddot{\sigma}}
+\newcommand{\ds} {\dot{\sigma}}
+\newcommand{\ddr} {\ddot{\rho}}
+\newcommand{\dr} {\dot{\rho}}
+\newcommand{\ddro} {\ddot{\rho}_1}
+\newcommand{\ddrt} {\ddot{\rho}_2}
+\newcommand{\dro} {\dot{\rho}_1}
+\newcommand{\drt} {\dot{\rho}_2}
+\newcommand{\ddth} {\ddot{\theta}}
+\newcommand{\dth} {\dot{\theta}}
+\newcommand{\ddtho} {\ddot{\theta}_1}
+\newcommand{\ddtht} {\ddot{\theta}_2}
+\newcommand{\dtho} {\dot{\theta}_1}
+\newcommand{\dtht} {\dot{\theta}_2}
+\newcommand{\thot} {\theta_{[2]}}
+\newcommand{\bare} {\bar{\eta}}
+\newcommand{\dde} {\ddot{\eta}}
+\newcommand{\de} {\dot{\eta}}
+\newcommand{\ddx} {\ddot{\xi}}
+\newcommand{\dx} {\dot{\xi}}
+\newcommand{\ddxo} {\ddot{\xi}_1}
+\newcommand{\ddxt} {\ddot{\xi}_2}
+\newcommand{\dxo} {\dot{\xi}_1}
+\newcommand{\dxt} {\dot{\xi}_2}
+\newcommand{\xot} {\xi_{[2]}}
+\newcommand{\ddz} {\ddot{\zeta}}
+\newcommand{\dz} {\dot{\zeta}}
+\newcommand{\ddzo} {\ddot{\zeta}_1}
+\newcommand{\ddzt} {\ddot{\zeta}_2}
+\newcommand{\dzo} {\dot{\zeta}_1}
+\newcommand{\dzt} {\dot{\zeta}_2}
+\newcommand{\zot} {\zeta_{[2]}}
+\newcommand{\ddD}{\ddot{\Delta}}
+\newcommand{\dD}{\dot{\Delta}}
+
+%%% dotted partials
+\newcommand{\dbdy}   {\dot{\partial}}
+\newcommand{\dbdyo}  {\dot{\partial}_1}
+\newcommand{\dbdyt}  {\dot{\partial}_2}
+\newcommand{\ddbdy}  {\ddot{\partial}}
+\newcommand{\ddbdyo} {\ddot{\partial}_1}
+\newcommand{\ddbdyt} {\ddot{\partial}_2}
+\newcommand{\bdyot}  {\partial_{[2]}}
+\newcommand{\barbdy} {\bar{\partial}}
+\newcommand{\barbdyo}{\bar{\partial}_1}
+\newcommand{\barbdyt}{\bar{\partial}_2}
+
+%%% dotted Roman letters
+\newcommand{\dee}  {\dot{e}}
+\newcommand{\deeo} {\dot{e}_1}
+\newcommand{\deet} {\dot{e}_2}
+\newcommand{\deeod}{\dot{e}_1{}^{\prime}}
+\newcommand{\deetd}{\dot{e}_2{}^{\prime}}
+\newcommand{\ddee} {\ddot{e}}
+\newcommand{\ddeeo}{\ddot{e}_1}
+\newcommand{\ddeet}{\ddot{e}_2}
+\newcommand{\ddeeod}{\ddot{e}_1{}^{\prime}}
+\newcommand{\ddeetd}{\ddot{e}_2{}^{\prime}}
+\newcommand{\eeot} {e_{[2]}}
+\newcommand{\bareeo}{\bar{e}_1}
+\newcommand{\bareet}{\bar{e}_2}
+\newcommand{\dhh}  {\dot{h}}
+\newcommand{\dhho} {\dot{h}_1}
+\newcommand{\dhht} {\dot{h}_2}
+\newcommand{\dhhod}{\dot{h}_1{}^{\prime}}
+\newcommand{\dhhtd}{\dot{h}_2{}^{\prime}}
+\newcommand{\ddhh} {\ddot{h}}
+\newcommand{\ddhho}{\ddot{h}_1}
+\newcommand{\ddhht}{\ddot{h}_2}
+\newcommand{\ddhhod}{\ddot{h}_1{}^{\prime}}
+\newcommand{\ddhhtd}{\ddot{h}_2{}^{\prime}}
+\newcommand{\hhot} {h_{[2]}}
+\newcommand{\barhho}{\bar{h}_1}
+\newcommand{\barhht}{\bar{h}_2}
+\newcommand{\dii}  {\dot{i}}
+\newcommand{\diio} {\dot{i}_1}
+\newcommand{\diit} {\dot{i}_2}
+\newcommand{\ddii} {\ddot{i}}
+\newcommand{\ddiio}{\ddot{i}_1}
+\newcommand{\ddiit}{\ddot{i}_2}
+\newcommand{\iiot} {i_{[2]}}
+\newcommand{\dtt}  {\dot{t}}
+\newcommand{\dtto} {\dot{t}_1}
+\newcommand{\dttt} {\dot{t}_2}
+\newcommand{\dttod}{\dot{t}_1{}^{\prime}}
+\newcommand{\dtttd}{\dot{t}_2{}^{\prime}}
+\newcommand{\ddtt} {\ddot{t}}
+\newcommand{\ddtto}{\ddot{t}_1}
+\newcommand{\ddttt}{\ddot{t}_2}
+\newcommand{\ddttod}{\ddot{t}_1{}^{\prime}}
+\newcommand{\ddtttd}{\ddot{t}_2{}^{\prime}}
+\newcommand{\ttot} {t_{[2]}}
+\newcommand{\bartto}{\bar{t}_1}
+\newcommand{\barttt}{\bar{t}_2}
+\newcommand{\duuo} {\dot{u}_1}
+\newcommand{\duut} {\dot{u}_2}
+\newcommand{\dduu} {\ddot{u}}
+\newcommand{\dduuo}{\ddot{u}_1}
+\newcommand{\dduut}{\ddot{u}_2}
+\newcommand{\uuot} {u_{[2]}}
+\newcommand{\baruuo}{\bar{u}_1}
+\newcommand{\baruut}{\bar{u}_2}
+
+% dotted capital Roman letters
+\newcommand{\dCCo} {\dot{C}_1}
+\newcommand{\dCCt} {\dot{C}_2}
+\newcommand{\ddCCo}{\ddot{C}_1}
+\newcommand{\ddCCt}{\ddot{C}_2}
+\newcommand{\CCot} {C_{[2]}}
+\newcommand{\CCbt} {C_{\{2\}}}
+\newcommand{\CCbo} {C_{\{1\}}}
+\newcommand{\CCe} {C_{\emptyset}}
+\newcommand{\dGGo} {\dot{G}_1}
+\newcommand{\dGGt} {\dot{G}_2}
+\newcommand{\ddGGo}{\ddot{G}_1}
+\newcommand{\ddGGt}{\ddot{G}_2}
+\newcommand{\barGGo}{\bar{\calG}_1}
+\newcommand{\barGGt}{\bar{\calG}_2}
+\newcommand{\GGot} {G_{[2]}}
+\newcommand{\GGbt} {G_{\{2\}}}
+\newcommand{\GGbo} {G_{\{1\}}}
+\newcommand{\GGe} {G_{\emptyset}}
+\newcommand{\dSSo} {\dot{S}_1}
+\newcommand{\dSSt} {\dot{S}_2}
+\newcommand{\ddSSo}{\ddot{S}_1}
+\newcommand{\ddSSt}{\ddot{S}_2}
+\newcommand{\SSot} {S_{[2]}}
+\newcommand{\SSe} {S_{\emptyset}}
+
+%% dotted calligraphic commands
+\newcommand{\dcalC}   {\dot{\calC}}
+\newcommand{\dcalCo}  {\dot{\calC}_1}
+\newcommand{\dcalCt}  {\dot{\calC}_2}
+\newcommand{\ddcalC}  {\ddot{\calC}}
+\newcommand{\ddcalCo} {\ddot{\calC}_1}
+\newcommand{\ddcalCt} {\ddot{\calC}_2}
+\newcommand{\calCot}  {\calC_{[2]}}
+\newcommand{\dcalD}   {\dot{\calD}}
+\newcommand{\dcalDo}  {\dot{\calD}_1}
+\newcommand{\dcalDt}  {\dot{\calD}_2}
+\newcommand{\ddcalD}  {\ddot{\calD}}
+\newcommand{\ddcalDo} {\ddot{\calD}_1}
+\newcommand{\ddcalDt} {\ddot{\calD}_2}
+\newcommand{\calDot}  {\calD_{[2]}}
+\newcommand{\dcalE}   {\dot{\calE}}
+\newcommand{\dcalEo}  {\dot{\calE}_1}
+\newcommand{\dcalEt}  {\dot{\calE}_2}
+\newcommand{\ddcalE}  {\ddot{\calE}}
+\newcommand{\ddcalEo} {\ddot{\calE}_1}
+\newcommand{\ddcalEt} {\ddot{\calE}_2}
+\newcommand{\calEot}  {\calE_{[2]}}
+\newcommand{\dcalG}   {\dot{\calG}}
+\newcommand{\dcalGo}  {\dot{\calG}_1}
+\newcommand{\dcalGt}  {\dot{\calG}_2}
+\newcommand{\ddcalG}  {\ddot{\calG}}
+\newcommand{\ddcalGd} {\ddot{\calG}{}^{\prime}}
+\newcommand{\ddcalGo} {\ddot{\calG}_1}
+\newcommand{\ddcalGt} {\ddot{\calG}_2}
+\newcommand{\ddcalGod}{\ddot{\calG}_1{}^{\prime}}
+\newcommand{\ddcalGtd}{\ddot{\calG}_2{}^{\prime}}
+\newcommand{\calGot}  {\calG_{[2]}}
+\newcommand{\dcalM}   {\dot{\calM}}
+\newcommand{\dcalMo}  {\dot{\calM}_1}
+\newcommand{\dcalMt}  {\dot{\calM}_2}
+\newcommand{\ddcalM}  {\ddot{\calM}}
+\newcommand{\ddcalMo} {\ddot{\calM}_1}
+\newcommand{\ddcalMt} {\ddot{\calM}_2}
+\newcommand{\calMot}  {\calM_{[2]}}
+\newcommand{\dcalN}   {\dot{\calN}}
+\newcommand{\ddcalN}  {\ddot{\calN}}
+\newcommand{\dcalR}   {\dot{\calR}}
+\newcommand{\dcalRo}  {\dot{\calR}_1}
+\newcommand{\dcalRt}  {\dot{\calR}_2}
+\newcommand{\ddcalR}  {\ddot{\calR}}
+\newcommand{\ddcalRo} {\ddot{\calR}_1}
+\newcommand{\ddcalRt} {\ddot{\calR}_2}
+\newcommand{\calRot}  {\calR_{[2]}}
+\newcommand{\dcalS}   {\dot{\calS}}
+\newcommand{\dcalSo}  {\dot{\calS}_1}
+\newcommand{\dcalSt}  {\dot{\calS}_2}
+\newcommand{\ddcalS}  {\ddot{\calS}}
+\newcommand{\ddcalSo} {\ddot{\calS}_1}
+\newcommand{\ddcalSt} {\ddot{\calS}_2}
+\newcommand{\calSot}  {\calS_{[2]}}
+
+%crossed pairing commands
+\newcommand{\ugxh}{G \times H}
+\newcommand{\ugth}{G \otimes H}
+\newcommand{\gth} {g \otimes h}
+\newcommand{\ugtg}{G \otimes G}
+\newcommand{\gtg} {g \otimes g}
+\newcommand{\ctd} {c \otimes d}
+\newcommand{\ugoh}{G \odot H}
+\newcommand{\goh} {g \odot h}
+\newcommand{\cod} {c \odot d}
+\newcommand{\goho}{g_1 \otimes h_1}
+\newcommand{\goht}{g_2 \otimes h_2}
+\newcommand{\gbh} {g \boxtimes h}
+\newcommand{\cbd} {c \boxtimes d}
+\newcommand{\gbho}{g_1 \boxtimes h_1}
+\newcommand{\gbht}{g_2 \boxtimes h_2}
+
+
+\newcommand{\asto}    {\;\ast_1\;}
+\newcommand{\astt}    {\;\ast_2\;}
+\newcommand{\ddasto}  {~\ddot{\ast}_1~}
+\newcommand{\ddastt}  {~\ddot{\ast}_2~}
+\newcommand{\dasto}   {~\dot{\ast}_1~}
+\newcommand{\dastt}   {~\dot{\ast}_2~}
+
+\newcommand{\ot}      {\otimes}
+\newcommand{\bt}      {\boxtimes}
+\newcommand{\btt}     {\ \tilde{\boxtimes}\ }
+\newcommand{\normeq}  {\trianglelefteq}
+\newcommand{\sharpz}  {\,\sharp_0\,}
+\newcommand{\sharpo}  {\,\sharp_1\,}
+
+%% Gareth's macro for \hash
+\def\hashatom{\hbox{{$||$}\hspace*{-0.687em}\raisebox{0.037em}{\rotatebox[origin=c]{90}{$||$}}}}
+\def\hashatomscript{\hspace*{0.75mm}\scalebox{0.5}{\hashatom}}
+\def\hashatomscriptscript{\hspace*{0.5mm}\scalebox{0.4}{\hashatom}}
+\newcommand*{\hashop}{\mathrel{\mathchoice{\hashatom\displaystyle}
+{\hashatom\textstyle}
+{\hashatomscript\scriptstyle}
+{\hashatomscriptscript\scriptscriptstyle}}}
+\newcommand{\hash}{\mathop{\hashop}\nolimits}
