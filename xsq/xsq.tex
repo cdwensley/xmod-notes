@@ -1,4 +1,4 @@
-% xsq.tex,  version 22/04/17
+% xsq.tex,  version 27/04/17
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Crossed Squares} \label{sect:xsq}
@@ -483,14 +483,19 @@ Every crossed square is a quotient of normal inclusion crossed squares~
 \subsection{Cat$^2$-groups}  \label{subs:cattwo}
 \index{cat$^2$-group} 
 
-We take the definition of a cat$^2$-group from 
+We shall give three definitions of cat$^2$-groups 
+and show that they are equivalent. 
+When we come to define cat$^n$-groups we shall give a similar set of 
+three definitions. 
+
+Firstly, we take the definition of a cat$^2$-group from 
 Section 5 of Brown and Loday \cite{brow:lod}, suitably modified.
 
-\begin{defn}
+\begin{defn} \label{defn:cat2a} 
 \emph{A cat$^2$-group  $\calC = (\CCot,\CCbt,\CCbo,\CCe)$  
-comprises $4$ groups and $15$ homomorphisms,
-as shown in the following diagram,}
-\begin{equation} \label{eq:cat2-diag}
+comprises $4$ groups (one for each of the subsets of $[2]$) 
+and $15$ homomorphisms, as shown in the following diagram,}
+\begin{equation} \label{eq:cat2-diag1}
 \vcenter{\xymatrix{
  & C_{[2]} \ar[ddd] <-1.2ex>  \ar[ddd] <-2.0ex>_{\ddttt,\ddhht}
      \ar[rrr] <+1.2ex>  \ar[rrr] <+2.0ex>^{\ddtto,\ddhho}
@@ -509,27 +514,27 @@ as shown in the following diagram,}
 \end{equation}
 
 \noindent
-\emph{subject the following axioms:}
-\begin{itemize}
+\emph{subject to the following axioms:}
+\begin{enumerate}[(a)]
 \item~
 \emph{the four sides of the square are cat$^1$-groups,}
 \emph{denoted} $\ddcalCo, \ddcalCt, \dcalCo, \dcalCt$,
 \item~
 $
- \dtto\ddhht = \dhht\ddtto, \quad
- \dttt\ddhho = \dhho\ddttt, \quad
- \deeo\dttt = \ddttt\ddeeo, \quad
- \deet\dtto = \ddtto\ddeet, \quad
- \deeo\dhht = \ddhht\ddeeo, \quad
- \deet\dhho = \ddhho\ddeet,$
+ \dtto\circ\ddhht = \dhht\circ\ddtto, ~
+ \dttt\circ\ddhho = \dhho\circ\ddttt, ~
+ \deeo\circ\dttt = \ddttt\circ\ddeeo, ~
+ \deet\circ\dtto = \ddtto\circ\ddeet, ~
+ \deeo\circ\dhht = \ddhht\circ\ddeeo, ~
+ \deet\circ\dhho = \ddhho\circ\ddeet,$
 \item~
-$\dtto\ddttt = \dttt\ddtto = \ttot, \quad 
- \dhho\ddhht = \dhht\ddhho = \hhot, \quad
- \deeo\ddeet = \deet\ddeeo = \eeot,$
+$\dtto\circ\ddttt = \dttt\circ\ddtto = \ttot, ~ 
+ \dhho\circ\ddhht = \dhht\circ\ddhho = \hhot, ~
+ \deeo\circ\ddeet = \deet\circ\ddeeo = \eeot,$
 
 \emph{making the diagonal a pre-cat$^1$-group
 $(e_{[2]}; t_{[2]}, h_{[2]} : C_{[2]} \to C_{\emptyset})$.}
-\end{itemize}
+\end{enumerate}
 \end{defn}
 
 \noindent
@@ -538,8 +543,147 @@ $(\ddtto,\dtto),\,(\ddhho,\dhho)$ and $(\ddeeo,\deeo)$
 are morphisms of cat$^1$-groups.
 
 \bigskip\noindent
-{\bf [Add here the Peiffer subgroup of the diagonal pre-cat$^1$-group.]}
+{\bf [It needs to be checked that the diagonal pre-cat$^1$-group 
+\emph{is} a cat$^1$-group.]}
 \index{Peiffer subgroup!of a cat$^1$-group} 
+
+\medskip 
+Secondly, we give the simplest of the three definitions, 
+adapted from Ellis-Steiner \cite{ell:st}. 
+\begin{defn} \label{defn:cat2b} 
+\emph{A cat$^2$-group  $\calC$ consists of groups $G, R_1,R_2$ 
+and six homomorphisms 
+$t_1,h_1 : G \to R_2,~ e_1 : R_2 \to G,~
+ t_2,h_2 : G \to R_1,~ e_2 : R_1 \to G$,  
+satisfying the following axioms for all $1 \leqslant i \leqslant 2$,} 
+\begin{enumerate}[(a)]
+\item~
+$
+(t_i \circ e_i)r = r,~ (h_i \circ e_i)r = r,~ 
+\forall r \in R_{[2] \setminus \{i\}}, \quad 
+[\ker t_i, \ker h_i] = 1, 
+$
+\item~ 
+$
+(e_1 \circ t_1) \circ (e_2 \circ t_2) = (e_2 \circ t_2) \circ (e_1 \circ t_1), \quad
+(e_1 \circ h_1) \circ (e_2 \circ h_2) = (e_2 \circ h_2) \circ (e_1 \circ h_1), 
+$
+\item~ 
+$
+(e_1 \circ t_1) \circ (e_2 \circ h_2) = (e_2 \circ h_2) \circ (e_1 \circ t_1), \quad 
+(e_2 \circ t_2) \circ (e_1 \circ h_1) = (e_1 \circ h_1) \circ (e_2 \circ t_2). 
+$
+\end{enumerate}
+\end{defn} 
+
+To show that Definition \ref{defn:cat2b} is equivalent to 
+Definition \ref{defn:cat2a} we take: 
+\begin{itemize}
+\item~ 
+$
+C_{[2]} = G,~  C_{\{1\}} = R_2,~ C_{\{2\}} = R_1, 
+$
+\item~ 
+$
+\ddtto = t_1,~ \ddhho = h_1,~ \ddeeo = e_1,\quad 
+\ddttt = t_2,~ \ddhht = h_2,~ \ddeet = e_2.
+$
+\end{itemize} 
+It is clear that the resulting $\ddcalCo, \ddcalCt$ are cat$^1$-groups. 
+Then, since $e_1 \circ t_1$ and $e_2 \circ t_2$ commute etc., 
+we are able to define: 
+\begin{itemize} 
+\item~
+$
+t_{[2]} = (e_1 \circ t_1) \circ (e_2 \circ t_2),\quad 
+h_{[2]} = (e_1 \circ h_1) \circ (e_2 \circ h_2), 
+$
+\item~ 
+$
+C_{\emptyset} = \mbox{their common image},\quad 
+e_{[2]} = \mbox{identity mapping on}\; C_{\emptyset}. 
+$
+\end{itemize}
+We then need to check that $(e_{[2]};t_{[2]},h_{[2]} : G \to C_{\emptyset})$ 
+is a cat$^1$-group by, for example, verifying that 
+\begin{eqnarray*} 
+t_{[2]} \circ e_{[2]} \circ h_{[2]} 
+  & = &  
+e_1 \circ t_1 \circ (e_2 \circ t_2) \circ (e_1 \circ h_1) \circ e_2 \circ h_2 \\ 
+  & = & 
+e_1 \circ t_1 \circ (e_1 \circ h_1) \circ (e_2 \circ t_2) \circ e_2 \circ h_2 \\ 
+  & = & 
+(e_1 \circ h_1) \circ (e_2 \circ h_2) \\ 
+  & = & 
+h_{[2]}.
+\end{eqnarray*} 
+
+\noindent
+{\bf [Do we need more justification for the term "common image"?]}
+
+\medskip\noindent
+The remaining homomorphisms can then be defined: 
+\begin{itemize}
+\item~ 
+$
+\dtto = t_{[2]} \circ \ddeet = e_1 \circ t_1 \circ e_2,~~ 
+\dhho = h_{[2]} \circ \ddeet = e_1 \circ h_1 \circ e_2,~~ 
+\deeo = \ddttt \circ e_{[2]} 
+      = \mbox{restriction of}\; t_2\; \mbox{to}\; C_{\emptyset}, 
+$
+\item~ 
+$
+\dttt = t_{[2]} \circ \ddeeo = e_2 \circ t_2 \circ e_1,~~ 
+\dhht = h_{[2]} \circ \ddeeo = e_2 \circ h_2 \circ e_1,~~ 
+\deet = \ddtto \circ e_{[2]} 
+      = \mbox{restriction of}\; t_1\; \mbox{to}\; C_{\emptyset}. 
+$
+\end{itemize} 
+It is then routine to check that 
+$(\deeo;\dtto,\dhho : C_{\{1\}} \to C_{\emptyset})$
+and
+$(\deet;\dttt,\dhht : C_{\{2\}} \to C_{\emptyset})$
+are cat$^1$-groups. 
+There are also various axioms in Definition \ref{defn:cat2a} to be checked, 
+for example: 
+\begin{eqnarray*}
+\dtto\circ\ddhht &=& 
+  (e_1 \circ t_1 \circ e_2) \circ h_2 
+~=~ (e_2 \circ h_2 \circ e_1) \circ t_1 
+~=~ \dhht\circ\ddtto, \\
+\dtto\circ\ddttt &=& 
+  (e_1 \circ t_1 \circ e_2) \circ t_2 
+~=~ t_{[2]} 
+~=~ (e_2 \circ t_2 \circ e_1) \circ t_1 
+~=~ \dttt\circ\ddtto. \\
+\end{eqnarray*}
+
+Our third definition defines a cat$^2$-groups as a 
+"cat$^1$-group of cat$^1$-groups" 
+(compare this with Definition \ref{defn:cat1-group}). 
+
+\begin{defn} \label{defn:cat2c} 
+A cat$^2$-group $\calC$ consists of two cat$^1$-groups 
+$\calC_1 = (e_1;t_1,h_1 : G_1 \to R_1)$ and 
+$\calC_2 = (e_2;t_2,h_2 : G_2 \to R_2)$ and cat$^1$-morphisms
+$t = (\ddtt,\dtt),\; h = (\ddhh,\dhh) : \calC_1 \to \calC_2,\; 
+e = (\ddee,\dee) : \calC_2 \to \calC_1$,  
+subject to the following conditions: 
+\begin{center}
+\begin{tabular}{r l}
+\textbf{C1:}  &  $(t \circ e)$ and $(h \circ e)$~ 
+                 are the identity mapping on~ $\calC_2$, \\
+\textbf{C2:}  &  $[\ker t, \ker h] = \{ 1_{\calC_1} \}$.
+\end{tabular}
+\end{center}
+\end{defn}
+
+\noindent
+{\bf (Note:~ we have not yet defined the kernel of a cat$^1$-morphism, 
+never mind commutators of these!)} 
+
+\medskip
+We now need to show that this third definition is equivalent to the first two. 
 
 
 \newpage

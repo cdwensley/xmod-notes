@@ -1,4 +1,4 @@
-% xmodcat1.tex  (22/04/17)
+% xmodcat1.tex  (27/04/17)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Crossed Modules and Cat$^1$-Groups} \label{sect:xmod}
@@ -1347,14 +1347,16 @@ $\pi_1(A,a)$-module on the attaching maps of the $2$-cells.
 \subsection{Cat1-groups} \label{subs:cat1} \index{cat$^1$-group} 
 
 In \cite{loday1} Loday reformulated the notion of a 
-crossed module as a cat$^1$-group, 
+crossed module as a cat$^1$-group $(G;t,h)$, 
 namely a group $G$ with a pair of endomorphisms $t,h : G \to G$
-having a common image $R$ and satisfying certain axioms.
-Alternatively we may define a cat$^1$-group 
-$\calC = (e;t,h : G \to R )$  to have source group $G$,
-range group $R$, and three homomorphisms:  
-two surjections  $t,h : G \to R$  
-and an embedding  $e : R \to G$ 
+having a common image $R$ and satisfying certain axioms. 
+(We call these \emph{traditional} cat$^1$-groups.) 
+Alternatively we may define a cat$^1$-group as follows. 
+
+\begin{defn} \label{defn:cat1-group}
+A \emph{cat$^1$-group} $\calC = (e;t,h : G \to R )$  
+has source group $G$, range group $R$, and three homomorphisms:  
+two surjections  $t,h : G \to R$ and an embedding  $e : R \to G$ 
 as shown in the following diagram:
 $$
 \xymatrix{
@@ -1367,26 +1369,38 @@ $$
 These homomorphisms are required to satisfy the following axioms:
 \begin{center}
 \begin{tabular}{r l}
-\textbf{C1:}  &  $te(r) = he(r) = r \;\; \mbox{for all}\;\; r \in R$, \\
+\textbf{C1:}  &  $(t \circ e)$ and $(h \circ e)$ 
+are the identity mapping on $R$, \\
 \textbf{C2:}  &  $[\ker t, \ker h] = \{ 1_G \}$.
 \end{tabular}
 \end{center}
+\end{defn} 
+
 The maps  $t,h$  are usually referred to as the 
 \index{tail!of a cat$^1$-group} \index{head!of a cat$^1$-group} 
 \index{embedding!of a cat$^1$-group} 
 \emph{source} and \emph{target}, but we choose to call them the 
 \emph{tail} and \emph{head} of  $\calC$, 
-because \emph{source} is the {\GAP} term for the domain of a function.
+because \emph{source} is the {\GAP} term for the domain of a function. 
+It follows immediately from axiom {\bf C1:} that: 
+$$
+t \circ e \circ t = t,\quad h \circ e \circ h = h,\quad 
+t \circ e \circ h = h,\quad h \circ e \circ t = t.
+$$
 
 A morphism  $\calC_1 \to \calC_2$  \index{morphism!of cat$^1$-groups}
 of cat$^1$-groups is a pair  $(\gamma, \rho)$  where
 $\gamma : G_1 \to G_2$  and  $\rho : R_1 \to R_2$  
 are homomorphisms satisfying
 \begin{equation} \label{eq:cat1mor}
-t_2 \gamma = \rho t_1, \;\; 
-h_2 \gamma = \rho h_1, \;\; 
-e_2 \rho = \gamma e_1.
+t_2 \circ\gamma = \rho\circ t_1, \quad
+h_2 \circ\gamma = \rho\circ h_1, \quad
+e_2 \circ\rho = \gamma\circ e_1.
 \end{equation}
+
+Of course a cat$^1$-group $(e;t,h : G \to R)$ is easily converted 
+to a traditional cat$^1$-group $(G;t*e,h*e)$ and $(\id,e)$ 
+is the cat$^1$-morphism between them. 
 
 An arbitrary cat$^1$-group  $\calC = (e;t,h : G \to R)$
 is isomorphic to the cat$^1$-group
@@ -1538,6 +1552,14 @@ and, if  $\iota$  is the inclusion  $\{ 1_R \} \to R$,  then
 $\calC/(\epsilon,\iota)\calP = 
  (e;t,h : (R \ltimes Q) / \epsilon P \to R)$
 is the cat$^1$-group corresponding to  $\calX = \calQ/\calP$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sub-cat$^1$-groups} \label{subs:sub-cat1} 
+
+We need to include here clear definitions of sub-cat$^1$-groups 
+and normal sub-cat$^1$-groups. 
+Also the kernel of a cat$^1$-morphism. 
 
 
 
