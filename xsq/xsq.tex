@@ -1,7 +1,7 @@
-% xsq.tex,  version 27/04/17
+% xsq.tex,  version 02/05/17
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Crossed Squares} \label{sect:xsq}
+\section{Crossed Squares and cat2-groups} \label{sect:xsq-cat2}
 
 Crossed squares were introduced by Guin-Wal\'ery and Loday 
 (see, for example, \cite{walery:loday,loday1,brow:lod})
@@ -480,7 +480,7 @@ Every crossed square is a quotient of normal inclusion crossed squares~
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\subsection{Cat$^2$-groups}  \label{subs:cattwo}
+\subsection{Cat2-groups}  \label{subs:cattwo}
 \index{cat$^2$-group} 
 
 We shall give three definitions of cat$^2$-groups 
@@ -658,7 +658,7 @@ for example:
 ~=~ \dttt\circ\ddtto. \\
 \end{eqnarray*}
 
-Our third definition defines a cat$^2$-groups as a 
+Our third definition defines a cat$^2$-group as a 
 "cat$^1$-group of cat$^1$-groups" 
 (compare this with Definition \ref{defn:cat1-group}). 
 
@@ -678,17 +678,30 @@ subject to the following conditions:
 \end{center}
 \end{defn}
 
-\noindent
-{\bf (Note:~ we have not yet defined the kernel of a cat$^1$-morphism, 
-never mind commutators of these!)} 
-
+Kernels of cat$^1$-mappings have been considered in 
+subsection \ref{subs:precat1}. 
+The diagram for the situation here is 
+\begin{equation*} \label{eq:cat2cker}
+\vcenter{\xymatrix{
+   \ker\ddtt,\ \ker\ddhh \ar[rr] \ar[dd]<1.0ex> \ar[dd]<0.2ex> 
+     && G_1 \ar[dd]<1.0ex>^{t_1,h_1} \ar[dd]<0.2ex> 
+            \ar[rr]<1.0ex>^{\ddtt,\ddhh} \ar[rr]<0.2ex> 
+          && G_2 \ar[dd]<1.0ex>^{t_2,h_2} \ar[dd]<0.2ex>  
+             \ar[ll]<1.0ex>^{\ddee}  \\
+     &&  \\
+   \ker\dtt,\ \ker\dhh \ar[rr] \ar[uu]<1.0ex> 
+     && R_1 \ar[uu]<1.0ex>^{e_1} \ar[rr]<1.0ex>^{\dtt,\dhh} \ar[rr]<0.2ex>
+          && R_2 \ar[uu]<1.0ex>^{e_2} 
+             \ar[ll]<1.0ex>^{\dee}
+}}
+\end{equation*}
 \medskip
 We now need to show that this third definition is equivalent to the first two. 
 
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{The cat$^2$-group associated to a crossed square} 
+\subsection{The cat2-group associated to a crossed square} 
 \label{sect:cat2-xsq}
 
 
@@ -933,7 +946,7 @@ To be added.  (Is material required from Section 7.2~?)
 
 \vspace*{5mm} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{The other cat$^2$-structure}
+\subsection{The other cat2-structure}
 
 Now the underlying diagram (\ref{eq:Rsquare}) of the crossed square $\calR$, 
 together with the crossed pairing 

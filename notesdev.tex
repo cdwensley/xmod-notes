@@ -1,4 +1,8 @@
-%notesdev.tex,  version 27/04/17
+%% notesdev.tex,  version 02/05/17
+
+%% remember to run:  > Biber notesdev 
+%%             and:  > makeindex notesdev 
+%% after adding to the Bibliography or the Index 
 
 \documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
@@ -7,7 +11,8 @@
 \usepackage[all]{xy}
 \usepackage{eepic,overpic,graphicx,makeidx}
 \usepackage[usenames]{color}
-\usepackage{biblatex}
+
+%% \usepackage{biblatex}
 
 \setlength{\textwidth}{17cm}
 \setlength{\textheight}{23cm}
@@ -17,16 +22,14 @@
 \setlength{\oddsidemargin}{0pt}
 \setlength{\evensidemargin}{0pt}
 
-%% \usepackage{hyperref}
-%% make hyperref the last package loaded
-%% \usepackage[ps2pdf, bookmarks=true,
-%%          bookmarksnumbered=true, breaklinks=true,
-%%          pdfstartview=FitH, hyperfigures=false,
-%%          plainpages=false, naturalnames=true, 
-%%          colorlinks=true,pagebackref=true,
-%%          pdfpagelabels]{hyperref}
+\usepackage[bookmarks=true,
+            bookmarksnumbered=true, breaklinks=true, pdfstartview=FitH, 
+            hyperfigures=false, plainpages=false, naturalnames=true, 
+            colorlinks=true, pagebackref=true, pdfpagelabels]{hyperref}
+\usepackage[usenames]{color}
 
 % \renewcommand{\baselinestretch}{1.2} 
+
 \makeindex
 
 {\theorembodyfont{\rmfamily}\newtheorem{example}{Example}[section]}
@@ -120,8 +123,10 @@
 %% oddments
 \newpage \include{oddments/oddments}
 
-%% \nocite{*}
-\input{refs.bbl}
+%% \nocite{*} 
+\newpage \include{refs} 
+%% \input{refs.bbl}
+%% \addcontentsline{toc}{part}{Bibliography}
 
 \addcontentsline{toc}{part}{Index}
 \printindex

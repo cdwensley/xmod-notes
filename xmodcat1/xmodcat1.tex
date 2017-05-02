@@ -1,14 +1,14 @@
-% xmodcat1.tex  (27/04/17)
+% xmodcat1.tex  (01/05/17)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Crossed Modules and Cat$^1$-Groups} \label{sect:xmod}
+\section{Crossed Modules and Cat1-Groups} \label{sect:xmod}
 
 In this section we recall the descriptions of four equivalent categories:
-\catXMod, the category of crossed modules and their morphisms;
-\catCat1, the category of cat$^1$-groups and their morphisms; 
-\catGpGpd, the subcategory of groups in the category
-\catGpd of groupoids; and 
-\cattGp, a subcategory of \cattCat.
+{\catXMod}, the category of crossed modules and their morphisms;
+{\catCat1}, the category of cat$^1$-groups and their morphisms; 
+{\catGpGpd}, the subcategory of groups in the category
+{\catGpd} of groupoids; and 
+{\cattGp}, a subcategory of {\cattCat}.
 We also describe functors between these categories which exhibit
 the equivalences.
 
@@ -67,12 +67,12 @@ is a \emph{morphism of crossed modules}
 \index{morphism!of crossed modules} 
 without any further condition.
 We thus obtain the category
-\catPreXMod of pre-crossed modules and their morphisms,
-and the category \catXMod of crossed modules and their morphisms.
-Furthermore, \catXMod is a full subcategory of \catPreXMod.
+{{\catPreXMod}} of pre-crossed modules and their morphisms,
+and the category {\catXMod} of crossed modules and their morphisms.
+Furthermore, {\catXMod} is a full subcategory of {\catPreXMod}.
 
 When $\calQ_2 = \calQ_1$
-and $ \dda, \da $ are automorphisms then 
+and $\dda,\da$ are automorphisms then 
 $\alpha$  is an automorphism of $\calQ_1$. 
 The group of automorphisms is denoted 
 by $\rm{Aut}(\calQ_1).$ 
@@ -312,7 +312,16 @@ $$
     &&    R  \ar[rr]_{\dm}
       &&  R' \\ 
 }
-\endxy$$
+\endxy
+$$
+This statement is justified by the following:
+$$
+s \in \ker\ddm ~\Leftrightarrow~
+\ddm s = 1 ~\Leftrightarrow~ 
+\partial'\ddm s = 1 ~\Leftrightarrow~ 
+\dm\partial s = 1 ~\Leftrightarrow~ 
+\partial s \in \ker\dm.
+$$
 
 \begin{lem} \index{kernel!of crossed module morphism} 
 The kernel of $\mu$ is a normal sub-crossed module of $\calX$.
@@ -477,7 +486,7 @@ $$
 \end{pf}
 
 \begin{cor}
-In the previous result $\Gamma_0, \Gamma_1 : \XMod \to \XMod$ are functors
+In the previous result $\Gamma_0, \Gamma_1 : {\XMod} \to {\XMod}$ are functors
 and $(0,\zeta) : \Gamma_1 \to \Gamma_0$ is a natural transformation.
 \end{cor}
 
@@ -1344,7 +1353,8 @@ $\pi_1(A,a)$-module on the attaching maps of the $2$-cells.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Cat1-groups} \label{subs:cat1} \index{cat$^1$-group} 
+\subsection{Cat1-groups and their morphisms} 
+\label{subs:cat1} \index{cat$^1$-group} \index{cat$^1$-morphism}
 
 In \cite{loday1} Loday reformulated the notion of a 
 crossed module as a cat$^1$-group $(G;t,h)$, 
@@ -1397,9 +1407,19 @@ t_2 \circ\gamma = \rho\circ t_1, \quad
 h_2 \circ\gamma = \rho\circ h_1, \quad
 e_2 \circ\rho = \gamma\circ e_1.
 \end{equation}
+The situation is displayed in the following diagram. 
+\begin{equation*} \label{eq:cat1mordiag}
+\vcenter{\xymatrix{
+   G_1 \ar[rr]^{\gamma} \ar[dd]<1.0ex>^{t_1,h_1} \ar[dd]<0.2ex> 
+     && G_2 \ar[dd]<1.0ex>^{t_2,h_2} \ar[dd]<0.2ex>\\
+     &&  \\
+   R_1 \ar[rr]_{\rho} \ar[uu]<1.0ex>^{e_1} 
+     && R_2 \ar[uu]<1.0ex>^{e_2}
+}}
+\end{equation*}
 
 Of course a cat$^1$-group $(e;t,h : G \to R)$ is easily converted 
-to a traditional cat$^1$-group $(G;t*e,h*e)$ and $(\id,e)$ 
+to a traditional cat$^1$-group $(G;e \circ t, e \circ h)$ and $(\id,e)$ 
 is the cat$^1$-morphism between them. 
 
 An arbitrary cat$^1$-group  $\calC = (e;t,h : G \to R)$
@@ -1522,7 +1542,8 @@ form a normal subgroup.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Pre-cat$^1$-groups} \index{pre-cat$^1$-groups} 
+\subsection{Pre-cat1-groups and sub-cat1-groups} \label{subs:precat1}
+\index{pre-cat$^1$-groups} 
 
 When axioms \textbf{X2:} and \textbf{C2:} are \emph{not} satisfied
 by  $\calQ = (\delta : Q \to R)$  and  
@@ -1554,21 +1575,52 @@ $\calC/(\epsilon,\iota)\calP =
 is the cat$^1$-group corresponding to  $\calX = \calQ/\calP$.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Sub-cat$^1$-groups} \label{subs:sub-cat1} 
+\bigskip
+We now include definitions of sub-cat$^1$-groups, 
+normal sub-cat$^1$-groups, and the kernel of a cat$^1$-morphism. 
 
-We need to include here clear definitions of sub-cat$^1$-groups 
-and normal sub-cat$^1$-groups. 
-Also the kernel of a cat$^1$-morphism. 
+A \emph{sub-cat$^1$-group} of $\calC = (e;t,h : G \to R)$ 
+is a cat$^1$-group $\calC' = (e';t',h' : G' \to R')$ where 
+$G'$ is a subgroup of $G$; $R'$ is a subgroup of $R$; 
+and $e',t',h'$ are the restrictions of $e,t,h$. 
+Such a $\calC'$ is a \emph{normal sub-cat$^1$-group} of $\calC$ 
+when $G' \unlhd G$ and $R' \unlhd R$. 
 
-
+For the kernel of a cat$^1$-morphism $\mu : \calC \to \calC'$, 
+consider the following diagram, where the left-hand morphism is a 
+sub-cat$^1$-group inclusion and the leftmost tail, head and embedding maps 
+are the restrictions of $t,h,e$. 
+\begin{equation*} \label{eq:cat1kernel}
+\vcenter{\xymatrix{
+   \ker\barm \ar[rr] \ar[dd]<1.0ex> \ar[dd]<0.2ex> 
+     && G \ar[dd]<1.0ex>^{t,h} \ar[dd]<0.2ex> \ar[rr]^{\barm}
+          && G' \ar[dd]<1.0ex>^{t',h'} \ar[dd]<0.2ex>  \\
+     &&  \\
+   \ker\dm \ar[rr] \ar[uu]<1.0ex> 
+     && R \ar[uu]<1.0ex>^{e} \ar[rr]_{\dm}
+          && R' \ar[uu]<1.0ex>^{e'} 
+}}
+\end{equation*}
+The left-hand cat$^1$-group \emph{is} the kernel of $\mu$ since 
+\begin{eqnarray*}
+g \in \ker\barm 
+  & \Rightarrow 
+    & t'\barm g = 1,\; h'\barm g = 1 ~\Rightarrow~ 
+      \dm tg = 1,\; \dm hg = 1 ~\Rightarrow~ 
+      tg \in \ker\dm,\; hg \in \ker\dm, \\
+r \in \ker\dm 
+  & \Rightarrow 
+    & e'\dm r = 1 ~\Rightarrow~ 
+      \barm er = 1 ~\Rightarrow~ 
+      er \in \ker\barm. 
+\end{eqnarray*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Group Groupoids} \label{subs:gpgpd} \index{group-groupoid} 
 
 Cat1-groups may also be thought of as group-groupoids.
 A group groupoid is a set which has both a group structure and
-a groupoid structure (see subsection \ref{subsect:gpds}). 
+a groupoid structure (see subsection \ref{subsect:gpd-defs}). 
 From a categorical viewpoint, it is both a group object in the
 category of groupoids and a groupoid object in the category of groups.
 
@@ -1712,7 +1764,7 @@ by calculating, for example,}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{$2$-groups} \label{subs:twogps}
+\subsection{2-groups} \label{subs:twogps}
 
 Finally, we think of such a structure as a special case of a 
 \index{$2$-category} \index{$2$-group} \index{$2$-cell} 

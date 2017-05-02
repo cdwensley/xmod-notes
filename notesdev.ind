@@ -1,0 +1,204 @@
+\begin{theindex}
+
+  \item $2$-category, \hyperpage{25}
+  \item $2$-cell, \hyperpage{25}
+  \item $2$-crossed module, \hyperpage{113}
+  \item $2$-fold crossed module, \hyperpage{101}
+  \item $2$-group, \hyperpage{25}
+  \item $R$-module, \hyperpage{6}
+  \item $\gamma$-derivation, \hyperpage{27}
+
+  \indexspace
+
+  \item abelian groupoid, \hyperpage{44}
+  \item action
+    \subitem compatible, \hyperpage{73}
+    \subitem of a crossed module, \hyperpage{40}
+  \item actor
+    \subitem of a crossed  module, \hyperpage{36}
+  \item arrow
+    \subitem of a groupoid, \hyperpage{43}
+  \item automorphism
+    \subitem of a groupoid, \hyperpage{52}
+  \item automorphism crossed  module, \hyperpage{6}
+  \item automorphism group
+    \subitem of a crossed square, \hyperpage{87}
+  \item automorphism groupoid, \hyperpage{53}
+
+  \indexspace
+
+  \item boundary, \hyperpage{5}, \hyperpage{58}
+
+  \indexspace
+
+  \item cat$^1$-group, \hyperpage{20}
+  \item cat$^1$-morphism, \hyperpage{20}
+  \item cat$^2$-group, \hyperpage{88}
+  \item cat$^3$-group, \hyperpage{138}
+  \item cat$^n$-group, \hyperpage{139}
+  \item central extension crossed  module, \hyperpage{6}
+  \item cokernel
+    \subitem of a crossed module, \hyperpage{6}
+  \item commutator
+    \subitem Peiffer, \hyperpage{12}
+  \item compatible action, \hyperpage{73}
+  \item component
+    \subitem of a groupoid, \hyperpage{44}
+  \item conjugation crossed module, \hyperpage{6}
+  \item costar
+    \subitem of a groupoid, \hyperpage{44}
+  \item crossed $n$-cube, \hyperpage{138}
+  \item crossed cube, \hyperpage{137}
+  \item crossed module
+    \subitem of crossed modules, \hyperpage{101}
+    \subitem of groupoids, \hyperpage{58}
+    \subitem of groups, \hyperpage{5}
+  \item crossed pairing, \hyperpage{73}
+    \subitem principal, \hyperpage{75}
+  \item crossed square, \hyperpage{82}
+
+  \indexspace
+
+  \item derivation
+    \subitem of $2$-crossed module, \hyperpage{118}
+    \subitem of a crossed square, \hyperpage{109}
+    \subitem principal, \hyperpage{30}
+    \subitem regular, \hyperpage{27}
+  \item derivations, \hyperpage{27}
+  \item direct product
+    \subitem of crossed modules, \hyperpage{6}
+
+  \indexspace
+
+  \item embedding
+    \subitem of a cat$^1$-group, \hyperpage{20}
+
+  \indexspace
+
+  \item free crossed module, \hyperpage{14}
+  \item free groupoid, \hyperpage{44}
+  \item full subgroupoid, \hyperpage{44}
+  \item functor, \hyperpage{43}
+
+  \indexspace
+
+  \item group-double groupoid, \hyperpage{122}
+  \item group-groupoid, \hyperpage{22}
+  \item groupoid, \hyperpage{43}
+
+  \indexspace
+
+  \item head
+    \subitem of a cat$^1$-group, \hyperpage{20}
+  \item homotopy
+    \subitem for a groupoid, \hyperpage{52}
+    \subitem of $2$-crossed modules, \hyperpage{114}
+  \item homotopy groups, \hyperpage{18}
+  \item horizontal section, \hyperpage{123}
+
+  \indexspace
+
+  \item inclusion morphism, \hyperpage{7}
+  \item interchange law, \hyperpage{26}
+
+  \indexspace
+
+  \item kernel
+    \subitem of a crossed module, \hyperpage{6}
+    \subitem of crossed module morphism, \hyperpage{8}
+    \subitem of groupoid morphism, \hyperpage{46}
+
+  \indexspace
+
+  \item left coset
+    \subitem of a groupoid, \hyperpage{44}
+
+  \indexspace
+
+  \item morphism
+    \subitem of $2$-crossed modules, \hyperpage{114}
+    \subitem of $2$-fold crossed modules, \hyperpage{102}
+    \subitem of cat$^1$-groups, \hyperpage{20}
+    \subitem of crossed modules, \hyperpage{5}, \hyperpage{58}
+    \subitem of crossed squares, \hyperpage{87}
+    \subitem of double categories, \hyperpage{122}
+    \subitem of groupoids, \hyperpage{43}
+
+  \indexspace
+
+  \item natural transformation, \hyperpage{52}
+  \item nonabelian tensor product, \hyperpage{73}
+  \item normal crossed module, \hyperpage{7}
+  \item normal subgroupoid, \hyperpage{45}
+
+  \indexspace
+
+  \item object
+    \subitem of a groupoid, \hyperpage{43}
+
+  \indexspace
+
+  \item Peiffer commutator, \hyperpage{12}
+  \item Peiffer condition, \hyperpage{26}
+  \item Peiffer subgroup, \hyperpage{12}
+    \subitem of a cat$^1$-group, \hyperpage{88}
+  \item pre-cat$^1$-groups, \hyperpage{22}
+  \item pre-crossed module, \hyperpage{5}
+    \subitem of groupoids, \hyperpage{58}
+  \item principal crossed pairing, \hyperpage{75}
+  \item Principal derivation
+    \subitem of $2$-fold crossed modules, \hyperpage{106}
+  \item principal derivation, \hyperpage{30}
+  \item principal endomorphism, \hyperpage{34}
+  \item principal section, \hyperpage{32}
+  \item product
+    \subitem of groupoids, \hyperpage{43}
+
+  \indexspace
+
+  \item regular derivation, \hyperpage{27}, \hyperpage{145}
+  \item right coset
+    \subitem of a groupoid, \hyperpage{44}
+
+  \indexspace
+
+  \item section, \hyperpage{32}
+    \subitem horizontal, \hyperpage{123}
+    \subitem of a cat$2$-group, \hyperpage{110}
+    \subitem principal, \hyperpage{32}
+  \item semidirect factorisation
+    \subitem for cat1-groups, \hyperpage{21}
+    \subitem for cat2-groups, \hyperpage{95}
+  \item semidirect product
+    \subitem of crossed modules, \hyperpage{41}
+  \item star
+    \subitem of a groupoid, \hyperpage{44}
+  \item subcrossed module, \hyperpage{7}
+  \item subgroupoid, \hyperpage{44}
+
+  \indexspace
+
+  \item tail
+    \subitem of a cat$^1$-group, \hyperpage{20}
+  \item tensor product, \hyperpage{73}
+  \item tensor square, \hyperpage{73}
+  \item totally disconnected groupoid, \hyperpage{44}
+  \item tree groupoid, \hyperpage{43}
+  \item trivial groupoid, \hyperpage{43}
+
+  \indexspace
+
+  \item underlying digraph
+    \subitem of a groupoid, \hyperpage{43}
+  \item underlying groupoid
+    \subitem of a cat$^1$-group, \hyperpage{22}
+  \item union of groups, \hyperpage{44}
+  \item unit groupoid, \hyperpage{43}
+
+  \indexspace
+
+  \item Whitehead group, \hyperpage{109}, \hyperpage{145}
+  \item Whitehead monoid, \hyperpage{27}
+  \item wide subgroupoid, \hyperpage{44}
+
+\end{theindex}
