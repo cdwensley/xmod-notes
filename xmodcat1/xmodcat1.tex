@@ -1,7 +1,7 @@
 % xmodcat1.tex  (01/05/17)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Crossed Modules and Cat1-Groups} \label{sect:xmod}
+\section{Crossed Modules and Cat$^1$-Groups} \label{sect:xmod}
 
 In this section we recall the descriptions of four equivalent categories:
 {\catXMod}, the category of crossed modules and their morphisms;
@@ -1347,9 +1347,41 @@ $\pi_1(A,a)$-module on the attaching maps of the $2$-cells.
 {\bf [More here?]}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%
-\input{xmodcat1/xmodcat1_10.tex}
-%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Semidirect Products} \label{subs:sdp}
+
+We include here some basic results on semidirect products
+which will be needed in later sections.
+
+\begin{prop}\quad\\
+\vspace{-3mm}
+\begin{enumerate}[{\rm (a)}]
+\item
+If a set  $X$  has a right  $G$-action  $x \mapsto x^g$
+then $X$ has an associated left $G$-action:
+$$
+{}^g\!x \quad := \quad x^{g^{-1}}~.
+$$
+\item
+The semidirect products  $R \ltimes S$  and  $S \rtimes R$
+have multiplication rules
+\begin{eqnarray*}
+(r,s)(q,t)  & = &  (rq,\,s^q\,t) \quad\mbox{in}\quad R \ltimes S~, \\
+(s,r)(t,q)  & = &  (s\,{}^r\!t,\,rq) \quad\mbox{in}\quad S \rtimes R~.
+\end{eqnarray*}
+\item
+There is an isomorphism between these two groups:
+$$
+\psi \;:\; R \ltimes S \to S \rtimes R\,,
+\quad (r,s) \mapsto (\,{}^r\!s,\,r)~,
+$$
+with inverse
+$$
+\psi^{-1} \;:\; S \rtimes R \to R \ltimes S\,,
+\quad (s,r) \mapsto (r,\,s^r)~.
+$$
+\end{enumerate}
+\end{prop}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1541,8 +1573,8 @@ form a normal subgroup.
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Pre-cat1-groups and sub-cat1-groups} \label{subs:precat1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Pre-cat$^1$-groups and sub-cat$^1$-groups} \label{subs:precat1}
 \index{pre-cat$^1$-groups} 
 
 When axioms \textbf{X2:} and \textbf{C2:} are \emph{not} satisfied
@@ -1764,7 +1796,7 @@ by calculating, for example,}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{2-groups} \label{subs:twogps}
+\subsection{$2$-groups} \label{subs:twogps}
 
 Finally, we think of such a structure as a special case of a 
 \index{$2$-category} \index{$2$-group} \index{$2$-cell} 

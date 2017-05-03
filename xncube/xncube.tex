@@ -1,142 +1,18 @@
-%% xncube.tex, version 05/05/17
+%% xncube.tex, version 03/05/17
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Crossed n-cubes of groups and catn-groups}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Crossed $n$-cubes of groups and cat$^n$-groups}
 
 \noindent
-Here we include the basic ideas about crossed cubes (of groups)
+Here we include the basic ideas about crossed $n$-cubes (of groups)
 taken from Chapter 1 of Ellis' thesis \cite{ellis-thesis},
 Ellis-Steiner \cite{ell:st}, and Brown-Loday \cite{brow:lod}, 
 and the associated cat$^n$-groups.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Crossed cubes}\label{sect:xcube}
 
-\noindent \index{crossed cube} 
-First we consider crossed cubes (of groups), 
-taken from the references above, 
-and the associated cat$^3$-groups.
-
-\noindent\bigskip
-Let $[3] = \{1,2,3\}$, and let $A,B,C,\ldots$ be subsets of $[3]$.
-
-\begin{defn}
-A crossed cube consists of the following.
-\begin{enumerate}[{\rm (i)}]
-\item
-Groups  $R_A$  for each subset  $A$  of  $[3]$,
-where we write $R$ for $R_{\emptyset}$.
-
-\item
-Group homomorphisms
-$$
-\partial_i : R_A \to R_{A \setminus \{i\}}  \quad\mbox{for all} \quad 
-A \subseteq [3],~ i \in [3]
-$$
-such that  $\partial_i = \id_{R_A}$  when  $i \notin A$, and  
-$\partial_i\partial_j = \partial_j\partial_i ~\mbox{for all}~ i,j \in [3]$.
-
-\noindent
-Since the $\partial_i$ commute, composite homomorphisms
-$\partial_B = \bigcirc_{i \in B}\,\partial_i : R_A \to R_{A \setminus B}$ 
-are well defined and 
-$\partial_A = \partial_{A \setminus B} \circ \partial_B$. 
-
-\item
-For all $B \subseteq A$ an action of $R_{A \setminus B}$ on $R_A$
-making $\calR_{A,A \setminus B} = (\partial_B : R_A \to R_{A \setminus B})$
-a crossed module.
-
-For each $j \in [3]$ the maps 
-$$
-(1,\partial_j) : \calR_{A,A \setminus \{i\}} \to 
-\calR_{A,A \setminus \{i,j\}}
-\quad\mbox{and}\quad
-(\partial_j,1) : \calR_{A,A \setminus \{i,j\}} \to 
-\calR_{A \setminus \{j\},A \setminus \{i,j\}}
-$$
-are crossed module homomorphisms.
-
-It follows that all the actions act via $R$~:
-$$
-a^b ~=~ a^{\partial_B b} \quad\mbox{for}\quad
-a \in R_A,~ b \in R_B, ~~\mbox{and}~~ B \subseteq A.
-$$
-
-\item
-For all  $A,B \subseteq [3]$  a crossed pairing 
-$\bt_{A,B} : R_A \times R_B \to R_{A \cup B}$,
-such that
-$(b\,\bt_{B,A}\,a) = (a\,\bt_{A,B}\,b)^{-1}$  and, when $B \subseteq A$,
-$\bt_{A,B}$  is the principal crossed pairing for $\calR_{A,B}$ 
-given by ~$a \bt b = a^{-1}a^b$ and $b \bt a = (a^{-1})^ba$.
-
-\item
-Various axioms relating the homomorphisms, actions, and crossed pairings, 
-for example
-\begin{itemize}
-\item~ $\partial_i(a \bt_{A,B} b) ~=~ 
-        (\partial_i a) \bt_{A\setminus\{i\},B\setminus\{i\}} (\partial_i b)$.
-\item~ {\bf [More to follow?]}
-\end{itemize}
-\end{enumerate}
-\end{defn}
-
-\noindent
-Note that the $\bt_{A,B}$ define actions of $B$ on $A$ for all 
-$A,B \subseteq [3]$ by
-$$
-a^b ~:=~ a\ \partial_{B \setminus A}(a \bt b).
-$$
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Cat3-groups} \index{cat$^3$-group} 
-
-The corresponding notion of cat$^3$-group may be defined in a similar way.
-
-\begin{defn} 
-A cat$^3$-group consists of the following.
-\begin{enumerate}[{\rm (i)}]
-\item
-Groups  $G_A$  for each subset  $A$  of  $[3]$. 
-
-\item
-Group homomorphisms
-$$
-t_i, h_i : G_A \to G_{A \setminus \{i\}}, ~~
-e_i : G_{A \setminus \{i\}} \to G_A,
-\quad\mbox{for all} \quad 
-A \subseteq [3],~ i \in [3]
-$$
-such that
-\begin{itemize}
-\item~  
-$t_i = h_i = e_i = \id_{R_A}$  when  $i \notin A$,
-\item~ 
-$t_i t_j = t_j t_i,~
- h_i h_j = h_j h_i ~\mbox{and}~
- e_i e_j = e_j e_i ~\mbox{for}~ i,j \in [3]$,
-\item~
-$t_i h_j = h_j t_i ~\mbox{for}~ i \neq j$.
-\end{itemize}
-
-\noindent
-Since the $t_i, h_i$ and $e_i$ commute, composite homomorphisms
-$t_B, h_B : R_A \to R_{A \setminus B}$ and 
-$e_A : R_B \to R_{A \cup B}$ 
-are well defined for all $A,B \subseteq [3]$.
-\end{enumerate}
-\end{defn}
-
-
-
-\vspace{12mm}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Crossed n-cubes with n greater than 3} 
-\index{crossed $n$-cube}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Crossed $n$-cubes of groups}  \index{crossed $n$-cube}
 
 Let $[n] = \{1,2,...,n\}$, and let $A,B,C,\ldots$ be subsets of $[n]$.
 
@@ -150,17 +26,18 @@ where we write $R$ for $R_{\emptyset}$.
 \item
 Group homomorphisms
 $$
-\partial_i : R_A \to R_{A \setminus \{i\}}  \quad\mbox{for all} \quad 
-A \subseteq [n],~ i \in [n]
+\partial_{A,i} : R_A \to R_{A \setminus \{i\}}  \quad\mbox{for all} \quad 
+A \subseteq [n],~ i \in A, 
 $$
-such that  $\partial_i = \id_{R_A}$  when  $i \notin A$,
-and  $\partial_i\partial_j = \partial_j\partial_i ~\mbox{for}~ i,j \in [n]$.
+such that  
+$\partial_{A \setminus \{j\},i} \circ \partial_{A,j} 
+~=~ \partial_{A \setminus \{i\},j} \circ \partial_{A,i} 
+~\mbox{for}~ i \neq j \in A$.
 
 \noindent
-Since the $\partial_i$ commute, composite homomorphisms
-$\partial_B = \bigcirc_{i \in B}\,\partial_i : R_A \to R_{A \setminus B}$ 
-are well defined and 
-$\partial_A = \partial_{A \setminus B} \circ \partial_B$. 
+Since the $\partial_{A,i}$ commute, composite homomorphisms
+$\partial_{A,B} : R_A \to R_{A \setminus B}$ are well defined and 
+$\partial_{A,B} = \partial_{A,(B \setminus C)} \circ \partial_{A,C}$. 
 
 \item
 For all $B \subseteq A$ an action of $R_{A \setminus B}$ on $R_A$
@@ -169,17 +46,17 @@ a crossed module.
 
 For each $j \in [n]$ the maps 
 $$
-(1,\partial_j) : \calR_{A,A \setminus \{i\}} \to 
+(1,\partial_{A \ setminus \{i\}},j) : \calR_{A,A \setminus \{i\}} \to 
 \calR_{A,A \setminus \{i,j\}}
 \quad\mbox{and}\quad
-(\partial_j,1) : \calR_{A,A \setminus \{i,j\}} \to 
+(\partial_{A,j},1) : \calR_{A,A \setminus \{i,j\}} \to 
 \calR_{A \setminus \{j\},A \setminus \{i,j\}}
 $$
 are crossed module homomorphisms.
 
 It follows that all the actions act via $R$~:
 $$
-a^b ~=~ a^{\partial_B b} \quad\mbox{for}\quad
+a^b ~=~ a^{\partial_{B,B} b} \quad\mbox{for}\quad
 a \in R_A,~ b \in R_B, ~~\mbox{and}~~ B \subseteq A.
 $$
 
@@ -195,14 +72,14 @@ given by ~$a \bt b = a^{-1}a^b$ and $b \bt a = (a^{-1})^ba$.
 Various axioms relating the homomorphisms, actions, and crossed pairings, 
 for example
 \begin{itemize}
-\item~ $\partial_i(a \bt_{A,B} b) = 
-        (\partial_i a) \bt_{A\setminus\{i\},B\setminus\{i\}} (\partial_i b)$.
+\item~ $\partial_{A \cup B,i}(a \bt_{A,B} b) = 
+    (\partial_{A,i} a) \bt_{A\setminus\{i\},B\setminus\{i\}} (\partial_{B,i} b)$.
 \item~ when $i \in A \cap B$, so that
 $A \cup B = (A \setminus \{i\}) \cup B = A \cup (B \setminus \{i\})$,
 $$
 a \bt_{A,B} b
-~=~ \partial_i a \bt_{A\setminus\{i\},B} b
-~=~ a \bt_{A,B\setminus\{i\}} \partial_i b.
+~=~ \partial_{A,i} a \bt_{A,B\setminus\{i\}} b
+~=~ a \bt_{A\setminus\{i\},B} \partial_{B,i} b.
 $$
 (This means that we need only define $\bt_{A,B}$ when $A \cup B = \emptyset$.)
 \item~ $(a \bt b)^c ~=~ a^c \bt b^c$ when $C \subseteq A$ and $C \subseteq B$.
@@ -212,7 +89,7 @@ $$
 \end{enumerate}
 
 \bigskip
-What wish to define an \emph{$n$-derivation}, 
+We might now wish to define an \emph{$n$-derivation}, 
 which would seem to be a set of maps
 $$
 \chi_{B,A} : R_B \to R_A  \quad\mbox{for all}\quad  B \subseteq A
@@ -238,40 +115,92 @@ from those of a crossed $2$-cube.}
 {\bf [These are just some thoughts to be worked on!]}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Catn-groups}  \index{cat$^n$-group} 
 
-A cat$^n$-group consists of the following.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Cat$^n$-groups}  \index{cat$^n$-group} 
+
+As with cat$^2$-groups (see \ref{subs:cattwo}), 
+we will give three definitions. 
+
+\begin{defn} \label{def:catna}
+\emph{A cat$^n$-group consists of the following.} 
 \begin{enumerate}[(i)]
 \item
-$2^n$ groups  $G_A$  for each subset  $A$  of  $[n]$. 
-
+\emph{$2^n$ groups  $G_A$, one for each subset  $A$  of  $[n]$, 
+the \emph{vertices} of a cube.} 
 \item
-Group homomorphisms
+\emph{Group homomorphisms forming $n2^{n-1}$ commuting cat$^1$-groups,} 
 $$
-t_i, h_i : G_A \to G_{A \setminus \{i\}}, ~~
-e_i : G_{A \setminus \{i\}} \to G_A,
-\quad\mbox{for all} \quad 
-A \subseteq [n],~ i \in [n]
+\calC_{A,i} = (e_{A,i};\ t_{A,i},\ h_{A,i} : G_A \to G_{A \setminus \{i\}}), 
+\quad\mbox{\emph{for all}} \quad A \subseteq [n],~ i \in A,  
 $$
-such that
-\begin{itemize}
-\item~  
-$t_i = h_i = e_i = \id_{R_A}$  when  $i \notin A$,
-\item~ 
-$t_i t_j = t_j t_i,~
- h_i h_j = h_j h_i ~\mbox{and}~
- e_i e_j = e_j e_i ~\mbox{for}~ i,j \in [n]$,
-\item~
-$t_i h_j = h_j t_i ~\mbox{for}~ i \neq j$.
-\end{itemize}
-
-\noindent
-Since the $t_i, h_i$ and $e_i$ commute, composite homomorphisms
-$t_B, h_B : R_A \to R_{A \setminus B}$ and 
-$e_A : R_B \to R_{A \cup B}$ 
-are well defined.
+\emph{the \emph{edges} of the cube.} 
+\item 
+\emph{These cat$^1$-groups combine (in sets of $4$) 
+to form $n(n-1)2^{n-3}$ cat$^2$-groups $\calC_{A,\{i,j\}}$ 
+for all $\{i,j\} \subseteq A \subseteq [n],~ i \neq j$, 
+the \emph{faces} of the cube.} 
 \end{enumerate}
+\end{defn}
+Note that, since the $t_{A,i}, h_{A,i}$ and $e_{A,i}$ commute, 
+composite homomorphisms
+$t_{A,B}, h_{A,B} : G_A \to G_{A \setminus B}$ and 
+$e_{A,B} : G_{A \setminus B} \to G_A$ 
+are well defined for all $B \subseteq A \subseteq [n]$.  
 
+\medskip 
+Secondly, we give the simplest of the three definitions, 
+again adapted from Ellis-Steiner \cite{ell:st}. 
+\begin{defn} \label{defn:catnb} 
+\emph{A cat$^n$-group  $\calC$ consists of $2^n$ groups 
+$G_A$, one for each subset  $A$  of  $[n]$, 
+and $3n$ homomorphisms 
+$t_{[n],i}, h_{[n],i} : G_{[n]} \to G_{n \setminus \{i\}},~ 
+ e_{[n],i} : G_{[n] \setminus \{i\}} \to G_{[n]}$,  
+satisfying the following axioms for all $1 \leqslant i \leqslant n$,}  
+\begin{enumerate}[(a)]
+\item~ \emph{the 
+$
+\calC_{[n],i} = (e_{[n],i};t_{[n],i},h_{[n],i}:G_{[n]} \to G_{[n] \setminus \{i\}}) 
+$
+are \emph{commuting} cat$^1$-groups, so that:} 
+\item~ 
+$
+(e_1 \circ t_1) \circ (e_2 \circ t_2) = (e_2 \circ t_2) \circ (e_1 \circ t_1), \quad
+(e_1 \circ h_1) \circ (e_2 \circ h_2) = (e_2 \circ h_2) \circ (e_1 \circ h_1), 
+$
+\item~ 
+$
+(e_1 \circ t_1) \circ (e_2 \circ h_2) = (e_2 \circ h_2) \circ (e_1 \circ t_1), \quad 
+(e_2 \circ t_2) \circ (e_1 \circ h_1) = (e_1 \circ h_1) \circ (e_2 \circ t_2). 
+$
+\end{enumerate}
+\end{defn} 
+
+\medskip 
+Our third definition defines a cat$^n$-group as a 
+"cat$^1$-group of cat$^{(n-1)}$-groups". 
+\begin{defn} \label{defn:catnc} 
+\emph{A cat$^n$-group $\calC$ consists of two cat$^{(n-1)}$-groups:} 
+\begin {itemize} 
+\item
+\emph{$\calA$ with groups $G_A, A \subseteq [n-1]$, 
+and homomorphisms $\ddtt_{A,i}, \ddhh_{A,i}, \ddee_{A,i}$,} 
+\item 
+\emph{$\calB$ with groups $H_B, B \subseteq [n-1]$,
+and homomorphisms $\dtt_{B,i}, \dhh_{B,i}, \dee_{B,i}$,} 
+\item 
+\emph{and cat$^{(n-1)}$-morphisms $t,h : \calA \to \calB$ 
+and $e : \calB \to \calA$
+subject to the following conditions:} 
+\begin{center}
+\begin{tabular}{r l}
+\textbf{C1:}  &  \emph{$(t \circ e)$ and $(h \circ e)$~ 
+                 are the identity mapping on~ $\calB$,} \\
+\textbf{C2:}  &  $[\ker t, \ker h] = \{ 1_{\calA} \}$.
+\end{tabular}
+\end{center}
+\end{itemize}
+\end{defn}
 
 
