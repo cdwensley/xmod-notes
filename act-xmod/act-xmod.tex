@@ -1,9 +1,9 @@
-%% act-xmod.tex,  version 02/05/17
+%% act-xmod.tex,  version 27/03/18
 
 \section{The Actor of a Crossed Module} \label{sect:actor}
 
 This section is based on the material covered in pages 25-28 
-of Norrie's thesis \cite{nor2}. 
+of Norrie's thesis \cite{norrie-thesis}. 
 We will, however, be extending her actor crossed module $\Act(\calX)$ 
 to the more general $\Act_{\gamma}(\calX)$ where $\gamma$ 
 is an automorphism of $\calX$. 
@@ -226,7 +226,7 @@ $$
 \quad \mbox{and} \quad
 \da(q^r) = (\da q)^{\da r}
 \quad \mbox{for all} \;\;
-s \in S \;\; \mbox{and} \;\; q,r \in \,, 
+s \in S \;\; \mbox{and} \;\; q,r \in R\,, 
 $$ 
 with composition \quad 
 $\alpha_1 \ast_{\gamma} \alpha_2 
@@ -260,12 +260,12 @@ is defined in Subsection \ref{subs:inner-morphism} below):
   S \ar[dd]_{\partial}
     &&&  S \ar[lll]_{\dda,\;\ddb_r,\;\ddb_{\chi},\;\ddg} 
             \ar[dd]_{\partial} \ar[rr]^{\ddi_{\gamma}}
-         &&  W  \ar[dd]^{\Delta_{\gamma}}   \\
+         &&  W_{\gamma}  \ar[dd]^{\Delta_{\gamma}}   \\
     &&& &&   \\
   R
     &&&  R \ar[lll]^{\da,\;\db_r,\;\db_{\chi},\;\dg} 
             \ar[rr]_{\di_{\gamma}}
-         &&  A \\
+         &&  A_{\gamma} \\
 }} 
 \end{equation}
 
@@ -288,11 +288,9 @@ $$
 $$
 
 \noindent
-Put  $\chi^{\alpha} \;=\; \chi^+$
-and  $\Delta_{\gamma}(\chi^+) \;=\; \alpha^+ \;=\; (\dda^+,\da^+)\,$.
-Then
+Now $\Delta_{\gamma}(\chi^{\alpha}) \;=\; \beta_{\chi^{\alpha}}\,$ where 
 \begin{eqnarray*} 
-\dda^+ s \;=\; (\ddg s)(\chi^+ \partial s)
+\ddb_{\chi^{\alpha}} s \;=\; (\ddg s)(\chi^{\alpha} \partial s)
   & = & 
     (\ddg s)(\dda\ddg^{-1}\chi\da^{-1}\dg\partial s)
   \;=\;
@@ -303,7 +301,7 @@ Then
     \dda\ddg^{-1}\ddb_{\chi}(\dda^{-1}\ddg s)
   \;=\;
     (\gamma * \alpha^{-1} * \beta_{\chi} * \gamma^{-1} * \alpha) \, s ~, \\
-\da^+ r \;=\; (\dg r)(\partial \chi^+ r)
+\db_{\chi^{\alpha}} r \;=\; (\dg r)(\partial \chi^{\alpha} r)
   & = &
     (\dg r)(\partial \dda \ddg^{-1} \chi \da^{-1} \dg r)
   \;=\;
@@ -421,7 +419,7 @@ The $\gamma$-version of the \emph{inner actor crossed module} of $\calX$
 is the image $\iota_{\gamma}\calX$. 
 The source group consists of the principal $\gamma$-derivations, 
 and the range group consists of the $\gamma$-conjugation automorphisms. 
-For further details see Norrie's thesis \cite{nor2}. 
+For further details see Norrie's thesis \cite{norrie-thesis}. 
 
 
 
@@ -591,11 +589,7 @@ A \ltimes W,~ A \ltimes R,~ A$.]}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%
-\input{act-xmod/act-xmod_5.tex}
-%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%
-\input{act-xmod/act-xmod_6.tex}
+\input{act-xmod/act-xmod-67.tex}
 %%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,4 +1,4 @@
-% der-sect.tex  (02/05/17)
+% der-sect.tex  (31/03/18)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Derivations and Sections} \label{sect:der-sec}
@@ -7,11 +7,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Derivations} \label{subsec:der} \index{derivations}
 
-The Whitehead monoid \index{Whitehead monoid} $\Der(\calX)$  of  $\calX$ 
-was defined in \cite{W-48b} 
-to be the monoid of all {\it derivations}
-from $R$ to $S$, that is the set of all maps  $R \to S$,
-with composition  $\ \star \ $, satisfying
+The Whitehead monoid \index{Whitehead monoid} $\Der(\calX)$  of  
+$\calX = (\partial : S \to R)$ was defined in \cite{W-48b} 
+to be the monoid of all {\it derivations} from $R$ to $S$, 
+that is the set of all maps  $R \to S$, with composition  $\ \star \ $, satisfying
 \begin{center}
 \begin{tabular}{c r c l }
 \textbf{D1:}  &  $\chi(qr)$              &  = 
@@ -33,7 +32,7 @@ The Whitehead group $W = W(\calX)$ is the group of the monoid.
 In Brown and Gilbert \cite{brow:gilb} the notion of derivation 
 was extended to that of $\gamma$-derivation, as in the following definition. 
 Since ordinary derivations may be obtained from $\gamma$-derivations 
-by setting $\gamma$ to be the identity automorphism oh $\calX$, 
+by setting $\gamma$ to be the identity automorphism of $\calX$, 
 we shall give properties in terms of the more general case. 
 
 \begin{defn} \index{$\gamma$-derivation}
@@ -290,7 +289,7 @@ $\chi\partial(s_1s_2 \ldots s_k) \;=\;
 
 \medskip 
 It is straightforward to verify that for $g$ an invertible element 
-in a monoid $M$, the set $M_g = (M,\ast_g)$ of elements in $M$ with 
+in a monoid $M$, the set $M_g = (M,\ast_g)$ with elements $M$ and 
 multiplication $\ast_g$ defined in terms of the usual multiplication by
 \begin{equation} \label{eq:star-g-defn} 
 m \ast_g n ~:=~ mg^{-1}n, 
@@ -301,7 +300,7 @@ $\overline{m} := gm^{-1}g$.
 The resulting monoids are isomorphic, 
 either by $\theta_g : M \to M_g, m \mapsto mg$ 
 or by $\theta'_g : M \to M_g, m \mapsto gm$.  
-When $M$ is a group the $g$-conjugation automorphisms are the  
+When $M$ is a group the $g$-conjugation automorphisms are the mappings 
 \begin{equation} \label{eq:g-conj} 
 \wedge_g m \;:\; G \to G,~ 
     n \,\mapsto\, \overline{m} \ast_g n \ast_g m = gm^{-1}ng^{-1}m\,. 
@@ -558,7 +557,7 @@ $$
 ~=~ 
 (\Delta_{\gamma} : W_{\gamma}(\calX) \to \Aut_{\gamma}(\calX))~. 
 $$
-Lue and Norrie, in \cite{lue1,lue2,nor2,nor1}, 
+Lue and Norrie, in \cite{lue1,lue2,norrie-thesis,nor1}, 
 showed that $\Act(\calX)$ is the automorphism object of  $\calX$
 in the category \catXMod.
 Gilbert, in \cite{gilb1}, has discussed a connection between

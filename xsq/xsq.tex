@@ -1,151 +1,179 @@
-% xsq.tex,  version 03/05/17
+% xsq.tex,  version 28/09/19
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Crossed Squares and cat$^2$-groups} \label{sect:xsq-cat2}
+\section{Crossed Squares and Cat$^2$-groups} \label{sect:xsq-cat2}
 
 Crossed squares were introduced by Guin-Wal\'ery and Loday 
 (see, for example, \cite{walery:loday,loday1,brow:lod})
 as fundamental crossed squares of commutative squares of spaces,
 but are also of purely algebraic interest.
-We denote by $[n]$ the set $\{1,2,\ldots,n\}$.
-We use the $n=2$ version of the definition of crossed $n$-cube
-as given by Ellis and Steiner \cite{ell:st}.
+%We denote by $[n]$ the set $\{1,2,\ldots,n\}$.
+%We use the $n=2$ version of the definition of crossed $n$-cube
+%as given by Ellis and Steiner \cite{ell:st}.
 
 \begin{defn} \label{def:xsq}  \index{crossed square}
 A crossed square consists of the following:
-\begin{itemize}
+\begin{enumerate}[{\rm (i)}]
 \item
 a commutative diagram of group homomorphisms
-\begin{equation} \label{eq:Rsquare}
+\begin{equation} \label{eq:Ssquare}
 \vcenter{\xymatrix{
-       &   &  R_{[2]} \ar[rr]^{\ddbdyo} \ar[dd]_{\ddbdyt} 
-              && R_{\{2\}} \ar[dd]^{\dbdyt} &   \\
-\calR  & = &  &&                 & ; \\
-       &   &  R_{\{1\}} \ar[rr]_{\dbdyo}  
-              && R_{\emptyset} 
+       &   &  L \ar[rr]^{\kappa} \ar[dd]_{\lambda} 
+              && M \ar[dd]^{\mu} &   \\
+\calS  & = &  &&                 & ; \\
+       &   &  N \ar[rr]_{\nu}  
+              && P 
 }} 
 \end{equation}
 \item
-actions of $R_{\emptyset}$ on $R_{\{1\}}, R_{\{2\}}$ and $R_{[2]}$ 
+actions of $P$ on $N, M$ and $L$ 
 which determine actions of 
-$R_{\{1\}}$ on $R_{\{2\}}$ and $R_{[2]}$ via $\dbdyo$ 
+$N$ on $M$ and $L$ via $\nu$ 
 and actions of 
-$R_{\{2\}}$ on $R_{\{1\}}$ and $R_{[2]}$ via $\dbdyt$~;
+$M$ on $N$ and $L$ via $\mu$~;
 \item
-a function ~ $\bt : R_{\{1\}} \times R_{\{2\}} \to R_{[2]}$~.
-\end{itemize}
+a function ~ $\bt : N \times M \to L$~.
+\end{enumerate}
 The following axioms must be satisfied for all 
-$l \in R_{[2]},\; m,m_1,m_2 \in R_{\{1\}},\; 
-n,n_1,n_2 \in R_{\{2\}},\; p \in R_{\emptyset}$~:
+$l \in L,\; m,m_1,m_2 \in M,\; 
+n,n_1,n_2 \in N,\; p \in P$~:
 \begin{enumerate}[{\rm (a)}]
 \item 
-the homomorphisms $\ddbdyo, \ddbdyt$ preserve the action of $R_{\emptyset}$~;
+the homomorphisms $\kappa, \lambda$ preserve the action of $P$~;
 \item 
 each of 
-$~\ddcalRo = (\ddbdyo : R_{[2]} \to R_{\{2\}}),
- ~\ddcalRt = (\ddbdyt : R_{[2]} \to R_{\{1\}}), 
- ~\dcalRo  = (\dbdyo : R_{\{1\}} \to R_{\emptyset}),
- ~\dcalRt  = (\dbdyt : R_{\{2\}} \to R_{\emptyset})~$
+$~\calK = (\kappa : L \to M),
+ ~\calL = (\lambda : L \to N), 
+ ~\calM  = (\mu : M \to P),
+ ~\calN  = (\nu : N \to P)~$
 and the diagonal  
-$~\calRot = (\bdyot = \dbdyo\ddbdyt = \dbdyt\ddbdyo 
-             : R_{[2]} \to R_{\emptyset})~$ 
-are crossed modules (with actions via $R_{\emptyset}$);
+$~\calD = (\delta = \nu\circ\lambda = \mu\circ\kappa : L \to P)~$ 
+are crossed modules;
 \item 
 $\bt$ is a \emph{crossed pairing}:
 \begin{enumerate}[{\rm (i)}]
 \item
-$(m_1m_2 \bt n)\;=\;{(m_1 \bt n)}^{m_2}\;(m_2 \bt n)$~,
+$(n_1n_2 \bt m)\;=\;{(n_1 \bt m)}^{n_2}\;(n_2 \bt m)$~,
 \item
-$(m \bt n_1n_2) \;=\; (m \bt n_2)\;{(m \bt n_1)}^{n_2}$~,
+$(n \bt m_1m_2) \;=\; (n \bt m_2)\;{(n \bt m_1)}^{m_2}$~,
 \item 
-$(m \bt n)^{p} \;=\; (m^p \bt n^p)$~;
+$(n \bt m)^{p} \;=\; (n^p \bt m^p)$~;
 \end{enumerate}
 \item\quad
-$\ddbdyo (m \bt n) \;=\; (n^{-1})^{m}\;n$
+$\lambda (n \bt m) \;=\; n^{-1}\;n^m$
 \quad \mbox{and} \quad
-$\ddbdyt (m \bt n) \;=\; m^{-1}\;m^{n}$~,
+$\kappa (n \bt m) \;=\; (m^{-1})^n\;m$~, 
 \item\quad
-$(m \bt \ddbdyo l) \;=\; (l^{-1})^{m}\;l$
+$(\lambda l \bt m) \;=\; l^{-1}\;l^m$ 
 \quad \mbox{and} \quad
-$(\ddbdyt l \bt n) \;=\; l^{-1}\;l^n$~.
+$(n \bt \kappa l) \;=\; (l^{-1})^n\;l$~. 
 \end{enumerate}
 \end{defn}
 
-Note that the actions of  $R_{\{1\}}$  on  $R_{\{2\}}$  and  $R_{\{2\}}$  
-on  $R_{\{1\}}$  via  $R_{\emptyset}$
+Note that the actions of  $N$  on  $M$  and  $M$  
+on  $N$  via  $P$
 are compatible since
 $$
-{m_1}^{(n^m)} \;=\; {m_1}^{\dbdyt(n^m)} \;=\; {m_1}^{m^{-1}(\dbdyt n)m}
+{m_1}^{(n^m)} \;=\; {m_1}^{\nu(n^m)} \;=\; {m_1}^{m^{-1}(\nu n)m}
 \;=\; (({m_1}^{m^{-1}})^n)^m~.
 $$
+Note also that identities c(i) and c(ii) are based on the commutatort identities 
+$$
+[n,m] ~=~ n^{-1}m^{-1}nm, \qquad 
+[n_1n_2,m] ~=~ [n_1,m]^{n_2}[n_2,m], \qquad 
+[n,m_1m_2] ~=~ [n,m_2][n,m_1]^{m_2} .
+$$
 
-\begin{lem}
-Pairs $\partial_1 = (\ddbdyo,\dbdyo)$ and  $\partial_2 = (\ddbdyt,\dbdyt)$ 
-are morphisms of crossed modules, and so also are
-$(1_{R_{[2]}},\dbdyo)$, $(1_{R_{[2]}},\dbdyt)$,
-$(\ddbdyt,1_{R_{\emptyset}})$  and  $(\ddbdyo,1_{R_{\emptyset}})$.
+\begin{lem} 
+$$
+1 = (1 \bt n) = (m \bt 1 ) 
+\qquad\mbox{and}\qquad 
+(m \bt n )^{-1} = (m^{-1} \bt n)^m = (m \bt n^{-1})^n. 
+$$
 \end{lem}
 \begin{pf}
-%This is immediate from axiom (a). \quad {\bf [Is this correct?]}
-For $\partial_1$ we note that (\ref{eq:Rsquare}) commutes,
-that  $\ddbdyo(\ell^m) = (\ddbdyo l)^m$  by (a),
-and that  $(\ddbdyo \ell)^m = (\ddbdyo \ell)^{\dbdyo m}$  by (b).
+These follow immediately on expanding 
+$(m.1 \bt n),\ (m \bt n.1),\ (m^{-1}m \bt n)$ and $(m \bt n^{-1}n)$. 
+\end{pf}
+
+\begin{lem}
+Pairs $(\kappa,\nu) : \calL \to \calM$ and  $(\lambda,\mu) = \calK \to \calN$ 
+are morphisms of crossed modules, and so also are
+$(\id_{L},\nu) : \calL \to \calD$,~ $(\id_{L},\mu) : \calK \to \calD$,~
+$(\lambda,\id_{P}) : \calD \to \calN$  and  $(\kappa,1_{P}) : \calD \to \calM$.
+\end{lem}
+\begin{pf}
+For $(\kappa,\nu)$ we note that (\ref{eq:Ssquare}) commutes,
+that  $\kappa(\ell^m) = (\kappa l)^m$  by (a),
+and that  $(\kappa \ell)^n = (\kappa \ell)^{\nu n}$  by (ii).
 The arguments for the other five morphisms are similar.
 \end{pf}
 
 \medskip\noindent
 Note in particular that
 $$
-\ddbdyo(\ell^p) = (\ddbdyo \ell)^p
+\kappa(\ell^p) = (\kappa \ell)^p
 \qquad \mbox{and} \qquad
-\ddbdyt(\ell^p) = (\ddbdyt \ell)^p.
+\lambda(\ell^p) = (\lambda \ell)^p.
 $$
 
 \begin{lem} \label{lem:xsq}
-In the crossed square  $\calR$  above:
+In the crossed square  $\calS$  above:
 \begin{enumerate}[{\em (a)}]
 \item~
+\vspace*{-5mm} 
 $$
-\ell^{(m \bt n)} \quad = \quad \ell^{[m,n]}\,,
-$$
-\item~
-$$
-\ell^{nm}\,(m \bt n) ~=~ (m \bt n)\,\ell^{mn}
-\qquad\mbox{and}\qquad
-\ell^{(n^m)}\,(m \bt n) ~=~ (m \bt n)\,\ell^{n}\,.
+\ell^{(n \bt m)} \quad = \quad \ell^{[n,m]}\,,
 $$
 \item~
+\vspace*{-5mm} 
 $$
-m^{\ddbdyo\ell} = m^{\ddbdyt\ell}
+\ell^{mn}\,(n \bt m) ~=~ (n \bt m)\,\ell^{nm}
 \qquad\mbox{and}\qquad
-n^{\ddbdyt\ell} = n^{\ddbdyo\ell}\,.
+\ell^{(m^n)}\,(n \bt m) ~=~ (n \bt m)\,\ell^{m}\,, 
+$$
+\item~
+\vspace*{-5mm} 
+$$
+m^{\lambda\ell} = m^{\kappa\ell}
+\qquad\mbox{and}\qquad 
+n^{\lambda\ell} = n^{\kappa\ell}\,,
+$$
+\item~
+\vspace*{-5mm} 
+$$
+(n \bt m)^{m'n'} (n' \bt m') ~=~ (n' \bt m')(n \bt m)^{n'm'}\,. 
 $$
 \end{enumerate}
 \end{lem}
 \begin{pf}
 \begin{enumerate}[(a)]
-\item
+\item 
+By the crossed module identity {\bf (X2)}, 
 $$
-\ell^{(m \bt n)}
-  \;=\;  \ell^{\dbdyo\ddbdyt(m \bt n)}
-  \;=\;  \ell^{m^{-1}\,m^n}
-  \;=\;  \ell^{m^{-1}n^{-1}mn}
-  \;=\;  \ell^{[m,n]}~.
+\ell^{(n \bt m)}
+  \;=\;  \ell^{\nu\lambda(n \bt m)}
+  \;=\;  \ell^{\nu(n^{-1}n^m)}
+  \;=\;  \ell^{\nu(n^{-1}n^{\mu m})}
+  \;=\;  \ell^{[\nu n, \mu m]}
+  \;=\;  \ell^{[n,m]}~.
 $$
 \item
 The first identity is given by
 $$
-(m \bt n)^{-1}\,\ell^{nm}\,(m \bt n) \;=\;
-\ell^{nm\ddbdyo(m \bt n)} \;=\;
-\ell^{nm({n^{-1}}^m)n} \;=\;
-\ell^{mn}~.
+(n \bt m)^{-1}\,\ell^{mn}\,(n \bt m) \;=\;
+\ell^{mn\lambda(n \bt m)} \;=\;
+\ell^{mn({n^{-1}})n^m} \;=\;
+\ell^{nm}~.
 $$
-Then replace $\ell$ by $\ell^{m^{-1}}$ to get the second.
+Then replace $\ell$ by $\ell^{n^{-1}}$ to get the second.
 \item
 $$
-m^{\ddbdyo\ell} ~=~ m^{\dbdyt\ddbdyo\ell} ~=~ m^{\dbdyo\ddbdyt\ell} 
-~=~  m^{\ddbdyt\ell} 
-$$
+m^{\lambda\ell} ~=~ m^{\nu\lambda\ell} ~=~ m^{\mu\kappa\ell} 
+~=~  m^{\kappa\ell}~, \qquad\mbox{and similarly for}~ n. 
+$$ 
+\item
+Expand $(nn' \bt mm')$ in two different ways. 
 \end{enumerate}
 \end{pf}
 
@@ -154,87 +182,70 @@ $$
 \subsection{Examples of crossed squares}
 
 \begin{example}
-\emph{If $M, N$ are normal subgroups of the group $P$ 
-then the diagram of inclusions}
+If $M, N$ are normal subgroups of the group $P$ 
+then the diagram of inclusions 
 $$
 \xymatrix{
-M \cap N \ar[rr]^(0.6){\ddiio} \ar[dd]_{\ddiit} \ar[rrdd]^{\iiot} 
-  && N \ar[dd]^{\diit} \\
+M \cap N \ar[rr]^(0.6){i_1} \ar[dd]_{i_2} \ar[rrdd]^{i_{12}} 
+  && M \ar[dd]^{i_M} \\
        \\
-M \ar[rr]_{\diio}  
+N \ar[rr]_{i_N}  
   && P 
 }
 $$
-\emph{together with the actions of $P$ on $M, N$ 
-and $M \cap N$ given by conjugation and the function}
+together with the actions of $P$ on $M, N$ 
+and $M \cap N$ given by conjugation and the function 
 $$
-\bt \;:\; M \times N \to M\cap N, \quad (m,n) \mapsto [m,n]\,=\,m^{-1}n^{-1}mn
+\bt \;:\; N \times M \to M \cap N, \quad (n,m) \mapsto [n,m]\,=\,n^{-1}m^{-1}nm
 $$
-\emph{is a crossed square.
-We may check the axioms as follows:}
+is a crossed square.
+We may check the axioms as follows: 
 \begin{enumerate}[{\rm (a)}]
 \item
 The identity maps preserve $P$-actions.
 \item
 The five crossed modules are all conjugation crossed modules.
-\item
-We verify the three commutator identities:
-\begin{enumerate}[{\rm (i)}]
-\item
-\begin{eqnarray*}
-(m_1m_2 \bt n) \;=\; [m_1m_2,n] 
-  & = &  (m_1m_2)^{-1} n^{-1} (m_1m_2) n  \\
-  & = &  m_2^{-1}\{m_1^{-1}n^{-1}m_1n\}m_2\;m_2^{-1} n^{-1} m_2 n  \\
-  & = &  [m_1,n]^{m_2}\;[m_2,n]~;  
-\end{eqnarray*}
-\item
-\begin{eqnarray*}
-(m \bt n_1n_2) \;=\; [m,n_1n_2] 
-  & = &  m^{-1} (n_1n_2)^{-1} m (n_1n_2)  \\
-  & = &  m^{-1} n_2^{-1} m n_2\;n_2^{-1}\{m^{-1}n_1^{-1}mn_1\}n_2  \\
-  & = &  [m,n_2]\;[m,n_1]^{n_2}~;
-\end{eqnarray*}
-\item
-\vspace{-5mm}
-\begin{eqnarray*}
-(m^p \bt n^p) \;=\; [m^p,n^p]
-  & = &  \{p^{-1}mp\}^{-1}\,\{p^{-1}np\}^{-1}\,\{p^{-1}mp\}\{p^{-1}np\}  \\
-  & = &  p^{-1}m^{-1}p\,p^{-1}n^{-1}p\,p^{-1}mp\,p^{-1}np \\
-  & = &  p^{-1}[m,n]p \;=\; [m,n]^p ~.
-\end{eqnarray*}
-\end{enumerate}
+\item 
+We have already noted that (i) and (ii) are analogues of commutator identities. 
+For (iii), 
+$$
+(n^p \bt m^p) \;=\; [n^p,m^p]
+  \;=\;  \{p^{-1}np\}^{-1}\,\{p^{-1}mp\}^{-1}\,\{p^{-1}np\}\{p^{-1}mp\}  \\
+ %\;=\;  p^{-1}m^{-1}p\,p^{-1}n^{-1}p\,p^{-1}mp\,p^{-1}np \\
+  \;=\;  p^{-1}[n,m]p \;=\; [n,m]^p\,.
+$$
 \item\quad
-$\ddiio (m \bt n) \;=\; (m^{-1}n^{-1}m)n \;=\; {n^{-1}}^m\,n$
+$\ddiio (n \bt m) \;=\; n^{-1}\,(m^{-1}nm) \;=\; n^{-1}\,n^m$
 \quad \emph{and} \quad
-$\ddiit (m \bt n) \;=\; m^{-1}\,(n^{-1}mn) \;=\; m^{-1}\,m^n$~.
+$\ddiit (n \bt m) \;=\; (n^{-1}m^{-1}n)m \;=\; {m^{-1}}^n\,m$~.
 \item\quad
-$(m \bt \ddiio l) \;=\; (m^{-1}l^{-1}m)l \;=\; {l^{-1}}^m\,l$
+$(n \bt i_1 l) \;=\; (n^{-1}l^{-1}n)l \;=\; (l^{-1})^n\,l$
 \quad \emph{and} \quad
-$(\ddiit l \bt n) \;=\; l^{-1}\,(n^{-1}ln) \;=\; l^{-1}\,l^n$~.
+$(i_2 l \bt m) \;=\; l^{-1}\,(m^{-1}lm) \;=\; l^{-1}\,l^m$~.
 \end{enumerate}
 \end{example}
 
-\medskip
+%\medskip
 \begin{example}
-\emph{If $M, N$ are ordinary $P-$modules and $A$ is an arbitrary abelian group
+If $M, N$ are ordinary $P-$modules and $A$ is an arbitrary abelian group
 on which $P$ is assumed to act trivially, 
-then there is a crossed square}
+then there is a crossed square 
 $$
 \xymatrix{
 A \ar[rr]^{0} \ar[dd]_{0} \ar[rrdd]^{0}  
-  && N \ar[dd]^{0} \\
+  && M \ar[dd]^{0} \\
   &&               \\
-M \ar[rr]_{0} 
+N \ar[rr]_{0} 
   && P 
 }
 $$
-\emph{Note that $M$ acts trivially on $N$, and conversely, 
-and that $m \bt n = 1_A$.} 
+Note that $M$ acts trivially on $N$, and conversely, 
+and that $n \bt m = 1_A$. 
 \end{example}
 
-\medskip
+%\medskip
 \begin{example}
-\emph{The diagram}
+The diagram 
 $$
 \xymatrix{
 M \ar[rr]^{\alpha} \ar[dd]_{\alpha}  && \Inn M \ar[dd]^{\iota} \\
@@ -242,22 +253,21 @@ M \ar[rr]^{\alpha} \ar[dd]_{\alpha}  && \Inn M \ar[dd]^{\iota} \\
 \Inn M \ar[rr]_{\iota}  && \Aut M 
 }
 $$
-\emph{is a crossed square, 
-where $\alpha$ maps $m \in M$
+is a crossed square, where $\alpha$ maps $m \in M$
 to the inner automorphism  $\beta_m : M \to M,\; 
 m^{\prime} \mapsto m^{-1}m^{\prime}m$~; 
 where $\iota$ is the inclusion of $\Inn M$  in  $\Aut M$;
-the actions are standard; and the crossed pairing is}
+the actions are standard; and the crossed pairing is 
 $$
 \bt \;:\; \Inn M \times \Inn M \to M, \quad
 (\beta_m, \beta_{m^{\prime}}) \;\mapsto\; [m, m^{\prime}]~.
 $$
 \end{example}
 
-\medskip
+%\medskip
 \begin{example}
-\emph{If $U, V$ are subspaces of a space $X$ with a point $x_0$ in common, 
-then the diagram of boundary maps}
+If $U, V$ are subspaces of a space $X$ with a point $x_0$ in common, 
+then the diagram of boundary maps 
 $$
 \xymatrix{
 \pi_3(X;U,V, x_0) \ar[rr] \ar[dd]  && \pi_2(V, U \cap V, x_0) \ar[dd] \\
@@ -265,61 +275,66 @@ $$
 \pi_2(U, U \cap V, x_0) \ar[rr] && \pi_1(U \cap V, x_0) 
 }
 $$
-\emph{in which $\pi_3(X;U,V,x_0)$ is the triad homotopy group, 
+in which $\pi_3(X;U,V,x_0)$ is the triad homotopy group, 
 together with the standard actions and the triad Whitehead product
 $$
 \bt \;:\; 
  \pi_2(U, U \cap V, x_0) \times \pi_2(V, U \cap V, x_0) 
  \;\to\; \pi_3(X;U, V, x_0)
 $$
-is a crossed square.}
+is a crossed square. 
 \end{example}
 
-\begin{lem} \label{lam:Stranspose}
+\begin{lem} \label{lem:Stranspose}
 The \emph{transpose}
 $$
 \xymatrix{
-  &  R_{[2]} \ar[rr]^{\ddbdyt} \ar[dd]_{\ddbdyo} 
-     &&  R_{\{1\}} \ar[dd]^{\dbdyo} \\
-\tilde{\calR} \quad = 
+  &  L \ar[rr]^{\lambda} \ar[dd]_{\kappa} 
+     &&  N \ar[dd]^{\nu} \\
+\tilde{\calS} \quad = 
   &  &&                             \\
-  &  R_{\{2\}} \ar[rr]_{\dbdyt} 
-     && R_{\emptyset} 
+  &  M \ar[rr]_{\mu} 
+     && P 
 }
 \xymatrix{
-  &&  R_{[2]} \ar[rr]^{\ddbdyo} \ar[dd]_{\ddbdyt} 
-     &&  R_{\{2\}} \ar[dd]^{\dbdyt} \\
-  & \mbox{of} \qquad \calR \quad =  
+  &&  L \ar[rr]^{\kappa} \ar[dd]_{\lambda} 
+     &&  M \ar[dd]^{\mu} \\
+  & \mbox{of} \qquad \calS \quad =  
    & &&                             \\
-  &&  R_{\{1\}} \ar[rr]_{\dbdyo} 
-     &&  R_{\emptyset} 
+  &&  N \ar[rr]_{\nu} 
+     &&  P 
 }
 $$
 is a crossed square with crossed pairing
 \begin{equation} \label{eq:btt}
-\btt \;:\; R_{\{2\}} \times R_{\{1\}} \to R_{[2]}, \quad 
-(n,m) \;\mapsto\; n \btt m := (m \bt n)^{-1}~.
+\btt \;:\; M \times N \to L, \quad 
+(m,n) \;\mapsto\; m \btt n := (n \bt m)^{-1}~.
 \end{equation}
 \end{lem}
 \begin{pf}
 \begin{eqnarray*}
-n_1n_2 \btt m
-  & = & (m \bt n_1n_2)^{-1}
-  \;=\; ((m \bt n_2)\,(m \bt n_1)^{n_2})^{-1} \\
-  & = & ((m \bt n_1)^{n_2})^{-1}\,(m \bt n_2)^{-1}
-  \;=\; (n_1 \btt m)^{n_2}\,(n_2 \btt m)~;\\
-n \btt m_1m_2
-  & = & (m_1m_2 \bt n)^{-1}
-  \;=\; ((m_1 \bt n)^{m_2}\,(m_2 \bt n))^{-1} \\
-  & = & ((m_2 \bt n)^{-1}\,((m_1 \bt n)^{m_2})^{-1}
-  \;=\; (n \btt m_2)\,(n \btt m_1)^{m_2}~.
+m_1m_2 \btt n
+  & = & (n \bt m_1m_2)^{-1}
+  \;=\; ((n \bt m_2)\,(n \bt m_1)^{m_2})^{-1} \\
+  & = & ((n \bt m_1)^{m_2})^{-1}\,(n \bt m_2)^{-1}
+  \;=\; (m_1 \btt n)^{m_2}\,(m_2 \btt n)~;\\
+m \btt n_1n_2
+  & = & (n_1n_2 \bt m)^{-1}
+  \;=\; ((n_1 \bt m)^{n_2}\,(n_2 \bt m))^{-1} \\
+  & = & ((n_2 \bt m)^{-1}\,((n_1 \bt m)^{n_2})^{-1}
+  \;=\; (m \btt n_2)\,(m \btt n_1)^{n_2}~;\\ 
+(m \btt n)^p 
+  & = & ((n \bt m)^{-1})^p 
+  \;=\; ((n \bt m)^p)^{-1} 
+  \;=\; (n^p \bt m^p)^{-1} 
+  \;=\; (m^p \btt n^p)~. 
 \end{eqnarray*}
 \end{pf}
 
-\newpage
+%\medskip
 \begin{example} \label{ex:actor-square} 
-\emph{The actor $\calA(\calX)$ of a crossed module $\calX$ 
-(see subsection \ref{subs:AX})}
+The actor crossed module $\calA(\calX)$ of a crossed module $\calX$ 
+(see subsection \ref{subs:AX}) 
 \begin{equation} \label{eq:actor}
 \vcenter{\xymatrix{ 
                &  S \ar[rr]^(0.45){\ddi} \ar[dd]_{\partial}
@@ -329,13 +344,14 @@ n \btt m_1m_2
                   &&  A
 }} 
 \end{equation}
-\emph{is a crossed square with crossed pairing}
+is a crossed square with crossed pairing 
 $$
 \bt \;:\;  R \times W \,\to\, S, \quad
 (r,\chi) \,\mapsto\, \chi r~.
 $$
-\emph{We already know that the square  $\calA$  contains $5$ crossed modules,
-but we still need to check the axioms which involve the crossed pairing:}
+We already know that the square  $\calA$  contains $5$ crossed modules,
+but we still need to check the axioms (c), (d), and (e) 
+which involve the crossed pairing: 
 \begin{enumerate}[{\rm (a)}]
 %\item
 %(Find some way of passing by the first two items.)
@@ -354,7 +370,7 @@ but we still need to check the axioms which involve the crossed pairing:}
   \;=\; (\chi_2 r)\,(\chi_1 r)^{\chi_2}
   \;=\; (r \bt \chi_2)\,(r \bt \chi_1)^{\chi_2}$~,
   \begin{flushright}
-    \emph{using the action in Lemma \ref{lem:deriv-act}.}
+    using the action of $W$ on $S$ given in Lemma \ref{lem:deriv-act}. 
   \end{flushright}
  \item
   $(r^{\beta} \bt \chi^{\beta})
@@ -364,44 +380,45 @@ but we still need to check the axioms which involve the crossed pairing:}
    \; = \; (r \bt \chi)^{\beta}$~.
  \end{enumerate}
 \item
-\emph{Since $\ddi(r \bt \chi) = \ddi(\chi r) = \eta_{\chi r}$,
-we wish to prove that}
-$$
-\eta_{\chi r} = (\chi^{-1})^r \star \chi
-\quad\mbox{\emph{or, equivalently,}}\quad
-\chi^r = \chi \star (\eta_{\chi r})^{-1} = \chi \star \eta_{(\chi r)^{-1}}\,.
-$$
-\emph{Starting with the right-hand side,}
-\begin{eqnarray*}
-(\chi \star \eta_{(\chi r)^{-1}})q
- & = & (\eta_{(\chi r)^{-1}}q)(\ddb_{\eta_{(\chi r)^{-1}}} \chi q) 
-        \hspace{34mm} \mbox{\emph{ by Lemma \ref{lem:gamma-beta-chi} (c)}} \\
- & = & (\chi r)^q (\chi r)^{-1} (\chi q)^{(\chi r)^{-1}} 
-        \hspace{33mm} \mbox{\emph{ by Lemma \ref{lem:princ-prop} (b)}} \\
- & = & (\chi r)^q (\chi q) (\chi r)^{-1} \\
- & = & (\chi r)^q (\chi q) (\chi r^{-1})^r 
-        \hspace{40mm} \mbox{\emph{ by Lemma \ref{lem:invchir} (b)}}    \\
- & = & \ddb_r((\chi r)^{qr^{-1}} (\chi q)^{r^{-1}} (\chi r^{-1})) \\
- & = & \ddb_r \chi(rqr^{-1})
-   ~=~ (\ddb_r\chi\db_r^{-1})q
-        \hspace{25mm} \mbox{\emph{ by Lemma \ref{lem:gamma-beta-chi} (c)}} \\
- & = & \chi^{\di r}q
-   ~=~ \chi^r q\,.
-\end{eqnarray*}
-\emph{The second formula follows by}\\
+The first formula follows by\\
 \hspace*{4mm}$\partial (r \bt \chi) 
   \;=\; \partial \chi(r) 
   \;=\; r^{-1} r (\partial \chi r) 
   \;=\; r^{-1} (\db_{\chi} r) 
-  \;=\; r^{-1} r^{\chi}$~.
+  \;=\; r^{-1} r^{\chi}$~.\\ 
+For the second formula, 
+since $\ddi(r \bt \chi) = \ddi(\chi r) = \eta_{\chi r}$, we wish to prove that
+$$
+\eta_{\chi r} = (\chi^{-1})^r \star \chi
+\quad\mbox{or, equivalently,}\quad
+\chi^r = \chi \star (\eta_{\chi r})^{-1} = \chi \star \eta_{(\chi r)^{-1}}\,.
+$$
+Starting with the right-hand side, 
+\begin{eqnarray*}
+(\chi \star \eta_{(\chi r)^{-1}})q
+ & = & (\eta_{(\chi r)^{-1}}q)(\ddb_{\eta_{(\chi r)^{-1}}} \chi q) 
+        \hspace{62mm} \mbox{ by Lemma \ref{lem:gamma-beta-chi} (c)} \\
+ & = & (\chi r)^q (\chi r)^{-1} (\chi q)^{(\chi r)^{-1}} 
+        \hspace{61mm} \mbox{ by Lemma \ref{lem:princ-prop} (b)} \\
+ & = & (\chi r)^q (\chi q) (\chi r)^{-1} 
+ \;=\; (\chi r)^q (\chi q) (\chi r^{-1})^r 
+        \hspace{34mm} \mbox{ by Lemma \ref{lem:invchir} (b)}    \\
+ & = & \ddb_r((\chi r)^{qr^{-1}} (\chi q)^{r^{-1}} (\chi r^{-1})) 
+ \;=\; \ddb_r \chi(rqr^{-1})
+   ~=~ (\ddb_r\chi\db_r^{-1})q
+        \hspace{2mm} \mbox{ by Lemma \ref{lem:gamma-beta-chi} (c)} \\
+ & = & \chi^{\di r}q
+   ~=~ \chi^r q\,.
+\end{eqnarray*}
 \item
-\quad $(r \bt \ddi(s)) \;=\; \eta_{s}(r) \;=\; (s^{-1})^r s$
-  \hspace{60mm} \emph{by Lemma \ref{lem:gamma-eta_s},} \\
-\hspace*{4mm}$(\partial s \bt \chi) 
+\quad $(\partial s \bt \chi) 
   \;=\; \chi(\partial s) 
   \;=\; s^{-1} s (\chi\partial s) 
   \;=\; s^{-1} (\ddb_{\chi} s) 
   \;=\; s^{-1} s^{\chi}$~, \\
+\medskip
+\hspace*{4mm}$(r \bt \ddi(s)) \;=\; \eta_{s}(r) \;=\; (s^{-1})^r s$
+  \hspace{74mm} by Lemma \ref{lem:gamma-eta_s}. \\
 \end{enumerate}
 \end{example}
 
@@ -411,66 +428,58 @@ $$
 \subsection{Morphisms of crossed squares} 
 \index{morphism!of crossed squares} 
 
-A morphism $\theta : \calR \to \calS$ of crossed squares 
+A morphism $\theta : \calS_1 \to \calS_2$ of crossed squares 
 is a $4$-tuple of group homomorphisms which commute with the
-morphisms in $\calR$ and $\calS$ and preserve all the actions
+morphisms in $\calS_1$ and $\calS_2$ and preserve all the actions
 and the crossed pairings.
 
 \begin{defn}
-A morphism $\theta : \calR \to \calS$ of crossed squares
+A morphism $\theta : \calS_1 \to \calS_2$ of crossed squares
 consists of four group homomorphisms
 $$
-\theta_{[2]} : R_{[2]} \to S_{[2]}, \quad
-\theta_{\{2\}} : R_{\{2\}} \to S_{\{2\}}, \quad
-\theta_{\{1\}} : R_{\{1\}} \to S_{\{1\}}, \quad
-\theta_{\emptyset} : R_{\emptyset} \to S_{\emptyset},
+\theta_L : L_1 \to L_2, \quad
+\theta_M : M_1 \to M_2, \quad
+\theta_N : N_1 \to N_2, \quad
+\theta_P : P_1 \to P_2,
 $$
 forming a commutative cube with the morphisms 
-$\ddbdy_j, \dbdy_j$ of $\calR$
-and $\ddg_j, \dg_j$ of $\calS$ (for $j \in \{1,2\})$,
+$\kappa_1, \lambda_1, \mu_1, \nu_1$ of $\calS_1$
+and $\kappa_2, \lambda_2, \mu_2, \nu_2$ of $\calS_2$,
 which pair off in appropriate ways to form crossed module morphisms
 $$
-(\theta_{[2]},\theta_{\{2\}}) : \ddcalRo \to \ddcalSo, \quad
-(\theta_{[2]},\theta_{\{1\}}) : \ddcalRt \to \ddcalSt, \quad
-(\theta_{\{2\}},\theta_{\emptyset}) : \dcalRt \to \dcalSt, \quad
-(\theta_{\{1\}},\theta_{\emptyset}) : \dcalRo \to \dcalSo,
+(\theta_L,\theta_M) : \calK_1 \to \calK_2, \quad
+(\theta_L,\theta_N) : \calL_1 \to \calL_2, \quad
+(\theta_M,\theta_P) : \calM_1 \to \calM_2, \quad
+(\theta_N,\theta_P) : \calN_1 \to \calN_2,
 $$
 and which preserve the crossed pairing: 
 $$
-\theta_{[2]}(m \bt_{\calR} n) ~=~ 
-(\theta_{\{1\}} m) \bt_{\calS} (\theta_{\{2\}} n).
+\theta_L(n \bt_1 m) ~=~ 
+(\theta_N n) \bt_2 (\theta_M m).
 $$
 \end{defn}
 
 \begin{defn} \label{def:aut-xsq} 
 \index{automorphism group!of a crossed square}
-The group $\Aut(\calR)$ of automorphisms of the crossed square $\calR$ is 
+The group $\Aut(\calS)$ of automorphisms of the crossed square $\calS$ is 
 $$
-\Aut(\calR) ~=~ \{ \alpha = 
-(\alpha_{[2]}, \alpha_{\{1\}}, \alpha_{\{2\}}, \alpha_{\emptyset}) 
- ~:~ \calR \to \calR \}
+\Aut(\calS) ~=~ \{ \alpha = 
+(\alpha_L, \alpha_M, \alpha_N, \alpha_P) ~:~ \calS \to \calS \}
 $$ 
 such that 
-$(\alpha_{[2]}, \alpha_{\{1\}}) $  is an automorphism of  $\ddcalRt$,
-$(\alpha_{[2]}, \alpha_{\{2\}}) $  is an automorphism of  $\ddcalRo$,
-$(\alpha_{\{2\}}, \alpha_{\emptyset}) $  is an automorphism of  $\dcalRt$, and 
-$(\alpha_{\{1\}}, \alpha_{\emptyset}) $  is an automorphism of  $\dcalRo$.
+$(\alpha_L, \alpha_M) $  is an automorphism of  $\calK$,
+$(\alpha_L, \alpha_N) $  is an automorphism of  $\calL$,
+$(\alpha_M, \alpha_P) $  is an automorphism of  $\calM$, 
+$(\alpha_N, \alpha_P) $  is an automorphism of  $\calN$, and 
+$\alpha_L(n \bt m) ~=~ (\alpha_N n) \bt (\alpha_M m)$. 
 \end{defn}
 
 \vspace*{15mm}
 \noindent
-{\bf [Do we also require the following?]}
-$$
-\alpha_{[2]}(m \bt n) ~=~ (\alpha_{\{1\}} m) \bt (\alpha_{\{2\}} n)
-~~{\bf ?}
-$$
-
-\vspace*{15mm}
-\noindent
-{\bf [Is there a crossed square version of Theorem 1.8~?]}
+{\bf [Surely there is a crossed square version of Theorem \ref{thm:tp-top}~?]}
 
 \begin{thm}
-Every crossed square is a quotient of normal inclusion crossed squares~ 
+Every crossed square is a quotient of normal inclusion crossed squares.~ 
 {\bf ?}
 \end{thm}
 
@@ -483,220 +492,170 @@ Every crossed square is a quotient of normal inclusion crossed squares~
 \subsection{Cat$^2$-groups}  \label{subs:cattwo}
 \index{cat$^2$-group} 
 
-We shall give three definitions of cat$^2$-groups 
-and show that they are equivalent. 
-When we come to define cat$^n$-groups we shall give a similar set of 
-three definitions. 
-
-Firstly, we take the definition of a cat$^2$-group from 
-Section 5 of Brown and Loday \cite{brow:lod}, suitably modified.
+When defining a cat$^2$-group we may require all the homomorphisms to be 
+endomorphisms, as in Definition \ref{defn:cat1-group1}, 
+or we may take a more general view, as in Definition \ref{defn:cat1-group2}. 
+For now, we consider only endomorphisms.  
+When we come to define cat$^n$-groups we shall give a similar set of definitions. 
+Firstly, we give the definition of a \emph{traditional} cat$^2$-group adapted from 
+Section 5 of Brown and Loday \cite{brow:lod} and Ellis-Steiner \cite{ell:st}.
 
 \begin{defn} \label{defn:cat2a} 
-\emph{A cat$^2$-group  $\calC = (\CCot,\CCbt,\CCbo,\CCe)$  
-comprises $4$ groups (one for each of the subsets of $[2]$) 
-and $15$ homomorphisms, as shown in the following diagram,}
-\begin{equation} \label{eq:cat2-diag1}
-\vcenter{\xymatrix{
- & C_{[2]} \ar[ddd] <-1.2ex>  \ar[ddd] <-2.0ex>_{\ddttt,\ddhht}
-     \ar[rrr] <+1.2ex>  \ar[rrr] <+2.0ex>^{\ddtto,\ddhho}
-     \ar[dddrrr] <-0.2ex>  \ar[dddrrr] <-1.0ex>_(0.55){\ttot,\hhot}
-    &&&  C_{\{2\}}  \ar[lll]^{\ddeeo}
-            \ar[ddd]<+1.2ex>  \ar[ddd] <+2.0ex>^{\dttt,\dhht}  \\
-\calC \quad = \quad
- &  &&&   \\
- &  &&&   \\
- & C_{\{1\}} \ar[uuu]_{\ddeet}
-     \ar[rrr] <-1.2ex>  \ar[rrr] <-2.0ex>_{\dtto,\dhho} 
-    &&&  C_{\emptyset} \ar[uuu]^{\deet}   \ar[lll]_{\deeo} 
-           \ar[uuulll] <-1.0ex>_{\eeot}
+\emph{A cat$^2$-group  $\calC = (G;\tau_1,\theta_1,\tau_2,\theta_2)$  
+comprises a group $G$ and $4$ endomorphisms, as shown in the following diagram, 
+where $Q_1 = \im\tau_1 = \im\theta_1$, $Q_2 = \im\tau_2 = \im\theta_2$ 
+and $Q_0 = Q_1 \cap Q_2$, }
+\begin{equation} \label{eq:cat2-diag-a}
+\vcenter{\xymatrix@R=30pt@C=30pt{
+ & G \ar[dd] <+0.5ex>  \ar[dd] <-0.5ex>_{\tau_2,\theta_2}
+     \ar[rr] <-0.5ex>  \ar[rr] <+0.5ex>^{\tau_1,\theta_1}
+     \ar[ddrr] <-0.5ex>  \ar[ddrr] <+0.5ex>_(0.55){\tau_0,\theta_0}
+    &&  Q_1 \ar[dd]<-0.5ex>  \ar[dd] <+0.5ex>^{\tau_2,\theta_2} \\ 
+\calC \quad = \quad \\
+ & Q_2 \ar[rr] <+0.5ex>  \ar[rr] <-0.5ex>_{\tau_1,\theta_1} 
+    &&  Q_0 
  \\
 }}
 \end{equation}
-
 \noindent
 \emph{subject to the following axioms:}
 \begin{enumerate}[(a)]
 \item~
-\emph{the four sides of the square are cat$^1$-groups,}
-\emph{denoted} $\ddcalCo, \ddcalCt, \dcalCo, \dcalCt$,
+\emph{$\calC_1 = (G;\tau_1,\theta_1)$ and $\calC_2 = (G;\tau_2,\theta_2)$ 
+are (traditional) cat$^1$-groups,}
 \item~
-$
- \dtto\circ\ddhht = \dhht\circ\ddtto, ~
- \dttt\circ\ddhho = \dhho\circ\ddttt, ~
- \deeo\circ\dttt = \ddttt\circ\ddeeo, ~
- \deet\circ\dtto = \ddtto\circ\ddeet, ~
- \deeo\circ\dhht = \ddhht\circ\ddeeo, ~
- \deet\circ\dhho = \ddhho\circ\ddeet,$
+$\tau_1 \circ \tau_2 = \tau_2 \circ \tau_1 = \tau_0, \quad  
+ \theta_1 \circ \theta_2 = \theta_1 \circ \theta_1 = \theta_0,$  
 \item~
-$\dtto\circ\ddttt = \dttt\circ\ddtto = \ttot, ~ 
- \dhho\circ\ddhht = \dhht\circ\ddhho = \hhot, ~
- \deeo\circ\ddeet = \deet\circ\ddeeo = \eeot,$
-
-\emph{making the diagonal a pre-cat$^1$-group
-$(e_{[2]}; t_{[2]}, h_{[2]} : C_{[2]} \to C_{\emptyset})$.}
+$\tau_1 \circ \theta_2 = \theta_2 \circ \tau_1, \quad 
+ \tau_2 \circ \theta_1 = \theta_1 \circ \tau_2.$ 
 \end{enumerate}
 \end{defn}
 
 \noindent
-It follows from these identities that 
-$(\ddtto,\dtto),\,(\ddhho,\dhho)$ and $(\ddeeo,\deeo)$ 
-are morphisms of cat$^1$-groups.
-
-\bigskip\noindent
-{\bf [It needs to be checked that the diagonal pre-cat$^1$-group 
-\emph{is} a cat$^1$-group.]}
-\index{Peiffer subgroup!of a cat$^1$-group} 
+If $r \in Q_0$ then $\tau_0r = \tau_1(\tau_2 r) = \tau_1r = r$, 
+and similarly for $\theta_0r$, so $\im\tau_0 = \im\theta_0 = Q_0$. 
+It is clear that $\calC_3 = (Q_1;\tau_2,\theta_2)$ 
+is a sub-cat$^1$-group of $\calC_2$
+and that $\calC_4 = (Q_2;\tau_1,\theta_1)$ 
+is a sub-cat$^1$-group of $\calC_1$. 
+It is easy to verify that $(G;\tau_0,\theta_0)$ is a cat$^1$-group since, 
+for example, 
+$$
+\tau_0\circ\theta_0 ~=~ \tau_1\circ\tau_2\circ\theta_1\circ\theta_2 
+                    ~=~ \tau_1\circ\theta_1\circ\tau_2\circ\theta_2 
+                    ~=~ \theta_1\circ\theta_2 
+                    ~=~ \theta_0.
+$$
+It also follows from these identities that, for example,  
+$(\tau_1,\tau_1)$ and $(\theta_1,\theta_1) : \calC_2 \to \calC_3$ 
+are morphisms of cat$^1$-groups. %% checked!
 
 \medskip 
-Secondly, we give the simplest of the three definitions, 
-adapted from Ellis-Steiner \cite{ell:st}. 
+Secondly, we give a definition of a cat$^2$-group using homomorphisms, 
+rather than endomorphisms. 
+
 \begin{defn} \label{defn:cat2b} 
-\emph{A cat$^2$-group  $\calC$ consists of groups $G, R_1,R_2$ 
-and six homomorphisms 
-$t_1,h_1 : G \to R_2,~ e_1 : R_2 \to G,~
- t_2,h_2 : G \to R_1,~ e_2 : R_1 \to G$,  
-satisfying the following axioms for all $1 \leqslant i \leqslant 2$,} 
+\emph{A cat$^2$-group  $\calC$ is generated by three cat$^1$-groups 
+$\calC_i = (e_i;t_i,h_i : G \to R_i), 0 \leqslant i \leqslant 2,$ 
+as shown in the following diagram,}
+\begin{equation} \label{eq:cat2-diag-b}
+\vcenter{\xymatrix@R=40pt@C=40pt{
+ & G \ar[dd] <-1.2ex>  \ar[dd] <-2.0ex>_{t_2,h_2}
+     \ar[rr] <+1.2ex>  \ar[rr] <+2.0ex>^{t_1,h_1}
+     \ar[ddrr] <-0.2ex>  \ar[ddrr] <-1.0ex>_(0.55){t_0,h_0}
+    &&  R_1  \ar[ll]^{e_1}
+             \ar[dd]<+1.2ex>  \ar[dd] <+2.0ex>^{t_3,h_3} \\ 
+\calC \quad = \quad \\
+ & R_2 \ar[uu]_{e_2}
+     \ar[rr] <-1.2ex>  \ar[rr] <-2.0ex>_{t_4,h_4} 
+    &&  R_0 \ar[uu]^{e_3}  \ar[ll]_{e_4}  \ar[uull] <-1.0ex>_{e_0}
+ \\
+}}
+\end{equation}
+\noindent 
+The remaining homomorphisms are defined by 
+\begin{eqnarray*} 
+t_3 = t_0 \circ e_1,  
+  &  h_3 = h_0 \circ e_1, 
+     &  e_3 = e_0 \circ t_1, \\ 
+t_4 = t_0 \circ e_2,  
+  &  h_3 = h_0 \circ e_2, 
+     &  e_3 = e_0 \circ t_2. 
+\end{eqnarray*} 
+\noindent 
+\emph{The following axioms must be satisfied:} 
 \begin{enumerate}[(a)]
-\item~
-$
-(t_i \circ e_i)r = r,~ (h_i \circ e_i)r = r,~ 
-\forall r \in R_{[2] \setminus \{i\}}, \quad 
-[\ker t_i, \ker h_i] = 1, 
-$
 \item~ 
 $
-(e_1 \circ t_1) \circ (e_2 \circ t_2) = (e_2 \circ t_2) \circ (e_1 \circ t_1), \quad
-(e_1 \circ h_1) \circ (e_2 \circ h_2) = (e_2 \circ h_2) \circ (e_1 \circ h_1), 
+(e_1 \circ t_1) \circ (e_2 \circ t_2) 
+= (e_2 \circ t_2) \circ (e_1 \circ t_1) 
+= e_0 \circ t_0, \quad
+(e_1 \circ h_1) \circ (e_2 \circ h_2) 
+= (e_2 \circ h_2) \circ (e_1 \circ h_1) 
+= e_0 \circ h_0, 
 $
 \item~ 
 $
 (e_1 \circ t_1) \circ (e_2 \circ h_2) = (e_2 \circ h_2) \circ (e_1 \circ t_1), \quad 
 (e_2 \circ t_2) \circ (e_1 \circ h_1) = (e_1 \circ h_1) \circ (e_2 \circ t_2). 
 $
+\item~ 
+$
+(t_0 \circ e_1) \circ (t_1 \circ e_0) = 1, \quad 
+(h_0 \circ e_1) \circ (t_1 \circ e_0) = 1, \quad  
+(t_0 \circ e_2) \circ (t_2 \circ e_0) = 1, \quad 
+(h_0 \circ e_2) \circ (t_2 \circ e_0) = 1. 
+$
 \end{enumerate}
 \end{defn} 
 
-To show that Definition \ref{defn:cat2b} is equivalent to 
-Definition \ref{defn:cat2a} we take: 
-\begin{itemize}
-\item~ 
-$
-C_{[2]} = G,~  C_{\{1\}} = R_2,~ C_{\{2\}} = R_1, 
-$
-\item~ 
-$
-\ddtto = t_1,~ \ddhho = h_1,~ \ddeeo = e_1,\quad 
-\ddttt = t_2,~ \ddhht = h_2,~ \ddeet = e_2.
-$
-\end{itemize} 
-It is clear that the resulting $\ddcalCo, \ddcalCt$ are cat$^1$-groups. 
-Then, since $e_1 \circ t_1$ and $e_2 \circ t_2$ commute etc., 
-we are able to define: 
-\begin{itemize} 
-\item~
-$
-t_{[2]} = (e_1 \circ t_1) \circ (e_2 \circ t_2),\quad 
-h_{[2]} = (e_1 \circ h_1) \circ (e_2 \circ h_2), 
-$
-\item~ 
-$
-C_{\emptyset} = \mbox{their common image},\quad 
-e_{[2]} = \mbox{identity mapping on}\; C_{\emptyset}. 
-$
-\end{itemize}
-We then need to check that $(e_{[2]};t_{[2]},h_{[2]} : G \to C_{\emptyset})$ 
-is a cat$^1$-group by, for example, verifying that 
-\begin{eqnarray*} 
-t_{[2]} \circ e_{[2]} \circ h_{[2]} 
-  & = &  
-e_1 \circ t_1 \circ (e_2 \circ t_2) \circ (e_1 \circ h_1) \circ e_2 \circ h_2 \\ 
-  & = & 
-e_1 \circ t_1 \circ (e_1 \circ h_1) \circ (e_2 \circ t_2) \circ e_2 \circ h_2 \\ 
-  & = & 
-(e_1 \circ h_1) \circ (e_2 \circ h_2) \\ 
-  & = & 
-h_{[2]}.
-\end{eqnarray*} 
-
-\noindent
-{\bf [Do we need more justification for the term "common image"?]}
-
-\medskip\noindent
-The remaining homomorphisms can then be defined: 
-\begin{itemize}
-\item~ 
-$
-\dtto = t_{[2]} \circ \ddeet = e_1 \circ t_1 \circ e_2,~~ 
-\dhho = h_{[2]} \circ \ddeet = e_1 \circ h_1 \circ e_2,~~ 
-\deeo = \ddttt \circ e_{[2]} 
-      = \mbox{restriction of}\; t_2\; \mbox{to}\; C_{\emptyset}, 
-$
-\item~ 
-$
-\dttt = t_{[2]} \circ \ddeeo = e_2 \circ t_2 \circ e_1,~~ 
-\dhht = h_{[2]} \circ \ddeeo = e_2 \circ h_2 \circ e_1,~~ 
-\deet = \ddtto \circ e_{[2]} 
-      = \mbox{restriction of}\; t_1\; \mbox{to}\; C_{\emptyset}. 
-$
-\end{itemize} 
-It is then routine to check that 
-$(\deeo;\dtto,\dhho : C_{\{1\}} \to C_{\emptyset})$
-and
-$(\deet;\dttt,\dhht : C_{\{2\}} \to C_{\emptyset})$
+We now show that Definition \ref{defn:cat2b} is equivalent to 
+Definition \ref{defn:cat2a}. 
+It is routine to check that 
+$(e_3;t_3,h_3 : R_1 \to R_0)$ and $(e_4;t_4,h_4 : R_2 \to R_0)$
 are cat$^1$-groups. 
-There are also various axioms in Definition \ref{defn:cat2a} to be checked, 
-for example: 
-\begin{eqnarray*}
-\dtto\circ\ddhht &=& 
-  (e_1 \circ t_1 \circ e_2) \circ h_2 
-~=~ (e_2 \circ h_2 \circ e_1) \circ t_1 
-~=~ \dhht\circ\ddtto, \\
-\dtto\circ\ddttt &=& 
-  (e_1 \circ t_1 \circ e_2) \circ t_2 
-~=~ t_{[2]} 
-~=~ (e_2 \circ t_2 \circ e_1) \circ t_1 
-~=~ \dttt\circ\ddtto. \\
-\end{eqnarray*}
+In particular, $[\ker t_3, \ker h_3] = e_1^{-1}[\ker t_0, \ker h_0] = 1$. 
 
-Our third definition defines a cat$^2$-group as a 
-"cat$^1$-group of cat$^1$-groups" 
-(compare this with Definition \ref{defn:cat1-group}). 
+We may convert the cat$^2$-group in Definition \ref{defn:cat2b} 
+into a traditional cat$^2$-group by defining: 
+$$
+\tau_1 = e_1 \circ t_1,~~ 
+\theta_1 = e_1 \circ h_1,~~ 
+\tau_2 = e_2 \circ t_2,~~ 
+\theta_2 = e_2 \circ h_2,~~ 
+\tau_0 = e_0 \circ t_0,~~ 
+\theta_0 = e_0 \circ h_0, 
+$$ 
+and setting  $Q_1 = e_1R_1,~ Q_2 = e_2R_2,~ Q_0 = e_0R_0$. 
 
-\begin{defn} \label{defn:cat2c} 
-A cat$^2$-group $\calC$ consists of two cat$^1$-groups 
-$\calC_1 = (e_1;t_1,h_1 : G_1 \to R_1)$ and 
-$\calC_2 = (e_2;t_2,h_2 : G_2 \to R_2)$ and cat$^1$-morphisms
-$t = (\ddtt,\dtt),\; h = (\ddhh,\dhh) : \calC_1 \to \calC_2,\; 
-e = (\ddee,\dee) : \calC_2 \to \calC_1$,  
-subject to the following conditions: 
-\begin{center}
-\begin{tabular}{r l}
-\textbf{C1:}  &  $(t \circ e)$ and $(h \circ e)$~ 
-                 are the identity mapping on~ $\calC_2$, \\
-\textbf{C2:}  &  $[\ker t, \ker h] = \{ 1_{\calC_1} \}$.
-\end{tabular}
-\end{center}
-\end{defn}
+\bigskip 
+\begin{prop} \label{prop:cat2c} 
+A cat$^2$-group $\calC$ is a cat$^1$-group of cat$^1$-groups. 
+\end{prop} 
+\begin{pf} 
+We have already seen that $(\tau_1,\tau_1) : \calC_2 \to \calC_3$ 
+is a cat$^1$-group morphism -- the boundary in this case. 
+We also have to consider the action of $\calC_3$ on $\calC_2$. 
+[To be continued.]
+\end{pf}
 
+\vspace*{25mm}
 Kernels of cat$^1$-mappings have been considered in 
 subsection \ref{subs:precat1}. 
 The diagram for the situation here is 
 \begin{equation*} \label{eq:cat2cker}
 \vcenter{\xymatrix{
-   \ker\ddtt,\ \ker\ddhh \ar[rr] \ar[dd]<1.0ex> \ar[dd]<0.2ex> 
-     && G_1 \ar[dd]<1.0ex>^{t_1,h_1} \ar[dd]<0.2ex> 
-            \ar[rr]<1.0ex>^{\ddtt,\ddhh} \ar[rr]<0.2ex> 
-          && G_2 \ar[dd]<1.0ex>^{t_2,h_2} \ar[dd]<0.2ex>  
-             \ar[ll]<1.0ex>^{\ddee}  \\
+   \ker\tau_1,\ \ker\theta_1 \ar[rr] \ar[dd]<1.0ex> \ar[dd]<0.2ex> 
+     && G \ar[dd]<1.0ex>^{\tau_2,\theta_2} \ar[dd]<0.2ex> 
+          \ar[rr]<1.0ex>^{\tau_1,\theta_1} \ar[rr]<0.2ex> 
+        && Q_1 \ar[dd]<1.0ex>^{\tau_2,\theta_2} \ar[dd]<0.2ex>  \\
      &&  \\
-   \ker\dtt,\ \ker\dhh \ar[rr] \ar[uu]<1.0ex> 
-     && R_1 \ar[uu]<1.0ex>^{e_1} \ar[rr]<1.0ex>^{\dtt,\dhh} \ar[rr]<0.2ex>
-          && R_2 \ar[uu]<1.0ex>^{e_2} 
-             \ar[ll]<1.0ex>^{\dee}
+   \ker\tau_1,\ \ker\theta_1 \ar[rr] 
+     && Q_2  \ar[rr]<1.0ex>^{\tau_1,\theta_1} \ar[rr]<0.2ex>
+        && Q_0
 }}
 \end{equation*}
-\medskip
-We now need to show that this third definition is equivalent to the first two. 
 
 
 \newpage
@@ -706,27 +665,25 @@ We now need to show that this third definition is equivalent to the first two.
 
 
 Given a crossed square
-\begin{equation} \label{eq:RsquareR}
+\begin{equation} \label{eq:Ssquare2cat2}
 \vcenter{\xymatrix{
-        &   &    R_{[2]} \ar[rr]^{\ddbdyo} \ar[dd]_{\ddbdyt}
-             &&  R_{\{2\}} \ar[dd]^{\dbdyt} \\
-  \calR & = &&&  \\
-        &   &    R_{\{1\}} \ar[rr]_{\dbdyo}
-             &&  R_{\emptyset}
+        &   &    L \ar[rr]^{\kappa} \ar[dd]_{\lambda}
+             &&  M \ar[dd]^{\mu} \\
+  \calS & = &&&  \\
+        &   &    N \ar[rr]_{\nu}
+             &&  P
 }}
 \end{equation}
-with crossed pairing $\bt: R_{\{1\}} \times R_{\{2\}} \to R_{[2]}$, 
+with crossed pairing $\bt: N \times M \to L$, 
 we wish to construct an associated cat$^2$-group.
 
 \begin{prop} \label{prop:semidirect-actions}
-For $\calR$ a crossed square (as in Definition \ref{def:xsq}) 
-there are group actions of   
-$R_{\emptyset} \ltimes R_{\{2\}}$  on $R_{\{1\}} \ltimes R_{[2]}$
-and  $R_{\emptyset} \ltimes R_{\{1\}}$  on $R_{\{2\}} \ltimes R_{[2]}$
-given by
+For $\calS$ a crossed square (as in Definition \ref{def:xsq}) 
+there are group actions of $P \ltimes M$  on $N \ltimes L$
+and  $P \ltimes N$  on $M \ltimes L$ given by
 \begin{eqnarray}
-(m,\ell)^{(p,n)} & = &  (m^p, (m^p \bt n)\,\ell^{pn}) ~,  \label{eq:action1}\\
-(n,\ell)^{(p,m)} & = &  (n^p, (m \bt n^p)^{-1}\,\ell^{pm}) \label{eq:action2}
+(n,\ell)^{(p,m)} & = &  (n^p, (n^p \bt m)\ell^{pm}) \label{eq:action1}\\ 
+(m,\ell)^{(p,n)} & = &  (m^p, (n \bt m^p)^{-1}\,\ell^{pn})~, \label{eq:action2} 
 \label{eq:semidirect-action}~.
 \end{eqnarray}
 \end{prop}
@@ -735,95 +692,114 @@ There are two axioms to be checked for the first identity:
 
 \medskip
 \begin{eqnarray*}
-(m_1,\ell_1)^{(p,n)} (m_2,\ell_2)^{(p,n)}  
-& = &  (m_1^p, (m_1^p \bt n)\ell_1^{pn})(m_2^p, (m_2^p \bt n)\ell_2^{pn}) \\
-& = &  (m_1^pm_2^p, (m_1^p \bt n)^{m_2^p} 
-          [\ell_1^{pnm_2^p}(m_2^p \bt n)] \ell_2^{pn}) \\
-& = &  (m_1^pm_2^p, (m_1^p \bt n)^{m_2^p} 
-          [(m_2^p \bt n) \ell_1^{m_2pn}] \ell_2^{pn}) 
+(n_1,\ell_1)^{(p,m)} (n_2,\ell_2)^{(p,m)}  
+& = &  (n_1^p, (n_1^p \bt m)\ell_1^{pm})(n_2^p, (n_2^p \bt m)\ell_2^{pm}) \\
+& = &  (n_1^pn_2^p, (n_1^p \bt m)^{n_2^p} 
+          [\ell_1^{pmn_2^p}(n_2^p \bt m)] \ell_2^{pm}) \\
+& = &  (n_1^pn_2^p, (n_1^p \bt n)^{n_2^p} 
+          [(n_2^p \bt m) \ell_1^{pn_2^pm}] \ell_2^{pm}) 
        \qquad\mbox{by Lemma \ref{lem:xsq}(b)} \\
-& = &  ((m_1m_2)^p, ((m_1m_2)^p \bt n)(\ell_1^{m_2}\ell_2)^{pn}) \\
-& = &  (m_1m_2, \ell_1^{m_2}\ell_2)^{(p,n)} \\
-& = &  ((m_1,\ell_1)(m_2,\ell_2))^{(p,n)}~,  \\
+& = &  ((n_1n_2)^p, ((n_1n_2)^p \bt m)(\ell_1^{n_2}\ell_2)^{pm}) \\
+& = &  (n_1n_2, \ell_1^{n_2}\ell_2)^{(p,m)} \\
+& = &  ((n_1,\ell_1)(n_2,\ell_2))^{(p,m)}~,  \\
 &   &  \mbox{} \\
-((m,\ell)^{(p_1,n_1)})^{(p_2,n_2)}
-& = &  (m^{p_1}, (m^{p_1} \bt n_1)\ell^{p_1n_1})^{(p_2,n_2)} \\
-& = &  ((m^{p_1})^{p_2}, (m^{p_1p_2} \bt n_2)
-        ((m^{p_1} \bt n_1)\ell^{p_1n_1})^{p_2n_2}) \\
-& = &  (m^{p_1p_2}, (m^{p_1p_2} \bt n_2)
-        (m^{p_1p_2} \bt {n_1}^{p_2})^{n_2} \ell^{p_1n_1p_2n_2}) \\
-& = &  (m^{p_1p_2}, (m^{p_1p_2} \bt {n_1}^{p_2}n_2) 
-          \ell^{p_1p_2{n_1}^{p_2}n_2}) \\
-& = &  (m,\ell)^{(p_1p_2,{n_1}^{p_2}n_2)} \\
-& = &  (m,\ell)^{((p_1,n_1)(p_2,n_2))} ~.
+((n,\ell)^{(p_1,m_1)})^{(p_2,m_2)}
+& = &  (n^{p_1}, (n^{p_1} \bt m_1)\ell^{p_1m_1})^{(p_2,m_2)} \\
+& = &  ((n^{p_1})^{p_2}, (n^{p_1p_2} \bt m_2)
+        ((n^{p_1} \bt m_1)\ell^{p_1m_1})^{p_2m_2}) \\
+& = &  (n^{p_1p_2}, (n^{p_1p_2} \bt m_2)
+        (n^{p_1p_2} \bt {m_1}^{p_2})^{m_2} \ell^{p_1m_1p_2m_2}) \\
+& = &  (n^{p_1p_2}, (n^{p_1p_2} \bt {m_1}^{p_2}m_2) 
+          \ell^{p_1p_2{m_1}^{p_2}m_2}) \\
+& = &  (n,\ell)^{(p_1p_2,{m_1}^{p_2}m_2)} \\
+& = &  (n,\ell)^{((p_1,m_1)(p_2,m_2))} ~.
 \end{eqnarray*}
-The second identity follows using the transpose crossed pairing (\ref{eq:btt}).
+The second identity follows using the transpose crossed pairing (\ref{eq:btt}). 
+%% These calculations _have_ been checked.
 \end{pf}
 
 %\bigskip\noindent
 %{\bf [Is this the place to introduce a crossed module of cat$^1$-groups?]}
 
 \medskip
-In \cite{alp:wens-ijac} we noted that the cat$^1$-group associated to a
+We saw in (\ref{eq:xmodofcat1}) that the cat$^1$-group associated to a
 crossed module $\calX$ has homomorphisms
 $$
 t,h : R \ltimes S \to S, \quad t(r,s) = r, \quad h(r,s) = r(\partial s)~.
 $$
-Applying this construction to $\ddcalRo$ and $\dcalRo$
+Applying this construction to $\calL$ and $\calM$
 we obtain a \emph{crossed module of cat$^1$-groups}:
 
 \begin{equation} \label{eq:xmod-of-cat1s}
 \vcenter{\xymatrix{
-   R_{\{2\}} \ltimes R_{[2]} 
-     \ar[rr]<-1.2ex> \ar[rr]<-0.2ex> \ar[dd]_{\barbdyt}
-   &&  R_{\{2\}} \ar[dd]^{\dbdyt} 
-     \ar[ll]<-1.2ex> \\
+   N \ltimes L 
+     \ar[dd]<+0.5ex> \ar[dd]<-0.5ex>_{(t_2,h_2)} \ar[rr]^{(\nu,\kappa)}
+   &&  P \ltimes M \ar[dd]<-0.5ex> \ar[dd]<+0.5ex>^{(t_3,h_3)} \\
    &&  \\
-   R_{\emptyset} \ltimes R_{\{1\}} 
-     \ar[rr]<+1.2ex> \ar[rr]<+0.2ex> 
-   &&  R_{\emptyset}
-     \ar[ll]<+1.2ex>
+   N \ar[rr]_{\nu} 
+   &&  P 
 }} 
 \end{equation}
 
 \begin{lem}
+The mapping 
+$$
+(\nu,\kappa) : N \ltimes L \to P \ltimes M 
+~:~ (n,\ell) \mapsto (\nu n, \kappa l) 
+$$
+is a group homomorphism. 
+\end{lem}
+\begin{pf}
+\vspace{-5mm}
+\begin{eqnarray*}
+(\nu,\kappa)((n_1,\ell_1)(n_2,\ell_2)) 
+  & = & (\nu,\kappa)(n_1n_2,\ell_1^{n_2}\ell_2) \\ 
+  & = & (\nu(n_1n_2), \kappa(\ell_1^{n_2}\ell_2)) \\ 
+  & = & ((\nu n_1)(\nu n_2), 
+         (\kappa \ell_1^{\nu n_2})(\kappa \ell_2)) \\ 
+  & = & ((\nu n_1)(\nu n_2), 
+         (\kappa \ell_1)^{\nu n_2}(\kappa \ell_2)) \\ 
+  & = & (\nu n_1, \kappa \ell_1)(\nu n_2, \kappa \ell_2) \\ 
+  & = & (\nu,\kappa)(n_1,\ell_1).(\nu,\kappa)(n_2,\ell_2). 
+\end{eqnarray*}
+\end{pf}
+
+\begin{lem}
 The action given in Proposition \ref{prop:semidirect-actions} makes 
-$(\barbdyt: R_{\{2\}} \ltimes R_{[2]} \to R_{\emptyset} \ltimes R_{\{1\}})$
-a crossed module.
+$( (\nu,\kappa) : N \ltimes L \to P \ltimes M)$ a crossed module.
 \end{lem}
 \begin{pf}
 {\bf X1:}
 \vspace{-5mm}
 \begin{eqnarray*}
-\barbdyt((n, \ell)^{(p,m)}) 
-  & = & \barbdyt(n^p, (m \boxtimes n^p)^{-1} \ell^{pm}) \\
-  & = & (\dbdyt(n^p), \ddbdyt(m \boxtimes n^p)^{-1} \ddbdyt(\ell^{pm})) \\
-  & = & (\dbdyt(n^p), (m^{-1} m^{\dbdyt n^p})^{-1} \ddbdyt(\ell^{pm})) \\
-  & = & (\dbdyt(n^p), (m^{-1})^{(\dbdyt n^p)} m \ddbdyt(\ell^{pm})) \\
-  & = & (\dbdyt(n^p), (m^{-1})^{\dbdyt (n^p)} (\ddbdyt \ell^p) m) \\
-  & = & (p^{-1}(\dbdyt n)p, (m^{-1})^{p^{-1}(\dbdyt n)p} \ddbdyt (\ell^p) m) \\
-  & = & (p^{-1}, (m^{-1})^{p^{-1}}) (\dbdyt n, \ddbdyt \ell) (p,m) \\
-  & = & (p,m)^{-1}\;\barbdyt(n, \ell) (p,m)~.
+(\nu,\kappa)((n, \ell)^{(p,m)}) 
+  & = & (\nu,\kappa)(n^p, (n^p \bt m)\ell^{pm}) \\
+  & = & (\nu(n^p), \kappa(n^p \bt m) \kappa(\ell^{pm})) \\
+  & = & (\nu(n^p), (m^{-1})^{n^p} m \kappa(\ell^{pm})) \\
+  & = & (\nu(n^p), (m^{-1})^{(\nu n^p)} m \kappa((\ell^p)^m)) \\
+  & = & (\nu(n^p), (m^{-1})^{\nu (n^p)} (\kappa \ell)^p m) \\
+  & = & (p^{-1}(\nu n)p, (m^{-1})^{p^{-1}(\nu n)p} (\kappa \ell)^p m) \\
+  & = & (p^{-1}, (m^{-1})^{p^{-1}}) (\nu n, \kappa \ell) (p,m) \\
+  & = & (p,m)^{-1}\;((\nu,\kappa)(n,\ell)) (p,m)~.
 \end{eqnarray*}
 {\bf X2:}
 \begin{eqnarray*}
-(n_1, \ell_1)^{\barbdyt(n_2, \ell_2)} 
-  & = & (n_1, \ell_1)^{(\dbdyt n_2, \ddbdyt \ell_2)} \\
-  & = & ({n_1}^{\dbdyt n_2}, (\ddbdyt\ell_2 \boxtimes {n_1}^{\dbdyt n_2})^{-1} 
-          {\ell_1}^{(\dbdyt n_2)(\ddbdyt \ell_2)}) \\
-  & = & ({n_1}^{n_2}, \{(\ddbdyt \ell_2 \boxtimes n_2)
-          (\ddbdyt \ell_2 \boxtimes n_1)^{n_2}
-          (\ddbdyt \ell_2 \boxtimes n_2^{-1})^{n_1n_2}\}^{-1}  
-          {\ell_1}^{(\dbdyt n_2)(\ddbdyt \ell_2)}) \\
-  & = & ({n_1}^{n_2}, ((\ell_2^{-1} {\ell_2}^{\dbdyt n_2})
-          (\ell_2^{-1} {\ell_2}^{\dbdyt n_1})^{\dbdyt n_2} 
-          (\ell_2^{-1} {\ell_2}^{\dbdyt n_2^{-1}})^{\dbdyt(n_1n_2))})^{-1} 
-          {\ell_1}^{(\dbdyt n_2)(\ddbdyt \ell_2)} \\
-  & = & ({n_1}^{n_2}, ((\ell_2^{-1})^{n_2^{-1}n_1n_2} \ell_2) 
-          (\ell_2^{-1} {\ell_1}^{\dbdyt n_2} \ell_2)) \\
-  & = & ({n_1}^{n_2}, (\ell_2^{-1})^{n_2^{-1}n_1n_2} 
-          {\ell_1}^{n_2} \ell_2 ) \\
-  & = & (n_2^{-1}n_1n_2, (\ell_2^{-1})^{n_2^{-1} n_1} \ell_1)(n_2, \ell_2) \\
+(n_1, \ell_1)^{(\nu,\kappa)(n_2, \ell_2)} 
+  & = & (n_1, \ell_1)^{(\nu n_2, \kappa \ell_2)} \\
+  & = & ({n_1}^{\nu n_2}, ({n_1}^{\nu n_2} \bt \kappa\ell_2) 
+          {\ell_1}^{(\nu n_2)(\kappa \ell_2)}) \\
+  & = & ({n_1}^{n_2}, (n_2^{-1}n_1n_2 \bt \kappa \ell_2)
+          {\ell_1}^{(\nu n_2)(\kappa \ell_2)}) \\
+  & = & ({n_1}^{n_2}, (n_2^{-1} \bt \kappa \ell_2)^{n_1n_2}
+          (n_1 \bt \kappa \ell_2)^{n_2} (n_2 \bt \kappa \ell_2)
+          {\ell_1}^{(\nu n_2)(\kappa \ell_2)}) \\
+  & = & (n_2^{-1}n_1n_2, [(\ell_2^{-1})^{n_2^{-1}}\ell_2]^{n_1n_2})
+          [(\ell_2^{-1})^{n_1}\ell_2]^{n_2})  
+          [(\ell_2^{-1})^{n_2}\ell_2]) 
+          \ell_2^{-1}{\ell_1}^{(\nu n_2)}\ell_2 \\
+  & = & (n_2^{-1}n_1n_2, (\ell_2^{-1})^{n_2^{-1}n_1n_2} \ell_1^{n_2} \ell_2) \\
+  & = & \left(n_2^{-1}, (\ell_2^{-1})^{n_2^{-1}}\right) 
+          (n_1n_2, \ell_1^{n_2}\ell_2) \\ 
   & = & (n_2, \ell_2)^{-1}(n_1, \ell_1)(n_2, \ell_2) 
 \end{eqnarray*} 
 \end{pf}
@@ -833,48 +809,46 @@ We may then construct a \emph{cat$^1$-group of cat$^1$-groups}
 where the required homomorphisms are:
 \begin{eqnarray} 
 \label{eq:cat2-th} 
-\ddttt,\,\ddhht \;:\; 
-(R_{\emptyset} \ltimes R_{\{1\}}) \ltimes (R_{\{2\}} \ltimes R_{[2]})
-  & \to & R_{\emptyset} \ltimes R_{\{1\}} \\
+t_1,h_1 \;:\; 
+(P \ltimes M) \ltimes (N \ltimes L)
+  & \to & P \ltimes M \\
 \nonumber
-\ddttt((p,m),(n,l))
+t_1((p,m),(n,\ell))
   & \;=\; & (p,m) \\
 \nonumber
-\ddhht((p,m),(n,l))
-  & \;=\; & (p,m)\,\barbdyt(n,l) \;=\; (p,m)(\dbdyt n,\ddbdyt\ell)
-              \;=\;  (p(\dbdyt n),\,m^{\dbdyt n}(\ddbdyt\ell)) \\
+h_1((p,m),(n,\ell))
+  & \;=\; & (p,m)\,(\nu,\kappa)(n,\ell) \;=\; (p,m)(\nu n,\kappa\ell)
+              \;=\;  (p(\nu n),\,m^{\nu n}(\kappa\ell)) \\
 \label{eq:cat2-e}
-\mbox{and} \quad\quad \ddeet \;:\; R_{\emptyset} \ltimes R_{\{1\}}
-  & \to &  (R_{\emptyset} \ltimes R_{\{1\}}) 
-            \ltimes (R_{\{2\}} \ltimes R_{[2]}) \\
+\mbox{and} \quad\quad e_1 \;:\; P \ltimes M
+  & \to &  (P \ltimes M) 
+            \ltimes (N \ltimes L) \\
 \nonumber
-\ddeet(p,m)
-  & \;=\; & ((p,m),(1,1))~.
+e_1(p,m)
+  & \;=\; & ((p,m),(1,1))\ .
 \end{eqnarray}
 
 \bigskip
 We now check that
-$(\ddeet;\ddttt,\ddhht :  
-   (R_{\emptyset} \ltimes R_{\{1\}}) \ltimes (R_{\{2\}} 
-   \ltimes R_{[2]}) \to R_{\emptyset} \ltimes R_{\{1\}} )$
+$(e_1;t_1,h_1 : (P \ltimes M) \ltimes (N \ltimes L) \to P \ltimes M )$
 is a cat$^1$-group.
 Note that
 \begin{eqnarray*}
-\ker \ddttt  & = & 
+\ker t_1  & = & 
 \{~((1,1),(n,\ell))~\}   \\
-\ker \ddhht  & = &
+\ker h_1  & = &
 \{~((p,m),(n,\ell))~\}  \quad\mbox{where}\quad
-p = (\dbdyt n)^{-1}       \;\;\mbox{and}\;\;
-m = ((\ddot{\nu} \ell)^{-1})^{p},
+p = (\nu n)^{-1}       \;\;\mbox{and}\;\;
+m = (\kappa\ell^{-1})^p,
 \end{eqnarray*}
 so that
 $$
-\ell^{pn} ~=~ \ell^{(\dbdyt n)^{-1}(\dbdyt n)} ~=~ \ell
-\qquad\mbox{in}\quad \ker \ddhht.
+\ell^{pn} ~=~ \ell^{(\nu n)^{-1}(\nu n)} ~=~ \ell
+\qquad\mbox{in}\quad \ker h_1.
 $$
 The formula for the action is given by equation (\ref{eq:semidirect-action}): 
 $$
-(n,\ell)^{(p,m)} ~:=~ (~n^p,\ (m \bt n^p)^{-1}\ \ell^{pm}~)\,.
+(n,\ell)^{(p,m)} ~:=~ (~n^p,\ (n^p \bt m)\ell^{pm})\ .
 $$
 
 \medskip\noindent
@@ -884,10 +858,10 @@ We now check the cat$^1$-group axioms.
 \textbf{C1:}
 \vspace{-8mm}
 \begin{eqnarray*}
-\ddttt \ddeet(p,m)
-   & = & \ddttt((p,m),(1,1)) ~~ = ~~ (p,m) \\
-\ddhht \ddeet(p,m) 
-   & = & \ddhht((p,m),(1,1)) ~~ = ~~ (p,m) \\
+t_1 \circ e_1(p,m)
+   & = & t_1((p,m),(1,1)) ~~ = ~~ (p,m) \\
+h_1 \circ e_1(p,m) 
+   & = & h_1((p,m),(1,1)) ~~ = ~~ (p,m) \\
 \end{eqnarray*}
 
 \medskip\noindent
@@ -895,24 +869,23 @@ We now check the cat$^1$-group axioms.
 \vspace{-4mm}
 \begin{eqnarray*} 
 ((1,1),(n_0, \ell_0))\,((p,m), (n, \ell)) 
-  & = & ((p, m),(n_0,\ell_0)^{(p,m)}(n,\ell))\\
-  & = & ((p, m),({n_0}^p,(m \bt {n_0}^p)^{-1} {\ell_0}^{pm}) (n,\ell))\\
-  & = & ((p, m),({n_0}^{(\dbdyt n)^{-1}} n,((m \bt {n_0}^p)^{-1})^n
-           {\ell_0}^{pmn} \ell))\\
-  & = & ((p, m),(n n_0 n^{-1} n,((\ddbdyt\ell^{-1} \bt n_0)^{-1})^{pn}\,
-           {\ell_0}^{pmn} \ell))\\
-  & = & ((p, m),(n n_0, (((\ell^{-1})^{-1}(\ell^{-1})^{n_0})^{-1})^{pn})
-           {\ell_0}^{pmn} \ell))\\
-  & = & ((p, m),(n n_0,(\ell^{n_0} \ell^{-1})^{pn}\,{\ell_0}^{pmn} \ell))\\
-  & = & ((p, m),(n n_0,(\ell^{n_0} \ell^{-1})\,
-           {\ell_0}^{p(\ddbdyt \ell^{-1})^p n} \ell))\\
-  & = & ((p, m),(n n_0,(\ell^{n_0} \ell^{-1})\,
-           {\ell_0}^{(\ddbdyt \ell^{-1})} \ell))\\
-  & = & ((p, m),(n n_0,(\ell^{n_0} \ell^{-1})\,\ell {\ell_0} \ell^{-1} \ell))\\
-  & = & ((p, m),(n n_0,\ell^{n_0}\,{\ell_0})) \\
-  & = & ((p, m),(n, \ell)(n_0, \ell_0)) \\
-  & = & ((p, m),(n, \ell))\,((1,1),(n_0, \ell_0))  
+  & = & ((p,m),(n_0,\ell_0)^{(p,m)}(n,\ell)) \\
+  & = & ((p,m),({n_0}^p,({n_0}^p \bt m) {\ell_0}^{pm}) (n,\ell)) \\
+  & = & ((p,m),({n_0}^{(\nu n)^{-1}} n, ({n_0}^p \bt m)^n
+           {\ell_0}^{pmn} \ell)) \\
+  & = & ((p,m),(nn_0n^{-1}n, (n_0 \bt \kappa\ell^{-1})^{pn}\,
+           {\ell_0}^{p \kappa \ell^{-1} n} \ell)) \\
+  & = & ((p,m),(nn_0, [\ell^{n_0}\ell^{-1}]^{pn} 
+           {\ell_0}^{\kappa\ell^{-1}pn} \ell)) \\
+  & = & ((p,m),(nn_0,\ell^{n_0}\ell^{-1}{\ell_0}^{\kappa\ell^{-1}pn} \ell)) \\
+  & = & ((p,m),(nn_0,\ell^{n_0}\ell^{-1} 
+           [\ell\ell_0\ell^{-1}]^{pn} \ell)) \\
+  & = & ((p,m),(nn_0,\ell^{n_0} (\ell^{-1} \ell) 
+           \ell_0^{p(\nu n)} (\ell^{-1}\ell))) \\
+  & = & ((p,m),(n,\ell)(n_0,\ell_0)) \\
+  & = & ((p,m),(n,\ell))\,((1,1),(n_0, \ell_0))  
 \end{eqnarray*}
+and so the two kernels commute. 
 
 \medskip
 \begin{thm}
@@ -920,21 +893,21 @@ The homomorphisms in (\ref{eq:cat2-th}) and (\ref{eq:cat2-e})
 give a cat$^2$-group:
 \begin{equation} \label{eq:cat2-sdp}
 \vcenter{\xymatrix{
- & (R_{\emptyset} \ltimes R_{\{1\}}) \ltimes (R_{\{2\}} \ltimes R_{[2]})
-      \ar[ddd] <-1.2ex>  \ar[ddd] <-2.0ex>_{\ddttt,\ddhht}
-      \ar[rrr] <+1.2ex>  \ar[rrr] <+2.0ex>^(0.7){\ddtto,\ddhho}
-      \ar[dddrrr] <-0.2ex>  \ar[dddrrr] <-1.0ex>_{\ttot,\hhot}
-    &&&  R_{\emptyset} \ltimes R_{\{2\}}
-            \ar[lll]^(0.3){\ddeeo}
-            \ar[ddd]<+1.2ex>  \ar[ddd] <+2.0ex>^{\dttt,\dhht}  \\
+ & (P \ltimes N) \ltimes (M \ltimes L)
+      \ar[ddd] <-0.4ex>  \ar[ddd] <-1.0ex>_{t_2,h_2}
+      \ar[rrr] <+0.4ex>  \ar[rrr] <+1.0ex>^(0.6){t_1,h_1}
+      \ar[dddrrr] <-0.4ex>  \ar[dddrrr] <-1.0ex>_{t_0,h_0}
+    &&&  P \ltimes M
+            \ar[lll]<+0.4ex>^(0.4){e_1}
+            \ar[ddd]<+0.4ex>  \ar[ddd] <+1.0ex>^{t_3,h_3}  \\
 \calC(\calR) \quad = 
  &   &&&   \\
  &   &&&   \\
- & R_{\emptyset} \ltimes R_{\{1\}}
-    \ar[uuu]_{\ddeet}
-    \ar[rrr] <-1.2ex>  \ar[rrr] <-2.0ex>_{\dtto,\dhho} 
-    &&&  R_{\emptyset} \ar[uuu]^{\deet}   \ar[lll]_{\deeo} 
-           \ar[uuulll] <-1.0ex>_{\eeot}
+ & P \ltimes N
+    \ar[uuu] <-0.4ex>_{e_2}
+    \ar[rrr] <-0.4ex>  \ar[rrr] <-1.0ex>_{t_4,h_4} 
+    &&&  P \ar[uuu]<+0.4ex>^{e_3}   \ar[lll]<-0.4ex>_{e_4} 
+           \ar[uuulll] <-0.4ex>_{e_0}
  \\
 }} 
 \end{equation}
@@ -948,137 +921,76 @@ To be added.  (Is material required from Section 7.2~?)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The other cat$^2$-structure}
 
-Now the underlying diagram (\ref{eq:Rsquare}) of the crossed square $\calR$, 
+Now the underlying diagram (\ref{eq:Ssquare}) of the crossed square $\calR$, 
 together with the crossed pairing 
 $$
-\btt : R_{\{2\}} \times R_{\{1\}} \to R_{[2]}, \ 
-               (n \btt m) = (m \bt n)^{-1}
+\btt : M \times N \to L, \ (m \btt n) = (n \bt m)^{-1}
 $$
-forms a second crossed square $\tilde{\calR}$. 
+forms a second crossed square $\tilde{\calS}$. 
 % (see Lemma \ref{prop:princ}).
-Thus we can form a second cat$^2$-group $\calC(\tilde{\calR})$ with 
+Thus we can form a second cat$^2$-group $\calC(\tilde{\calS})$ with 
 $$
-\ddtto, \ddhho : (R_{\emptyset} \ltimes R_{\{2\}}) \ltimes (R_{\{1\}} 
-            \ltimes R_{[2]}) \to (R_{\emptyset} \ltimes R_{\{2\}})~.
+\tilde{t}_1,\tilde{h}_1 : (P \ltimes M) \ltimes (N \ltimes L) \to (P \ltimes M)~.
 $$
-
 Let
 $$
-\tilde{C} = (R_{\emptyset} \ltimes R_{\{2\}}) \ltimes (R_{\{1\}} 
-       \ltimes R_{[2]}), \qquad
-C = (R_{\emptyset} \ltimes R_{\{1\}}) \ltimes (R_{\{2\}} \ltimes R_{[2]}),
+G = (P \ltimes N) \ltimes (M \ltimes L), \qquad 
+\tilde{G} = (P \ltimes M) \ltimes (N \ltimes L)~. 
 $$
-and
-$$
-P  = R_{\emptyset} \ltimes R_{\{2\}}~, \quad 
-\tilde{P} = R_{\emptyset} \ltimes R_{\{1\}}~.
-$$
-
 
 \begin{prop} \label{prop:tau}
 There is an isomorphism between these two semidirect products: 
 \begin{eqnarray}
 \label{eq:cat1-iso}
-\tau ~:~ C \to \tilde{C}, &&
-((p,m),(n,\ell)) \mapsto ((p,n),(m,(m \bt n)\ell))~, \\
+\tau ~:~ G \to \tilde{G}, &&
+((p,n),(m,\ell)) \mapsto ((p,m),(n,(n \bt m)\ell))~, \\
 \nonumber
-\tilde{\tau} ~:=~ \tau^{-1} ~:~ \tilde{C} \to C, &&
-((p,n),(m,\ell)) \mapsto ((p,m),(n,(n \btt m) \ell))~.
+\tilde{\tau} ~:=~ \tau^{-1} ~:~ \tilde{G} \to G, &&
+((p,m),(n,\ell)) \mapsto ((p,n),(m,(m \btt n) \ell))~.
 \end{eqnarray}
 \end{prop}
 \begin{pf}
 \vspace{-6mm}
 \begin{eqnarray*}
- &   &  \tau((p_1,m_1),(n_1,\ell_1))((p_2,m_2),(n_2,\ell_2)) \\
- & = &  \tau((p_1,m_1)(p_2,m_2),
-                  (n_1,\ell_1)^{(p_2,m_2)}(n_2,\ell_2)) \\
- & = &  \tau((p_1p_2,{m_1}^{p_2}m_2),
-    ({n_1}^{p_2},(m_2 \bt {n_1}^{p_2})^{-1} {\ell_1}^{p_2m_2})(n_2,\ell_2)) \\
- & = &  \tau((p_1p_2,{m_1}^{p_2}m_2),
-                  ({n_1}^{p_2}n_2,((m_2 \bt {n_1}^{p_2})^{-1})^{n_2} 
-                    {\ell_1}^{p_2m_2n_2} \ell_2)) \\
- & = &  ((p_1p_2,{n_1}^{p_2}n_2),
-         ({m_1}^{p_2}m_2,({m_1}^{p_2}m_2 \bt {n_1}^{p_2}n_2)
-          ((m_2 \bt {n_1}^{p_2})^{-1})^{n_2}
-           ({\ell_1}^{p_2})^{m_2n_2} \ell_2)) \\
- & = &  ((p_1p_2,{n_1}^{p_2}n_2), ({m_1}^{p_2},({m_1}^{p_2} \bt n_2)
-          (m_1 \bt n_1)^{p_2n_2} {\ell_1}^{p_2n_2})
-           (m_2,(m_2 \bt n_2)\ell_2)) \\
- & = &  ((p_1,n_1)(p_2,n_2), (m_1,(m_1 \bt n_1)\ell_1)^{(p_2,n_2)}
-           (m_2,(m_2 \bt n_2)\ell_2)) \\
- & = &  ((p_1,n_1),(m_1,(m_1 \bt n_1)\ell_1))
-          ((p_2,n_2),(m_2,(m_2 \bt n_2)\ell_2)) \\
- & = &  \tau((p_1,m_1),(n_1,\ell_1))\ \tau((p_2,m_2),(n_2,\ell_2))
+ &   &  \tau((p_1,n_1),(m_1,\ell_1))((p_2,n_2),(m_2,\ell_2)) \\
+ & = &  \tau((p_1,n_1)(p_2,n_2),
+                  (m_1,\ell_1)^{(p_2,n_2)}(m_2,\ell_2)) \\
+ & = &  \tau((p_1p_2,{n_1}^{p_2}n_2),
+    ({m_1}^{p_2},(n_2 \bt {m_1}^{p_2})^{-1} {\ell_1}^{p_2n_2})(m_2,\ell_2)) \\
+ & = &  \tau((p_1p_2,{n_1}^{p_2}n_2),
+                  ({m_1}^{p_2}m_2,({n_2}^{m_2} \bt {m_1}^{p_2m_2})^{-1}  
+                    {\ell_1}^{p_2n_2m_2} \ell_2)) \\
+ & = &  ((p_1p_2,{m_1}^{p_2}m_2),
+         ({n_1}^{p_2}n_2,({n_1}^{p_2}n_2 \bt {m_1}^{p_2}m_2)
+         ({n_2}^{m_2} \bt {m_1}^{p_2m_2})^{-1} 
+                    {\ell_1}^{p_2n_2m_2} \ell_2)) \\ 
+ & = &  ((p_1p_2,{m_1}^{p_2}m_2), 
+         ({n_1}^{p_2}n_2, ({n_1}^{p_2} \bt m_2)^{n_2} 
+         ({n_1}^{p_2} \bt {m_1}^{p_2})^{m_2n_2} 
+         (n_2 \bt m_2) {\ell_1}^{p_2n_2m_2} \ell_2)) \\ 
+ & = &  ((p_1p_2,{m_1}^{p_2}m_2), 
+         ({n_1}^{p_2}n_2, ({n_1}^{p_2} \bt {m_1}^{p_2}m_2)^{n_2} 
+         (n_2 \bt m_2) \ell_1^{p_2n_2m_2} \ell_2)) \\  
+ & = &  ((p_1p_2,{m_1}^{p_2}m_2), 
+         ({n_1}^{p_2}n_2, ({n_1}^{p_2} \bt {m_1}^{p_2}m_2)^{n_2} 
+         \ell_1^{p_2m_2n_2} (n_2 \bt m_2) \ell_2)) \\  
+ & = &  ((p_1p_2,{m_1}^{p_2}m_2), 
+         ({n_1}^{p_2}, ({n_1}^{p_2} \bt {m_1}^{p_2}m_2) \ell_1^{p_2m_2}) 
+         (n_2, (n_2 \bt m_2) \ell_2)) \\  
+ & = &  ((p_1p_2,{m_1}^{p_2}m_2), 
+         ({n_1}^{p_2}, ({n_1}^{p_2} \bt {m_2})
+         ({n_1}^{p_2} \bt {m_1}^{p_2})^{m_2} \ell_1^{p_2m_2}) 
+         (n_2, (n_2 \bt m_2) \ell_2)) \\  
+ & = &  ((p_1,m_1)(p_2,m_2), 
+        (n_1,(n_1 \bt m_1)\ell_1))^{(p_2,m_2)} (n_2,(n_2 \bt m_2)\ell_2)) \\
+ & = &  ((p_1,m_1),(n_1,(n_1 \bt m_1)\ell_1)) 
+        \ ((p_2,m_2),(n_2,(n_2 \bt m_2)\ell_2)) \\ 
+ & = &  \tau((p_1,n_1),(m_1,\ell_1))\ \tau((p_2,n_2),(m_2,\ell_2))
 \end{eqnarray*}
 \end{pf}
 
 \noindent
 Note that the subgroup 
-$(1 \ltimes R_{\{1\}}) \ltimes (R_{\{2\}} \ltimes 1)$
+$(1 \ltimes N) \ltimes (M \ltimes 1)$
 does \emph{not} in general get mapped by $\tau$ to the subgroup 
-$(1 \ltimes R_{\{2\}}) \ltimes (R_{\{1\}} \ltimes 1)$. 
-
-
-\bigskip
-The isomorphism $\tau$ provides a neat formula for the inverse of a 
-general element in $(P \ltimes N) \ltimes (M \ltimes L)$.
-\begin{lem}
-$$
-((p,n),(m,\ell))^{-1} ~=~ 
-\tau((p^{-1},(m^{-1})^{p^{-1}}),~ 
- ((n^{-1})^{p^{-1}},(\ell^{-1})^{m^{-1}n^{-1}p^{-1}}))
-$$
-\end{lem}
-\begin{pf}
-\begin{eqnarray*}
-((p,n),(m,\ell))^{-1} 
- &=& ((p^{-1},(n^{-1})^{p^{-1}}),~
-        (m^{-1},(\ell^{-1})^{m^{-1}})^{(p^{-1},(n^{-1})^{p^{-1}})})) \\
- &=& ((p^{-1},(n^{-1})^{p^{-1}}),~
-        ((m^{-1})^{p^{-1}},
-          ((m^{-1})^{p^{-1}} \bt (n^{-1})^{p^{-1}}) 
-           (\ell^{-1})^{m^{-1}n^{-1}p^{-1}})) \\
- &=& \tau((p^{-1},(m^{-1})^{p^{-1}}),~ 
-          ((n^{-1})^{p^{-1}},(\ell^{-1})^{m^{-1}n^{-1}p^{-1}}))) 
-\end{eqnarray*}
-\end{pf}
-
-\begin{lem}
-The commutator of elements in $\ddeeo(P \ltimes N)$ 
-and $\ddeet(P \ltimes M)$ is 
-$$
- [((p,n),(1,1)),~((q,1),(m,1))]
-~=~
- (([p,q],n^{-1}n^q), 
-      ((m^{-1})^{q^{-1}pq}m,((m^{-1})^{q^{-1}pq}\bt n^q)^m))
-$$
-\end{lem}
-\begin{pf}
-\vspace*{-8mm}
-\begin{eqnarray*}
- & & [((p,n),(1,1)),~((q,1),(m,1))] \\
- &=& ((p^{-1},(n^{-1})^{p^{-1}}),(1,1))~
-     ((q^{-1},1),((m^{-1})^{q^{-1}},1))~ 
-     ((p,n),(1,1))~
-     ((q,1),(m,1)) \\
- &=& ((p^{-1}q^{-1},(n^{-1})^{p^{-1}q^{-1}}),((m^{-1})^{q^{-1}},1))~ 
-     ((pq,n^q),(m,1)) \\
- &=& ((p^{-1}q^{-1}pq,n^{-1}n^q), 
-      ((m^{-1})^{q^{-1}pq},((m^{-1})^{q^{-1}pq}\bt n^q))(m,1)) \\
- &=& (([p,q],n^{-1}n^q), 
-      ((m^{-1})^{q^{-1}pq}m,((m^{-1})^{q^{-1}pq}\bt n^q)^m)) 
-\end{eqnarray*}
-\end{pf}
-
-
-
-%\begin{prop}[Loday \cite{loday1}, Ellis \cite{ellis-thesis}]
-%\mbox{}\\
-%Let ${\ddtto}^{\prime}, {\ddhho}^{\prime} : C_2 \to P_1$ 
-%be the composite maps 
-%${\ddtto}^{\prime} = \tau \ddtto \tau^{-1},~ 
-% {\ddhho}^{\prime} = \tau \ddhho \tau^{-1}$. 
-%The four maps ${\ddtto}^{\prime}, {\ddhho}^{\prime}, \ddttt, \ddhht$
-%constitute a cat$^2$-group.
-%\end{prop}
-
+$(1 \ltimes M) \ltimes (N \ltimes 1)$. 

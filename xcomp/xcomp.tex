@@ -1,4 +1,4 @@
-%% xcomp.tex  (version 01/05/17)
+%% xcomp.tex  (version 28/03/18)
 
 \section{Crossed complexes}
 
@@ -276,7 +276,7 @@ The action on loops in dimension two is given by:
 (c \otimes d)^{(c_1 \otimes td)} &=& (c_1 \otimes d)^{-1}(cc_1 \otimes d)\ .\\
 \end{eqnarray*}
 
-\newpage
+\bigskip
 \begin{example} \label{ex:itensori}
 \emph{The tensor product $\calI^{\otimes 2} = \calI\otimes\calI$ 
 has four objects and eight generating arrows in dimension one, 
@@ -284,11 +284,13 @@ as shown in the following diagram.
 We relabel $\iota$ in the second factor as $\kappa$ 
 so that the ``commutator'' notation is not ambiguous.} 
 
+\begin{figure}[htbp]
 \begin{center}
-MISSING GRAPHICS
-%% \input{itensori.pstex_t}
-%% \includegraphics[scale = 0.65]{xcomp/itensori.eps}
+\input{xcomp/itensori.pstex_t}
+\label{figure:itensori}
 \end{center}
+\end{figure}
+
 \emph{The generating commutators for $I^{\otimes 2}_2(0,0)$ as:} 
 \begin{eqnarray*}
 k_{(0,0)} 
@@ -322,11 +324,14 @@ $$
 $$
 \emph{where we may restrict $g$ to be a member of a generating set for $C_1$ 
 since $(1_0,g_1)(1_0,g_2) = (1_0,g_1g_2)$.} 
+
+\begin{figure}[htbp]
 \begin{center}
-MISSING GRAPHICS
-%% \input{itensorc.pstex_t}
-%% \includegraphics[scale = 0.65]{xcomp/itensorc.eps}
+\input{xcomp/itensorc.pstex_t}
+\label{figure:itensorc}
 \end{center}
+\end{figure}
+
 \emph{There should be no confusion if we simply write $\iota$ for 
 $(\iota,1_{\bullet})$ and $g$ for $(1_0,g)$, etc. 
 A typical element of $D_1$ with source $0$ is therefore 
@@ -346,7 +351,7 @@ c_1 w_1 c_2 w_2 c_3 \ldots
 $$
 \end{example}
 
-\newpage
+\bigskip
 \begin{example}
 \emph{The tensor product $\calI^{\otimes 3} = \calI\otimes\calI\otimes\calI$ 
 should, strictly speaking, be calculated as one of the isomorphic products 
@@ -358,11 +363,12 @@ in dimension one as triples, as shown in the following cubical diagram where,
 to avoid confusion, we relabel the three copies of $\iota$ 
 as $\iota,\kappa,\lambda$.} 
 
+\begin{figure}[htbp]
 \begin{center}
-MISSING GRAPHICS
-%% \input{ioioi.pstex_t}
-%% \includegraphics[scale = 0.65]{xcomp/ioioi.eps}
+\input{xcomp/ioioi.pstex_t}
+\label{figure:ioioi}
 \end{center}
+\end{figure}
 
 \noindent
 \emph{For dimension $2$ loops at $(1,1,1)$ we have commutators 
@@ -434,8 +440,7 @@ $$
 $\partial^2(\iota\otimes\kappa\otimes\lambda) = 1_{(1,1,1)}$.} 
 \end{example}
 
-
-\newpage
+\bigskip
 Here are the formulae for the boundary maps of the tensor product 
 $\calC\otimes\calD$, 
 where $(c_1 : u \to v) \in C_1$ $(d_1 : x \to y) \in D_1$, 
@@ -485,18 +490,18 @@ $$
      & & \\
 }
 $$
-Such a $H$ comprises maps 
+Such an $H$ comprises maps 
 $H_{m,n} : I_m \times C_n \to C_{m+n},~ m,n \geqslant 0$.  
 Part of such a morphism is shown in the following diagram. 
 
-\hspace*{6mm}
+\begin{figure}[htbp]
 \begin{center}
-MISSING GRAPHICS
-%% \input{xcomp-1hom.pstex_t}
-%% \includegraphics[scale = 0.65]{xcomp/xcomp-1hom.eps}
+\input{xcomp/xcomp-1hom.pstex_t}
+\label{figure:xcomp-1hom}
 \end{center}
+\end{figure}
 
-\newpage
+%%\newpage
 We now consider the maps $H_{m,n}$ for small $m,n$. 
 \begin{eqnarray*}
 H_{0,0} : \{0,1\}\times C_0 \to C_0,  
@@ -561,7 +566,7 @@ It may be determined on expanding $\iota\iota^{-1} \otimes c$ as follows:
 \end{eqnarray*}
 
 
-\newpage
+\bigskip
 For $f$ an automorphism of $\calC$, a \emph{$2$-homotopy $K$ over $f$} 
 is a set of maps $K_n : C_n \to C_{n+2},~ n \geqslant 0$, 
 satisfying various axioms. 
@@ -589,19 +594,20 @@ $$
 }
 $$
 
-\medskip\noindent
+\newpage
 Such a $K$ comprises maps 
 $K_{m,n} : (F_2)_m \times C_n \to C_{m+n},~ m,n \geqslant 0$.  
 Part of such a morphism is shown in the following diagram where, 
 since there is only one object in $\calF_2$, 
 we write $u$ for $\bullet \otimes u$. 
 
-\hspace*{6mm}
+\bigskip \bigskip
+\begin{figure}[htbp]
 \begin{center}
-MISSING GRAPHICS
-%% \input{xcomp-2hom.pstex_t}
-%% \includegraphics[scale = 0.65]{xcomp/xcomp-2hom.eps}
+\input{xcomp/xcomp-2hom.pstex_t}
+\label{figure:xcom-2hom}
 \end{center}
+\end{figure}
 
 \newpage
 We now consider the maps $K_{m,n}$ for small $m,n$. 
@@ -632,7 +638,6 @@ We now derive some of the axioms or properties of these maps.
 \noindent
 \begin{enumerate}[(a)] 
 \item
-
 \begin{eqnarray*}
 \partial_3(y \otimes c) 
   &=&  (y \otimes v)^{-1}(y \otimes u)^c(z \otimes c) \\
@@ -642,7 +647,7 @@ We now derive some of the axioms or properties of these maps.
 \end{enumerate}
 
 
-\newpage
+\bigskip
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Whitehead product of 1-homotopies}
 \label{subsect:wprod-xcomp}
@@ -658,16 +663,16 @@ the homotopy $H^0 \star H^1 : f^0*g^{-1}*f^1 \simeq g$ where
 \end{eqnarray*}
 The arrows in these composite formulae are shown in the following diagram.
 
-\bigskip
+\begin{figure}[htbp]
 \begin{center}
-MISSING GRAPHICS
-%% \input{xcomp-wprod.pstex_t}
-%% \includegraphics[scale = 0.65]{xcomp/xcomp-wprod.eps}
+\input{xcomp/xcomp-wprod.pstex_t}
+\label{figure:xcomp-wprod}
 \end{center}
+\end{figure}
 
 \medskip\noindent
 This product is associative: 
-the homotopy $H^0 \star H^1 : f^0*g^{-1}*f^1 \simeq g$ where 
+the homotopy is $H^0 \star H^1 : f^0*g^{-1}*f^1 \simeq g$ where 
 \begin{eqnarray*}
 (H^0 \star H^1 \star H^2)_0(u) 
   &=&  (H^2_0g^{-1}_0f^1_0g^{-1}_0f^0_0u)(H^1_0g^{-1}_0f^0_0u)(H^0_0u), \\ 

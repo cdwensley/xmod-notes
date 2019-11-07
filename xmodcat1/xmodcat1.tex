@@ -1,81 +1,90 @@
-% xmodcat1.tex  (01/05/17)
+% xmodcat1.tex  (23/09/19)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Crossed Modules and Cat$^1$-Groups} \label{sect:xmod}
 
-In this section we recall the descriptions of four equivalent categories:
+In this section we describe four equivalent categories:
+\begin{itemize}
+\item
 {\catXMod}, the category of crossed modules and their morphisms;
+\item
 {\catCat1}, the category of cat$^1$-groups and their morphisms; 
-{\catGpGpd}, the subcategory of groups in the category
-{\catGpd} of groupoids; and 
+\item
+{\catGpGpd}, a category of sets with both a group structure 
+and a groupoid structure; and 
+\item 
 {\cattGp}, a subcategory of {\cattCat}.
+\end{itemize}
 We also describe functors between these categories which exhibit
-the equivalences.
+the various equivalences.
 
 
-\subsection{Pre-crossed and Crossed Modules}
+\subsection{Precrossed and Crossed Modules}
 
-Let $Q$ and $R$ be groups acting upon themselves by conjugation:
+Let $S$ and $R$ be groups acting upon themselves by conjugation:
 $$
-{q_0}^q = q^{-1}q_0q, \qquad {r_0}^r = r^{-1}r_0r.
+{s_0}^s = s^{-1}s_0s, \qquad {r_0}^r = r^{-1}r_0r.
 $$
-A \emph{pre-crossed module}  \index{pre-crossed module} 
-$\calQ = (\delta : Q \to R )$ 
+A \emph{precrossed module}  \index{precrossed module} 
+$\calX = (\delta : S \to R )$ 
 consists of a group homomorphism $\delta $, \index{boundary} 
-called the \emph{boundary} of $\calQ$, 
+called the \emph{boundary} of $\calX$, 
 together with an action 
-$\alpha : R \to \Aut(Q)$ such that $\delta$  is an $R$-morphism.
-So, for all $q \in Q$  and  $r \in R$,
+$\alpha : R \to \Aut(S)$ such that $\delta$  is an $R$-morphism.
+So, for all $s \in S$  and  $r \in R$,
 \begin{center}
 \begin{tabular}{c r c l }
-\textbf{X1:} &  $\delta(q^r)$   &  =  &  $(\delta q)^r$~.
+\textbf{X1:} &  $\delta(s^r)$   &  =  &  $(\delta s)^r$~.
 \end{tabular}
 \end{center}
-An alternative notation is to say that  $(Q,\delta)$
-is a pre-crossed $R$-module.
+An alternative terminology is to say that  $(S,\delta)$
+is a precrossed $R$-module.
+\index{source} \index{range} 
+The groups $S,R$ are called the \emph{source} and \emph{range} of $\calX$ 
+respectively. 
 
-The pre-crossed module  $\calQ$  is a \emph{crossed module} 
+The precrossed module  $\calX$  is a \emph{crossed module} 
 \index{crossed module!of groups} 
-if it also satisfies, for all  $q_0,q \in Q$,
+if it also satisfies, for all  $s_0,s \in S$,
 \begin{center}
 \begin{tabular}{c r c l }
-\textbf{X2:} &  ${q_0}^{\delta q}$  &  =  &  ${q_0}^q$~. 
+\textbf{X2:} &  ${s_0}^{\delta s}$  &  =  &  ${s_0}^s$~. 
 \end{tabular}
 \end{center}
 
-A \emph{morphism of pre-crossed modules}  
-$\alpha : \calQ_1 \to \calQ_2$ 
+A \emph{morphism of precrossed modules}  
+$\alpha : \calX_1 \to \calX_2$ 
 is a pair  $\alpha = (\dda, \da)$, where 
-$\dda : Q_1 \to Q_2$ and $\da : R_1 \to R_2$ are homomorphisms satisfying
+$\dda : S_1 \to S_2$ and $\da : R_1 \to R_2$ are homomorphisms satisfying
 $$
-\delta_2 \dda = \da \delta_1, \; \;
-\dda(q^r) = (\dda  q)^{\da r},
+\delta_2 \circ \dda = \da \circ \delta_1, \; \;
+\dda(s^r) = (\dda  s)^{\da r},
 $$
 making the following diagram commute:
 \begin{equation} \label{eq:prexmod-morph} 
 \vcenter{\xymatrix{ 
-  Q_1 \ar[rr]^{\dda} \ar[dd]_{\delta_1}
-     && Q_2 \ar[dd]^{\delta_2} \\
+  S_1 \ar[rr]^{\dda} \ar[dd]_{\delta_1}
+     && S_2 \ar[dd]^{\delta_2} \\
      &&  \\
   R_1 \ar[rr]_{\da}
      && R_2
 }}
 \end{equation} 
 
-When  $\calQ_1, \calQ_2$  are both crossed modules then  $\alpha$
+When  $\calX_1, \calX_2$  are both crossed modules then  $\alpha$
 is a \emph{morphism of crossed modules} 
 \index{morphism!of crossed modules} 
 without any further condition.
 We thus obtain the category
-{{\catPreXMod}} of pre-crossed modules and their morphisms,
+{{\catPreXMod}} of precrossed modules and their morphisms,
 and the category {\catXMod} of crossed modules and their morphisms.
 Furthermore, {\catXMod} is a full subcategory of {\catPreXMod}.
 
-When $\calQ_2 = \calQ_1$
+When $\calX_2 = \calX_1$
 and $\dda,\da$ are automorphisms then 
-$\alpha$  is an automorphism of $\calQ_1$. 
+$\alpha$  is an automorphism of $\calX_1$. 
 The group of automorphisms is denoted 
-by $\rm{Aut}(\calQ_1).$ 
+by $\Aut(\calX_1).$ 
 
 We have to be careful about a notational problem 
 which arises because, although we are using right actions,
@@ -95,26 +104,72 @@ and $\beta_2$ \emph{second}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Examples of Crossed Modules}
+\subsection{Examples of Crossed Modules} \label{subsec:ex-xmod} 
 
 Standard constructions for crossed modules include the following:
 
 \begin{enumerate}
-\item A \emph{conjugation crossed module} 
+\item A \emph{conjugation crossed module} $(\inc : S \to R)$ 
       \index{conjugation crossed module} 
       is an inclusion of a normal subgroup  $S \unlhd R$,
-      where $R$ acts on $S$ by conjugation.
-\item An \emph{automorphism crossed module}
+      where $R$ acts on $S$ by conjugation. 
+      The example takes the alternating subgroup $a_4$ 
+      of the symmetric group $s_4$. 
+{\small 
+\begin{verbatim} 
+gap> s4 := Group( (1,2,3,4), (3,4) );;  SetName( s4, "s4" ); 
+gap> a4 := Subgroup( s4, [(1,2,3),(2,3,4)] );;  SetName( a4, "a4" ); 
+gap> X4 := XModByNormalSubgroup( s4, a4 );; 
+gap> Display( X4 );
+Crossed module [a4->s4] :- 
+: Source group has generators:
+  [ (1,2,3), (2,3,4) ]
+: Range group s4 has generators:
+  [ (1,2,3,4), (3,4) ]
+: Boundary homomorphism maps source generators to:
+  [ (1,2,3), (2,3,4) ]
+: Action homomorphism maps range generators to automorphisms:
+  (1,2,3,4) --> { source gens --> [ (2,3,4), (1,3,4) ] }
+  (3,4) --> { source gens --> [ (1,2,4), (2,4,3) ] }
+  These 2 automorphisms generate the group of automorphisms.
+\end{verbatim}}
+\item An \emph{automorphism crossed module} $(\inn : R \to S)$ 
       \index{automorphism crossed  module}  
       has as range a subgroup $R$
       of the automorphism group  $\mbox{Aut}(S)$  of  $S$  which
       contains the inner automorphism group  $\mbox{Inn}(S)$  of  $S$.
-      The boundary maps $s \in S$  to the inner automorphism of $S$ by $s$.
-\item A \emph{zero boundary crossed module}  
+      The boundary maps $s \in S$  to the inner automorphism of $S$ by $s$. 
+      In the example the quaternion group $q_8$ has automorphism group 
+      isomorphic to $s_4$.  A permutation representation of degree $6$ 
+      for this automorphism group is chosen automatically. 
+{\small 
+\begin{verbatim}
+gap> q8 := Group( (1,2,3,4)(5,8,7,6), (1,5,3,7)(2,6,4,8) );; 
+gap> SetName( q8, "q8" ); 
+gap> X8 := XModByAutomorphismGroup( q8 );; 
+gap> Display( X8 );
+Crossed module [q8->PAut(q8)] :- 
+: Source group q8 has generators:
+  [ (1,2,3,4)(5,8,7,6), (1,5,3,7)(2,6,4,8) ]
+: Range group PAut(q8) has generators:
+  [ (3,6,5,4), (1,6,3)(2,4,5), (3,5)(4,6), (1,2)(4,6) ]
+: Boundary homomorphism maps source generators to:
+  [ (3,5)(4,6), (1,2)(4,6) ]
+: Action homomorphism maps range generators to automorphisms:
+  (3,6,5,4) --> { source gens --> [ (1,2,3,4)(5,8,7,6), (1,8,3,6)(2,5,4,7) ] }
+  (1,6,3)(2,4,5) --> { source gens --> 
+[ (1,8,3,6)(2,5,4,7), (1,2,3,4)(5,8,7,6) ] }
+  (3,5)(4,6) --> { source gens --> [ (1,2,3,4)(5,8,7,6), (1,7,3,5)(2,8,4,6) 
+ ] }
+  (1,2)(4,6) --> { source gens --> [ (1,4,3,2)(5,6,7,8), (1,5,3,7)(2,6,4,8) 
+ ] }
+  These 4 automorphisms generate the group of automorphisms.
+\end{verbatim}} 
+\item A \emph{zero boundary crossed module} $(0 : M \to R)$ 
       \index{$R$-module} 
-      has an $R$-module as source and $\partial = 0$.
+      has an $R$-module $M$ as source and $\partial = 0$.
 \item Any homomorphism  $\partial : S \to R$,  with $S$ abelian
-      and $\im ~\partial$ in the centre of $R$, provides a crossed module
+      and $\im\ \partial$ in the centre of $R$, provides a crossed module
       with  $R$  acting trivially on  $S$.
 \item A \emph{central extension crossed module} 
       \index{central extension crossed  module} 
@@ -131,7 +186,7 @@ Standard constructions for crossed modules include the following:
 \end{enumerate}
 
 \medskip
-Here is a verification for example 5. 
+Here is a verification for the fifth example. 
 Suppose $s_1,s_2 \in \partial^{-1}r$. 
 Then $s_2 = s_1k$ for some $k \in \ker{\partial}$, 
 so $s^{s_2} = s^{s_1k} = s_1^{-1}(k^{-1}sk)s_1 = s^{s_1}$, 
@@ -147,7 +202,7 @@ The two axioms are then easily verified.
 The kernel $K$ of  $\partial$  is  central in $S$, and so is abelian.
 \item~ \index{cokernel!of a crossed module} 
 The image $J = \im\partial$ is normal in $R$,
-and so we may define  $C = \coker\partial$,
+and so we may define  $C = \coker\partial = R/J$,
 with natural map $\nu : R \to C$, 
 and hence obtain an exact sequence of groups
 $$
@@ -187,21 +242,27 @@ is also a $C$-module, with action
 \item~
 If  $k \in K$  and  $s \in S$ then, by \textbf{X2},
 $$
-s ~=~ s^{\partial k} ~=~ k^{-1}sk
+s^1 ~=~ s^{\partial k} ~=~ s^k ~=~ k^{-1}sk
 \qquad \text{and so} \qquad
 ks ~=~ sk\,.
 $$
 \item~
-This follows immediately from \textbf{X1}.
+The conjugate of $\partial s$ by $r \in R$ is 
+$r^{-1}(\partial s)r ~=~ (\partial s)^r ~=~ \partial(s^r) \in J$. 
 \item~
-If  $z \in ZS$ then, by \textbf{X2}, ~$z^{\partial s} = s^{-1}zs = z$.
+If  $z \in ZS$ then, by \textbf{X2}, ~$z^{\partial s} = s^{-1}zs = z$. 
+Then $\nu(\partial k) = J(\partial k)$ and 
+$$
+\nu\partial(k^{Jr}) ~=~ J(\partial(k^r)) ~=~ J((\partial k)^r) 
+~=~ (Jr^{-1})(J(\partial k))(Jr) ~=~ (\nu\partial k)^{Jr}. 
+$$
 \item~
 The kernel of $\partial'$ is $K$ and $\partial'$ is surjective.
 \item~
 $$
-[S,S]1 \;=\; [S,S][s_1,s^{-1}] \;=\; [S,S]\,s^{\partial s_1}\,s^{-1}
+[S,S]1 \;=\; [S,S][s_1,s_2^{-1}] \;=\; [S,S]\,s_2^{\partial s_1}\,s_2^{-1}
 \qquad\Rightarrow\qquad
-[S,S]s \;=\; [S,S]s^{\partial s_1}~.
+[S,S]s_2 \;=\; [S,S]s_2^{\partial s_1}~.
 $$
 Hence $J$ acts trivially on $S^{\ab}$, and it is easy to check that 
 (\ref{eq:Jaction}) defines an action.
@@ -214,12 +275,12 @@ Hence $J$ acts trivially on $S^{\ab}$, and it is easy to check that
 
 \begin{defn} \index{subcrossed module}
 A crossed module $\calX_1 = (\partial_1 : S_1 \to R_1)$
-is a sub-crossed module of $\calX = (\partial : X \to Y)$,
+is a sub-crossed module of $\calX = (\partial : S \to R)$,
 written $\calX_1 \leqslant \calX$, if
 \begin{itemize}
 \item $S_1,R_1$ are subgroups of $S,R$ respectively,
 \item $\partial_1$ is the restriction of $\partial$ to $S_1$,
-\item the action of $R_1$ on $S_1$ is induced by the action of $R$ on $Q$.
+\item the action of $R_1$ on $S_1$ is induced by the action of $R$ on $S$.
 \end{itemize}
 \end{defn}
 
@@ -257,7 +318,6 @@ for ${s_1}^s = {s_1}^{\partial s}$ by {\bf X2:}
 and belongs to $S_1$ by (b).
 
 \begin{prop}
-{\bf [Is this true?]}\quad
 Given two normal sub-crossed modules $\calX_1, \calX_2$ of $\calX$, 
 there is a third normal sub-crossed module of $\calX$ 
 called the \emph{commutator sub-crossed module} 
@@ -278,13 +338,18 @@ To show normality we check that
 \item ~$[R_1,R_2] \unlhd R$, 
 since $r^{-1}[r_1,r_2]r = [r^{-1}r_1r,r^{-1}r_2r]$, 
 \item ~$[s_1,s_2]^r = [{s_1}^r,{s_2}^r] \in [S_1,S_2]$,
-\item ~$s^{-1}s^{[r_1,r_2]} 
-  = (s^{-1}s^{r_1^{-1}})
-    ((s^{r_1^{-1}})^{-1}(s^{r_1^{-1}})^{r_2^{-1}})
-    ((s^{r_1^{-1}r_2^{-1}})^{-1}(s^{r_1^{-1}r_2^{-1}})^{r_1})
-    ((s^{r_1^{-1}r_2^{-1}r_1})^{-1}(s^{r_1^{-1}r_2^{-1}r_1})^{r_2})$.
+\item ~The product $s^{-1}s^{[r_1,r_2]}$ may be expanded as  
+$$ 
+\left[s^{-1}s^{r_1^{-1}}\right]
+\left[\left(s^{r_1^{-1}}\right)^{-1}\left(s^{r_1^{-1}}\right)^{r_2^{-1}}\right] 
+\left[\left(s^{r_1^{-1}r_2^{-1}}\right)^{-1}
+      \left(s^{r_1^{-1}r_2^{-1}}\right)^{r_1}\right] 
+\left[\left(s^{r_1^{-1}r_2^{-1}r_1}\right)^{-1}
+      \left(s^{r_1^{-1}r_2^{-1}r_1}\right)^{r_2}\right], 
+$$
+and each of the four pairs of terms has the form $s^{-1}s^{r_0}$, 
+and so is in $S_1$. 
 \end{enumerate}
-{\bf [But (c) does not show that the left-hand side is in $[S_1,S_2]$.]}
 \end{pf}
 
 
@@ -296,7 +361,7 @@ since $r^{-1}[r_1,r_2]r = [r^{-1}r_1r,r^{-1}r_2r]$,
 Let $\mu = (\ddm,\dm) : \calX \to \calX'$  be a morphism of crossed modules.
 The kernel of $\mu$ is the sub-crossed module
 $$
-\ker\mu ~=~ (\partial\mid_{\ker\ddm} ~:~ \ker\ddm \to \ker\dm)
+\ker\mu ~=~ (\partial\mid_{\ker\ddm} \,:\, \ker\ddm \to \ker\dm)
 $$
 of $\calX$, as shown in the following diagram.
 $$
@@ -329,9 +394,14 @@ The kernel of $\mu$ is a normal sub-crossed module of $\calX$.
 \begin{pf}
 \begin{enumerate}[(a)]
 \item~ $\ker\dm \unlhd R$,
-\item~ if $\ddm s = 1$ then $\ddm(s^r) = (\ddm s)^{\dm r} = 1^{\dm r} = 1$,
-\item~ if $\dm r = 1$ then 
-$\ddm((s^{-1})^rs) = (\ddm s^{-1})^1(\ddm s) = 1$.
+\item~ if $\ddm s_1 = 1$ then 
+$\ddm(s_1^r) = (\ddm s_1)^{\dm r} = 1^{\dm r} = 1$, 
+so $s_1^r \in \ker\ddm$, 
+\item~ if $\dm r_1 = 1$ then 
+$\ddm((s^{-1})^{r_1}s) 
+ = \left(\ddm s^{-1}\right)^{\dm r_1}\left(\ddm s\right) 
+ = 1$,
+so $(s^{-1})^{r_1}s \in \ker\ddm$. 
 \end{enumerate}
 \end{pf}
 
@@ -386,12 +456,14 @@ S_1 s^{-1}s's ~=~
 $$
 \end{pf}
 
-\newpage
-\begin{thm}[from Tim Porter's Topology paper \cite{porter:top}]
+\begin{thm} \label{thm:tp-top}
+[from Tim Porter's Topology paper \cite{porter:top}]
 \mbox{}\\
 Every crossed module is a quotient of normal inclusion crossed modules.
 \end{thm}
 \begin{pf}
+Given  $\calX = (\partial : S \to R)$,
+consider the diagram 
 \begin{equation} \label{eq:tp-quotient}
 \vcenter{\xy
 \xymatrix{
@@ -409,8 +481,7 @@ Every crossed module is a quotient of normal inclusion crossed modules.
 \end{equation}
 
 \bigskip
-Given  $\calX = (\partial : S \to R)$, the crossed modules
-$\Gamma_0\calX$ and $\Gamma_1\calX$  are given by
+where the crossed modules  $\Gamma_0\calX$ and $\Gamma_1\calX$  are given by
 \begin{itemize}
 \item~ 
 $\epsilon s = (1,s), \quad 
@@ -421,23 +492,28 @@ $h(r,s) = r(\partial s), \quad
 (r_1,s)^r = (r^{-1}r_1r, s^r)$.
 \end{itemize}
 
-\bigskip\noindent
+\noindent 
+The proof requires four verifications. 
+Recall that in the semidirect product $R \ltimes S$ we have 
+\begin{equation} \label{eq:sdp-rules}
+(r,s)(r',s') = (rr',s^{r'}s') \qquad \mathrm{and} \qquad 
+(r,s)^{-1} = (r^{-1},(s^{-1})^{r^{-1}}). 
+\end{equation}
+
+\bigskip\noindent {\bf (a)}~ 
 Verification that $(\epsilon : S \to R \ltimes S)$ is a crossed module.
 
-\bigskip\noindent{\bf M1:}\quad
-$\left\{ 
-\begin{array}{rcl}
-\epsilon(s_1^{(r,s)}) & = & 
-\epsilon(s^{-1}s_1^rs) ~=~ (1,s^{-1}s_1^rs), \\
-(r,s)^{-1}(\epsilon s_1)(r,s) & = &
+\bigskip\noindent{\bf X1:}\quad
+$(\epsilon s_1)^{(r,s)} ~=~  
 (r^{-1},(s^{-1})^{r^{-1}})(1,s_1)(r,s) ~=~ 
-(r^{-1}1r, (s^{-1})^{r^{-1}r}s_1^rs) ~=~ (1,s^{-1}s_1^rs). \\
-\end{array}\right.$
+(1,s^{-1}s_1^rs) ~=~ 
+\left(1,s_1^{(r,s)}\right) ~=~
+\epsilon\left(s_1^{(r,s)}\right).$
 
-\bigskip\noindent{\bf M2:}\quad
+\bigskip\noindent{\bf X2:}\quad
 ${s_1}^{\epsilon s} ~=~ {s_1}^{(1,s)} ~=~ s^{-1}s_1s.$
 
-\bigskip\noindent
+\bigskip\noindent {\bf (b)}~ 
 Verification that $(1,h)$ and $(\epsilon,\delta)$ 
 are morphisms of crossed modules.
 
@@ -467,7 +543,7 @@ $\left\{
 (1, s^{-1}s_1s). \\
 \end{array}\right.$
 
-\bigskip\noindent
+\bigskip\noindent {\bf (c)}~ 
 Verification that $(0,\zeta)$ is the inclusion of a normal sub-crossed module.
 
 \bigskip\noindent
@@ -478,7 +554,7 @@ $$
 {s_1}^{-1} s {s_1}^{\partial s} s^{-1} ~=~ 1.
 $$
 
-\bigskip\noindent
+\bigskip\noindent {\bf (d)}~ 
 Verification that $h\zeta = 0$.
 $$
 h \zeta s ~=~ h(\partial s, s^{-1}) ~=~ (\partial s)(\partial s^{-1}) ~=~ 1.
@@ -492,17 +568,22 @@ and $(0,\zeta) : \Gamma_1 \to \Gamma_0$ is a natural transformation.
 
 Note that, in diagram (\ref{eq:tp-quotient}),  
 $(h : R \ltimes S \to R)$ is \emph{not} in general a crossed module,
-so the right-hand square is not a crossed square.
+so the right-hand square is not a crossed square 
+(see Chapter \ref{sect:xsq-cat2}).
 
-\newpage
+\bigskip
 We may extend the above Theorem to morphisms of crossed modules. 
-In the following diagram $(\sigma,\rho) : \calX_1 \to \calX_2$ 
+In the diagram (\ref{eq:tp-quotient-morphism}) below, 
+$(\sigma,\rho) : \calX_1 
+ = (\partial : S \to R) \to \calX_2 = (\delta : Q \to P)$ 
 is a morphism of crossed modules, 
 and both of these crossed modules are expressed as quotients of 
 normal inclusion crossed modules. 
-There are morphisms $(\sigma,\gamma) : \Gamma_0\calX_1 \to \Gamma_0\calX_2$ 
+There are morphisms 
+$(\sigma,\gamma) : \Gamma_0\calX_1 = (\epsilon : S \to R \ltimes S) 
+ \to \Gamma_0\calX_2 = (\eta : Q \to P \ltimes Q)$ 
 and $(1,\sigma) : \Gamma_1\calX_1 \to \Gamma_1\calX_2$ 
-where $\gamma(r,s) = (\rho r, \sigma s)$, 
+where $\gamma(r,s) = (\rho r, \sigma s)$ and 
 $\eta\sigma s = (1,\sigma s) = \gamma(1,s) = \gamma\epsilon s$. 
 
 \begin{equation} \label{eq:tp-quotient-morphism}
@@ -529,13 +610,16 @@ $\eta\sigma s = (1,\sigma s) = \gamma(1,s) = \gamma\epsilon s$.
 \end{equation}
 
 
-\newpage
+\bigskip
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Peiffer subgroup of a pre-crossed module} \label{subs:Peiffer}
+\subsection{Peiffer subgroup of a precrossed module} \label{subs:Peiffer}
 
-We shall construct from any pre-crossed module a crossed module. 
+We shall construct from any precrossed module $\calQ = (\delta : Q \to R)$ 
+a crossed module $\calX = (\partial : Q/P \to R)$ whose source is a suitable 
+quotient of $Q$. 
+
 Given  $\calQ = (\delta : Q \to R)$
-the \emph{Peiffer commutators}  of  $Q$  are elements of the form
+the \emph{Peiffer commutators}  of  $\calQ$  are elements of the form
 \index{Peiffer commutator} \index{commutator!Peiffer}
 $$
 \langle q_1,q_2 \rangle 
@@ -556,56 +640,75 @@ is known as the \emph{Peiffer subgroup} of  $\calQ$.
 \quad\\
 \vspace{-5mm}
 \begin{enumerate}[{\rm (a)}]
+\item~ 
+$\langle q_1,1 \rangle \;=\; 1 \;=\; \langle 1,q_2 \rangle$~; 
 \item~
 $\delta \langle q_1,q_2 \rangle \;=\; 1_R$~;
 \item~
-$\langle q_1q_2,q_3 \rangle \;=\;
-\langle q_1,q_3 \rangle^{q_2}\;\langle q_2,{q_3}^{\delta q_1} \rangle$~;
+$\langle q_1q_3,q_2 \rangle 
+\;=\; \langle q_1,q_2 \rangle^{q_3}\;\langle q_3,{q_2}^{\delta q_1} \rangle $~;
 \item~
-$\langle q_1,q_2q_3 \rangle \;=\;
-\langle q_1,q_3 \rangle\;\langle q_1,q_2\rangle^{{q_3}^{\delta q_1}}$~;
+$\langle q_1,q_2q_3 \rangle 
+\;=\; \langle q_1,q_3 \rangle\;\langle q_1,q_2\rangle^{{q_3}^{\delta q_1}} $~;
 \item~
 $\langle q_1, q_2 \rangle^r
 \;=\;
-\langle {q_1}^r,{q_2}^r \rangle$~.
+\langle {q_1}^r,{q_2}^r \rangle$~; 
+\item~ 
+$\langle q_1,q_2 \rangle^{-1} 
+\;=\; \langle q_1^{-1}, q_2^{\delta q_1} \rangle^{q_1}$~. 
 \end{enumerate}
 \end{lem}
 \begin{pf}
-The first part follows from  
+Part (a) is immediate, and part (b) follows from  
 $\delta({q_2}^{\delta q_1}) \;=\; 
 (\delta q_1)^{-1}(\delta q_2)(\delta q_1)$.
 The remaining parts follow on expanding the Peiffer elements,
 and are closely related to identities for commutators and
 crossed pairings (see Subsection \ref{subs:xp}):
 \begin{eqnarray*}
-~\langle q_1q_3,q_2 \rangle  & = & 
-q_3^{-1}q_1^{-1}q_2^{-1}q_1
-\{{q_2}^{\delta q_1} q_3 q_3^{-1} ({q_2}^{\delta q_1})^{-1}\}
-q_3 {q_2}^{\delta(q_1q_3)} ~=~
-\langle q_1,q_2 \rangle ^{q_3}\;\langle q_3, {q_2}^{\delta q_1} \rangle \;, \\
-~\langle q_1,q_2q_3 \rangle  & = &
-q_1^{-1}q_3^{-1}
-\{q_1 {q_3}^{\delta q_1} ({q_3}^{\delta q_1})^{-1} q_1^{-1}\}
-q_2^{-1} q_1 (q_2 q_3)^{\delta q_1} ~=~
+~\langle q_1q_3,q_2 \rangle  
+& = & 
+\left[ q_3^{-1}q_1^{-1}q_2^{-1}q_1{q_2}^{\delta q_1} q_3 \right] 
+\left[ q_3^{-1} ({q_2}^{\delta q_1})^{-1} q_3 {q_2}^{\delta(q_1q_3)} \right] 
+~=~
+\langle q_1,q_2 \rangle ^{q_3}\;\langle q_3, {q_2}^{\delta q_1} \rangle \;, 
+\\
+~\langle q_1,q_2q_3 \rangle  
+& = &
+\left[ q_1^{-1}q_3^{-1}q_1 {q_3}^{\delta q_1} \right]  
+\left[ ({q_3}^{\delta q_1})^{-1} q_1^{-1}q_2^{-1} q_1 (q_2 q_3)^{\delta q_1} \right] 
+~=~
 \langle q_1,q_3 \rangle \;
-\langle q_1,q_2 \rangle ^{{q_3}^{\delta q_1}} \;, \\
-\langle {q_1}^r,{q_2}^r \rangle & = & 
-(q_1^{-1})^r (q_2^{-1})^r {q_1}^r ({q_2}^r)^{(r^{-1}(\delta q_1)r)} ~=~ 
-(q_1^{-1} q_2^{-1} q_1 {q_2}^{\delta q_1})^r ~. 
-\end{eqnarray*}
+\langle q_1,q_2 \rangle ^{{q_3}^{\delta q_1}} \;, 
+\\
+\langle {q_1}^r,{q_2}^r \rangle 
+& = & 
+(q_1^{-1})^r (q_2^{-1})^r {q_1}^r ({q_2}^r)^{(r^{-1}(\delta q_1)r)} 
+~=~ 
+(q_1^{-1} q_2^{-1} q_1 {q_2}^{\delta q_1})^r \;, 
+\\ 
+~\langle q_1,q_2 \rangle^{-1} 
+& = & 
+\left(q_2^{\delta q_1}\right)^{-1}q_1^{-1}q_2q_1 
+~=~ q_1^{-1}\left[q_1 \left(q_2^{\delta q_1}\right)^{-1}
+      q_1^{-1}\left(q_2^{\delta q_1}\right)^{\delta q_1^{-1}}\right]q_1 
+~=~ \langle q_1^{-1}, q_2^{\delta q_1} \rangle^{q_1} \;. 
+\end{eqnarray*} 
 \end{pf}
 
+\bigskip 
 The following result follows immediately from these identities.
 
 \begin{cor}
-Let  $\calQ = (\delta : Q \to R)$  be a pre-crossed module.
+Let  $\calQ = (\delta : Q \to R)$  be a precrossed module.
 Then the set  $P$  of Peiffer commutators in $\calQ$
 is a subgroup of  $\ker \delta$;
 is normal in  $Q$;  and is  $R$-invariant.
 \end{cor}
 
 \begin{prop}
-If  $(\dda,\da) : \calQ_1 \to \calQ_2$  is a morphism of pre-crossed modules,
+If  $(\dda,\da) : \calQ_1 \to \calQ_2$  is a morphism of precrossed modules,
 then Peiffer commutators in $Q_1$  are mapped to Peiffer commutators
 in $Q_2$.
 \end{prop}
@@ -624,9 +727,9 @@ The source map  $\dda$  is compatible with the Peiffer pairing:
 \end{pf}
 
 \begin{prop}
-Let   $\calQ = (\delta : Q \to R)$  be a pre-crossed module.
+Let   $\calQ = (\delta : Q \to R)$  be a precrossed module.
 Then there is a crossed module  $\calX = (\partial : S \to R)$
-and a morphism of pre-crossed modules  $(\nat,1) : \calQ \to \calX$
+and a morphism of precrossed modules  $(\nat,1) : \calQ \to \calX$
 such that  $(\nat,1)$  is universal for morphisms from  $\calQ$
 to crossed modules over $R$.
 \end{prop}
@@ -640,11 +743,11 @@ $$
 \qquad \qquad
 \partial : S \to R,\; (Pq) \mapsto \delta q~.
 $$
-So  $\calX = (\partial : S \to R)$  is a pre-crossed module.
+So  $\calX = (\partial : S \to R)$  is a precrossed module.
 By definition of  $P$, we have  $s_1^{-1}s_2s_1 = {s_2}^{\partial s_1}$
 for all  $s_1,s_2 \in S$,  and so  $\calX$  is a crossed module.
 The quotient morphism  $(\nat,1)$  is clearly a morphism of 
-pre-crossed modules.
+precrossed modules.
 
 $$
 \xy
@@ -669,11 +772,41 @@ $$
 
 \bigskip
 If  $\calX' = (\partial' : S' \to R)$  is a crossed module
-and if  $(n',1) : \calQ \to \calX'$  is a pre-crossed module morphism,
+and if  $(n',1) : \calQ \to \calX'$  is a precrossed module morphism,
 then there is a unique crossed module morphism  
 $(\theta,1) : \calX \to \calX'$
 such that  $(\theta,1)\circ(\nat,1) = (n',1)$  where  $\theta(Pq) = n'q$.
 \end{pf}
+
+\begin{example}
+In the following \GAP~ run the Peiffer subgroup is cyclic of order $4$. 
+{\small 
+\begin{verbatim}
+gap> b1 := (11,12,13,14,15,16,17,18);;  b2 := (12,18)(13,17)(14,16);;
+gap> d16 := Group( b1, b2 );;
+gap> sk4 := Subgroup( d16, [ b1^4, b2 ] );;
+gap> SetName( d16, "d16" );  SetName( sk4, "sk4" );
+gap> bdy16 := GroupHomomorphismByImages( d16, sk4, [b1,b2], [b1^4*b2,b2] );;
+gap> aut1 := GroupHomomorphismByImages( d16, d16, [b1,b2], [b1^5,b2] );;
+gap> aut2 := GroupHomomorphismByImages( d16, d16, [b1,b2], [b1,b1^4*b2] );;
+gap> aut16 := Group( [ aut1, aut2 ] );;
+gap> act16 := GroupHomomorphismByImages( sk4, aut16, [b1^4,b2], [aut1,aut2] );;
+gap> P16 := PreXModByBoundaryAndAction( bdy16, act16 );
+gap> P := PeifferSubgroup( P16 );
+Group([ (11,15)(12,16)(13,17)(14,18), (11,13,15,17)(12,14,16,18) ])
+gap> X16 := XModByPeifferQuotient( P16 );;
+Peiffer([d16->sk4])
+gap> Display( X16 );
+Crossed module Peiffer([d16->sk4]) :- 
+: Source group has generators:
+  [ f1, f2 ]
+: Range group has generators:
+  [ (11,15)(12,16)(13,17)(14,18), (12,18)(13,17)(14,16) ]
+: Boundary homomorphism maps source generators to:
+  [ (12,18)(13,17)(14,16), (11,15)(12,14)(16,18) ]
+  The automorphism group is trivial
+\end{verbatim}} 
+\end{example} 
 
 \vspace*{5mm}
 The following result, 
@@ -685,7 +818,7 @@ The method of proof was suggested by Philip Higgins.
 Given the following ingredients:
 \begin{itemize}
 \item
-$\calQ \;=\; (\delta : Q \to R)$, a pre-crossed module;
+$\calQ \;=\; (\delta : Q \to R)$, a precrossed module;
 \item
 $\Gamma$, a generating set for $Q$, closed under the action of $R$;
 \item
@@ -717,13 +850,13 @@ $P'\,y^{\delta x} \;=\; P'(x^{-1}yx)$
 for all $\langle x,y \rangle \in P'$~.
 
 Since  $\Gamma$  is  $R$-invariant,
-part (c) of Lemma \ref{lem:Peiffer} shows that  $E$  is  $R$-invariant,
+part (d) of Lemma \ref{lem:Peiffer} shows that  $E$  is  $R$-invariant,
 and hence  $P'$  is  $R$-invariant.
 Since  $P' \normeq Q$,
 form  $S' = Q/P'$  with $R$-action  $(P'q)^r = P'(q^r)\,$.
 The homomorphism  $\delta$  induces
 $\partial' : S' \to P',\; P'q \mapsto \delta q$,  and
-$\calX' = (\partial' : S' \to R)$  is a pre-crossed module since
+$\calX' = (\partial' : S' \to R)$  is a precrossed module since
 $$
 \partial'((P'q)^r) \;=\;
 \partial'(P'(q^r)) \;=\;
@@ -800,7 +933,7 @@ in this alphabet with concatenation as the group product
 and the empty word as the identity.  The details of this construction
 should be familiar to the reader.
 
-We now define a \emph{free pre-crossed module} in an analogous manner.
+We now define a \emph{free precrossed module} in an analogous manner.
 The ingredients for the construction are
 \begin{itemize}
 \item~ a set $\Omega$,
@@ -809,15 +942,15 @@ The ingredients for the construction are
 \end{itemize}
 The resulting construction consists of
 \begin{itemize}
-\item~ a pre-crossed module $\calQ = (\delta : Q \to R)$,
+\item~ a precrossed module $\calQ = (\delta : Q \to R)$,
 \item~ a function  $\nu : \Omega \to Q$  such that  
 $\delta\circ\nu = \omega$.
 \end{itemize}
 The universal property required of this construction 
 is that if  $\calQ' = (\delta' : Q' \to R)$
-is another pre-crossed module, and if  $\nu' : \Omega \to Q'$
+is another precrossed module, and if  $\nu' : \Omega \to Q'$
 satisfies  $\delta'\circ\nu' = \omega$,
-then there exists a unique morphism of pre-crossed modules
+then there exists a unique morphism of precrossed modules
 $(\theta,1) : \calQ \to \calQ'$  such that  
 $(\theta,1)\circ(\nu,1) = (\nu',1)$.
 $$
@@ -872,7 +1005,7 @@ $$
 ~.
 $$
 This defines $\theta$ on the whole of $Q$, and we verify that $(\theta,1)$
-is a morphism of pre-crossed modules:
+is a morphism of precrossed modules:
 \begin{itemize}
 \item\quad
 $
@@ -892,7 +1025,7 @@ $
 \end{itemize}
 
 We are now in a position to construct the free crossed module
-associated to a free pre-crossed module, simply by factoring out
+associated to a free precrossed module, simply by factoring out
 the Peiffer commutators in  $Q = F(\Omega \times R)$\,:
 \begin{eqnarray*}
 \langle (\rho_1, r_1), (\rho_2, r_2) \rangle 
@@ -991,7 +1124,7 @@ $$
 and $\ker\partial = \Pi_2(\calP)$ is the $\mathbb{Z}G$-module
 of identities among the relators of $\calP$.
 
-\newpage
+\bigskip
 \begin{example}
 \emph{Consider the following presentation for the quaternion group 
 of size $8$.}
@@ -1013,38 +1146,42 @@ $$
 
 \bigskip
 \begin{center}
-\includegraphics[scale = 0.75]{xmodcat1/q8-vankampen.eps}
+\includegraphics[scale = 0.5]{xmodcat1/q8-vankampen.eps}
 %% \input{q8-vankampen.pstex_t} 
 \end{center}
 
-In the van Kampen diagrams, the four relators tile a sphere as shown above. 
-Tracing out $\partial \iota$ we walk around the boundaries, 
-with every edge cancelling out with its inverse. 
+In the van Kampen diagram, relators $\rho_1, \rho_2$ and $\rho_4$ (twice) 
+tile a sphere as shown above. 
+Tracing out $\partial \iota$ we walk around the boundaries of these four tiles, 
+in the order back-right; back-left; front-left; front-right;
+in such a way that every edge cancels out with its inverse. 
 
 
-\newpage
+\bigskip 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{A Geometric Example of Crossed Modules} \label{subs:geom-ex}
+\subsection{A Geometric Example of a Crossed Module} \label{subs:geom-ex}
 
 The major geometric example of a crossed module can be expressed
 in two ways.
 Let $(X,A,a)$ be a based pair of spaces, with  $a \in A \subseteq X$. 
+Let  $I=[0,1]$  be the unit interval, $I^2$ the unit square 
+with boundary $\dot{I}^2$, and let
+$J^1=(\{0,1\} \times I) \cup (I \times \{1\}) \subset \dot{I}^2$ 
+be three quarters of the boundary. 
 \index{homotopy groups}
 The \emph{second relative homotopy group} $\pi_2(X,A,a)$
 consists of homotopy classes rel $J^1$ of continuous maps
 $$
 \alpha \;:\; (I^2, \dot{I}^2, J^1) \;\to\; (X,A,a)
 $$
-where  $I=[0,1]$  and  
-$J^1=(\{0,1\} \times I) \cup (I \times \{1\}) \subset I^2$.
-Each such  $\alpha$  is a map from the unit square  $I^2$  to the space  $X$ 
+Each such  $\alpha$  is a map from $I^2$  to the space  $X$ 
 mapping the left, top, and right sides of the square to the point  $a$  
 and the bottom side to a loop  $\beta_{\alpha}$ at  $a$.
-We may represent such a map by the diagram in Figure 1.
+We may represent such a map by the diagram in Figure \ref{fig:square}.
 
-\begin{figure}[htp] \label{fig:square}
+\begin{figure}[!htp] 
 \setlength{\unitlength}{1mm} 
-\begin{center}
+\centering
 \begin{picture}(40,30)(0,5) 
 \put(10,10){\vector(1,0){11}}
 \put(21,10){\line(1,0){ 9}}
@@ -1058,15 +1195,17 @@ We may represent such a map by the diagram in Figure 1.
 \put(19, 6){$\beta_{\alpha}$}
 \end{picture} 
 \caption{~An element  $\alpha \in \pi_2(X,A,a)$}
-\end{center} 
+\label{fig:square}
+%\end{center} 
 \end{figure}
 
 Recall that the fundamental group  $\pi_1(A,a)$  consists of maps  
 $\gamma : I \to A, ~\gamma(0) = \gamma(1) = a$~.
 With such a $\gamma$ it is easy to construct maps  $I^2 \to A$
-which map two sides of the square to $a$ and two sides to $\gamma$:
+which map two sides of the square to $a$ and two sides to $\gamma$. 
+Five of these are shown in Figure \ref{fig:squares}. 
 
-\begin{figure}[!htp] \label{fig:squares}
+\begin{figure}[!htp] 
 \setlength{\unitlength}{1mm} 
 \begin{center}
 \begin{picture}(160,30)(0,5) 
@@ -1154,6 +1293,7 @@ which map two sides of the square to $a$ and two sides to $\gamma$:
 
 \end{picture} 
 \caption{~Five maps $I^2 \to A$ derived from $\gamma \in \pi_1(A,a)$}
+\label{fig:squares}
 \end{center} 
 \end{figure}
 
@@ -1165,13 +1305,12 @@ $$
 \alpha \mapsto \beta_{\alpha} = \alpha(I \times \{0\})~.
 $$
 % \end{equation}
-The image of  $\alpha \in \pi_2(X,A,a)$
-under the action of  $\gamma \in \pi_1(A,a)$ is illustrated in Figure 3, 
-surounding $\alpha$ with the five maps in Figure 2.
-Note that the boundary loop is the conjugate  
-$\gamma^{-1}\beta_{\alpha}\gamma$.
+The image of  $\alpha \in \pi_2(X,A,a)$ under the action of 
+$\gamma \in \pi_1(A,a)$ is illustrated in Figure \ref{fig:action-diag}, 
+surounding $\alpha$ with the five maps in Figure \ref{fig:squares}.
+Note that the boundary loop is the conjugate $\gamma^{-1}\beta_{\alpha}\gamma$.
 
-\begin{figure}[!htp] \label{fig:action-diag}
+\begin{figure}[!htp] 
 \setlength{\unitlength}{1mm} 
 \begin{center}
 \begin{picture}(80,50)(0,5) 
@@ -1185,6 +1324,29 @@ $\gamma^{-1}\beta_{\alpha}\gamma$.
 \put( 40,30){\vector( 1,0){21}}
 \put( 61,30){\line(1,0){9}}
 \put( 10,50){\line(1,0){60}}
+\put( 20,11){\line(0,1){2}}
+\put( 20,15){\line(0,1){2}}
+\put( 20,19){\line(0,1){2}}
+\put( 20,23){\line(0,1){1}}
+\put( 20,31){\line(0,1){2}}
+\put( 20,35){\line(0,1){2}}
+\put( 20,39){\line(0,1){1}}
+\put( 20,40){\line(1,0){1}}
+\put( 23,40){\line(1,0){2}}
+\put( 27,40){\line(1,0){2}}
+\put( 35,40){\line(1,0){2}}
+\put( 39,40){\line(1,0){2}}
+\put( 43,40){\line(1,0){2}}
+\put( 51,40){\line(1,0){2}}
+\put( 55,40){\line(1,0){2}}
+\put( 59,40){\line(1,0){1}}
+\put( 60,11){\line(0,1){2}}
+\put( 60,15){\line(0,1){2}}
+\put( 60,19){\line(0,1){2}}
+\put( 60,23){\line(0,1){1}}
+\put( 60,31){\line(0,1){2}}
+\put( 60,35){\line(0,1){2}}
+\put( 60,39){\line(0,1){1}}
 
 \put( 10,50){\line(0,-1){40}}
 \put( 30,10){\vector(0,1){31}}
@@ -1213,6 +1375,7 @@ $\gamma^{-1}\beta_{\alpha}\gamma$.
 \put( 39,19){$\alpha$}
 \end{picture} 
 \caption{Action of $\gamma$ on $\alpha$}
+\label{fig:action-diag}
 \end{center} 
 \end{figure}
 
@@ -1222,8 +1385,11 @@ If a composite is then $p$ units across by $q$ units high,
 scaling factors $1/p$ horizontally and $1/q$ vertically are used
 to obtain a new map from $I^2$ to $X$.
 
+Figure \ref{fig:illustration} gives an outline verification of 
+the second crossed module axiom for $\Pi_2(X,A,a)$, 
+where a square marked $a$ represents the constant map  $I^2 \to \{a\}$.
 
-\begin{figure}[!htp] \label{fig:illustration}
+\begin{figure}[!htp] 
 \setlength{\unitlength}{1mm} 
 \begin{center}
 \begin{picture}(160,35)(-5,-2)
@@ -1325,18 +1491,16 @@ to obtain a new map from $I^2$ to $X$.
 % extra bits
 \put( 48,20){$\sim$}
 \put( 98,20){$\sim$}
-\put( 17,-2){$\alpha_2^{-1} \alpha_1 \alpha_2$}
+\put( 12,-2){$\alpha_1^{\alpha_2} \;=\; \alpha_2^{-1} \alpha_1 \alpha_2$}
 \put(118,-2){${\alpha_1}^{\beta_2} \;=\; {\alpha_1}^{\partial\alpha_2}$}
 \end{picture} 
 \caption{~Verification of \textbf{X2:} for  $\Pi_2(X,A,a)$~.}
+\label{fig:illustration}
 \end{center} 
 \end{figure}
 
-Figure 4 gives an outline verification of the second crossed module axiom
-for $\Pi_2(X,A,a)$, where a square marked $a$ represents the constant 
-map  $I^2 \to \{a\}$.
-
-Whitehead's main result in \cite{W-41,W-46,W-49a} was:
+\bigskip
+Whitehead's main result in \cite{W-41,W-46,W-49a} was the following. 
 \begin{thm} {\rm (Whitehead)} \label{thm:W} 
 If  $X$  is obtained from  $A$  by attaching $2$-cells, 
 then  $\pi_2(X,A,a)$  is isomorphic to the free crossed
@@ -1385,18 +1549,54 @@ $$
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Cat1-groups and their morphisms} 
+\subsection{Cat$^1$-groups and their morphisms} 
 \label{subs:cat1} \index{cat$^1$-group} \index{cat$^1$-morphism}
 
-In \cite{loday1} Loday reformulated the notion of a 
-crossed module as a cat$^1$-group $(G;t,h)$, 
+In \cite{loday1} Loday reformulated the notion of  
+a crossed module as a cat$^1$-group $(G;t,h)$, 
 namely a group $G$ with a pair of endomorphisms $t,h : G \to G$
 having a common image $R$ and satisfying certain axioms. 
-(We call these \emph{traditional} cat$^1$-groups.) 
-Alternatively we may define a cat$^1$-group as follows. 
+We call these \emph{traditional} cat$^1$-groups, to distinguish them 
+from the more general description which follows. 
 
-\begin{defn} \label{defn:cat1-group}
-A \emph{cat$^1$-group} $\calC = (e;t,h : G \to R )$  
+\begin{defn} \label{defn:cat1-group1}
+A \emph{cat$^1$-group} $\calC$ comprises a group $G$ and 
+two endomorphisms $\tau,\theta : G \to G$ as shown in the following diagram:
+$$
+\xymatrix{
+ G  \ar[rr] <0.5ex>^{\tau,\ \theta} \ar[rr] <-0.5ex>
+   &&  G  \\
+}
+$$
+
+\noindent
+These homomorphisms are required to satisfy the following axioms:
+\begin{center}
+\begin{tabular}{r l}
+\textbf{C1:} & $\tau \circ \theta = \theta$ ~and~ $\theta \circ \tau = \tau$, \\
+\textbf{C2:} & $[\ker\tau, \ker\theta] = \{ 1_G \}$.
+\end{tabular}
+\end{center}
+\end{defn} 
+
+The maps  $\tau,\theta$  are usually referred to as the 
+\index{tail!of a cat$^1$-group} \index{head!of a cat$^1$-group} 
+\emph{source} and \emph{target} maps, but we choose to call them the 
+\emph{tail} and \emph{head} of  $\calC$, 
+because \emph{source} is the {\GAP} term for the domain of a function. 
+It follows immediately from axiom {\bf C1:} that: 
+$$
+\tau^2 = \tau,\quad \theta^2 = \theta,\quad 
+\im\tau = \im\theta = Q ~(\mbox{say}),
+$$
+and that both $\tau$ and $\theta$ are the identity when restricted to $Q$. 
+
+\medskip
+Alternatively (and this is convenient for the implementation in \XMod) 
+we may define a cat$^1$-group as follows. 
+
+\begin{defn} \label{defn:cat1-group2}
+A \emph{cat$^1$-group} $\calC = (e;t,h : G \to R)$  
 has source group $G$, range group $R$, and three homomorphisms:  
 two surjections  $t,h : G \to R$ and an embedding  $e : R \to G$ 
 as shown in the following diagram:
@@ -1418,19 +1618,62 @@ are the identity mapping on $R$, \\
 \end{center}
 \end{defn} 
 
-The maps  $t,h$  are usually referred to as the 
-\index{tail!of a cat$^1$-group} \index{head!of a cat$^1$-group} 
-\index{embedding!of a cat$^1$-group} 
-\emph{source} and \emph{target}, but we choose to call them the 
-\emph{tail} and \emph{head} of  $\calC$, 
-because \emph{source} is the {\GAP} term for the domain of a function. 
 It follows immediately from axiom {\bf C1:} that: 
 $$
 t \circ e \circ t = t,\quad h \circ e \circ h = h,\quad 
 t \circ e \circ h = h,\quad h \circ e \circ t = t.
 $$
 
-A morphism  $\calC_1 \to \calC_2$  \index{morphism!of cat$^1$-groups}
+Since $e$ is an embedding, $R$ acts on $G$ by conjugation: 
+$g^r = (er)^{-1}g(er)$. 
+
+Given a cat$^1$-group according to the second definition, 
+we may convert it to a cat$^1$-group according to the first by setting 
+$$
+\tau = e \circ t,\quad
+\theta = e \circ h,\quad 
+Q = eR, 
+$$
+so that $\ker \tau = \ker t$, $\ker \theta = \ker h$ and 
+$\tau\circ\theta = e \circ t \circ e \circ h = e \circ h = \theta$, etc. 
+
+\newpage 
+\begin{example} \label{ex:C18}
+In this example the group $G$ is isomorphic to $C_2 \ltimes (C_3 \times C_3)$. 
+{\small 
+\begin{verbatim}
+gap> g18gens := [ (1,2,3), (4,5,6), (2,3)(5,6) ];;     
+gap> s3agens := [ (7,8,9), (8,9) ];;                
+gap> g18 := Group( g18gens );;  SetName( g18, "g18" ); 
+gap> s3a := Group( s3agens );;  SetName( s3a, "s3a" );
+gap> t1 := GroupHomomorphismByImages(g18,s3a,g18gens,[(7,8,9),(),(8,9)]);;     
+gap> h1 := GroupHomomorphismByImages(g18,s3a,g18gens,[(7,8,9),(7,8,9),(8,9)]);;
+gap> e1 := GroupHomomorphismByImages(s3a,g18,s3agens,[(1,2,3),(2,3)(5,6)]);; 
+gap> C18 := PreCat1GroupByTailHeadEmbedding( t1, h1, e1 );;
+gap> Display{ C18 );
+Cat1-group [g18=>s3a] :- 
+: Source group g18 has generators:
+  [ (1,2,3), (4,5,6), (2,3)(5,6) ]
+: Range group s3a has generators:
+  [ (7,8,9), (8,9) ]
+: tail homomorphism maps source generators to:
+  [ (7,8,9), (), (8,9) ]
+: head homomorphism maps source generators to:
+  [ (7,8,9), (7,8,9), (8,9) ]
+: range embedding maps range generators to:
+  [ (1,2,3), (2,3)(5,6) ]
+: kernel has generators:
+  [ (4,5,6) ]
+: boundary homomorphism maps generators of kernel to:
+  [ (7,8,9) ]
+: kernel embedding maps generators of kernel to:
+  [ (4,5,6) ]
+\end{verbatim}} 
+\end{example} 
+
+\medskip
+A morphism  $\calC_1 \to \calC_2$  
+\index{morphism!of cat$^1$-groups} \index{cat$^1$-morphism} 
 of cat$^1$-groups is a pair  $(\gamma, \rho)$  where
 $\gamma : G_1 \to G_2$  and  $\rho : R_1 \to R_2$  
 are homomorphisms satisfying
@@ -1450,49 +1693,12 @@ The situation is displayed in the following diagram.
 }}
 \end{equation*}
 
-Of course a cat$^1$-group $(e;t,h : G \to R)$ is easily converted 
-to a traditional cat$^1$-group $(G;e \circ t, e \circ h)$ and $(\id,e)$ 
-is the cat$^1$-morphism between them. 
+The morphism $(\id,e)$ is the isomorphism from a cat$^1$-group $(e;t,h : G \to R)$ to the traditional cat$^1$-group with endomorphisms 
+$(\mathrm{inc}_Q; e \circ t, e \circ h : G \to Q)$ with $Q = eR$, 
+as described above. 
 
-An arbitrary cat$^1$-group  $\calC = (e;t,h : G \to R)$
-is isomorphic to the cat$^1$-group
-$\calC' = (e';t',h' : R \ltimes S \to R)$
-where  $S = \ker t$,  
-the action of $R$ on $S$ is given by
-$$
-s^r = s^{er} = (er)^{-1} s (er),
-$$
-and the semidirect product  $R \ltimes S$  
-has composition and inverse given by
-$$
-(r_1,s_1)(r_2,s_2) \; = \; (r_1r_2,{s_1}^{r_2}s_2), \;\;
-(r,s)^{-1}  \; = \; (r^{-1}, (s^{-1})^{r^{-1}}).
-$$
-Since $R$ acts on both itself (by conjugation) and on $S$,
-it also acts on $G$:
-\begin{equation} \label{eq:RactsonG}
-g^r ~=~ (er^{-1})g(er),  \quad\quad
-(r_0,s_0)^r ~=~ (r^{-1}r_0r, s_0^r)\,.
-\end{equation}
-
-\noindent
-The homomorphisms in  $\calC'$  are given by
-\begin{equation} \label{eq:sdpcat1}
-t'(r,s) = r, \quad h'(r,s) = r(\partial s), \quad e'r = (r,1).
-\end{equation}
-
-\begin{defn} \index{semidirect factorisation!for cat1-groups}
-The \emph{semidirect factorisation} of $\calC$ is 
-$(\phi, ~\id_R) : \calC \to \calC'$, where
-\begin{equation} \label{eq:cat1-sdp-fact} 
-\phi ~:~ G \to R \ltimes S, \quad g \mapsto (tg,ug),
-\qquad\mbox{where}~~  ug = (etg^{-1})g. 
-\end{equation}
-The inverse isomorphism is  $(\phi^{-1}, ~\id_R) : \calC' \to \calC$, where 
-$$
-\phi^{-1} ~:~ R \ltimes S \to G, \quad (r,s) \mapsto (er)s.
-$$ 
-\end{defn}
+\medskip
+Verification of the properties in the following lemma is routine. 
 
 \begin{lem} \label{lem:u-props}
 The mapping $u : G \to \ker t,\; g \mapsto (etg^{-1})g$ has the
@@ -1504,15 +1710,90 @@ following properties.
 \item~ $(ug)^{-1} = g^{-1}(etg) = (u(g^{-1}))^g.$
 \end{enumerate}
 \end{lem}
+
+\begin{prop} 
+An arbitrary cat$^1$-group  $\calC = (e;t,h : G \to R)$
+is isomorphic to the cat$^1$-group
+$\calC' = (e';t',h' : R \ltimes S \to R)$, 
+the \emph{semidirect form} of $\calC$,  \index{semidirect form} 
+where  $S = \ker t$;  
+the homomorphisms $t',h',e'$  are defined by
+\begin{equation} \label{eq:sdpcat1}
+t'(r,s) = r, \quad h'(r,s) = r(hs), \quad e'r = (r,1); 
+\end{equation}
+and the action of $R$ on $S$ is given by $(r_0,s_0)^r ~=~ (r^{-1}r_0r, s_0^r)$. 
+\end{prop} 
+\begin{pf} 
+The isomorphism from $G$ to $R \ltimes S$, and its inverse, are given by 
+\begin{equation} \label{eq:cat1-sdp-fact} 
+\begin{tabular}{r l}
+$\phi ~:~ G \to R \ltimes S$, & $g \mapsto (tg,ug),
+\qquad\mbox{where}~~  ug = (etg^{-1})g \in \ker t$, \\ 
+$\phi^{-1} ~:~ R \ltimes S \to G$, & $(r,s) \mapsto (er)s$.
+\end{tabular}
+\end{equation}
+This $\phi$ is a homomorphism since 
+\begin{eqnarray*}
+(\phi g_1)(\phi g_2) 
+&=& (tg_1,ug_1)(tg_2,ug_2) 
+~=~ \left( (tg_1)(tg_2), (ug_1)^{tg_2}(ug_2) \right) \\ 
+&=& \left( t(g_1g_2), (etg_2)^{-1}(ug_1)(etg_2)(ug_2) \right) \\
+&=& \left( t(g_1g_2), (etg_2)^{-1}g_2g_2^{-1}(ug_1)(etg_2)(etg_2)^{-1}g_2 \right) \\ 
+&=& \left( t(g_1g_2), (ug_2)(ug_1)^{g_2} \right) 
+~=~ \phi(g_1g_2).
+\end{eqnarray*} 
+
+\noindent 
+The specified $\phi^{-1}$ \emph{is} the inverse of $\phi$ since 
+\begin{eqnarray*}
+\phi^{-1}(tg,(etg^{-1})g) 
+&=& (etg)(etg^{-1}g ~=~ g, \\ 
+\phi((er)s) 
+&=& \left((ter)(ts), (ets^{-1})(eter^{-1})(er)s\right) 
+~=~ (r,s). 
+\end{eqnarray*}
+
+\noindent 
+The required isomorphism is then $(\phi,\id) : \calC \to \calC'$. 
+Axioms (\ref{eq:cat1mor}) are easily verified: 
+\begin{eqnarray*}
+t'(tg,ug) &=& tg, \\ 
+h'(tg,ug) &=& (tg)(hetg^{-1})(hg) ~=~ hg, \\ 
+\phi(er)  &=& (ter,(eter^{-1})(er)) ~=~ (r,1). 
+\end{eqnarray*}
+\end{pf}
+
 The crossed module $\calX = (\partial : S \to R)$  
 associated to  $\calC$  and  $\calC'$  has boundary 
 $\partial = h\hspace{-5pt}\mid_S$ and action $s^r := s^{er}$. 
 The cat$^1$-group  $\calC = \calC'$  associated to  
 $\calX = (\partial : S \to R)$  has  $G = R \ltimes S$, 
 where the action is that in  $\calX$,
-and homomorphisms given by (\ref{eq:sdpcat1}).
+and homomorphisms given by:
+\begin{equation} \label{eq:xmodofcat1}
+t(r,s) = r, \quad h(r,s) = r(\partial s), \quad er = (r,1). 
+\end{equation}
 We denote by  $\epsilon$  the inclusion of  $S$  in  $G$,
 so that  $\partial = h \epsilon$.
+
+\begin{example} 
+Here we convert \verb+X4+ and \verb+C18+, 
+constructed in Subsection \ref{subsec:ex-xmod} and Example \ref{ex:C18}. 
+{\small 
+\begin{verbatim}
+gap> CX4 := Cat1GroupOfXMod( X4 );
+[s4 |X a4=>Group( [ (), (), (1,2), (2,3), (3,4) ] )]
+gap> TailMap( CX4 );  HeadMap( CX4 );
+[ (5,6,7), (6,7,8), (1,2)(5,6), (2,3)(6,7), (3,4)(7,8) ] -> 
+[ (), (), (1,2), (2,3), (3,4) ]
+[ (5,6,7), (6,7,8), (1,2)(5,6), (2,3)(6,7), (3,4)(7,8) ] -> 
+[ (1,2,3), (2,3,4), (1,2), (2,3), (3,4) ]
+gap> XC18 := XModOfCat1Group( C18 );
+[Group( [ (4,5,6) ] )->s3a]
+gap> Boundary( XC18 );
+[ (4,5,6) ] -> [ (7,8,9) ]
+\end{verbatim}} 
+\end{example} 
 
 Given a morphism 
 $(\sigma,\rho) : \calX_1 \to \calX_2$ of crossed modules,
@@ -1580,18 +1861,18 @@ form a normal subgroup.
 When axioms \textbf{X2:} and \textbf{C2:} are \emph{not} satisfied
 by  $\calQ = (\delta : Q \to R)$  and  
 $\calB = (e;t,h : R \ltimes Q \to R)$,
-the corresponding structures are known as \emph{pre-crossed modules}
+the corresponding structures are known as \emph{precrossed modules}
 and \emph{pre-cat$^1$-groups}.
 In this case recall from Subsection \ref{subs:Peiffer}
 that the \emph{Peiffer subgroup}  $P$  of  $Q$  is the subgroup of
-$\ker(\delta)$  generated by \emph{Peiffer commutators}
+$\ker\delta$  generated by \emph{Peiffer commutators}
 $$
 \langle q_1, q_2 \rangle 
 \;=\; 
 q_1^{-1}\,q_2^{-1}\,q_1\,{q_2}^{\partial q_1}~.
 $$
 Then  $\calP = (0 : P \to \{1_R\})$  
-is a normal sub-pre-crossed module of  $\calQ$  and  
+is a normal sub-precrossed module of  $\calQ$  and  
 $\calX = \calQ/\calP = (\partial : S=Q/P \to R)$  is a crossed module.
 The restriction of  $\epsilon : Q \to R \ltimes Q$  to  $P$  is given by
 $$
@@ -1650,11 +1931,12 @@ r \in \ker\dm
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Group Groupoids} \label{subs:gpgpd} \index{group-groupoid} 
 
-Cat1-groups may also be thought of as group-groupoids.
-A group groupoid is a set which has both a group structure and
+Cat$^1$-groups may also be thought of as group-groupoids.
+A \emph{group groupoid} is a set which has both a group structure and
 a groupoid structure (see subsection \ref{subsect:gpd-defs}). 
 From a categorical viewpoint, it is both a group object in the
 category of groupoids and a groupoid object in the category of groups.
+(For basic notions of groupoids see Section \ref{sec:gpds}.) 
 
 The underlying groupoid $\calG$  of a cat$^1$-group  $\calC$ 
 \index{underlying groupoid!of a cat$^1$-group} 
@@ -1662,23 +1944,23 @@ has the group $R$ as object set $G_0$
 and the group $G$ as the set of arrows $G_1$. 
 The identity arrow at  $r$  is  $1_r = er$. 
 For each arrow  $g$  the tail (source) is  $tg$ and the head (target) is $hg$. 
-Arrows  $g_1,g_2$  are composable only when  $hg_1 = tg_2 = r_1$ (say),
+Arrows  $g_1,g_2$  are composable only when  $hg_1 = tg_2 = r_2$ (say),
 in which case the composite arrow is
 \begin{equation} \label{eq:gpgpd-comp}
-g_1 * g_2 ~=~ g_1(e{r_1}^{-1})g_2 
+g_1 * g_2 ~=~ g_1(e{r_2}^{-1})g_2 
 \quad\mbox{where}\quad
-t(g_1 * g_2) = tg_1 = r_0, \quad
-h(g_1 * g_2) = hg_2 = r_2.
+t(g_1 * g_2) = tg_1 = r_1, \quad
+h(g_1 * g_2) = hg_2 = r_3.
 \end{equation}
 
 \noindent
 This composition is, of course, associative:
 $$
-g_1*g_2*g_3 ~=~ g_1({er_1}^{-1})g_2({er_2}^{-1})g_3.
+g_1 * g_2 * g_3 ~=~ g_1({er_2}^{-1})g_2({er_3}^{-1})g_3.
 $$
 
 \noindent
-The groupoid inverse  $\tilde{g}$  of  $g$  for the composition is given by
+The groupoid inverse  $\tilde{g}$  of  $g$  for this composition is given by
 $$
 \tilde{g} \; = \; (ehg)g^{-1}(etg)
 \quad \mbox{with} \quad  
@@ -1687,17 +1969,18 @@ t \tilde{g} = hg, \; h \tilde{g} = tg, \; g * \tilde{g} = etg
 \tilde{g} * g = ehg~.
 $$  
 
+This subset of $\calG$ is illustrated in the following diagram. 
 $$
 \xy
 \xymatrix{
   &&&&&&&& \\
-  &  r_0=tg_1 \ar `u[-1,-1] `[1,-1] `[1,0]_{er_0} `[0,0] [0,0]
+  &  r_1=tg_1 \ar `u[-1,-1] `[1,-1] `[1,0]_{er_1} `[0,0] [0,0]
             \ar@/^3ex/[rrr]^{g_1}
             \ar `u[-1,1] `[0,6]^{g_1 * g_2} [0,6]
-  &&& hg_1=r_1=tg_2 \ar@/^3ex/[rrr]^{g_2}
+  &&& hg_1=r_2=tg_2 \ar@/^3ex/[rrr]^{g_2}
                     \ar@/^3ex/[lll]^{\tilde{g}_1}
-                    \ar@(ur,ul)_{er_1}
-     &&& r_2=hg_2 \ar `d[1,1] `[-1,1] `[-1,0]_{er_2} `[0,0] [0,0]
+                    \ar@(ur,ul)_{er_2}
+     &&& r_3=hg_2 \ar `d[1,1] `[-1,1] `[-1,0]_{er_3} `[0,0] [0,0]
                   \ar@/^3ex/[lll]^{\tilde{g}_2}
                   \ar `d[1,-1] `[0,-6]^{\widetilde{g_1 * g_2}} [0,-6] 
          & \\
@@ -1707,7 +1990,7 @@ $$
 $$
 
 \noindent
-Hence the composites of one element with the groupoid inverse of another, 
+The composites of one element with the groupoid inverse of another, 
 when defined, are given by 
 \begin{equation} \label{eq:inv-comps}
 \tilde{g}_1 * g_3 ~=~ (ehg_1)g_1^{-1}g_3
@@ -1777,7 +2060,7 @@ $(a^2,c^2)$ & $a^2$ & $a$ &  $(ba,c^2)$ & $ba$ & $b$ \\
 \emph{The corresponding group-groupoid has $6$ objects, $18$ morphisms, 
 $2$ connected components, and may be pictured as:}
 \begin{center}
-\includegraphics[scale = 0.65]{xmodcat1/s3ggpd.eps}
+\includegraphics[scale = 0.60]{xmodcat1/s3ggpd.eps}
 %% \input{s3ggpd.pstex_t} 
 \end{center}
 
@@ -1791,7 +2074,113 @@ by calculating, for example,}
 \end{example}
 
 
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Regular Groupoids} \label{subs:reggpd} \index{regular groupoid} 
 
+Let $\calX = (\partial : S \to R)$ be a precrossed module and let 
+$\calC = (e;t,h : G \to R)$ be the associated precat$^1$-group 
+where $G = R \ltimes S$ 
+has multiplication $(r_1,s_1)(r_2,s_2) = (r_1r_2,s_1^{r_2}s_2)$ 
+and inverse $(r,s)^{-1} = (r^{-1},(s^{-1})^{r^{-1}})$. 
+The homomorphisms $e,t,h$ are given by 
+$er = (r,1),~ t(r,s) = r,~ h(r,s) = r(\partial s)$. 
+
+The associated group-groupoid $\calG$ has vertex set $R$ and arrows $G$ 
+with the tail (source) and head (target) maps given by $t$ and $h$. 
+Composition $*$ in $\calG$ is given by 
+$$
+(r_1,s_1) * (r_2,s_2) = (r_1,s_1)(r_2^{-1},1)(r_2,s_2) = (r_1,s_1s_2) 
+$$ 
+and is defined when $r_1(\partial s_1) = r_2$. 
+The identity element in the object group at $r$ is $er = (r,1)$. 
+
+\begin{defn} \label{defn:left-right-action}
+Let $\calG$ be a groupoid with objects $R$ and arrows $G$. 
+\begin{enumerate}[(i)]
+\item
+Maps $\rhd : R \times G \to G$ and $\lhd : G \times R \to G$ 
+are respectively \emph{left} and \emph{right actions} of $R$ on $G$ 
+if for all $q,r \in R$ and $g,h \in G$ 
+\begin{itemize} 
+\item 
+$(qr) \rhd g = q \rhd (r \rhd g)$,~ $g \lhd (qr) = (g \lhd q) \lhd r$; 
+\item
+$q \rhd (g \lhd r) = (q \rhd g) \lhd r$; 
+\item
+$1 \rhd g = g = g \lhd 1$; 
+\item
+$t(r \rhd g) = r(tg)$,~ $t(g \lhd r) = (tg)r$,~ 
+$h(r \rhd g) = r(hg)$,~ $h(g \lhd r) = (hg)r$; 
+\item 
+$r \rhd (g * g') = (r \rhd g) * (r \rhd g')$,~ 
+$(g * g') \lhd r = (g \lhd r) * (g' \lhd r)$, 
+whenever $g * g'$ is defined; 
+\item 
+$q \rhd er = e(qr) = eq \lhd r$. 
+\end{itemize}
+\item 
+$\calG$ is \emph{semiregular} if $R$ is a monoid 
+and if $\calG$ has left and right actions as in (i). 
+\item
+A semiregular $\calG$ is \emph{regular} if $R$ is a group. 
+\end{enumerate}
+\end{defn}
+
+\begin{lem}
+When $\calG$ is the group groupoid associated to a precat$^1$-group $\calC$, 
+left and right actions are given by left and right multiplication:
+$$
+r \lhd g := (er)g, \qquad  g \rhd r := g(er).
+$$
+\end{lem}
+\begin{pf}
+We only verify the axioms for $\lhd$ since those for $\rhd$ follow similarly. 
+\begin{eqnarray*}
+g \lhd (qr) &=& g \lhd (eq)(er) = (g \lhd q)(er) = (g \lhd q) \lhd r; \\ 
+q \rhd (g \lhd r) &=& q \rhd (g(er)) = (eq)g(er) 
+                   =  ((eq)g) \lhd r = (q \rhd g) \lhd r; \\
+g \lhd 1 &=& g(e1) = g; \\
+t(g \lhd r) &=& t(g(er)) = (tg)(ter) = (tg)r; \\
+h(g \lhd r) &=& h(g(er)) = (hg)(her) = (hg)r; \\
+(g \lhd r)*(g' \lhd r) &=& (g(er))(eh(g(er)))^{-1}g'(er) 
+     = g(er)(er)^{-1}(ehg)^{-1}g'(er) = (g*g') \lhd r; \\
+eq \lhd r &=& (eq)(er) = e(qr). 
+\end{eqnarray*}
+\end{pf}
+
+\begin{prop} 
+Let $\calG$ be a semiregular groupoid. 
+Then there are two everywhere defined binary operations on $G$ given by: 
+\begin{eqnarray*}
+g \circledcirc g' &=& (g \lhd tg') * (hg \rhd g'), \\ 
+g \circledast g' &=& (tg \rhd g') * (g \lhd hg'). 
+\end{eqnarray*} 
+When $\calG$ is a regular groupoid both $\circledcirc$ and $\circledast$ 
+make $G$ into a group with identity $e1$. 
+\end{prop} 
+
+Following on from the example above, when $\calG$ is a group groupoid, 
+we find that $\circledcirc$ is just the multiplication in $G$. 
+\begin{eqnarray*}
+g \circledcirc g' &=& (g \lhd tg') * (hg \rhd g') \\
+              &=& (g(etg'))*((ehg)g') \\ 
+              &=& g(etg')(eh(g(etg')))^{-1}(ehg)g' \\ 
+              &=& g(etg')((ehg)(etg'))^{-1}(ehg)g' \\ 
+              &=& gg'. 
+\end{eqnarray*} 
+\noindent
+The situation with $\circledast$ is a little more complicated: 
+\begin{eqnarray*}
+g \circledast g' &=& (tg \rhd g') * (g \lhd hg') \\ 
+                 &=& ((etg)g')(eh((etg)g'))^{-1}(g(ehg') \\ 
+                 &=& (etg)g')((etg)(ehg'))^{-1}g(ehg') \\ 
+                 &=& (etg)g'(ehg')^{-1}(etg)^{-1}g(ehg'). 
+\end{eqnarray*} 
+Now $g'(ehg')^{-1} \in \ker h$ and $(etg)^{-1}g \in \ker t$. 
+When $\calG$ is a cat$^1$-group these two products commute, 
+so the expression reduces to $gg'$ and $\circledast$ is also 
+just multiplication in $G$.
 
 
 \newpage
@@ -1805,9 +2194,9 @@ We follow the presentation in Subsection 1.2.3 of
 Forrester-Barker's thesis \cite{f-b-thesis}. 
 For an introduction to $2$-groupoids, 
 see Kamps and Porter \cite{kamps:port}.
-Note that a $2$-group is \emph{not} a special case of the group theorist's 
+(Note that a $2$-group is \emph{not} a special case of the group theorist's 
 $p$-group, with $p=2$, but is a $2$-category with one object having all 
-morphisms and $2$-cells invertible.
+morphisms and $2$-cells invertible.)
 
 The $2$-group $\calH$ associated to $\calX = (\partial : S \to R)$ has
 \begin{itemize}
@@ -1921,13 +2310,13 @@ $$
 $$
 
 The \emph{horizontal inverse} and the 
-\emph{vertical right inverse} of $\Downarrow(r,s)$ 
-are $\Downarrow(r^{-1},(s^{-1})^{r^{-1}})$ 
-and $\Downarrow(r(\partial s),s^{-1})$ respectively.
+\emph{vertical right inverse} of ~$\Downarrow(r,s)$~ 
+are ~$\Downarrow(r^{-1},(s^{-1})^{r^{-1}})$~ and \\  
+$\Downarrow(r(\partial s),s^{-1})$~ respectively.
 
 Horizontal composition with vertical identities is called 
 \emph{whiskering}. 
-In diagrams it is often convenient to shrink $\Downarrow(q,1)$ 
+In diagrams it is often convenient to shrink ~$\Downarrow(q,1)$~ 
 to a single arc, labelled $q$, as in the whiskering formlae:
 $$
 q_1 \sharpz \Downarrow(r,s) ~\sharpz~ q_2 

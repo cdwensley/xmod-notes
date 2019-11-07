@@ -5,6 +5,72 @@
 \noindent
 {\bf [This is now only in the development version.]}
 
+{\bf These used to be Lemmas 9.22, 9.23 following the Proposition for $\tau$.} 
+
+\bigskip
+The isomorphism $\tau$ provides a neat formula for the inverse of a 
+general element in $(P \ltimes N) \ltimes (M \ltimes L)$.
+\begin{lem}
+$$
+((p,n),(m,\ell))^{-1} ~=~ 
+\tau((p^{-1},(m^{-1})^{p^{-1}}),~ 
+ ((n^{-1})^{p^{-1}},(\ell^{-1})^{m^{-1}n^{-1}p^{-1}}))
+$$
+\end{lem}
+\begin{pf}
+\begin{eqnarray*}
+((p,n),(m,\ell))^{-1} 
+ &=& ((p^{-1},(n^{-1})^{p^{-1}}),~
+        (m^{-1},(\ell^{-1})^{m^{-1}})^{(p^{-1},(n^{-1})^{p^{-1}})})) \\
+ &=& ((p^{-1},(n^{-1})^{p^{-1}}),~
+        ((m^{-1})^{p^{-1}},
+          ((m^{-1})^{p^{-1}} \bt (n^{-1})^{p^{-1}}) 
+           (\ell^{-1})^{m^{-1}n^{-1}p^{-1}})) \\
+ &=& \tau((p^{-1},(m^{-1})^{p^{-1}}),~ 
+          ((n^{-1})^{p^{-1}},(\ell^{-1})^{m^{-1}n^{-1}p^{-1}}))) 
+\end{eqnarray*}
+\end{pf}
+
+\begin{lem}
+The commutator of elements in $\ddeeo(P \ltimes N)$ 
+and $\ddeet(P \ltimes M)$ is 
+$$
+ [((p,n),(1,1)),~((q,1),(m,1))]
+~=~
+ (([p,q],n^{-1}n^q), 
+      ((m^{-1})^{q^{-1}pq}m,((m^{-1})^{q^{-1}pq}\bt n^q)^m))
+$$
+\end{lem}
+\begin{pf}
+\vspace*{-8mm}
+\begin{eqnarray*}
+ & & [((p,n),(1,1)),~((q,1),(m,1))] \\
+ &=& ((p^{-1},(n^{-1})^{p^{-1}}),(1,1))~
+     ((q^{-1},1),((m^{-1})^{q^{-1}},1))~ 
+     ((p,n),(1,1))~
+     ((q,1),(m,1)) \\
+ &=& ((p^{-1}q^{-1},(n^{-1})^{p^{-1}q^{-1}}),((m^{-1})^{q^{-1}},1))~ 
+     ((pq,n^q),(m,1)) \\
+ &=& ((p^{-1}q^{-1}pq,n^{-1}n^q), 
+      ((m^{-1})^{q^{-1}pq},((m^{-1})^{q^{-1}pq}\bt n^q))(m,1)) \\
+ &=& (([p,q],n^{-1}n^q), 
+      ((m^{-1})^{q^{-1}pq}m,((m^{-1})^{q^{-1}pq}\bt n^q)^m)) 
+\end{eqnarray*}
+\end{pf}
+
+
+
+%\begin{prop}[Loday \cite{loday1}, Ellis \cite{ellis-thesis}]
+%\mbox{}\\
+%Let ${\ddtto}^{\prime}, {\ddhho}^{\prime} : C_2 \to P_1$ 
+%be the composite maps 
+%${\ddtto}^{\prime} = \tau \ddtto \tau^{-1},~ 
+% {\ddhho}^{\prime} = \tau \ddhho \tau^{-1}$. 
+%The four maps ${\ddtto}^{\prime}, {\ddhho}^{\prime}, \ddttt, \ddhht$
+%constitute a cat$^2$-group.
+%\end{prop}
+
+
 \bigskip
 \subsection{Semidirect Factorisation of a cat$^2$-group}
 \label{subs:sdpfact-catt}
