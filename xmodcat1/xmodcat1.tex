@@ -1,4 +1,4 @@
-% xmodcat1.tex  (23/09/19)
+% xmodcat1.tex  (16/04/20)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Crossed Modules and Cat$^1$-Groups} \label{sect:xmod}
@@ -1619,10 +1619,10 @@ are the identity mapping on $R$, \\
 \end{defn} 
 
 It follows immediately from axiom {\bf C1:} that: 
-$$
+\begin{equation} \label{eq:tailhead}
 t \circ e \circ t = t,\quad h \circ e \circ h = h,\quad 
 t \circ e \circ h = h,\quad h \circ e \circ t = t.
-$$
+\end{equation} 
 
 Since $e$ is an embedding, $R$ acts on $G$ by conjugation: 
 $g^r = (er)^{-1}g(er)$. 
@@ -1636,6 +1636,10 @@ Q = eR,
 $$
 so that $\ker \tau = \ker t$, $\ker \theta = \ker h$ and 
 $\tau\circ\theta = e \circ t \circ e \circ h = e \circ h = \theta$, etc. 
+
+A cat$^1$-group is \emph{symmetric} if the tail and head maps are equal. 
+By (\ref{eq:tailhead}) a sufficient condition for this is that 
+$t \circ e \circ h ~=~ h \circ e \circ t$. 
 
 \newpage 
 \begin{example} \label{ex:C18}
@@ -1801,7 +1805,7 @@ the associated morphism of cat1-groups is
 $(\gamma,\rho) : \calC_1 \to \calC_2$ where
 $\gamma(r_1,s_1) = (\rho r_1, \sigma s_1)$.
 Similarly, given a morphism 
-$(\gamma,\rho) : \calC_1 \to \calC_2$ of cat1-groups,
+$(\gamma,\rho) : \calC_1 \to \calC_2$ of cat$^1$-groups,
 the associated morphism of crossed modules is
 $(\sigma,\rho) : \calX_1 \to \calX_2$ where
 $\sigma s = \gamma(1,s)$.
@@ -2072,6 +2076,38 @@ by calculating, for example,}
 (a,c)*(a^2,c)     &=& (a,c)(a^2,1)^{-1}(a^2,c) ~=~ (a^4,c^{a^3}c) ~=~ (a,c^2).
 \end{eqnarray*}
 \end{example}
+
+\begin{example} \label{ex:G18}
+This example may be investigated in {\GAP} with the following corredpondence:
+$$
+a \mapsto (7,8,9),~ b \mapsto (8,9),~ c \mapsto (2,3)(4,5)
+$$
+
+{\small 
+\begin{verbatim}
+gap> G18 := GroupGroupoid( C18);
+groupoid with 2 pieces:
+1:  single piece groupoid with rays: < Group( [ ()>-()->() ] ), 
+[ (), (7,8,9), (7,9,8) ], [ ()>-()->(), ()>-(4,6,5)->(7,9,8), 
+  ()>-(4,5,6)->(7,8,9) ] >
+2:  single piece groupoid with rays: < Group( [ (8,9)>-(2,3)(5,6)->(8,9) ] ), 
+[ (8,9), (7,8), (7,9) ], [ (8,9)>-(2,3)(5,6)->(8,9), (8,9)>-(2,3)(4,5)->(7,8),
+  (8,9)>-(2,3)(4,6)->(7,9) ] >
+gap> piece2 := Pieces( G18 )[2];;
+gap> obs2 := piece2!.objects;
+[ (8,9), (7,8), (7,9) ]
+gap> RaysOfGroupoid( piece2 );
+[ (8,9)>-(2,3)(5,6)->(8,9), (8,9)>-(2,3)(4,5)->(7,8), 
+  (8,9)>-(2,3)(4,6)->(7,9) ]
+gap> elts2 := ElementsOfGroupoid( piece2 );;
+gap> x := elts2[3];
+[(8,9)>-(2,3)(4,6)->(7,9) : (8,9) -> (7,9)]
+gap> y := elts2[8];
+[(7,9)>-(1,3)(4,6)->(7,8) : (7,9) -> (7,8)]
+gap> x*y;
+[(8,9)>-(2,3)(4,5)->(7,8) : (8,9) -> (7,8)]
+\end{verbatim}} 
+\end{example} 
 
 
 \newpage
