@@ -1,4 +1,4 @@
-% der-sect.tex  (31/03/18)
+% der-sect.tex  (06/05/23)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Derivations and Sections} \label{sect:der-sec}
@@ -38,7 +38,7 @@ we shall give properties in terms of the more general case.
 \begin{defn} \index{$\gamma$-derivation}
 If $\gamma = (\ddg,\dg)$ is an automorphism of $\calX$,
 the Whitehead monoid $\Der_{\gamma}(\calX)$  of  $\calX$ 
-is the monoid of all $gamma$-{\it derivations}
+is the monoid of all $\gamma$-{\it derivations}
 from $R$ to $S$, that is the set of all maps  $R \to S$,
 with composition written  $\ \star_{\gamma} \ $, satisfying
 \begin{center}
@@ -115,20 +115,30 @@ $$
 $$
 
 \begin{lem} \label{lem:wgamma-to-w} 
-The map $\Der_{\gamma}(\calX) \to \Der(\calX),~ \chi \mapsto \psi_{\chi}$, 
-is a monoid homomorphism. 
+The map $\ddth : \Der_{\gamma}(\calX) \to \Der(\calX),~ \chi \mapsto \psi_{\chi}$, 
+is a monoid isomorphism. 
 \end{lem} 
 \begin{pf} 
 If $\psi_1,\psi_2$ are the derivations corresponding to $\gamma$-derivations 
 $\chi_1,\chi_2$, then 
-\begin{eqnarray*}
-(\psi_1 \star \psi_2)(\dg r)
-  &=& (\psi_2\dg r)(\psi_1\dg r)(\psi_2\dg\dg^{-1}\partial\psi_1\dg r) \\
-  &=& (\chi_2 r)(\chi_1 r)(\chi_2\dg^{-1}\partial\chi_1 r) \\
-  &=& (\chi_1 \star_{\gamma} \chi_2)r.
+\begin{eqnarray*} 
+\left((\ddth\chi_1) \star (\ddth\chi_2)\right)^r 
+  &=&  (\psi_1 \star \psi_2)r \\ 
+  &=&  (\psi_2r)(\psi_1r)(\psi_2\partial\psi_1r) \\ 
+  &=&  \left( \chi_2(\dg^{-1}r) \right) \left( \chi_1(\dg^{-1}r) \right) 
+               \left( \chi_2\dg^{-1}\partial\chi_1(\dg^{-1}r) \right) \\ 
+  &=&  (\chi_1 \star_{\gamma} \chi_2)(\dg^{-1}r) \\ 
+  &=&  \ddth(\chi_1 \star_{\gamma} \chi_2)r. 
 \end{eqnarray*}
+So $\ddth$ is a homomorphism, and it is invertible since 
+$$
+\psi_1 = \psi_2  
+\quad \Rightarrow \quad 
+\chi_1\dg^{-1}r = \chi_2\dg^{-1}r ~~ (\forall r \in R)  
+\quad \Rightarrow \quad 
+\chi_1 = \chi_2. 
+$$
 \end{pf} 
-
 
 \begin{lem} \label{lem:gamma-beta-chi}
 Given a $\gamma$-derivation $\chi$ of $\calX$ there is an endomorphism 
@@ -176,7 +186,8 @@ while  $\dg^{-1} * \db_\chi$ commutes with  $\dg^{-1} * \chi * \partial$~.
 \item~
 When $\psi = \psi_{\chi}$ as in \emph{(\ref{eq:chi-psi})}, 
 then ~$\db_{\chi}r ~=~ \db_{\psi}(\dg r)$~ 
-and ~$\ddb_{\chi}s ~=~ \ddb_{\psi}(\ddg s)$. 
+and ~$\ddb_{\chi}s ~=~ \ddb_{\psi}(\ddg s)$, 
+so that ~$\beta_{\chi} ~=~ \beta_{\psi} \circ \gamma$. 
 \end{enumerate}
 \end{lem}
 \begin{pf}
@@ -351,83 +362,102 @@ $(\Delta_{\gamma}\chi_1) \ast_{\gamma} (\Delta_{\gamma}\chi_2)
 \end{pf}
 
 
-\medskip
-We shall see later that there is a homomorphism from $S$ to $\Der(\calX)$ 
-mapping $s$ to the principal derivation $\eta_s$. 
-
 \begin{lem} \label{lem:gamma-eta_s}
 For each $s \in S$ the function $\eta_s$ 
-(which we may also write as $\eta_{\gamma,s}$ when required)  
 $$
-\eta_s : R \to S, \quad r \mapsto (s^{-1})^{\dg r} s 
+\eta_s : R \to S, \quad r \mapsto (s^{-1})^r s 
 $$  
-is a $\gamma$-derivation, 
+is a derivation, 
 \index{derivation!principal} \index{principal derivation} 
-called a \emph{principal $\gamma$-derivation}, satisfying   
+called a \emph{principal derivation}, satisfying   
 $$
-\eta_s(\partial s_0) \,=\, [\ddg s_0,s], 
+\eta_s(\partial s_0) \,=\, [s_0,s], 
 \qquad\mbox{and}\qquad 
-\partial(\eta_s r) \,=\, [\dg r, \partial s].
+\partial(\eta_s r) \,=\, [r, \partial s].
+$$ 
+Similarly 
+$$
+\eta_{(s,\gamma)} ~:=~ \ddth^{-1}\eta_s  ~:~ r \mapsto (s^{-1})^{\dg r}\,s
+$$
+is the corresponding \emph{principal $\gamma$-derivation} satisfying 
+$$
+\eta_{(s,\gamma)} (\partial s_0) \,=\, [\ddg s_0,s], 
+\qquad\mbox{and}\qquad 
+\partial(\eta_{(s,\gamma)} r) \,=\, [\dg r, \partial s].
 $$
 \end{lem}
 \begin{pf} 
 $$
-(\eta_s q)^{\dg r}\,(\eta_s r) 
-  \;=\; ((s^{-1})^{\dg q}\,s)^{\dg r}\,(s^{-1})^{\dg r}\,s)
-  \;=\; (s^{-1})^{\dg(qr)}\,s  \;=\;  \eta_s(qr) ~,
+\eta_s(qr) 
+  \;=\;  (s^{-1})^{qr} (s^r(s^{-1})^r) s 
+  \;=\;  ((s^{-1})^qs)^r (s^{-1})^r s 
+  \;=\;  (\eta_sg)^r (\eta_sr) \qquad\mbox{satisfying D1}, 
 $$
 $$
-\eta_s \partial s_0 \;=\; (s^{-1})^{\dg \partial s_0}\,s
-                    \;=\; (s^{-1})^{\partial \ddg s_0}\,s
-                    \;=\; (\ddg s_0)^{-1}\,s^{-1}\,(\ddg s_0)\,s
-                    \;=\; [\ddg s_0,s]~,
+\eta_s \partial s_0 \;=\; (s^{-1})^{\partial s_0}\,s 
+                    \;=\; (s_0)^{-1}\,s^{-1}\,s_0\,s
+                    \;=\; [s_0,s]~,
 $$
 $$
-\partial(\eta_s r)  \;=\; (\partial s^{-1})^{\dg r}(\partial s) 
-                    \;=\; [\dg r, \partial s]~.
+\partial(\eta_s r)  \;=\; (\partial s^{-1})^r (\partial s) 
+                    \;=\; [r, \partial s]~.
 $$
+The corresponding properties of $\eta_{(s,\gamma)}$ are easily verified in the same way. 
 \end{pf}
 
-\begin{lem}[Properties of principal derivations] \label{lem:princ-prop}
+\medskip
+We shall see later that there is a homomorphism from $S$ to $\Der(\calX)$ 
+mapping $s$ to the principal derivation $\eta_s$. 
+
+
+\begin{lem}[More properties of principal $\gamma$-derivations] \label{lem:princ-prop}
 \mbox{}\\
 \vspace{-5mm}
 \begin{enumerate}[{\rm (a)}]
 \item~
-$\eta_1$ is the zero map,
+$\eta_{(1,\gamma)}$ is the zero map,
 \item~
-$\ddb_{\eta_s}s_0 = (\ddg s_0)^s 
+$\ddb_{\eta_{(s,\gamma)}}s_0 = (\ddg s_0)^s 
 \qquad\mbox{and}\qquad
-\db_{\eta_s}r = (\dg r)^{\partial s}$~,
+\db_{\eta_{(s,\gamma)}}r = (\dg r)^{\partial s}$~,
 \item~
-$\eta_{s_1} \star_{\gamma} \eta_{s_2} = \eta_{s_1s_2} 
-\qquad\mbox{and}\qquad
-\overline{\eta_s} = \eta_{s^{-1}}$~.
+$\eta_{(s_1,\gamma)} \star_{\gamma} \eta_{(s_2,\gamma)} = \eta_{(s_1s_2,\gamma)}$, 
+\item~
+the zero map is the identity in $\End_{\gamma}(\calX)$ and 
+$\overline{\eta_{(s,\gamma)}} = \eta_{(s^{-1},\gamma)}$~.
 \end{enumerate}
-\end{lem}
+\end{lem} 
+
 \begin{pf}
 \begin{enumerate}[(a)]
 \item~
-$\eta_1 r = 1^r 1 = 1$~,
+$\eta_{(1,\gamma)} r ~=~ 1^{\dg r}\; 1 ~=~ 1$~,
 \item~
-$\ddb_{\eta_s} s_0 = (\ddg s_0)(\eta_s(\partial s_0))
-= (\ddg s_0) [\ddg s_0,s] = (\ddg s_0)^s$  
+$\ddb_{\eta_{(s,\gamma)}} s_0 ~=~ (\ddg s_0)(\eta_{(s,\gamma)}(\partial s_0))
+~=~ (\ddg s_0) [\ddg s_0,s] ~=~ (\ddg s_0)^s$  
 
 and \quad 
-$\db_{\eta_s}r = (\dg r)(\partial \eta_s r)
-= (\dg r) [\dg r, \partial s] 
-= (\dg r)^{\partial s}$~,
+$\db_{\eta_{(s,\gamma)}}r ~=~ (\dg r)(\partial \eta_s r)
+~=~ (\dg r) [\dg r, \partial s] 
+~=~ (\dg r)^{\partial s}$~,
 \item~
-%% $(\eta_{s_1} \star_{\gamma} \eta_{s_2})r 
-$(\eta_{s_2}r)(\eta_{s_1}r)(\eta_{s_2}\partial\ddg^{-1}\eta_{s_1}r)) 
-~=~ (\eta_{s_2}r)(\eta_{s_1}r)[\eta_{s_1}r,s_2] 
-~=~ (\eta_{s_2}r)s_2^{-1}(\eta_{s_1}r)s_2 
+$(\eta_{(s_1,\gamma)} \star_{\gamma} \eta_{(s_2,\gamma)})r 
+~=~ (\eta_{(s_2,\gamma)}r)(\eta_{(s_1,\gamma)}r)
+       (\eta_{(s_2,\gamma)}\partial\ddg^{-1}\eta_{(s_1,\gamma)}r)) 
+~=~ (\eta_{(s_2,\gamma)}r)(\eta_{(s_1,\gamma)}r)[\eta_{(s_1,\gamma)}r,s_2] $ 
+
+$~=~ (\eta_{(s_2,\gamma)}r)s_2^{-1}(\eta_{(s_1,\gamma)}r)s_2 
 ~=~ (s_2^{-1})^{\dg r}(s_1^{-1})^{\dg r}s_1s_2 
-%% ~=~ \eta_{s_1s_2}r  
-$\,.
+~=~ \eta_{(s_1s_2,\gamma)}r.$ 
+\item~
+It follows from (a) and (c) that 
+$\eta_{(s,\gamma)} \star_{\gamma} \eta({1,\gamma)} ~=~ \eta_{(s,\gamma)} 
+ ~=~ \eta_{(1,\gamma)} \star_{\gamma} \eta({s,\gamma)}$ 
+ and also that $\eta_{(s,\gamma)} \star_{\gamma} \eta({s^{-1},\gamma)} = \eta_{(1,\gamma)}.$ 
 \end{enumerate}
 \end{pf}
 
-\newpage 
+%\newpage 
 \begin{lem} \label{lem:chi-sigma-rho}
 The following statements are equivalent.
 \begin{enumerate}[{\rm (i)}]
@@ -501,7 +531,7 @@ using Lemma \ref{lem:gamma-beta-chi} (c), (d) :
 Thus (ii) implies (i), (iii) and (iv).
 
 \medskip
-Similarly, suppose that  $\db_{\chi}$  has an inverse  $\db_{\chi}^{-1}$.
+Similarly, suppose that  $\db_{\chi}$  has an inverse  $ \overline{\db_{\chi}} $.
 We show that  $\chi^{\#}$  is a derivation where
 $\chi^{\#} r = (\chi \overline{\db_{\chi}} \dg r)^{-1}$\,.
 Define  $r' = \overline{\db_{\chi}} \dg r$  so that  
