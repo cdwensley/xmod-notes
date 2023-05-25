@@ -33,7 +33,7 @@ together with an action
 $\alpha : R \to \Aut(S)$ such that $\delta$  is an $R$-morphism.
 So, for all $s \in S$  and  $r \in R$,
 \begin{center}
-\begin{tabular}{c r c l }
+\begin{tabular}{ c r c l }
 \textbf{X1:} &  $\delta(s^r)$   &  =  &  $(\delta s)^r$~.
 \end{tabular}
 \end{center}
@@ -47,7 +47,7 @@ The precrossed module  $\calX$  is a \emph{crossed module}
 \index{crossed module!of groups} 
 if it also satisfies, for all  $s_0,s \in S$,
 \begin{center}
-\begin{tabular}{c r c l }
+\begin{tabular}{ c r c l }
 \textbf{X2:} &  ${s_0}^{\delta s}$  &  =  &  ${s_0}^s$~. 
 \end{tabular}
 \end{center}
@@ -56,10 +56,12 @@ A \emph{morphism of precrossed modules}
 $\alpha : \calX_1 \to \calX_2$ 
 is a pair  $\alpha = (\dda, \da)$, where 
 $\dda : S_1 \to S_2$ and $\da : R_1 \to R_2$ are homomorphisms satisfying
-$$
-\delta_2 \circ \dda = \da \circ \delta_1, \; \;
-\dda(s^r) = (\dda  s)^{\da r},
-$$
+\begin{center} 
+\begin{tabular}{ c c c  } 
+\textbf{XM1:} \quad $\delta_2 \circ \dda ~=~ \da \circ \delta_1$,  & & 
+\textbf{XM2:} \quad $\dda(s^r) ~=~ (\dda  s)^{\da r}$, 
+\end{tabular} 
+\end{center} 
 making the following diagram commute:
 \begin{equation} \label{eq:prexmod-morph} 
 \vcenter{\xymatrix{ 

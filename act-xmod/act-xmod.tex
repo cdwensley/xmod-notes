@@ -1,4 +1,4 @@
-%% act-xmod.tex,  version 07/11/19
+%% act-xmod.tex,  version 25/05/23
 
 \section{The Actor of a Crossed Module} \label{sect:actor}
 
@@ -218,8 +218,8 @@ and with Whitehead multiplication (on the right)
 r \mapsto (\chi_2 r)(\chi_1 r)(\chi_2\dg^{-1}\partial\chi_1 r)~;
 \end{equation}
 \item
-$A_{\gamma} = \Aut_{\gamma}(\calX)$  is the group of automorphisms of  $\calX$,
-namely those invertible  $\alpha = (\dda,\da) : \calX \to \calX$  such that
+$A_{\gamma} = \Aut_{\gamma}(\calX)$  is the group of $\gamma$-automorphisms of  $\calX$,
+namely those invertible  automorphisms $\alpha = (\dda,\da) : \calX \to \calX$  such that
 $$
 \da \partial = \partial \dda~, \quad
 \dda(s^r) = (\dda s)^{\da r}
@@ -278,8 +278,7 @@ is a crossed module.
 We have already shown that  $\Delta_{\gamma}$  is a group homomorphism.
 
 \medskip\noindent
-We verify the first crossed module axiom for  
-$\calA_{\gamma}(\calX)$  as follows. 
+We verify the first crossed module axiom for  $\calA_{\gamma}(\calX)$, which is 
 $$
 \mbox{\textbf{X1:}} \quad\quad
 \Delta_{\gamma}(\chi^{\alpha}) 
@@ -442,19 +441,12 @@ a crossed module.
 We first verify that this is an action:
 \begin{eqnarray*} 
 \left( s^{\chi_1} \right)^{\chi_2} 
-  & = &  \ddb_{\chi_2} \ddg^{-1} \left( s(\chi_1\dg^{-1}\partial s) \right) 
-  \;=\;  s(\chi_1\dg^{-1}\partial s)\, 
-         \chi_2\partial\ddg^{-1} \left( s(\chi_1\dg^{-1}\partial s) \right) \\ 
-  & = &  s(\chi_1\dg^{-1}\partial s)\, 
-         \chi_2\left( (\dg^{-1}\partial s)
-                      (\dg^{-1}\partial\chi_1\dg^{-1}\partial s) \right) \\  
-  & = &  s(\chi_1\dg^{-1}\partial s)\, 
-         (\chi_2\dg^{-1}\partial s)^{\partial\chi_1\dg^{-1}\partial s} 
-             (\chi_2\dg^{-1}\partial\chi_1\dg^{-1}\partial s)  \\
-  & = &  s(\chi_2\dg^{-1}\partial s)(\chi_1\dg^{-1}\partial s)
-             (\chi_2\dg^{-1}\partial\chi_1\dg^{-1}\partial s)  \\
-  & = &  s \left( (\chi_1 \star_{\gamma} \chi_2)(\dg^{-1}\partial s) \right) 
-  \;=\;  s^{(\chi_1 \star_{\gamma} \chi_2)} \,.
+  & = & \left( s(\chi_1 \dg^{-1} \partial s) \right)^{\chi_2} \\ 
+  & = & s (\chi_1 \dg^{-1} \partial s) \left[ \chi_2 \dg^{-1} \partial  \left( s(\chi_1 \dg^{-1} \partial s) \right) \right] \\
+  & = & s (\chi_1 \dg^{-1} \partial s) (\chi_2 \dg^{-1} \partial s)^{\partial \chi_1 \dg^{-1} \partial s} 
+                   (\chi_2 \dg^{-1} \partial \chi_1 \dg^{-1} \partial s) \\ 
+  & = & s \left( (\chi_1 \star_{\gamma} \chi_2) (\dg^{-1} \partial s) \right) 
+  \; = \;  s^{(\chi_1 \star_{\gamma} \chi_2)}. 
 \end{eqnarray*} 
 
 \noindent
@@ -491,10 +483,43 @@ s^{\ddi s^{\prime}}
 $$ 
 \end{pf}
 
-\vspace{3mm}
-\noindent
-{\bf [We might show here that $(\partial,\Delta)$ is a morphism.]}
-\vspace{3mm}
+\begin{lem}
+$(\partial,\Delta) : \calX \to \calW_{\gamma}(\calX) $ is a morphism of crossed modules.
+\end{lem} 
+\begin{pf}
+We have to verify: 
+\begin{center} 
+\begin{tabular}{ c c c  } 
+\textbf{XM1:} \quad $\di_{\gamma} \circ \partial ~=~ \Delta_{\gamma} \circ \ddi_{\gamma}$,  & & 
+\textbf{XM2:} \quad $\dda(s^r) ~=~ (\dda  s)^{\da r}$, 
+\end{tabular} 
+\end{center} 
+\noindent 
+For \textbf{XM1:} we have to show that $(\di_{\gamma} \circ \partial)s = \beta_{\partial s}$ 
+is equal to $(\Delta_{\gamma} \circ \ddi_{\gamma})s = \beta_{\eta_s}$. 
+\begin{eqnarray*}
+\ddb_{\eta_s}s_0 
+  & = &  (\ddg s_0)(\eta_s \partial s_0) 
+             ~=~  (\ddg s_0)(s^{-1})^{\dg \partial s_0}s 
+             ~=~  s^{-1} (\ddg s_0) s 
+             ~=~ (\ddg s_0)^{\partial s} 
+             ~=~  \ddb_{\partial s} s_0, \\ 
+\db_{\eta_s}r_0 
+  & = &  (\dg r_0)(\partial \eta_s r_0) 
+             ~=~  (\dg r_0)\partial \left( (s^{-1})^{\dg r_0} s \right) 
+             ~=~  (\partial s^{-1})(\dg r_0)(\partial s) 
+             ~=~  (\dg r_0)^{\partial s} 
+             ~=~  \db_{\partial s} r_0. 
+\end{eqnarray*} 
+For \textbf{XM2:} we have to show that $\partial(s^{\chi}) = (\partial s)^{\Delta_{\gamma}\chi}$: 
+$$
+(\partial s)^{\Delta_{\gamma}\chi} 
+~=~ (\partial s)^{\beta_{\chi}} 
+~=~ \db_{\chi}(\dg^{-1} \partial s) 
+~=~ (\partial s)(\partial \chi \dg^{-1} \partial s ) 
+~=~ \partial(s^{\chi}). 
+$$
+\end{pf} 
 
 \begin{lem}
 $$
@@ -525,12 +550,12 @@ is added to the structure.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{The actor of a cat$^1$-group} \label{subs:AC}
+\subsection{The Whitehead cat$^1$-group of $\calX$} \label{subs:Whitehead-cat1}
 
 (This Subsection (for now) covers only identity derivations and sections.) 
 
 \medskip\noindent
-The diagram corresponding to equation (\ref{eq:sqX}) is
+The cat$^1$-group diagram corresponding to equation (\ref{eq:sqX}) is
 \begin{equation} \label{eq:sqC}
 \vcenter{\xymatrix{
   G \ar[dd]  \ar[dd] <-1.0ex>_{t,h}
@@ -544,7 +569,8 @@ The diagram corresponding to equation (\ref{eq:sqX}) is
        &&  A(\calC) \ar[uu] <-1.0ex>_{E} \\
 }} 
 \end{equation}
-where $W = W(\calC)$ and $A = A(\calC)$ are defined as follows:
+where $\calC$ is the cat$^1$-group corresponding to $\calX$ 
+and $W = W(\calC)$ and $A = A(\calC)$ are defined as follows:
 \begin{itemize}
 \item~
 $W$ is the group of sections of $\calC$
@@ -580,7 +606,284 @@ H(\beta,\xi) = \beta \ast \Delta_{\calC}(\xi), \quad
 E(\beta) = (\beta,\id)$.
 \end{itemize}
 
-\bigskip\noindent
-{\bf [Add in here the associated cat2-group with groups 
-$(A \ltimes W) \ltimes (R \ltimes S),~
-A \ltimes W,~ A \ltimes R,~ A$.]}
+\noindent
+There is an associated cat$^2$-group with groups 
+$(A \ltimes W) \ltimes (R \ltimes S),~ A \ltimes W,~ A \ltimes R$ and $A$. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Actions of a Crossed Module}
+\label{subs:xmod-action}
+
+The material in the rest of this section is taken, in the main, 
+from Norrie's thesis \cite{norrie-thesis}.
+Recall that an action of a group $H$ on a group $G$
+is a group homomorphism from $H$ to the actor of $G$.
+The following definition is a straightforward generalisation.
+
+\begin{defn} \index{action!of a crossed module}
+An action of a crossed module  $\calY = (\delta : Q \to P)$
+on a crossed module  $\calX = (\partial : S \to R)$ 
+is a morphism of crossed modules
+$$
+\alpha = (\dda,\da) \quad : \quad \calY \to \calA(\calX) = \Act(\calX)~,
+$$
+from $\calY$ to the \emph{actor} of $\calX$, as in the following diagram.
+
+\begin{equation} \label{eq:sq2}
+\vcenter{\xymatrix{ 
+  S \ar[rr]^(0.45){\ddi} \ar[dd]_{\partial}
+     && W \ar[dd]^{\Delta}
+     && Q \ar[ll]_(0.45){\dda} \ar[dd]^{\delta}  \\
+     &&  &&  \\
+  R \ar[rr]_(0.45){\di}
+     && A
+     && P \ar[ll]^(0.45){\da}  \\
+  \calX
+     && \calA(\calX)
+         && \calY  \\
+}}
+\end{equation}
+\end{defn}
+
+\noindent
+Here 
+\begin{itemize}
+\item
+$\calA(\calX)$  is the crossed module  $(\Delta : W \to A)$ 
+of Subsection \ref{subs:AX},
+\item
+$\dda q \,=\, \chi_q : R \to S$, a derivation of $\calX$;
+\item
+$\da p \,=\, \beta_p = (\ddb_p,\db_p)$,
+an automorphism of  $\calX$  giving actions of  $P$  on  $S$  and  $R$~:
+$$
+s^p = \ddb_p s
+\quad \quad \mbox{and} \quad \quad  
+r^p = \db_p r ~.
+$$
+\end{itemize}
+
+\noindent
+We have seen in Theorem \ref{thm:iota} that $\iota = (\ddi,\di)$ 
+is the \emph{inner action} of $\calX$ on itself.
+
+\bigskip
+Here are five useful identities.
+\begin{lem} \label{lem:ids5}
+\mbox{}\\
+\vspace{-5mm}
+\begin{enumerate}[{\rm (a)}]
+\item
+$\partial(s^p) \;=\;
+ \partial \ddb_p s \;=\;
+ \db_p \partial s \;=\;
+ (\partial s)^p$~;
+\item
+$s^q \;=\;
+ s^{\delta q} \;=\;
+ \ddb_{\delta q}s \;=\;
+ \ddb_{\chi_q}s \;=\;
+ s(\chi_q \partial s)$~; 
+\item
+$\db_{\delta q}r \;=\;
+ r^{\delta q} \;=\;
+ r^{\da \delta q} \;=\;
+ r^{\Delta \chi_q} \;=\;
+ \db_{\chi_q} r \;=\;
+ r(\partial\chi_q r)$~;
+\item
+$\chi_{q_1q_2} r \;=\;
+ (\chi_{q_2} r)(\chi_{q_1} r)^{q_2}$~,
+\item
+$\chi_{q^p} \;=\; \ddb_p \circ \chi_q \circ {\db_p}^{-1}$~.
+\end{enumerate}
+\end{lem}
+\begin{pf}
+\mbox{}\\
+\vspace{-5mm}
+\begin{enumerate}[{\rm (a)}]
+\item
+$\partial(s^p) \;=\;
+ \partial \ddb_p s \;=\;
+ \db_p \partial s \;=\;
+ (\partial s)^p$~.
+\item
+The action of $Q$ on $S$ is via $P$: 
+$$
+s^q \;=\; s^{\delta q} \;=\; \ddb_{\delta q}s 
+    \;=\; \ddb_{\chi_q}s \;=\; s(\chi_q \partial s)~,
+$$
+and we may check that
+\begin{eqnarray*}
+(s^{q_1})^{q_2}
+  & = &  (s(\chi_{q_1}\partial s))^{q_2} \\
+  & = &  s(\chi_{q_1}\partial s)\; 
+          \chi_{q_2}((\partial s)(\partial(\chi_{q_1}\partial s))) \\
+  & = &  s(\chi_{q_1}\partial s) 
+          (\chi_{q_2}\partial s)^{\partial\chi_{q_1}\partial s}
+          (\chi_{q_2}\partial\chi_{q_1}\partial s) \\
+  & = &  s(\chi_{q_2}\partial s)(\chi_{q_1}\partial s)
+          (\chi_{q_2}\partial\chi_{q_1}\partial s) \\
+  & = &  s(\chi_{q_1} \ast \chi_{q_2})(\partial s) \\
+  & = &  s^{q_1q_2}~. 
+\end{eqnarray*}
+\item
+$\db_{\delta q}r \;=\;
+ r^{\delta q} \;=\;
+ r^{\da \delta q} \;=\;
+ r^{\Delta \chi_q} \;=\;
+ \db_{\chi_q} r \;=\;
+ r(\partial\chi_q r)$~. 
+\item
+$\chi_{q_1q_2}r \;=\; 
+ (\chi_{q_1} \star \chi_{q_2})r \;=\; 
+ (\chi_{q_2}r)(\ddb_{\chi_{q_2}}\chi_{q_1}r) \;=\; 
+ (\chi_{q_2}r)(\chi_{q_1}r)^{q_2}$~. 
+\item
+$\chi_{q^p} \;=\;
+ \dda(q^p) \;=\;
+ (\dda q)^{\da p} \;=\;
+ (\chi_q)^{\beta_p} \;=\;
+ \ddb_p \circ \chi_q \circ {\db_p}^{-1}
+ \quad\mbox{by (\ref{lem:AonW})}$.
+\end{enumerate}
+\end{pf}
+
+\vspace{3mm}
+\noindent
+{\bf [Could do with some more examples of crossed module actions!]}
+\vspace{3mm}
+
+
+\subsection{Semidirect product of crossed modules} 
+\label{subs:sdp-xmod}
+
+Just as a group action gives rise to a semidirect product group 
+(see subsection \ref{subs:sdp}),
+so a crossed module action gives a semidirect product crossed module.
+
+\begin{defn} \label{def:sdp-xmod} 
+\index{semidirect product!of crossed modules}
+\emph{
+The \emph{crossed module semidirect product} 
+with $\calY$ acting on $\calX$ is}
+$$
+\calY \ltimes \calX  \;\;=\;\;
+(\,\pi \;:\;Q \ltimes S \,\longrightarrow\, P \ltimes R\,)
+$$
+\emph{where
+\begin{enumerate}[(i)]
+\item
+$Q \ltimes S$  is the semidirect product with action
+$s^q \;=\; s^{\delta q} \;=\; \ddb_{\delta q} s
+  \quad \mbox{(see Lemma \ref{lem:ids5}(b) below)}$;
+\item
+$P \ltimes R$  is the semidirect product with action
+$r^p = \db_p r$~;
+\item
+$\pi(q,s) \;=\; (\delta q,\, \partial s)$~;
+\item
+$(q,s)^{(p,r)} \;=\; (q^p,\,(\chi_{q^p}\,r)^{-1}\,s^{pr})$~.
+\end{enumerate}
+}\end{defn}
+Note that the action specified in (iv) is a special case of 
+Proposition \ref{prop:semidirect-actions}.
+
+\begin{lem}
+$\pi$ is a group homomorphism.
+\end{lem}
+\begin{pf}
+\begin{eqnarray*}
+\pi(\,(q_1,s_1)(q_2,s_2)\,)  &  =  &
+   \pi( q_1q_2,\; {s_1}^{q_2}\,s_2)  \\
+ & = &
+   (\delta (q_1 q_2),\; 
+      \partial(\ddb_{\delta q_2}s_1)(\partial s_2) ) \quad \mbox{by (i)} \\
+\pi(q_1,s_1)\;\pi(q_2,s_2)  & = &
+   (\delta q_1, \partial s_1)\;(\delta q_2, \partial s_2)  \\
+ & = &
+   (\,(\delta q_1)(\delta q_2),\;
+      (\partial s_1)^{\delta q_2}\,(\partial s_2)\,) \\
+ & = &
+   (\delta(q_1q_2),\; (\db_{\delta q_2} \partial s_1)\,(\partial s_2)\,)
+       \quad \mbox{by (ii)}.
+\end{eqnarray*}
+and the two right-hand sides are equal since 
+$\partial\ddb_p = \db_p\partial \quad \mbox{for all} \;\; p \in P\;$.
+\end{pf}
+
+
+\begin{thm}
+The crossed module  $\calY \ltimes \calX$  as defined
+\emph{does} satisfy the two crossed modules axioms.
+\end{thm}
+\begin{pf}
+Verification of the first axiom:
+\begin{eqnarray*}
+(p,r)^{-1}\,\pi(q,s)\,(p,r)
+  & = &
+   (p,r)^{-1}\,
+      (\delta q, \partial s)\,
+         (p,r)  \\
+  & = &
+   (p^{-1},\, (r^{-1})^{p^{-1}})\,
+      ((\delta q)p,\, (\partial s)^p\,r\,)  \\
+  & = &
+   (p^{-1}(\delta q)p,\, 
+      (r^{-1})^{p^{-1}(\delta q)p}\,(\partial s)^p\,r\,)  \\
+  & = &
+   (\,\delta(q^p),\, 
+      (r^{\delta q^p})^{-1}\,(\partial s^p)\,r\,)  \\
+  & = &
+   (\,\delta(q^p),\, 
+      (r\,(\partial\chi_{q^p}\,r))^{-1}\,(\partial s^p)\,r\,)
+         \hspace{17mm} \mbox{(by \ref{lem:ids5}(c))}  \\
+  & = &
+   (\,\delta(q^p),\, (\partial\chi_{q^p}\,r)^{-1}\,
+       \partial(s^{pr}\,) \\
+  & = &
+   (\,\delta(q^p),\, \partial( (\chi_{q^p}\,r)^{-1}\, s^{pr} )\,) \\
+  & = &
+   \pi(\,(q,s)^{(p,r)}\,) ~.
+\end{eqnarray*}
+
+\noindent
+Verification of the second axiom:
+\begin{eqnarray*}\quad
+(q,s)^{-1}\,(q_1,s_1)\,(q,s)
+  & = &
+    (q^{-1},\,((s^{-1})^{q^{-1}})\,(q_1q,\,{s_1}^qs\,)  \\
+  & = &
+    (\,q^{-1}q_1q,\,(s^{-1})^{q^{-1}q_1q}\,{s_1}^q\,s\,)  \\
+  & = &
+    (\,{q_1}^{\delta q},\,(s^{-1})^{{q_1}^{\delta q}}\,{s_1}^q\,s\,)\\
+  & = &
+    (\,{q_1}^{\delta q},\, s^{-1}\,(\chi_{({q_1}^{\delta q})}\,
+      (\partial s^{-1}))\,s\,s^{-1}\,
+      {s_1}^{(\delta q)}\,s\,) 
+         \quad \mbox{(by \ref{lem:ids5}(b))}  \\
+  & = &
+    (\,{q_1}^{\delta q},\, (\chi_{({q_1}^{\delta q})}\,
+      (\partial s^{-1}))^{\partial s}\,
+      {s_1}^{(\delta q)(\partial s)}\,) \\
+  & = &
+    (\,{q_1}^{\delta q},\, (\chi_{({q_1}^{\delta q})}\,\partial s)^{-1}\,
+      {s_1}^{(\delta q)(\partial s)}\,) 
+         \hspace{19mm} \mbox{(by \ref{lem:invchir}(a))}  \\
+  & = &
+    (q_1,s_1)^{(\delta q,\,\partial s)}  
+         \hspace{48mm} \mbox{(by \ref{def:sdp-xmod}(iv))}  \\
+  & = &
+    (q_1,s_1)^{\pi(q,s)}
+         \hspace{50mm} \mbox{(by \ref{def:sdp-xmod}(iii))} ~. \\
+\end{eqnarray*}
+\end{pf}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Actions of a cat$^1$-group}
+
+\begin{defn}
+To be added.
+\end{defn}

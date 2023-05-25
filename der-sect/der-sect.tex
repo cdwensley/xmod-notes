@@ -1,4 +1,4 @@
-% der-sect.tex  (06/05/23)
+% der-sect.tex  (25/05/23)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Derivations and Sections} \label{sect:der-sec}
@@ -596,7 +596,7 @@ derivations and group extensions.
 
 
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{Sections}  \label{subsec:sec} \index{section}
 
 The construction for a cat$^1$-group $\calC = (e;t,h : G \to R)$ 
@@ -622,22 +622,23 @@ and hence an automorphism $(\barg,\dg)$
 of the corresponding cat$^1$-group. 
 
 \medskip
-The \emph{principal section} $\kappa_s,\; s \in \ker t$, 
+The \emph{principal $\gamma$-section} $\kappa_{(s,\gamma)}, \; s \in \ker t$, 
 \index{principal section} \index{section!principal} 
-and the corresponding principal derivation $\eta_s$
+and the corresponding principal $\gamma$-derivation $\eta_{(s,\gamma)}$
 are given by
 $$
-\eta_s r ~=~ (s^{-1})^{\dg r} s \quad\quad
-\kappa_s r ~=~ (e \dg r)^s ~=~ s^{-1}(e \dg r)s\,.
+\eta_{(s,\gamma)} r ~=~ (s^{-1})^{\dg r} s \quad\quad
+\kappa_{(s,\gamma)} r ~=~ (e \dg r)^s ~=~ s^{-1}(e \dg r)s\,.
 $$
 In the semidirect product notation we have 
 $$
-\kappa_s r ~=~ (\dg r,\eta_s r) ~=~ (\dg r,(s^{-1})^{\dg r} s) ~=~
+\kappa_{(s,\gamma)} r ~=~ (\dg r,\eta_{(s,\gamma)} r) ~=~ (\dg r,(s^{-1})^{\dg r} s) ~=~
 (1,s^{-1})(\dg r,1)(1,s) ~=~ (\dg r,1)^{(1,s)}\,.
 $$
 
-\noindent
-Since $(ehg^{-1})(\xi \dg^{-1} hg) \in \ker t$ and $(ehg^{-1})g \in \ker h$ 
+\noindent 
+For a general $\gamma$-section $\xi$, 
+since $(ehg^{-1})(\xi \dg^{-1} hg) \in \ker t$ and $(ehg^{-1})g \in \ker h$ 
 we have, in the group groupoid, 
 \begin{equation} \label{eq:sect-reversal}
 g * \xi \dg^{-1} hg ~=~
@@ -647,9 +648,9 @@ g(ehg^{-1})(\xi \dg^{-1} hg) ~=~
 \end{equation}
 
 \noindent
-These sections form the monoid  $\rm{Sect}(\calC)$  of  $\calC$,
+These $\gamma$-sections form the monoid  $\rm{Sect}_{\gamma}(\calC)$  of  $\calC$,
 whose composition rule we determine from the rule  
-\textbf{D2:}  for  $\Der(\calX)$  by evaluating:
+\textbf{D2:}  for  $\Der_{\gamma}(\calX)$  by evaluating:
 \begin{eqnarray*}
 (\xi_1 \star_{\gamma} \xi_2)r
  & = & (e \dg r)(\epsilon (\chi_1 \star \chi_2) r) \\
@@ -678,9 +679,9 @@ in that it is converted to a multiplication on the right.)
 
 The section  $\dg*e$  is the identity for this composition,
 and equation (\ref{eq:x2c}) determines a monoid isomorphism
-$\Der(\calX) \cong \Sect(\calC)$.
-A section is  \emph{regular}  when  $h \xi$  is an automorphism of $R$, 
-and the group of regular sections is isomorphic to the Whitehead group.
+$\Der_{\gamma}(\calX) \cong \Sect_{\gamma}(\calC)$.
+A $\gamma$-section is  \emph{regular}  when  $h \xi$  is an automorphism of $R$, 
+and the group of regular $\gamma$-sections is isomorphic to the Whitehead group.
 
 Each  $\chi$  and its associated  $\xi$  determine endomorphisms of  
 $R, S, G, \calX$ and $\calC$, namely 
